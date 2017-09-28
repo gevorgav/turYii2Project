@@ -10,19 +10,35 @@ use pceuropa\menu\Menu;
 $this->beginContent('@frontend/views/layouts/_clear.php')
 ?>
 <div class="wrap">
-    
-    <? 
-        NavBar::begin(['brandLabel' => 'Brand','brandUrl' => Yii::$app->homeUrl,]);
+
+    <?
+        NavBar::begin(['brandLabel' => 'Travel Artsakh','brandUrl' => Yii::$app->homeUrl,]);
 
         echo Nav::widget([ 'options' => ['class' => 'navbar-nav navbar-left'],
                             'items' => Menu::NavbarLeft(1)  // argument is id of menu
-                        ]); 
-                            
+                        ]);
+
         echo Nav::widget([ 'options' => ['class' => 'navbar-nav navbar-right'],
                             'items' => Menu::NavbarRight(1)
                         ]);
+        echo Nav::widget([
+                            'options' => ['class' => 'navbar-nav navbar-right'],
+                            'items' => [
+                                [
+                                    'label'=>Yii::t('frontend', 'Language'),
+                                    'items'=>array_map(function ($code) {
+                                        return [
+                                            'label' => Yii::$app->params['availableLocales'][$code],
+                                            'url' => ['/site/set-locale', 'locale'=>$code],
+                                            'active' => Yii::$app->language === $code
+                                        ];
+                                    }, array_keys(Yii::$app->params['availableLocales']))
+                                ]
+                            ]
+                        ]);
         NavBar::end();
     ?>
+
 
     <?php echo $content ?>
 
