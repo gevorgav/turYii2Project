@@ -4,12 +4,7 @@ $this->title = Yii::$app->name;
 ?>
 <div class="site-index">
 
-    <?php echo \common\widgets\DbCarousel::widget([
-        'key'=>'index',
-        'options' => [
-            'class' => 'slide', // enables slide effect
-        ],
-    ]) ?>
+
 
     <div class="jumbotron">
         <h1>Congratulations!</h1>

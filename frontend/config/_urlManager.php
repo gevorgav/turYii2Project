@@ -5,7 +5,7 @@ return [
     'showScriptName'=>false,
     'rules'=> [
         // Pages
-        ['pattern'=>'page/<slug>', 'route'=>'page/view'],
+        ['pattern'=>'<slug>', 'route'=>'page/view'],
 
         // Articles
         ['pattern'=>'article/index', 'route'=>'article/index'],
