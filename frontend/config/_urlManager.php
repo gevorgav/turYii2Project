@@ -1,8 +1,9 @@
 <?php
 return [
-    'class'=>'yii\web\UrlManager',
+    'class' => 'codemix\localeurls\UrlManager',
     'enablePrettyUrl'=>true,
     'showScriptName'=>false,
+    'languages' => ['hy', 'en', 'ru', 'de','fr', 'es', 'ar', 'ir'],
     'rules'=> [
         // Pages
         ['pattern'=>'<slug>', 'route'=>'page/view'],

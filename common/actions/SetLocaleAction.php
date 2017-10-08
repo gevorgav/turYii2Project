@@ -9,6 +9,7 @@ use yii\base\Action;
 use yii\base\InvalidParamException;
 use Yii;
 use yii\web\Cookie;
+use yii\helpers\Url;
 
 /**
  * Class SetLocaleAction
@@ -83,6 +84,9 @@ class SetLocaleAction extends Action
                 $locale
             ]);
         }
-        return Yii::$app->response->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+        $route = Yii::$app->request->referrer;
+        $route = str_replace('/'.Yii::$app->language,'/'.$locale,$route);
+       // $route = ;
+        return Yii::$app->response->redirect($route);
     }
 }
