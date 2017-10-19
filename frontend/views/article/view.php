@@ -5,20 +5,31 @@ $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Articles'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="content">
-    <article class="article-item">
-        <h1><?php echo $model->title ?></h1>
 
-        <?php if ($model->thumbnail_path): ?>
-            <?php echo \yii\helpers\Html::img(
-                Yii::$app->glide->createSignedUrl([
-                    'glide/index',
-                    'path' => $model->thumbnail_path,
-                    'w' => 200
-                ], true),
-                ['class' => 'article-thumb img-rounded pull-left']
-            ) ?>
-        <?php endif; ?>
+<section class="template page-head section-img">
+    <?php if ($model->thumbnail_path): ?>
+        <?php echo \yii\helpers\Html::img(
+            Yii::$app->glide->createSignedUrl([
+                'glide/index',
+                'path' => $model->thumbnail_path,
+                'w' => 200
+            ], true),
+            ['class' => 'article-thumb img-rounded pull-left']
+        ) ?>
+    <?php endif; ?>
+    <div class="gradient gradient-vr-56">
+        <div class="container">
+            <div class="text-block">
+                <h1><?php echo $model->title ?></h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate sed malesuada.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="template-text template-1">
+    <div class="container">
+
+
 
         <?php echo $model->body ?>
 
@@ -36,6 +47,5 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
-
-    </article>
-</div>
+    </div>
+</section>

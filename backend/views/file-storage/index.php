@@ -54,6 +54,15 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             [
+                'attribute' => 'img',
+                'format' => 'html',
+                'label' => 'Image',
+                'value' => function ($data) {
+                    return Html::img($data['base_url'].'/' . $data['path'],
+                        ['width' => '100px']);
+                },
+            ],
+            [
                 'attribute' => 'component',
                 'filter' => $components
             ],

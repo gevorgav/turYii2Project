@@ -3,11 +3,13 @@
 namespace frontend\controllers;
 
 use common\models\Article;
+use common\models\ArticleCategory;
 use common\models\ArticleAttachment;
 use frontend\models\search\ArticleSearch;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\data\ActiveDataProvider;
 
 /**
  * @author Eugene Terentev <eugene@terentev.net>
@@ -24,7 +26,7 @@ class ArticleController extends Controller
         $dataProvider->sort = [
             'defaultOrder' => ['created_at' => SORT_DESC]
         ];
-        return $this->render('index', ['dataProvider'=>$dataProvider]);
+        return $this->render('index', ['dataProvider' => $dataProvider]);
     }
 
     /**
@@ -34,13 +36,46 @@ class ArticleController extends Controller
      */
     public function actionView($slug)
     {
-        $model = Article::find()->published()->andWhere(['slug'=>$slug])->one();
+        $model = Article::find()->published()->andWhere(['slug' => $slug])->one();
         if (!$model) {
             throw new NotFoundHttpException;
         }
 
         $viewFile = $model->view ?: 'view';
-        return $this->render($viewFile, ['model'=>$model]);
+        return $this->render($viewFile, ['model' => $model]);
+    }
+
+    public function actionCategoryRouting($category, $slug = null)
+    {
+        $categoryModel = ArticleCategory::find()->andWhere(['slug' => $category])->one();
+
+        if (!$categoryModel) {
+            throw new NotFoundHttpException;
+        }
+        if ($slug == null) {
+
+            $query = Article::find()->where(['category_id' => $categoryModel->id]);
+            $provider = new ActiveDataProvider([
+                'query' => $query,
+                'pagination' => [
+                    'pageSize' => 10,
+                ],
+                'sort' => [
+                    'defaultOrder' => ['created_at' => SORT_DESC]
+                ],
+            ]);
+            return $this->render('index', ['dataProvider' => $provider]);
+        } else {
+            $model = Article::find()->andWhere(['category_id' => $categoryModel->id])
+                ->published()->andWhere(['slug' => $slug])->one();
+            if (!$model) {
+                throw new NotFoundHttpException;
+            }
+
+            $viewFile = $model->view ?: 'view';
+            return $this->render($viewFile, ['model' => $model]);
+        }
+
     }
 
     /**

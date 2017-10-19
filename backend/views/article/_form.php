@@ -4,7 +4,8 @@ use trntv\filekit\widget\Upload;
 use trntv\yii\datetime\DateTimeWidget;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
+use mihaildev\ckeditor\CKEditor;
+
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
@@ -28,26 +29,14 @@ use dosamigos\ckeditor\CKEditor;
             'title'
         ), ['prompt'=>'']) ?>
 
-<!--    --><?php //echo $form->field($model, 'body')->widget(
-//        \yii\imperavi\Widget::className(),
-//        [
-//            'plugins' => ['fullscreen', 'fontcolor', 'video'],
-//            'options' => [
-//                'minHeight' => 400,
-//                'maxHeight' => 400,
-//                'buttonSource' => true,
-//                'convertDivs' => false,
-//                'removeEmptyTags' => false,
-//                'imageUpload' => Yii::$app->urlManager->createUrl(['/file-storage/upload-imperavi'])
-//            ]
-//        ]
-//    ) ?>
-
-    <?= $form->field($model, 'body')->widget(CKEditor::className(), [
-        'options' => ['rows' => 6],
-        'preset' => 'full'
-    ]) ?>
-
+    <?php
+        echo $form->field($model, 'body')->widget(CKEditor::className(),[
+            'editorOptions' => [
+                'preset' => 'full',
+                'inline' => false
+            ],
+        ]);
+    ?>
     <?php echo $form->field($model, 'thumbnail')->widget(
         Upload::className(),
         [

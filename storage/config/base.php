@@ -13,7 +13,7 @@ return [
         'urlManager'=>require(__DIR__.'/_urlManager.php'),
         'glide' => [
             'class' => 'trntv\glide\components\Glide',
-            'sourcePath' => '@storage/web/source',
+            'sourcePath' => '@storage/source',
             'cachePath' => '@storage/cache',
             'maxImageSize' => env('GLIDE_MAX_IMAGE_SIZE'),
             'signKey' => env('GLIDE_SIGN_KEY')

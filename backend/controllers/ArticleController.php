@@ -34,7 +34,7 @@ class ArticleController extends Controller
     public function actionIndex()
     {
         $searchModel = new ArticleSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->searchWithoutEventsNews(Yii::$app->request->queryParams);
         $dataProvider->sort = [
             'defaultOrder'=>['published_at'=>SORT_DESC]
         ];
@@ -58,7 +58,7 @@ class ArticleController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'categories' => ArticleCategory::find()->active()->all(),
+                'categories' => ArticleCategory::find()->active()->where('id>2')->all(),
             ]);
         }
     }
@@ -78,7 +78,7 @@ class ArticleController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'categories' => ArticleCategory::find()->active()->all(),
+                'categories' => ArticleCategory::find()->active()->where('id>2')->all(),
             ]);
         }
     }

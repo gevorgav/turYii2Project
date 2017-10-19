@@ -5,13 +5,17 @@ return [
     'showScriptName'=>false,
     'languages' => ['hy', 'en', 'ru', 'de','fr', 'es', 'ar', 'ir'],
     'rules'=> [
+
         // Pages
-        ['pattern'=>'<slug>', 'route'=>'page/view'],
+        ['pattern'=>'page/<slug>', 'route'=>'page/view'],
 
         // Articles
-        ['pattern'=>'article/index', 'route'=>'article/index'],
-        ['pattern'=>'article/attachment-download', 'route'=>'article/attachment-download'],
-        ['pattern'=>'article/<slug>', 'route'=>'article/view'],
+        ['pattern'=>'<category>/<slug>', 'route'=>'article/category-routing'],
+        ['pattern'=>'<category>', 'route'=>'article/category-routing'],
+//        ['pattern'=>'article/index', 'route'=>'article/index'],
+//        ['pattern'=>'article/attachment-download', 'route'=>'article/attachment-download'],
+//
+//        ['pattern'=>'article/<slug>', 'route'=>'article/view'],
 
         // Api
         ['class' => 'yii\rest\UrlRule', 'controller' => 'api/v1/article', 'only' => ['index', 'view', 'options']],

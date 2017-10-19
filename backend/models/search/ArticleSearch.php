@@ -66,4 +66,103 @@ class ArticleSearch extends Article
 
         return $dataProvider;
     }
+
+    public function searchWithoutEventsNews($params)
+    {
+        $query = Article::find();
+        $query->where('category_id> 2');
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+
+        if (!($this->load($params) && $this->validate())) {
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'slug' => $this->slug,
+            'created_by' => $this->created_by,
+            'category_id' => $this->category_id,
+            'updated_by' => $this->updated_by,
+            'status' => $this->status,
+            'published_at' => $this->published_at,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+        ]);
+
+
+        $query->andFilterWhere(['like', 'slug', $this->slug])
+            ->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'body', $this->body]);
+
+        return $dataProvider;
+    }
+
+    public function searchEvents($params)
+    {
+        $query = Article::find();
+        $query->where('category_id = 2');
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+
+        if (!($this->load($params) && $this->validate())) {
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'slug' => $this->slug,
+            'created_by' => $this->created_by,
+            'category_id' => $this->category_id,
+            'updated_by' => $this->updated_by,
+            'status' => $this->status,
+            'published_at' => $this->published_at,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+        ]);
+
+
+        $query->andFilterWhere(['like', 'slug', $this->slug])
+            ->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'body', $this->body]);
+
+        return $dataProvider;
+    }
+
+    public function searchNews($params)
+    {
+        $query = Article::find();
+        $query->where('category_id = 1');
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+
+        if (!($this->load($params) && $this->validate())) {
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'slug' => $this->slug,
+            'created_by' => $this->created_by,
+            'category_id' => $this->category_id,
+            'updated_by' => $this->updated_by,
+            'status' => $this->status,
+            'published_at' => $this->published_at,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+        ]);
+
+
+        $query->andFilterWhere(['like', 'slug', $this->slug])
+            ->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'body', $this->body]);
+
+        return $dataProvider;
+    }
 }
