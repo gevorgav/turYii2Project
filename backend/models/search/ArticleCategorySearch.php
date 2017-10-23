@@ -58,4 +58,28 @@ class ArticleCategorySearch extends ArticleCategory
 
         return $dataProvider;
     }
+
+    public function searchWithoutEventsNews($params)
+    {
+        $query = ArticleCategory::find();
+        $query->where('id > 2');
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        if (!($this->load($params) && $this->validate())) {
+            return $dataProvider;
+        }
+
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'status' => $this->status,
+        ]);
+
+        $query->andFilterWhere(['like', 'slug', $this->slug])
+            ->andFilterWhere(['like', 'title', $this->title]);
+
+        return $dataProvider;
+    }
 }

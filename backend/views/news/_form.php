@@ -11,6 +11,7 @@ use mihaildev\ckeditor\CKEditor;
 /* @var $model common\models\Article */
 /* @var $categories common\models\ArticleCategory[] */
 /* @var $form yii\bootstrap\ActiveForm */
+
 ?>
 
 <div class="article-form">

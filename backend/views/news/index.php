@@ -10,7 +10,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\search\ArticleSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Articles');
+$this->title = Yii::t('backend', 'News');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-index">
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a(
-            Yii::t('backend', 'Create {modelClass}', ['modelClass' => 'Article']),
+            Yii::t('backend', 'Create News', ['modelClass' => 'Article']),
             ['create'],
             ['class' => 'btn btn-success']) ?>
     </p>
@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                     return $model->category ? $model->category->title : null;
                 },
-                'filter' => ArrayHelper::map(ArticleCategory::find()->where('id>2')->all(), 'id', 'title')
+                'filter' => ArrayHelper::map(ArticleCategory::find()->where('id = 1')->all(), 'id', 'title')
             ],
             [
                 'attribute' => 'created_by',

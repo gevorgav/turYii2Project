@@ -8,20 +8,7 @@ CKEDITOR.addTemplates("default", {
         title: "Image and Title",
         image: "template1.gif",
         description: "One main image with a title and text that surround the image.",
-        html: '<div class="item">\n' +
-        '              <div class="row">\n' +
-        '                <div class="col-md-7 col-sm-6 com-xs-12">\n' +
-        '                    <h2>Lorem ipsum dolor</h2>\n' +
-        '                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui.Nullam consectetur sagittis ante vel vestibulum. </p>\n' +
-        '                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui. Nullam consectetur sagittis ante vel vestibulum. </p>\n' +
-        '                </div>\n' +
-        '                <div class="col-md-5 col-sm-6 com-xs-12">\n' +
-        '                   <div class="img-block">   \n' +
-        '                       <img src="http://frontend.loc/img/tatpap.png" alt="Hyunot">\n' +
-        '                   </div>\n' +
-        '                </div>\n' +
-        '              </div>               \n' +
-        '           </div>'
+        html: '<div class="container template-text template-1"><div class="item"><div class="row"><div class="col-md-7 col-sm-6 com-xs-12">      <h2>Lorem ipsum dolor</h2>    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui.Nullam consectetur sagittis ante vel vestibulum. </p>    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui. Nullam consectetur sagittis ante vel vestibulum. </p>    </div>    <div class="col-md-5 col-sm-6 com-xs-12">        <div class="img-block">        <img src="img/Hyunot.JPG" alt="Hyunot">        </div>        </div>        </div>        </div>'
     }, {
         title: "Strange Template",
         image: "template2.gif",

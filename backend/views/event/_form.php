@@ -32,7 +32,8 @@ use mihaildev\ckeditor\CKEditor;
     <?php
         echo $form->field($model, 'body')->widget(CKEditor::className(),[
             'editorOptions' => [
-                'preset' => 'full',
+                'preset' => 'basic',
+                'inline' => true
             ],
         ]);
     ?>
