@@ -12,8 +12,8 @@ return [
         // Articles
         ['pattern'=>'<category>/<slug>', 'route'=>'article/category-routing'],
         ['pattern'=>'<category>', 'route'=>'article/category-routing'],
-//        ['pattern'=>'article/index', 'route'=>'article/index'],
-//        ['pattern'=>'article/attachment-download', 'route'=>'article/attachment-download'],
+        ['pattern'=>'article/index', 'route'=>'article/index'],
+        ['pattern'=>'article/attachment-download', 'route'=>'article/attachment-download'],
 //
 //        ['pattern'=>'article/<slug>', 'route'=>'article/view'],
 
