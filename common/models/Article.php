@@ -105,7 +105,7 @@ class Article extends ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'body', 'category_id'], 'required'],
+            [['title', 'category_id'], 'required'],
             [['slug'], 'unique'],
             [['body'], 'string'],
             [['published_at'], 'default', 'value' => function () {

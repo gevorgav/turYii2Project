@@ -159,8 +159,12 @@ use mihaildev\ckeditor\CKEditor;
         }
 
         function updateForm(){
-            console.log(222);
+            $("#bodyId").html($(".template-5").html());
         }
+
+//        $( "*[contenteditable*=true]" ).each(function (item, item2){
+//            $(item2).attr("contenteditable", false);
+//        });
 
     </script>
     <?php ActiveForm::end(); ?>
