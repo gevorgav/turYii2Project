@@ -2,8 +2,8 @@
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Articles'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Articles'), 'url' => ['index']];
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <section class="template page-head section-img">
@@ -26,8 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </section>
-<section class="template-text template-1">
-    <div class="container">
+<section class="template-text">
+
 
 
 
@@ -47,5 +47,4 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
-    </div>
 </section>

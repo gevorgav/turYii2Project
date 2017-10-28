@@ -30,12 +30,7 @@ use mihaildev\ckeditor\CKEditor;
         ), ['prompt'=>'']) ?>
 
     <?php
-        echo $form->field($model, 'body')->widget(CKEditor::className(),[
-            'editorOptions' => [
-                'preset' => 'basic',
-                'inline' => true
-            ],
-        ]);
+        echo $form->field($model, 'body')->textArea()
     ?>
     <?php echo $form->field($model, 'thumbnail')->widget(
         Upload::className(),

@@ -70,7 +70,7 @@ use mihaildev\ckeditor\CKEditor;
     <span class="btn" id="addTemplate1Id">Add tempalate</span>
     <span class="btn" id="addTemplate2Id">Add tempalate 2</span>
     <div class="clear"></div>
-    <section class="template-text template-5">
+    <section class="template-text">
 
     </section>
     <div id="myModal" class="modal fade">
@@ -100,27 +100,45 @@ use mihaildev\ckeditor\CKEditor;
         </div>
     </div>
     <script>
-        var root = document.getElementsByClassName("template-5")[0];
+        var root = document.getElementsByClassName("template-text")[0];
         var parser = new DOMParser();
-        var template1String = `<div class="container">
-  <div class="item">
-              <div class="row" >
-                <div class="col-md-7 col-sm-6 com-xs-12">
-                    <h2 contenteditable="true">Lorem ipsum dolor</h2>
-                    <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui.Nullam consectetur sagittis ante vel vestibulum. </p>
-                    <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui. Nullam consectetur sagittis ante vel vestibulum. </p>
-                </div>
-                <div class="col-md-5 col-sm-6 com-xs-12">
-                   <div class="img-block">
-                       <img  data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://habrastorage.org/getpro/habr/post_images/c99/663/96d/c9966396d408953ac32e3aa0470b1e9e.jpg" alt="Hyunot">
-                   </div>
-                </div>
-              </div>
-           </div></div>`;
+        var template1String = `<div class="template-1">
+            <div class="container">
+               <div class="item">
+                  <div class="row">
+                    <div class="col-md-7 col-sm-6 com-xs-12">
+                        <h2 contenteditable="true">Lorem ipsum dolor</h2>
+                        <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui.Nullam consectetur sagittis ante vel vestibulum. </p>
+                        <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui. Nullam consectetur sagittis ante vel vestibulum. </p>
+                    </div>
+                    <div class="col-md-5 col-sm-6 com-xs-12">
+                       <div class="img-block">
+                           <img  data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://habrastorage.org/getpro/habr/post_images/c99/663/96d/c9966396d408953ac32e3aa0470b1e9e.jpg" alt="Hyunot">
+                       </div>
+                    </div>
+                  </div>
+               </div>
+            </div>
+        </div>`;
 
-        var template2String = `<div class="img-100p">
+        var template2String = `<div class="template-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>История</h2>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <p>Арцах расположенв  холмистой местности на юго-востоке Малого Кавказа, на крайне-восточном отрезке Великого Айка.На западе его  границы доходят  до восточных берегов озера Севан, к юго-западу – до реки Агавно /Агарь/, на юге- до реки Ерасх / Аракс/, к востоку углубляются в Муганьскую степь, а с севера огражденыKарабахским  хребтом. Археологические материалы, армянские и другие источники свидетельствуют о том, что человек в Арцахе перманентнопроживал в древние времена. Здесь вы можете найти руины и следы населенныхпунктов, замков, отдельных построек, различное  оружие, ювелирные изделия, инструменты, обнаруженные под глубоким слоем земли. Особый интерес представляют материалы, обнаруженные в пещере Азохэпохи палеолита в Гадрутском районе, останки доисторического человека /неандертальца/. Сегодня археологи Англии и  Испании, совместно с армянскими археологами проводят раскопки здесь и открывают новые следы жизни и деятельности древнего человека. Арцахские горы богаты памятниками, особенно резьбой по камню. Хронология их обширна и, начиная с 7-го тысячелетиядо н.э. достигает 1-го тысячелетия: Резьбой по камню особенно богат  Карвачарский район и окрестности села Тагут Гадруского района.
+                     </p>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <p>В Бронзовом веке в Восточных Армянских провинциях строились циклопические крепости. В Кашатагском районе,  на левом берегу реки Очанц, сохранилась одна из таких крепостей.В 3-1 тысячелетиидо н.э. на Армянском нагорьепоявились первые государственные образования, в числе которых особое место и роль отводилос Урарту или Ванскому или АраратскомуЦарству.В годы правления Аргишти 1-гоАрцах находился в составе государства Урарту, о чем свидетельствует летопись Аргишти 1-го, найденная в Котайке, в которой упоминается город Зар. Название города совпадает со средневековым арцахским меликством Цар и современным селом Цар Карвачарского района.Во времена следующих армянских царских династий -Ервандидов и Арташесидов –Арцах и Утик продолжали оставаться в составе объединенного царства.Греческие и римские историки предполагают, что восточные границы Армении проходили по реке Кура.НезавершенныеделаАрташеса 5-гопродолжил его внук Тигран II Великий, и все наиболее расширив границы государства, создал Армению  от моря до моря. Обширное государство было вовлечено в  эллинистическую культуру, одной из характеристик которой являлось градостроительство.Тигран Великий построил 4 города в исконной Армении и назвал своим именем -Тигранакерт. Один из этих городов  был построен в Арцахе у подножия Ванкасара.</p>
+                </div>
+            </div>
+        </div>
+        <div class="img-100p">
            <div class="img-block">
-               <img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://drscdn.500px.org/photo/179316195/q%3D80_m%3D2000_k%3D1/v2?webp=true&sig=955d2fca495b3c299489291a0f9049b925bc19aec90b4aa9e39138b0a9a6fdfb" alt="Gandzasar">
+               <img  data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://habrastorage.org/getpro/habr/post_images/c99/663/96d/c9966396d408953ac32e3aa0470b1e9e.jpg" alt="Hyunot">
            </div>
            <div class="container">
               <div class="text">
@@ -128,7 +146,39 @@ use mihaildev\ckeditor\CKEditor;
                   <div class="line"></div>
               </div>
            </div>
-        </div>`;
+        </div>
+
+       </div>`;
+
+        var template3String = `<div class="template-3">
+        <div class="container">
+            <div class="title-block">
+                <div class="item"></div>
+                <div class="item">
+                    <h2 contenteditable="true">Lorem ipsum dolor sit amet</h2>
+                </div>
+                <div class="item">
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                   <div class="img-block">
+                       <img src="img/tnjri.jpg" alt="Tnjri">
+                   </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 right-text">
+                    <div class="item">
+                     <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. Semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. Accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. Semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum.</p>
+                    </div>
+                    <div class="item">
+                     <h3 contenteditable="true">Lorem ipsum dolor sit amet</h3>
+                     <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. Semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. Accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. Semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+       </div>`;
 
         var selectedImg = {};
         var imgElement = {};
@@ -159,7 +209,7 @@ use mihaildev\ckeditor\CKEditor;
         }
 
         function updateForm(){
-            $("#bodyId").html($(".template-5").html());
+            $("#bodyId").html($(".template-text").html());
         }
 
 //        $( "*[contenteditable*=true]" ).each(function (item, item2){
