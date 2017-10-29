@@ -2,15 +2,15 @@
 
 namespace backend\models\search;
 
+use common\models\Event;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Article;
 
 /**
  * ArticleSearch represents the model behind the search form about `common\models\Article`.
  */
-class ArticleSearch extends Article
+class EventSearch extends Event
 {
     /**
      * @inheritdoc
@@ -19,7 +19,7 @@ class ArticleSearch extends Article
     {
         return [
             [['id', 'category_id', 'created_by', 'updated_by', 'status', 'published_at', 'created_at', 'updated_at'], 'integer'],
-            [['slug', 'title', 'body'], 'safe'],
+            [['slug', 'title_en', 'body_hy'], 'safe'],
         ];
     }
 
@@ -38,7 +38,7 @@ class ArticleSearch extends Article
      */
     public function search($params)
     {
-        $query = Article::find();
+        $query = Event::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -61,8 +61,8 @@ class ArticleSearch extends Article
         ]);
 
         $query->andFilterWhere(['like', 'slug', $this->slug])
-            ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'body', $this->body]);
+            ->andFilterWhere(['like', 'title_en', $this->title_en])
+            ->andFilterWhere(['like', 'body_en', $this->body_en]);
 
         return $dataProvider;
     }

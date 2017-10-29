@@ -7,6 +7,9 @@
  */
 namespace backend\controllers;
 
+use common\models\Event;
+use common\models\EventCategory;
+use backend\models\search\EventSearch;
 use Yii;
 use common\models\Article;
 use backend\models\search\ArticleSearch;
@@ -38,8 +41,8 @@ class EventController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ArticleSearch();
-        $dataProvider = $searchModel->searchEvents(Yii::$app->request->queryParams);
+        $searchModel = new EventSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
             'defaultOrder'=>['published_at'=>SORT_DESC]
         ];
@@ -56,14 +59,14 @@ class EventController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Article();
+        $model = new Event();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'categories' => ArticleCategory::find()->active()->where('id = 2')->all(),
+                'categories' => EventCategory::find()->active()->all(),
             ]);
         }
     }
@@ -83,7 +86,7 @@ class EventController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'categories' => ArticleCategory::find()->active()->where('id = 2')->all(),
+                'categories' => EventCategory::find()->active()->all(),
             ]);
         }
     }
@@ -110,7 +113,7 @@ class EventController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Article::findOne($id)) !== null) {
+        if (($model = Event::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

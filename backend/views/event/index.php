@@ -1,7 +1,7 @@
 <?php
 
 use common\grid\EnumColumn;
-use common\models\ArticleCategory;
+use common\models\EventCategory;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a(
-            Yii::t('backend', 'Create Event', ['modelClass' => 'Article']),
+            Yii::t('backend', 'Create Event', ['modelClass' => 'Event']),
             ['create'],
             ['class' => 'btn btn-success']) ?>
     </p>
@@ -32,13 +32,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'slug',
-            'title',
+            'title_en',
             [
                 'attribute' => 'category_id',
                 'value' => function ($model) {
-                    return $model->category ? $model->category->title : null;
+                    return $model->category ? $model->category->title_en : null;
                 },
-                'filter' => ArrayHelper::map(ArticleCategory::find()->where('id = 2')->all(), 'id', 'title')
+                'filter' => ArrayHelper::map(EventCategory::find()->all(), 'id', 'title_en')
             ],
             [
                 'attribute' => 'created_by',

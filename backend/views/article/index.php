@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                     return $model->category ? $model->category->title : null;
                 },
-                'filter' => ArrayHelper::map(ArticleCategory::find()->where('id>2')->all(), 'id', 'title')
+                'filter' => ArrayHelper::map(ArticleCategory::find()->all(), 'id', 'title')
             ],
             [
                 'attribute' => 'created_by',

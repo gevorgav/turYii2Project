@@ -1,16 +1,18 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Home
+ * Date: 30.10.2017
+ * Time: 16:00
+ */
 
-namespace backend\models\search;
+namespace frontend\models\search;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Article;
+use common\models\Event;
 
-/**
- * ArticleSearch represents the model behind the search form about `common\models\Article`.
- */
-class ArticleSearch extends Article
+class EventSearch extends Event
 {
     /**
      * @inheritdoc
@@ -18,8 +20,8 @@ class ArticleSearch extends Article
     public function rules()
     {
         return [
-            [['id', 'category_id', 'created_by', 'updated_by', 'status', 'published_at', 'created_at', 'updated_at'], 'integer'],
-            [['slug', 'title', 'body'], 'safe'],
+            [['id', 'category_id'], 'integer'],
+            [['slug', 'title_en'], 'safe'],
         ];
     }
 
@@ -38,7 +40,7 @@ class ArticleSearch extends Article
      */
     public function search($params)
     {
-        $query = Article::find();
+        $query = Event::find()->published();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -51,18 +53,10 @@ class ArticleSearch extends Article
         $query->andFilterWhere([
             'id' => $this->id,
             'slug' => $this->slug,
-            'created_by' => $this->created_by,
             'category_id' => $this->category_id,
-            'updated_by' => $this->updated_by,
-            'status' => $this->status,
-            'published_at' => $this->published_at,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'slug', $this->slug])
-            ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'body', $this->body]);
+        $query->andFilterWhere(['like', 'title_en', $this->title_en]);
 
         return $dataProvider;
     }

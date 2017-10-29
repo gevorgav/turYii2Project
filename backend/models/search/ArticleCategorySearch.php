@@ -62,7 +62,6 @@ class ArticleCategorySearch extends ArticleCategory
     public function searchWithoutEventsNews($params)
     {
         $query = ArticleCategory::find();
-        $query->where('id > 2');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
