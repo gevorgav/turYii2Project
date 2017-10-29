@@ -106,10 +106,8 @@ use mihaildev\ckeditor\CKEditor;
             <div class="container">
                <div class="item">
                   <div class="row">
-                    <div class="col-md-7 col-sm-6 com-xs-12">
-                        <h2 contenteditable="true">Lorem ipsum dolor</h2>
-                        <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui.Nullam consectetur sagittis ante vel vestibulum. </p>
-                        <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui. Nullam consectetur sagittis ante vel vestibulum. </p>
+                    <div class="col-md-7 col-sm-6 com-xs-12" contenteditable="true">
+                        <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui.Nullam consectetur sagittis ante vel vestibulum. </p>
                     </div>
                     <div class="col-md-5 col-sm-6 com-xs-12">
                        <div class="img-block">
@@ -123,15 +121,15 @@ use mihaildev\ckeditor\CKEditor;
 
         var template2String = `<div class="template-5">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
+            <div class="row" >
+                <div class="col-sm-12" contenteditable="true">
                     <h2>История</h2>
                 </div>
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-6 col-sm-12" contenteditable="true">
                     <p>Арцах расположенв  холмистой местности на юго-востоке Малого Кавказа, на крайне-восточном отрезке Великого Айка.На западе его  границы доходят  до восточных берегов озера Севан, к юго-западу – до реки Агавно /Агарь/, на юге- до реки Ерасх / Аракс/, к востоку углубляются в Муганьскую степь, а с севера огражденыKарабахским  хребтом. Археологические материалы, армянские и другие источники свидетельствуют о том, что человек в Арцахе перманентнопроживал в древние времена. Здесь вы можете найти руины и следы населенныхпунктов, замков, отдельных построек, различное  оружие, ювелирные изделия, инструменты, обнаруженные под глубоким слоем земли. Особый интерес представляют материалы, обнаруженные в пещере Азохэпохи палеолита в Гадрутском районе, останки доисторического человека /неандертальца/. Сегодня археологи Англии и  Испании, совместно с армянскими археологами проводят раскопки здесь и открывают новые следы жизни и деятельности древнего человека. Арцахские горы богаты памятниками, особенно резьбой по камню. Хронология их обширна и, начиная с 7-го тысячелетиядо н.э. достигает 1-го тысячелетия: Резьбой по камню особенно богат  Карвачарский район и окрестности села Тагут Гадруского района.
                      </p>
                 </div>
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-6 col-sm-12" contenteditable="true">
                     <p>В Бронзовом веке в Восточных Армянских провинциях строились циклопические крепости. В Кашатагском районе,  на левом берегу реки Очанц, сохранилась одна из таких крепостей.В 3-1 тысячелетиидо н.э. на Армянском нагорьепоявились первые государственные образования, в числе которых особое место и роль отводилос Урарту или Ванскому или АраратскомуЦарству.В годы правления Аргишти 1-гоАрцах находился в составе государства Урарту, о чем свидетельствует летопись Аргишти 1-го, найденная в Котайке, в которой упоминается город Зар. Название города совпадает со средневековым арцахским меликством Цар и современным селом Цар Карвачарского района.Во времена следующих армянских царских династий -Ервандидов и Арташесидов –Арцах и Утик продолжали оставаться в составе объединенного царства.Греческие и римские историки предполагают, что восточные границы Армении проходили по реке Кура.НезавершенныеделаАрташеса 5-гопродолжил его внук Тигран II Великий, и все наиболее расширив границы государства, создал Армению  от моря до моря. Обширное государство было вовлечено в  эллинистическую культуру, одной из характеристик которой являлось градостроительство.Тигран Великий построил 4 города в исконной Армении и назвал своим именем -Тигранакерт. Один из этих городов  был построен в Арцахе у подножия Ванкасара.</p>
                 </div>
             </div>
@@ -182,7 +180,7 @@ use mihaildev\ckeditor\CKEditor;
 
         var selectedImg = {};
         var imgElement = {};
-
+        var list = [];
         $(document).ready(function () {
             $("#myModal").on('show.bs.modal', function (event) {
                 imgElement = event.relatedTarget;
@@ -195,8 +193,13 @@ use mihaildev\ckeditor\CKEditor;
                 $(this).find('#title').val(selectedImg.title);
             });
             $("#addTemplate1Id").on('click', function (event) {
-                var template1 = parser.parseFromString(template1String, 'text/html');
-                root.append(template1.body.firstChild);
+                var template1 = parser.parseFromString(template1String, 'text/html').body.firstChild;
+                list.push(template1);
+                let i = list.indexOf(template1);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
+                root.append(template1);
+                root.append(deletes);
+
             });
             $("#addTemplate2Id").on('click', function (event) {
                 var template2 = parser.parseFromString(template2String, 'text/html');
@@ -209,12 +212,22 @@ use mihaildev\ckeditor\CKEditor;
         }
 
         function updateForm(){
+            debugger;
+            $( "*[contenteditable*=true]" ).each(function (item, item2){
+                $(item2).attr("contenteditable", false);
+            });
             $("#bodyId").html($(".template-text").html());
         }
 
-//        $( "*[contenteditable*=true]" ).each(function (item, item2){
-//            $(item2).attr("contenteditable", false);
-//        });
+        function deleteElelement(el) {
+            el.previousSibling.remove();
+            el.remove();
+        }
+
+        root.append(parser.parseFromString($("#bodyId").text(), 'text/html').body);
+        $( "*[contenteditable*=false]" ).each(function (item, item2){
+            $(item2).attr("contenteditable", true);
+        });
 
     </script>
     <?php ActiveForm::end(); ?>
