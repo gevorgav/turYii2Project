@@ -11,9 +11,6 @@ use common\models\Event;
 use common\models\EventCategory;
 use backend\models\search\EventSearch;
 use Yii;
-use common\models\Article;
-use backend\models\search\ArticleSearch;
-use \common\models\ArticleCategory;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -36,7 +33,7 @@ class EventController extends Controller
     }
 
     /**
-     * Lists all Article models.
+     * Lists all Event models.
      * @return mixed
      */
     public function actionIndex()
@@ -53,7 +50,7 @@ class EventController extends Controller
     }
 
     /**
-     * Creates a new Article model.
+     * Creates a new Event model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -72,7 +69,7 @@ class EventController extends Controller
     }
 
     /**
-     * Updates an existing Article model.
+     * Updates an existing Event model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -92,7 +89,7 @@ class EventController extends Controller
     }
 
     /**
-     * Deletes an existing Article model.
+     * Deletes an existing Event model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -105,10 +102,10 @@ class EventController extends Controller
     }
 
     /**
-     * Finds the Article model based on its primary key value.
+     * Finds the Event model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Article the loaded model
+     * @return Event the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)

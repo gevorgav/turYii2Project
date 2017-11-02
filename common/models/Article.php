@@ -174,4 +174,5 @@ class Article extends ActiveRecord
     {
         return $this->hasMany(ArticleAttachment::className(), ['article_id' => 'id']);
     }
+
 }

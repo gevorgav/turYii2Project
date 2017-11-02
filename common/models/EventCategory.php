@@ -3,10 +3,11 @@
 namespace common\models;
 
 use common\models\query\EventCategoryQuery;
+use Yii;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
-use Yii;
+
 
 /**
  * This is the model class for table "event_category".
@@ -35,7 +36,7 @@ class EventCategory extends ActiveRecord
     }
 
     /**
-     * @return ArticleCategoryQuery
+     * @return EventCategoryQuery
      */
     public static function find()
     {
@@ -65,7 +66,7 @@ class EventCategory extends ActiveRecord
             [['slug'], 'unique'],
             [['slug'], 'string', 'max' => 1024],
             ['status', 'integer'],
-            ['parent_id', 'exist', 'targetClass' => ArticleCategory::className(), 'targetAttribute' => 'id']
+            ['parent_id', 'exist', 'targetClass' => EventCategory::className(), 'targetAttribute' => 'id']
         ];
     }
 
@@ -91,6 +92,27 @@ class EventCategory extends ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+
+    public function getMultilingual($multilingualField, $lang){
+        return $this->getMultilignualParams($multilingualField."_".$lang);
+    }
+
+    private function getMultilignualParams($fieldLang){
+        $arr = [
+            'title_hy' => $this->title_hy,
+            'title_en' => $this->title_en,
+            'title_ru' => $this->title_ru,
+            'title_de' => $this->title_de,
+            'title_fr' => $this->title_fr,
+            'title_es' => $this->title_es,
+            'title_ar' => $this->title_ar,
+            'title_ir' => $this->title_ir,
+        ];
+        foreach ($arr as $i => $value) {
+            if ($fieldLang == $i)
+                return($arr[$i]);
+        }
     }
 
     /**

@@ -1,8 +1,9 @@
 <?php
+use common\models\EventCategory;
 /* @var $this yii\web\View */
-/* @var $model common\models\Article */
+/* @var $model common\models\Event */
 $this->title = $model->title_en;
-//$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Articles'), 'url' => ['index']];
+//$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Events'), 'url' => ['index']];
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -28,10 +29,8 @@ $this->title = $model->title_en;
 </section>
 <section class="template-text">
 
-
-
-
         <?php echo $model->body_en ?>
+        <?php echo $model->category->getMultilingual("title", Yii::$app->language)?>
 
         <?php if (!empty($model->articleAttachments)): ?>
             <h3><?php echo Yii::t('frontend', 'Attachments') ?></h3>

@@ -18,11 +18,11 @@ return [
         ['pattern'=>'event', 'route'=>'event/index'],
         ['pattern'=>'event/<slug>', 'route'=>'event/view'],
         // Articles
-        ['pattern'=>'<category>/<slug>', 'route'=>'article/category-routing'],
-        ['pattern'=>'<category>', 'route'=>'article/category-routing'],
+//        ['pattern'=>'<category>/<slug>', 'route'=>'article/category-routing'],
+//        ['pattern'=>'<category>', 'route'=>'article/category-routing'],
         ['pattern'=>'article/attachment-download', 'route'=>'article/attachment-download'],
 //
-//        ['pattern'=>'article/<slug>', 'route'=>'article/view'],
+      ['pattern'=>'article/<slug>', 'route'=>'article/view'],
 
         // Api
         ['class' => 'yii\rest\UrlRule', 'controller' => 'api/v1/article', 'only' => ['index', 'view', 'options']],

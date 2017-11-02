@@ -21,7 +21,7 @@ class EventController extends Controller
      * @return string
      */
     public function actionIndex()
-    {//Yii::$app->language
+    {
         $searchModel = new EventSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [

@@ -101,6 +101,8 @@ use yii\bootstrap\ActiveForm;
         </div>
     </div>
 
+    <?php echo $form->field($model, 'ticket_price')->textInput(['maxlength' => true]) ?>
+
     <?php echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
             $categories,
             'id',
