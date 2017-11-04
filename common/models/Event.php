@@ -185,7 +185,7 @@ class Event extends \yii\db\ActiveRecord
             [['published_at', 'event_date_time'], 'filter', 'filter' => 'strtotime', 'skipOnEmpty' => true],
             [['category_id'], 'exist', 'targetClass' => EventCategory::className(), 'targetAttribute' => 'id'],
             [['status'], 'integer'],
-            [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
+            [['slug', 'video_link', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['view'], 'string', 'max' => 255],
             [['attachments', 'thumbnail'], 'safe']
         ];

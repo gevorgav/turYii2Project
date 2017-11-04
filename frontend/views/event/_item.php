@@ -7,7 +7,6 @@ use yii\helpers\Html;
 use common\models\EventCategory;
 
 ?>
-<hr/>
 
 <div class="item">
     <div class="col-md-3 col-sm-4 col-xs-12 item-img">
