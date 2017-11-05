@@ -16,13 +16,13 @@ use yii\bootstrap\ActiveForm;
     <h2>Dynamic Tabs</h2>
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#home">English</a></li>
-        <li><a data-toggle="tab" href="#menu2">Հայերեն</a></li>
-        <li><a data-toggle="tab" href="#menu3">Русский</a></li>
-        <li><a data-toggle="tab" href="#menu4">Deutsch</a></li>
-        <li><a data-toggle="tab" href="#menu5">Français</a></li>
-        <li><a data-toggle="tab" href="#menu6">Español</a></li>
-        <li><a data-toggle="tab" href="#menu7">العربية</a></li>
-        <li><a data-toggle="tab" href="#menu8">Iranian</a></li>
+        <li><a data-toggle="tab" href="#menu1">Հայերեն</a></li>
+        <li><a data-toggle="tab" href="#menu2">Русский</a></li>
+        <li><a data-toggle="tab" href="#menu3">Deutsch</a></li>
+        <li><a data-toggle="tab" href="#menu4">Français</a></li>
+        <li><a data-toggle="tab" href="#menu5">Español</a></li>
+        <li><a data-toggle="tab" href="#menu6">العربية</a></li>
+        <li><a data-toggle="tab" href="#menu7">Iranian</a></li>
     </ul>
 
     <div class="tab-content">

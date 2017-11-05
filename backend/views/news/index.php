@@ -1,13 +1,13 @@
 <?php
 
 use common\grid\EnumColumn;
-use common\models\ArticleCategory;
+use common\models\NewsCategory;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\search\ArticleSearch */
+/* @var $searchModel backend\models\search\NewsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('backend', 'News');
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a(
-            Yii::t('backend', 'Create News', ['modelClass' => 'Article']),
+            Yii::t('backend', 'Create News', ['modelClass' => 'News']),
             ['create'],
             ['class' => 'btn btn-success']) ?>
     </p>
@@ -33,13 +33,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'slug',
-            'title',
+            'title_en',
             [
                 'attribute' => 'category_id',
                 'value' => function ($model) {
-                    return $model->category ? $model->category->title : null;
+                    return $model->category ? $model->category->title_en : null;
                 },
-                'filter' => ArrayHelper::map(ArticleCategory::find()->where('id = 1')->all(), 'id', 'title')
+                'filter' => ArrayHelper::map(NewsCategory::find()->all(), 'id', 'title_en')
             ],
             [
                 'attribute' => 'created_by',

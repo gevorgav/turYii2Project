@@ -49,9 +49,9 @@
     "bower-asset/flot": "^0.8",
     "symfony/process": "^3.0",
     "pceuropa/yii2-menu": "dev-master",
-    "2amigos/yii2-ckeditor-widget": "^2.1",
     "codemix/yii2-localeurls": "^1.1",
-    "mihaildev/yii2-ckeditor": "*"
+    "mihaildev/yii2-ckeditor": "*",
+    "pudinglabs/yii2-bootstrap-tags-input" : "*"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",

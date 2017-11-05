@@ -2,6 +2,7 @@
 <?php
 use trntv\filekit\widget\Upload;
 use trntv\yii\datetime\DateTimeWidget;
+use pudinglabs\tagsinput\TagsinputWidget;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\web\View;
@@ -148,7 +149,13 @@ $this->registerJs(
 
     <?php echo $form->field($model, 'video_link')->textInput(['maxlength' => true]) ?>
 
-    <?php echo $form->field($model, 'type')->textInput(['maxlength' => true]) ?>
+    <?=
+    $form->field($model, 'tags')->widget(TagsinputWidget::classname(), [
+        'options' => [],
+        'clientOptions' => [],
+        'clientEvents' => []
+    ]);
+    ?>
 
     <?php echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
             $categories,

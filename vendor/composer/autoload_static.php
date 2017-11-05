@@ -43,6 +43,7 @@ class ComposerStaticInit0e8f6b50cb8203f1309167d1671f8daf
         ),
         'p' => 
         array (
+            'pudinglabs\\tagsinput\\' => 21,
             'probe\\' => 6,
             'phpDocumentor\\Reflection\\' => 25,
             'pceuropa\\menu\\' => 14,
@@ -189,6 +190,10 @@ class ComposerStaticInit0e8f6b50cb8203f1309167d1671f8daf
         'trntv\\aceeditor\\' => 
         array (
             0 => __DIR__ . '/..' . '/trntv/yii2-aceeditor/src',
+        ),
+        'pudinglabs\\tagsinput\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pudinglabs/yii2-bootstrap-tags-input',
         ),
         'probe\\' => 
         array (

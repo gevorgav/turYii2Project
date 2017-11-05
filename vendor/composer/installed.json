@@ -5396,5 +5396,95 @@
             "wysiwyg",
             "yii"
         ]
+    },
+    {
+        "name": "bower-asset/bootstrap-tagsinput",
+        "version": "0.3.14",
+        "version_normalized": "0.3.14.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bootstrap-tagsinput/bootstrap-tagsinput.git",
+            "reference": "14f300f0b694ff19382a45f42f28757c34b7ed2b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bootstrap-tagsinput/bootstrap-tagsinput/zipball/14f300f0b694ff19382a45f42f28757c34b7ed2b",
+            "reference": "14f300f0b694ff19382a45f42f28757c34b7ed2b",
+            "shasum": ""
+        },
+        "time": "2014-07-27T12:27:42+00:00",
+        "type": "bower-asset-library",
+        "extra": {
+            "bower-asset-main": [
+                "dist/bootstrap-tagsinput.js",
+                "dist/bootstrap-tagsinput.css"
+            ],
+            "bower-asset-ignore": [
+                "**/.*",
+                "node_modules",
+                "bower_components",
+                "test",
+                "tests"
+            ]
+        },
+        "installation-source": "dist",
+        "license": [
+            "MIT"
+        ],
+        "description": "jQuery plugin providing a Twitter Bootstrap user interface for managing tags.",
+        "keywords": [
+            "bootstrap",
+            "form",
+            "input",
+            "select",
+            "tags"
+        ]
+    },
+    {
+        "name": "pudinglabs/yii2-bootstrap-tags-input",
+        "version": "v1.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pudinglabs/yii2-bootstrap-tags-input.git",
+            "reference": "4578d00034d28ef5a16de6cfe2231a2991ea4cfc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/pudinglabs/yii2-bootstrap-tags-input/zipball/4578d00034d28ef5a16de6cfe2231a2991ea4cfc",
+            "reference": "4578d00034d28ef5a16de6cfe2231a2991ea4cfc",
+            "shasum": ""
+        },
+        "require": {
+            "bower-asset/bootstrap-tagsinput": "@stable",
+            "yiisoft/yii2": "*",
+            "yiisoft/yii2-bootstrap": "~2.0.0"
+        },
+        "time": "2016-08-24T02:18:45+00:00",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "pudinglabs\\tagsinput\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mustoharin",
+                "email": "admin@pudinglabs.web.id"
+            }
+        ],
+        "description": "Bootstrap tags input for Yii2 framework",
+        "keywords": [
+            "extension",
+            "pudinglabs",
+            "yii2",
+            "yii2 bootstrap tags input",
+            "yii2-bootstrap-tags-input"
+        ]
     }
 ]

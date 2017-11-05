@@ -8,7 +8,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * ArticleSearch represents the model behind the search form about `common\models\Article`.
+ * EventSearch represents the model behind the search form about `common\models\Event`.
  */
 class EventSearch extends Event
 {
@@ -19,7 +19,7 @@ class EventSearch extends Event
     {
         return [
             [['id', 'category_id', 'created_by', 'updated_by', 'status', 'published_at', 'created_at', 'updated_at'], 'integer'],
-            [['slug', 'title_en', 'body_hy'], 'safe'],
+            [['slug', 'title_en', 'body_en'], 'safe'],
         ];
     }
 

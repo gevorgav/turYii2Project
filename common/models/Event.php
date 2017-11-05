@@ -72,7 +72,7 @@ use yii\db\ActiveRecord;
  * @property string $agenda_es
  * @property string $agenda_ar
  * @property string $agenda_ir
- * @property string $type
+ * @property string $tags
  * @property integer $category_id
  * @property string $thumbnail_base_url
  * @property string $thumbnail_path
@@ -172,10 +172,10 @@ class Event extends \yii\db\ActiveRecord
         return [
             [['title_en','body_en', 'short_description_en', 'event_date_time','category_id'], 'required'],
             [['slug'], 'unique'],
-            [['body_hy', 'body_en', 'body_ru', 'body_de', 'body_fr', 'body_es', 'body_ar', 'body_ir', 'agenda_hy', 'agenda_en', 'agenda_ru', 'agenda_de', 'agenda_fr', 'agenda_es', 'agenda_ar', 'agenda_ir'], 'string'],
+            [['body_hy', 'body_en', 'body_ru', 'body_de', 'body_fr', 'body_es', 'body_ar', 'body_ir', 'agenda_hy', 'agenda_en', 'agenda_ru', 'agenda_de', 'agenda_fr', 'agenda_es', 'agenda_ar', 'agenda_ir', 'tags'], 'string'],
             [['title_hy', 'title_en', 'title_ru', 'title_de', 'title_fr', 'title_es', 'title_ar', 'title_ir'], 'string', 'max' => 512],
             [['short_description_hy', 'short_description_en', 'short_description_ru', 'short_description_de', 'short_description_fr', 'short_description_es', 'short_description_ar', 'short_description_ir'], 'string', 'max' => 250],
-            [['location_name_hy', 'location_name_en', 'location_name_ru', 'location_name_de', 'location_name_fr', 'location_name_es', 'location_name_ar', 'location_name_ir', 'address_hy', 'address_en', 'address_ru', 'address_de', 'address_fr', 'address_es', 'address_ar', 'address_ir', 'type'], 'string', 'max' => 150],
+            [['location_name_hy', 'location_name_en', 'location_name_ru', 'location_name_de', 'location_name_fr', 'location_name_es', 'location_name_ar', 'location_name_ir', 'address_hy', 'address_en', 'address_ru', 'address_de', 'address_fr', 'address_es', 'address_ar', 'address_ir'], 'string', 'max' => 150],
             [['latitude', 'longitude'], 'string', 'max' => 20],
             [['ticket_price'], 'number'],
             [['isGallery'], 'boolean'],
@@ -315,7 +315,7 @@ class Event extends \yii\db\ActiveRecord
             'longitude' => 'Longitude',
             'isGallery' => 'Is Gallery',
             'video_link' => 'Video Link',
-            'type' => 'Type',
+            'tags' => 'Tags',
             'category_id' => 'Category ID',
             'thumbnail_base_url' => 'Thumbnail Base Url',
             'thumbnail_path' => 'Thumbnail Path',

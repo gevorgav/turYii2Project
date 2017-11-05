@@ -201,4 +201,13 @@ return array (
       '@mihaildev/ckeditor' => $vendorDir . '/mihaildev/yii2-ckeditor',
     ),
   ),
+  'pudinglabs/yii2-bootstrap-tags-input' => 
+  array (
+    'name' => 'pudinglabs/yii2-bootstrap-tags-input',
+    'version' => '1.0.0.0',
+    'alias' => 
+    array (
+      '@pudinglabs/tagsinput' => $vendorDir . '/pudinglabs/yii2-bootstrap-tags-input',
+    ),
+  ),
 );

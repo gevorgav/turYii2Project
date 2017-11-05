@@ -14,7 +14,14 @@ use yii\db\ActiveRecord;
  *
  * @property integer $id
  * @property string $slug
- * @property string $title
+ * @property string $title_hy
+ * @property string $title_en
+ * @property string $title_ru
+ * @property string $title_de
+ * @property string $title_fr
+ * @property string $title_es
+ * @property string $title_ar
+ * @property string $title_ir
  * @property string $body
  * @property integer $parent_id
  * @property integer $status
@@ -113,6 +120,8 @@ class EventCategory extends ActiveRecord
             if ($fieldLang == $i)
                 return($arr[$i]);
         }
+
+        return null;
     }
 
     /**

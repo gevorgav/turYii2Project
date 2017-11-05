@@ -8,8 +8,8 @@ use mihaildev\ckeditor\CKEditor;
 
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Article */
-/* @var $categories common\models\ArticleCategory[] */
+/* @var $model common\models\News */
+/* @var $categories common\models\NewsCategory[] */
 /* @var $form yii\bootstrap\ActiveForm */
 
 ?>
@@ -18,7 +18,7 @@ use mihaildev\ckeditor\CKEditor;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?php echo $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'title_en')->textInput(['maxlength' => true]) ?>
 
     <?php echo $form->field($model, 'slug')
         ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
@@ -31,7 +31,7 @@ use mihaildev\ckeditor\CKEditor;
         ), ['prompt'=>'']) ?>
 
     <?php
-        echo $form->field($model, 'body')->widget(CKEditor::className(),[
+        echo $form->field($model, 'body_en')->widget(CKEditor::className(),[
             'editorOptions' => [
                 'preset' => 'full',
             ],

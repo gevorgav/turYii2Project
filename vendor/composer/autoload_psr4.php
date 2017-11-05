@@ -22,6 +22,7 @@ return array(
     'trntv\\filekit\\' => array($vendorDir . '/trntv/yii2-file-kit/src'),
     'trntv\\bus\\' => array($vendorDir . '/trntv/yii2-command-bus/src'),
     'trntv\\aceeditor\\' => array($vendorDir . '/trntv/yii2-aceeditor/src'),
+    'pudinglabs\\tagsinput\\' => array($vendorDir . '/pudinglabs/yii2-bootstrap-tags-input'),
     'probe\\' => array($vendorDir . '/trntv/probe/src'),
     'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/type-resolver/src', $vendorDir . '/phpdocumentor/reflection-docblock/src'),
     'pceuropa\\menu\\' => array($vendorDir . '/pceuropa/yii2-menu'),

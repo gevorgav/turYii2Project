@@ -2,20 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: Home
- * Date: 22.10.2017
- * Time: 13:27
+ * Date: 05.11.2017
+ * Time: 20:17
  */
 
 namespace backend\controllers;
 
+use common\models\News;
+use common\models\NewsCategory;
 use Yii;
-use common\models\Article;
-use backend\models\search\ArticleSearch;
-use \common\models\ArticleCategory;
+use backend\models\search\NewsSearch;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-
 
 class NewsController extends Controller
 {
@@ -32,13 +31,13 @@ class NewsController extends Controller
     }
 
     /**
-     * Lists all Article models.
+     * Lists all News models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ArticleSearch();
-        $dataProvider = $searchModel->searchNews(Yii::$app->request->queryParams);
+        $searchModel = new NewsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
             'defaultOrder'=>['published_at'=>SORT_DESC]
         ];
@@ -49,26 +48,26 @@ class NewsController extends Controller
     }
 
     /**
-     * Creates a new Article model.
+     * Creates a new News model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Article();
+        $model = new News();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'categories' => ArticleCategory::find()->active()->where('id = 1')->all(),
+                'categories' => NewsCategory::find()->active()->all(),
             ]);
         }
     }
 
     /**
-     * Updates an existing Article model.
+     * Updates an existing News model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -82,13 +81,13 @@ class NewsController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'categories' => ArticleCategory::find()->active()->where('id = 1')->all(),
+                'categories' => NewsCategory::find()->active()->all(),
             ]);
         }
     }
 
     /**
-     * Deletes an existing Article model.
+     * Deletes an existing News model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -101,15 +100,15 @@ class NewsController extends Controller
     }
 
     /**
-     * Finds the Article model based on its primary key value.
+     * Finds the Event model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Article the loaded model
+     * @return News the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Article::findOne($id)) !== null) {
+        if (($model = News::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
