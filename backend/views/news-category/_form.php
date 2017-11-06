@@ -13,7 +13,7 @@ use yii\bootstrap\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <h2>Dynamic Tabs</h2>
+    <h3>Multilingual Inputs</h3>
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#home">English</a></li>
         <li><a data-toggle="tab" href="#menu2">Հայերեն</a></li>

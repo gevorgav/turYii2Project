@@ -53,7 +53,7 @@ use yii\db\ActiveRecord;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class News extends \yii\db\ActiveRecord
+class News extends ActiveRecord
 {
     const STATUS_PUBLISHED = 1;
     const STATUS_DRAFT = 0;
@@ -97,7 +97,7 @@ class News extends \yii\db\ActiveRecord
                 'class' => UploadBehavior::className(),
                 'attribute' => 'attachments',
                 'multiple' => true,
-                'uploadRelation' => 'eventAttachments',
+                'uploadRelation' => 'newsAttachments',
                 'pathAttribute' => 'path',
                 'baseUrlAttribute' => 'base_url',
                 'orderAttribute' => 'order',
@@ -247,8 +247,8 @@ class News extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEventAttachments()
+    public function getNewsAttachments()
     {
-        return $this->hasMany(EventAttachment::className(), ['news_id' => 'id']);
+        return $this->hasMany(NewsAttachment::className(), ['news_id' => 'id']);
     }
 }

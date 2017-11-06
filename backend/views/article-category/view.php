@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\ArticleCategory */
 
-$this->title = $model->title;
+$this->title = $model->title_en;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Article Categories'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -28,8 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'slug',
-            'title',
-            'parent.title',
+            'title_en',
+            'parent.title_en',
             'status',
         ],
     ]) ?>

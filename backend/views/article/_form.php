@@ -19,7 +19,7 @@ use mihaildev\ckeditor\CKEditor;
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <?php $form = ActiveForm::begin(); ?>
 
-    <?php echo $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'title_en')->textInput(['maxlength' => true]) ?>
 
     <?php echo $form->field($model, 'slug')
         ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
@@ -28,11 +28,12 @@ use mihaildev\ckeditor\CKEditor;
     <?php echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
             $categories,
             'id',
-            'title'
+            'title_en'
         ), ['prompt'=>'']) ?>
 
+    <?php echo $form->field($model, 'short_description_en')->textInput(['rows' => 6, 'maxlength' => true]) ?>
 
-    <?php echo $form->field($model, 'body')->textarea(['rows' => 6, 'id' => 'bodyId']) ?>
+    <?php echo $form->field($model, 'body_en')->textArea(['rows' => 6, 'id' => 'bodyId']) ?>
     <?php echo $form->field($model, 'thumbnail')->widget(
         Upload::className(),
         [

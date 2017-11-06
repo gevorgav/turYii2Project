@@ -78,7 +78,7 @@ class ArticleController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'categories' => ArticleCategory::find()->active()->where('id>2')->all(),
+                'categories' => ArticleCategory::find()->all(),
             ]);
         }
     }

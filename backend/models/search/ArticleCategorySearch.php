@@ -19,7 +19,7 @@ class ArticleCategorySearch extends ArticleCategory
     {
         return [
             [['id', 'status'], 'integer'],
-            [['slug', 'title'], 'safe'],
+            [['slug', 'title_en'], 'safe'],
         ];
     }
 
@@ -54,7 +54,7 @@ class ArticleCategorySearch extends ArticleCategory
         ]);
 
         $query->andFilterWhere(['like', 'slug', $this->slug])
-            ->andFilterWhere(['like', 'title', $this->title]);
+            ->andFilterWhere(['like', 'title_en', $this->title_en]);
 
         return $dataProvider;
     }
@@ -77,7 +77,7 @@ class ArticleCategorySearch extends ArticleCategory
         ]);
 
         $query->andFilterWhere(['like', 'slug', $this->slug])
-            ->andFilterWhere(['like', 'title', $this->title]);
+            ->andFilterWhere(['like', 'title_en', $this->title_en]);
 
         return $dataProvider;
     }

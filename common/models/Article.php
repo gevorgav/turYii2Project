@@ -15,9 +15,31 @@ use yii\db\ActiveRecord;
  *
  * @property integer $id
  * @property string $slug
- * @property string $title
- * @property string $body
+ * @property string $title_hy
+ * @property string $title_en
+ * @property string $title_ru
+ * @property string $title_de
+ * @property string $title_fr
+ * @property string $title_es
+ * @property string $title_ar
+ * @property string $title_ir
+ * @property string $body_hy
+ * @property string $body_en
+ * @property string $body_ru
+ * @property string $body_de
+ * @property string $body_fr
+ * @property string $body_es
+ * @property string $body_ar
+ * @property string $body_ir
  * @property string $view
+ * @property string $short_description_hy
+ * @property string $short_description_en
+ * @property string $short_description_ru
+ * @property string $short_description_de
+ * @property string $short_description_fr
+ * @property string $short_description_es
+ * @property string $short_description_ar
+ * @property string $short_description_ir
  * @property string $thumbnail_base_url
  * @property string $thumbnail_path
  * @property array $attachments
@@ -75,7 +97,7 @@ class Article extends ActiveRecord
             BlameableBehavior::className(),
             [
                 'class' => SluggableBehavior::className(),
-                'attribute' => 'title',
+                'attribute' => 'title_en',
                 'immutable' => true
             ],
             [
@@ -105,9 +127,11 @@ class Article extends ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'category_id'], 'required'],
+            [['title_en', 'body_en', 'short_description_en', 'category_id'], 'required'],
             [['slug'], 'unique'],
-            [['body'], 'string'],
+            [['body_hy', 'body_en', 'body_ru', 'body_de', 'body_fr', 'body_es', 'body_ar', 'body_ir', 'agenda_hy', 'agenda_en', 'agenda_ru', 'agenda_de', 'agenda_fr', 'agenda_es', 'agenda_ar', 'agenda_ir', 'tags'], 'string'],
+            [['title_hy', 'title_en', 'title_ru', 'title_de', 'title_fr', 'title_es', 'title_ar', 'title_ir'], 'string', 'max' => 512],
+            [['short_description_hy', 'short_description_en', 'short_description_ru', 'short_description_de', 'short_description_fr', 'short_description_es', 'short_description_ar', 'short_description_ir'], 'string', 'max' => 250],
             [['published_at'], 'default', 'value' => function () {
                 return date(DATE_ISO8601);
             }],
@@ -115,7 +139,6 @@ class Article extends ActiveRecord
             [['category_id'], 'exist', 'targetClass' => ArticleCategory::className(), 'targetAttribute' => 'id'],
             [['status'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
-            [['title'], 'string', 'max' => 512],
             [['view'], 'string', 'max' => 255],
             [['attachments', 'thumbnail'], 'safe']
         ];
@@ -129,8 +152,30 @@ class Article extends ActiveRecord
         return [
             'id' => Yii::t('common', 'ID'),
             'slug' => Yii::t('common', 'Slug'),
-            'title' => Yii::t('common', 'Title'),
-            'body' => Yii::t('common', 'Body'),
+            'title_hy' => 'Title',
+            'title_en' => 'Title',
+            'title_ru' => 'Title',
+            'title_de' => 'Title',
+            'title_fr' => 'Title',
+            'title_es' => 'Title',
+            'title_ar' => 'Title',
+            'title_ir' => 'Title',
+            'body_hy' => 'Body',
+            'body_en' => 'Body',
+            'body_ru' => 'Body',
+            'body_de' => 'Body',
+            'body_fr' => 'Body',
+            'body_es' => 'Body',
+            'body_ar' => 'Body',
+            'body_ir' => 'Body',
+            'short_description_hy' => 'Short Description',
+            'short_description_en' => 'Short Description',
+            'short_description_ru' => 'Short Description',
+            'short_description_de' => 'Short Description',
+            'short_description_fr' => 'Short Description',
+            'short_description_es' => 'Short Description',
+            'short_description_ar' => 'Short Description',
+            'short_description_ir' => 'Short Description',
             'view' => Yii::t('common', 'Article View'),
             'thumbnail' => Yii::t('common', 'Thumbnail'),
             'category_id' => Yii::t('common', 'Category'),
@@ -141,6 +186,43 @@ class Article extends ActiveRecord
             'created_at' => Yii::t('common', 'Created At'),
             'updated_at' => Yii::t('common', 'Updated At')
         ];
+    }
+
+    public function getMultilingual($multilingualField, $lang){
+        return $this->getMultilignualParams($multilingualField."_".$lang);
+    }
+
+    private function getMultilignualParams($fieldLang){
+        $arr = [
+            'title_hy' => $this->title_hy,
+            'title_en' => $this->title_en,
+            'title_ru' => $this->title_ru,
+            'title_de' => $this->title_de,
+            'title_fr' => $this->title_fr,
+            'title_es' => $this->title_es,
+            'title_ar' => $this->title_ar,
+            'title_ir' => $this->title_ir,
+            'body_hy' => $this->body_hy,
+            'body_en' => $this->body_en,
+            'body_ru' => $this->body_ru,
+            'body_de' => $this->body_de,
+            'body_fr' => $this->body_fr,
+            'body_es' => $this->body_es,
+            'body_ar' => $this->body_ar,
+            'body_ir' => $this->body_ir,
+            'short_description_hy' => $this->short_description_hy,
+            'short_description_en' => $this->short_description_en,
+            'short_description_ru' => $this->short_description_ru,
+            'short_description_de' => $this->short_description_de,
+            'short_description_fr' => $this->short_description_fr,
+            'short_description_es' => $this->short_description_es,
+            'short_description_ar' => $this->short_description_ar,
+            'short_description_ir' => $this->short_description_ir,
+        ];
+        foreach ($arr as $i => $value) {
+            if ($fieldLang == $i)
+                return($arr[$i]);
+        }
     }
 
     /**

@@ -60,6 +60,69 @@ $this->registerJs(
         ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
         ->textInput(['maxlength' => true]) ?>
 
+    <?php echo $form->field($model, 'ticket_price')->textInput(['maxlength' => true]) ?>
+
+    <?php echo $form->field($model, 'latitude')->textInput(['maxlength' => true]) ?>
+
+    <?php echo $form->field($model, 'longitude')->textInput(['maxlength' => true]) ?>
+
+    <?php echo $form->field($model, 'video_link')->textInput(['maxlength' => true]) ?>
+
+    <?=
+    $form->field($model, 'tags')->widget(TagsinputWidget::classname(), [
+        'options' => [],
+        'clientOptions' => [],
+        'clientEvents' => []
+    ]);
+    ?>
+
+    <?php echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
+            $categories,
+            'id',
+            'title_en'
+        ), ['prompt'=>'']) ?>
+
+    <div class="col-md-5 col-sm-6 com-xs-12">
+        <div id="map">
+        </div>
+    </div>
+
+    <?php echo $form->field($model, 'thumbnail')->widget(
+        Upload::className(),
+        [
+            'url' => ['/file-storage/upload'],
+            'maxFileSize' => 5000000, // 5 MiB
+        ]);
+    ?>
+
+    <?php echo $form->field($model, 'attachments')->widget(
+        Upload::className(),
+        [
+            'url' => ['/file-storage/upload'],
+            'sortable' => true,
+            'maxFileSize' => 10000000, // 10 MiB
+            'maxNumberOfFiles' => 10
+        ]);
+    ?>
+
+    <?php echo $form->field($model, 'event_date_time')->widget(
+        DateTimeWidget::className(),
+        [
+            'phpDatetimeFormat' => 'yyyy-MM-dd\'T\'HH:mm:ssZZZZZ'
+        ]
+    ) ?>
+
+    <?php echo $form->field($model, 'view')->textInput(['maxlength' => true]) ?>
+
+    <?php echo $form->field($model, 'status')->checkbox() ?>
+
+    <?php echo $form->field($model, 'published_at')->widget(
+        DateTimeWidget::className(),
+        [
+            'phpDatetimeFormat' => 'yyyy-MM-dd\'T\'HH:mm:ssZZZZZ'
+        ]
+    ) ?>
+
     <div class="">
         <h3>Multilingual inputs</h3>
         <ul class="nav nav-tabs">
@@ -140,69 +203,6 @@ $this->registerJs(
             </div>
         </div>
     </div>
-
-    <?php echo $form->field($model, 'ticket_price')->textInput(['maxlength' => true]) ?>
-
-    <?php echo $form->field($model, 'latitude')->textInput(['maxlength' => true]) ?>
-
-    <?php echo $form->field($model, 'longitude')->textInput(['maxlength' => true]) ?>
-
-    <?php echo $form->field($model, 'video_link')->textInput(['maxlength' => true]) ?>
-
-    <?=
-    $form->field($model, 'tags')->widget(TagsinputWidget::classname(), [
-        'options' => [],
-        'clientOptions' => [],
-        'clientEvents' => []
-    ]);
-    ?>
-
-    <?php echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
-            $categories,
-            'id',
-            'title_en'
-        ), ['prompt'=>'']) ?>
-
-    <div class="col-md-5 col-sm-6 com-xs-12">
-        <div id="map">
-        </div>
-    </div>
-
-    <?php echo $form->field($model, 'thumbnail')->widget(
-        Upload::className(),
-        [
-            'url' => ['/file-storage/upload'],
-            'maxFileSize' => 5000000, // 5 MiB
-        ]);
-    ?>
-
-    <?php echo $form->field($model, 'attachments')->widget(
-        Upload::className(),
-        [
-            'url' => ['/file-storage/upload'],
-            'sortable' => true,
-            'maxFileSize' => 10000000, // 10 MiB
-            'maxNumberOfFiles' => 10
-        ]);
-    ?>
-
-    <?php echo $form->field($model, 'event_date_time')->widget(
-        DateTimeWidget::className(),
-        [
-            'phpDatetimeFormat' => 'yyyy-MM-dd\'T\'HH:mm:ssZZZZZ'
-        ]
-    ) ?>
-
-    <?php echo $form->field($model, 'view')->textInput(['maxlength' => true]) ?>
-
-    <?php echo $form->field($model, 'status')->checkbox() ?>
-
-    <?php echo $form->field($model, 'published_at')->widget(
-        DateTimeWidget::className(),
-        [
-            'phpDatetimeFormat' => 'yyyy-MM-dd\'T\'HH:mm:ssZZZZZ'
-        ]
-    ) ?>
 
     <div class="form-group">
         <?php echo Html::submitButton(
