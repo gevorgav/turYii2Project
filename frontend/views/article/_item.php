@@ -10,7 +10,7 @@ use yii\helpers\Html;
 <div class="article-item row">
     <div class="col-xs-12">
         <h2 class="article-title">
-            <?php echo Html::a($model->title, ['view', 'slug'=>$model->slug]) ?>
+            <?php echo Html::a($model->title_en, [$model->category->slug.'/'. $model->slug]) ?>
         </h2>
         <div class="article-meta">
             <span class="article-date">
@@ -18,8 +18,8 @@ use yii\helpers\Html;
             </span>,
             <span class="article-category">
                 <?php echo Html::a(
-                    $model->category->title,
-                    ['index', 'ArticleSearch[category_id]' => $model->category_id]
+                    $model->category->title_en,
+                    ['/'.$model->category->slug]
                 )?>
             </span>
         </div>
@@ -35,7 +35,7 @@ use yii\helpers\Html;
                 ) ?>
             <?php endif; ?>
             <div class="article-text">
-                <?php echo \yii\helpers\StringHelper::truncate($model->body, 150, '...', null, true) ?>
+                <?php echo \yii\helpers\StringHelper::truncate($model->body_en, 150, '...', null, true) ?>
             </div>
         </div>
     </div>

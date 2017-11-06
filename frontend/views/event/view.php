@@ -25,7 +25,7 @@ View::POS_READY
             <div class="flex-space-between flex-align-end">
                 <div class="text-block">
                     <h1><?= $model->getMultilingual('title', YII::$app->language)?></h1>
-                    <p><?= Html::a( $model->category->getMultilingual('title', YII::$app->language), ['event/'])?></p>
+                    <p><?= Html::a( $model->category->getMultilingual('title', YII::$app->language), ['events/'])?></p>
                 </div>
                 <div class="next-event">
                     <div class="next-text">

@@ -1,7 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
-$this->title = $model->title;
+$this->title = $model->title_en;
 //$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Articles'), 'url' => ['index']];
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -20,7 +20,7 @@ $this->title = $model->title;
     <div class="gradient gradient-vr-56">
         <div class="container">
             <div class="text-block">
-                <h1><?php echo $model->title ?></h1>
+                <h1><?php echo $model->title_en ?></h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate sed malesuada.</p>
             </div>
         </div>
@@ -31,7 +31,7 @@ $this->title = $model->title;
 
 
 
-        <?php echo $model->body ?>
+        <?php echo $model->body_en ?>
 
         <?php if (!empty($model->articleAttachments)): ?>
             <h3><?php echo Yii::t('frontend', 'Attachments') ?></h3>
