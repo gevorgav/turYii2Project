@@ -97,7 +97,7 @@ $config = [
                     ],
                     'on missingTranslation' => ['\backend\modules\i18n\Module', 'missingTranslation']
                 ],
-                /* Uncomment this code to use DbMessageSource
+                // Uncomment this code to use DbMessageSource
                  '*'=> [
                     'class' => 'yii\i18n\DbMessageSource',
                     'sourceMessageTable'=>'{{%i18n_source_message}}',
@@ -106,7 +106,7 @@ $config = [
                     'cachingDuration' => 3600,
                     'on missingTranslation' => ['\backend\modules\i18n\Module', 'missingTranslation']
                 ],
-                */
+
             ],
         ],
 
