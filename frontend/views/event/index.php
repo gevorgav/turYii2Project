@@ -2,9 +2,7 @@
 /* @var $this yii\web\View */
 $this->title = Yii::t('frontend', 'Events')
 ?>
-<div id="article-index">
 <!--    <h1>--><?php //echo Yii::t('frontend', 'Events') ?><!--</h1>-->
-
     <section class="project-items">
         <div class="container">
             <div class="row">
@@ -17,10 +15,10 @@ $this->title = Yii::t('frontend', 'Events')
                     'pager'=>[
                         'hideOnSinglePage'=>true,
                     ],
-                    'itemView'=>'_item'
+                    'itemView'=>'_item',
+                    'summary'=>''
                 ])?>
+
             </div>
         </div>
     </section>
-
-</div>
