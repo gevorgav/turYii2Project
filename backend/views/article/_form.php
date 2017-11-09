@@ -196,7 +196,6 @@ use mihaildev\ckeditor\CKEditor;
             $("#addTemplate1Id").on('click', function (event) {
                 var template1 = parser.parseFromString(template1String, 'text/html').body.firstChild;
                 list.push(template1);
-                let i = list.indexOf(template1);
                 var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(template1);
                 root.append(deletes);
@@ -204,7 +203,10 @@ use mihaildev\ckeditor\CKEditor;
             });
             $("#addTemplate2Id").on('click', function (event) {
                 var template2 = parser.parseFromString(template2String, 'text/html');
+                list.push(template2);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(template2.body.firstChild);
+                root.append(deletes);
             });
         });
         function save() {
