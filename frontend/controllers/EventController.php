@@ -25,7 +25,7 @@ class EventController extends Controller
         $searchModel = new EventSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
-            'defaultOrder' => ['created_at' => SORT_DESC]
+            'defaultOrder' => ['event_date_time' => SORT_ASC]
         ];
         return $this->render('index', ['dataProvider' => $dataProvider]);
     }
@@ -38,11 +38,12 @@ class EventController extends Controller
     public function actionView($slug)
     {
         $model = Event::find()->published()->andWhere(['slug' => $slug])->one();
+        $nextModel = Event::find()->published()->andWhere(['>', '{{%event}}.event_date_time', $model->event_date_time] )->orderBy('{{%event}}.event_date_time')->one();
         if (!$model) {
             throw new NotFoundHttpException;
         }
 
         $viewFile = $model->view ?: 'view';
-        return $this->render($viewFile, ['model' => $model]);
+        return $this->render($viewFile, ['model' => $model, 'nextModel' => $nextModel]);
     }
 }

@@ -4,7 +4,20 @@ use yii\web\View;
 use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Event */
-$this->title = $model->title_en;
+/* @var $nextModel common\models\Event */
+
+//------ SEO ------------
+$this->title = $model->getMultilingual('title', YII::$app->language);
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $model->getMultilingual('short_description', YII::$app->language),
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => 'Keywords set inside view',
+]);
+
 //$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Events'), 'url' => ['index']];
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -12,11 +25,11 @@ $this->title = $model->title_en;
 $this->registerJs(
 "
 $( document ).ready(function() {
-        console.log(\"ssss\");
         $('.template').css( 'background-image', 'url(".$model->thumbnail_base_url.'/' . $model->thumbnail_path.")' );
     });",
 View::POS_READY
 );
+
 ?>
 
 <section class="template page-head section-img">
@@ -27,17 +40,20 @@ View::POS_READY
                     <h1><?= $model->getMultilingual('title', YII::$app->language)?></h1>
                     <p><?= Html::a( $model->category->getMultilingual('title', YII::$app->language), ['events/'])?></p>
                 </div>
-                <div class="next-event">
-                    <div class="next-text">
-                        <a href="">
-                            <h3>Air Fest</h3>
-                            <p>Next event</p>
-                        </a>
+                <?php if ($nextModel != null): ?>
+                    <div class="next-event">
+                        <div class="next-text">
+    <!--                        --><?//= Html::a( $nextModel->getMultilingual('title', YII::$app->language), [])?>
+                                <a href="/events/<?=$nextModel->slug?>">
+                                    <h3><?= $nextModel->getMultilingual('title', YII::$app->language)?></h3>
+                                    <p><?= Yii::t('frontend', 'Next event')?></p>
+                                </a>
+                        </div>
+                        <div class="next-arr">
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </div>
                     </div>
-                    <div class="next-arr">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    </div>
-                </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>

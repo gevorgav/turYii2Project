@@ -15,6 +15,7 @@ class EventQuery extends ActiveQuery
     {
         $this->andWhere(['status' => Event::STATUS_PUBLISHED]);
         $this->andWhere(['<', '{{%event}}.published_at', time()]);
+//        $this->orderBy('{{%event}}.event_date_time');
         return $this;
     }
 }

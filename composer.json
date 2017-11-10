@@ -51,6 +51,7 @@
     "pceuropa/yii2-menu": "dev-master",
     "codemix/yii2-localeurls": "^1.1",
     "mihaildev/yii2-ckeditor": "*",
+    "pistol88/yii2-seo": "*",
     "pudinglabs/yii2-bootstrap-tags-input" : "*"
   },
   "require-dev": {

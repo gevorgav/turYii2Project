@@ -3,6 +3,15 @@
 $this->title = Yii::t('frontend', 'Events')
 ?>
 <!--    <h1>--><?php //echo Yii::t('frontend', 'Events') ?><!--</h1>-->
+    <section class="page-head section-img search-result">
+        <div class="gradient gradient-vr-56">
+            <div class="container">
+                <div class="text-block">
+                    <h1>Events calendar</h1>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="project-items">
         <div class="container">
             <div class="row">
@@ -10,7 +19,7 @@ $this->title = Yii::t('frontend', 'Events')
                 </div>
             </div>
             <div class="row">
-                <?php echo \yii\widgets\ListView::widget([
+                <?php echo \common\widgets\ListView::widget([
                     'dataProvider'=>$dataProvider,
                     'pager'=>[
                         'hideOnSinglePage'=>true,
