@@ -15,7 +15,7 @@ $this->registerMetaTag([
 ]);
 $this->registerMetaTag([
     'name' => 'keywords',
-    'content' => 'Keywords set inside view',
+    'content' => $model->getMultilingual('keywords', YII::$app->language),
 ]);
 
 //$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Events'), 'url' => ['index']];

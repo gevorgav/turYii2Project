@@ -94,41 +94,65 @@ use pudinglabs\tagsinput\TagsinputWidget;
                     <?php echo $form->field($model, 'title_en')->textInput(['maxlength' => true]) ?>
                     <?php echo $form->field($model, 'short_description_en')->textArea(['maxlength' => true]) ?>
                     <?php echo $form->field($model, 'body_en')->textArea(['maxlength' => true, 'style' => 'display:none'])->label(false) ?>
+                    <?php echo $form->field($model, 'keywords_en')
+                        ->hint('Please enter the keyword with commas')
+                        ->textInput(['maxlength' => true]) ?>
                 </div>
                 <div id="menu2" class="tab-pane fade">
                     <?php echo $form->field($model, 'title_hy')->textInput(['maxlength' => true]) ?>
                     <?php echo $form->field($model, 'short_description_hy')->textArea(['maxlength' => true]) ?>
                     <?php echo $form->field($model, 'body_hy')->textArea(['maxlength' => true, 'style' => 'display:none'])->label(false) ?>
+                    <?php echo $form->field($model, 'keywords_hy')
+                        ->hint('Please enter the keyword with commas')
+                        ->textInput(['maxlength' => true]) ?>
                 </div>
                 <div id="menu3" class="tab-pane fade">
                     <?php echo $form->field($model, 'title_ru')->textInput(['maxlength' => true]) ?>
                     <?php echo $form->field($model, 'short_description_ru')->textArea(['maxlength' => true]) ?>
                     <?php echo $form->field($model, 'body_ru')->textArea(['maxlength' => true, 'style' => 'display:none'])->label(false) ?>
+                    <?php echo $form->field($model, 'keywords_ru')
+                        ->hint('Please enter the keyword with commas')
+                        ->textInput(['maxlength' => true]) ?>
                 </div>
                 <div id="menu4" class="tab-pane fade">
                     <?php echo $form->field($model, 'title_de')->textInput(['maxlength' => true]) ?>
                     <?php echo $form->field($model, 'short_description_de')->textArea(['maxlength' => true]) ?>
                     <?php echo $form->field($model, 'body_de')->textArea(['maxlength' => true, 'style' => 'display:none'])->label(false) ?>
+                    <?php echo $form->field($model, 'keywords_de')
+                        ->hint('Please enter the keyword with commas')
+                        ->textInput(['maxlength' => true]) ?>
                 </div>
                 <div id="menu5" class="tab-pane fade">
                     <?php echo $form->field($model, 'title_fr')->textInput(['maxlength' => true]) ?>
                     <?php echo $form->field($model, 'short_description_fr')->textArea(['maxlength' => true]) ?>
                     <?php echo $form->field($model, 'body_fr')->textArea(['maxlength' => true, 'style' => 'display:none'])->label(false) ?>
+                    <?php echo $form->field($model, 'keywords_fr')
+                        ->hint('Please enter the keyword with commas')
+                        ->textInput(['maxlength' => true]) ?>
                 </div>
                 <div id="menu6" class="tab-pane fade">
                     <?php echo $form->field($model, 'title_es')->textInput(['maxlength' => true]) ?>
                     <?php echo $form->field($model, 'short_description_es')->textArea(['maxlength' => true]) ?>
                     <?php echo $form->field($model, 'body_es')->textArea(['maxlength' => true, 'style' => 'display:none'])->label(false) ?>
+                    <?php echo $form->field($model, 'keywords_es')
+                        ->hint('Please enter the keyword with commas')
+                        ->textInput(['maxlength' => true]) ?>
                 </div>
                 <div id="menu7" class="tab-pane fade">
                     <?php echo $form->field($model, 'title_ar')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
                     <?php echo $form->field($model, 'short_description_ar')->textArea(['maxlength' => true, 'dir'=>'rtl']) ?>
                     <?php echo $form->field($model, 'body_ar')->textArea(['maxlength' => true, 'dir'=>'rtl', 'style' => 'display:none'])->label(false) ?>
+                    <?php echo $form->field($model, 'keywords_ar')
+                        ->hint('Please enter the keyword with commas')
+                        ->textInput(['maxlength' => true, 'style' => 'display:none']) ?>
                 </div>
                 <div id="menu8" class="tab-pane fade">
-                    <?php echo $form->field($model, 'title_ir')->textInput(['maxlength' => true]) ?>
-                    <?php echo $form->field($model, 'short_description_ir')->textArea(['maxlength' => true]) ?>
+                    <?php echo $form->field($model, 'title_ir')->textInput(['maxlength' => true, 'style' => 'display:none']) ?>
+                    <?php echo $form->field($model, 'short_description_ir')->textArea(['maxlength' => true, 'style' => 'display:none']) ?>
                     <?php echo $form->field($model, 'body_ir')->textArea(['maxlength' => true, 'style' => 'display:none'])->label(false) ?>
+                    <?php echo $form->field($model, 'keywords_ir')
+                        ->hint('Please enter the keyword with commas')
+                        ->textInput(['maxlength' => true, 'style' => 'display:none']) ?>
                 </div>
             </div>
         </div>

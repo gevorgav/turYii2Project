@@ -40,6 +40,14 @@ use yii\db\ActiveRecord;
  * @property string $short_description_es
  * @property string $short_description_ar
  * @property string $short_description_ir
+ * @property string $keywords_hy
+ * @property string $keywords_en
+ * @property string $keywords_ru
+ * @property string $keywords_de
+ * @property string $keywords_fr
+ * @property string $keywords_es
+ * @property string $keywords_ar
+ * @property string $keywords_ir
  * @property string $thumbnail_base_url
  * @property string $thumbnail_path
  * @property array $attachments
@@ -132,6 +140,7 @@ class Article extends ActiveRecord
             [['body_hy', 'body_en', 'body_ru', 'body_de', 'body_fr', 'body_es', 'body_ar', 'body_ir', 'agenda_hy', 'agenda_en', 'agenda_ru', 'agenda_de', 'agenda_fr', 'agenda_es', 'agenda_ar', 'agenda_ir', 'tags'], 'string'],
             [['title_hy', 'title_en', 'title_ru', 'title_de', 'title_fr', 'title_es', 'title_ar', 'title_ir'], 'string', 'max' => 512],
             [['short_description_hy', 'short_description_en', 'short_description_ru', 'short_description_de', 'short_description_fr', 'short_description_es', 'short_description_ar', 'short_description_ir'], 'string', 'max' => 250],
+            [['keywords_hy', 'keywords_en', 'keywords_ru', 'keywords_de', 'keywords_fr', 'keywords_es', 'keywords_ar', 'keywords_ir'], 'string', 'max' => 256],
             [['published_at'], 'default', 'value' => function () {
                 return date(DATE_ISO8601);
             }],
@@ -176,6 +185,14 @@ class Article extends ActiveRecord
             'short_description_es' => 'Short Description',
             'short_description_ar' => 'Short Description',
             'short_description_ir' => 'Short Description',
+            'keywords_hy' => 'SEO Keywords',
+            'keywords_en' => 'SEO Keywords',
+            'keywords_ru' => 'SEO Keywords',
+            'keywords_de' => 'SEO Keywords',
+            'keywords_fr' => 'SEO Keywords',
+            'keywords_es' => 'SEO Keywords',
+            'keywords_ar' => 'SEO Keywords',
+            'keywords_ir' => 'SEO Keywords',
             'view' => Yii::t('common', 'Article View'),
             'thumbnail' => Yii::t('common', 'Thumbnail'),
             'category_id' => Yii::t('common', 'Category'),
@@ -218,6 +235,14 @@ class Article extends ActiveRecord
             'short_description_es' => $this->short_description_es,
             'short_description_ar' => $this->short_description_ar,
             'short_description_ir' => $this->short_description_ir,
+            'keywords_hy' => $this->keywords_hy,
+            'keywords_en' => $this->keywords_en,
+            'keywords_ru' => $this->keywords_ru,
+            'keywords_de' => $this->keywords_de,
+            'keywords_fr' => $this->keywords_fr,
+            'keywords_es' => $this->keywords_es,
+            'keywords_ar' => $this->keywords_ar,
+            'keywords_ir' => $this->keywords_ir,
         ];
         foreach ($arr as $i => $value) {
             if ($fieldLang == $i)

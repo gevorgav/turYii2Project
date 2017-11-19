@@ -31,6 +31,10 @@ use mihaildev\ckeditor\CKEditor;
             'title_en'
         ), ['prompt'=>'']) ?>
 
+    <?php echo $form->field($model, 'keywords_en')
+        ->hint('Please enter the keyword with commas')
+        ->textInput(['maxlength' => true]) ?>
+
     <?php echo $form->field($model, 'short_description_en')->textInput(['rows' => 6, 'maxlength' => true]) ?>
 
     <?php echo $form->field($model, 'body_en')->textArea(['rows' => 6, 'id' => 'bodyId']) ?>

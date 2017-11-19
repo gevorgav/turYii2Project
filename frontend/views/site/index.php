@@ -2,6 +2,8 @@
 /* @var $this yii\web\View */
 $this->title = Yii::$app->name;
 
+use yii\helpers\Html;
+
 ?>
 
 <?php //echo \common\widgets\DbCarousel::widget([
@@ -908,7 +910,8 @@ $this->title = Yii::$app->name;
             </div>
         </div>
         <div class="flex-center">
-            <button class="button-liner blue">all events</button>
+            <?= Html::a(Yii::t('frontend','all events'), ['/events'], ['class'=>'button-liner blue']) ?>
+
         </div>
     </div>
 </section>

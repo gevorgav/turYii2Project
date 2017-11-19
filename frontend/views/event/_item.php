@@ -19,7 +19,7 @@ use common\models\EventCategory;
 //            ['index', 'EventSearch[category_id]' => $model->category_id]
 //        )?>
         <span class="item-type"><?= $model->category->getMultilingual("title", Yii::$app->language)?></span>
-        <div class="date"><?= date("d M", ($model->published_at))?></div>
+        <div class="date"><?= date("d M", ($model->event_date_time))?></div>
         <p class="calendar-mini-description"><?php echo \yii\helpers\StringHelper::truncate($model->getMultilingual('short_description', Yii::$app->language), 150, '...', null, true) ?></p>
         <ul>
             <li class="event-mini-indicator">

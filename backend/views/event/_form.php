@@ -144,6 +144,9 @@ $this->registerJs(
                 <?php echo $form->field($model, 'agenda_en')->textArea() ?>
                 <?php echo $form->field($model, 'location_name_en')->textInput(['maxlength' => true]) ?>
                 <?php echo $form->field($model, 'address_en')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'keywords_en')
+                    ->hint('Please enter the keyword with commas')
+                    ->textInput(['maxlength' => true]) ?>
             </div>
             <div id="menu2" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_hy')->textInput(['maxlength' => true]) ?>
@@ -152,6 +155,7 @@ $this->registerJs(
                 <?php echo $form->field($model, 'agenda_hy')->textArea() ?>
                 <?php echo $form->field($model, 'location_name_hy')->textInput(['maxlength' => true]) ?>
                 <?php echo $form->field($model, 'address_hy')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'keywords_hy')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
             </div>
             <div id="menu3" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_ru')->textInput(['maxlength' => true]) ?>
@@ -160,6 +164,7 @@ $this->registerJs(
                 <?php echo $form->field($model, 'agenda_ru')->textArea() ?>
                 <?php echo $form->field($model, 'location_name_ru')->textInput(['maxlength' => true]) ?>
                 <?php echo $form->field($model, 'address_ru')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'keywords_ru')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
             </div>
             <div id="menu4" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_de')->textInput(['maxlength' => true]) ?>
@@ -168,6 +173,7 @@ $this->registerJs(
                 <?php echo $form->field($model, 'agenda_de')->textArea() ?>
                 <?php echo $form->field($model, 'location_name_de')->textInput(['maxlength' => true]) ?>
                 <?php echo $form->field($model, 'address_de')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'keywords_de')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
             </div>
             <div id="menu5" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_fr')->textInput(['maxlength' => true]) ?>
@@ -176,6 +182,7 @@ $this->registerJs(
                 <?php echo $form->field($model, 'agenda_fr')->textArea() ?>
                 <?php echo $form->field($model, 'location_name_fr')->textInput(['maxlength' => true]) ?>
                 <?php echo $form->field($model, 'address_fr')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'keywords_fr')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
             </div>
             <div id="menu6" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_es')->textInput(['maxlength' => true]) ?>
@@ -184,6 +191,7 @@ $this->registerJs(
                 <?php echo $form->field($model, 'agenda_es')->textArea() ?>
                 <?php echo $form->field($model, 'location_name_es')->textInput(['maxlength' => true]) ?>
                 <?php echo $form->field($model, 'address_es')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'keywords_es')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
             </div>
             <div id="menu7" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_ar')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
@@ -192,14 +200,16 @@ $this->registerJs(
                 <?php echo $form->field($model, 'agenda_ar')->textArea(['dir'=>'rtl']) ?>
                 <?php echo $form->field($model, 'location_name_ar')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
                 <?php echo $form->field($model, 'address_ar')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'keywords_ar')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
             </div>
             <div id="menu8" class="tab-pane fade">
-                <?php echo $form->field($model, 'title_ir')->textInput(['maxlength' => true]) ?>
-                <?php echo $form->field($model, 'short_description_ir')->textInput(['maxlength' => true]) ?>
-                <?php echo $form->field($model, 'body_ir')->textArea() ?>
-                <?php echo $form->field($model, 'agenda_ir')->textArea() ?>
-                <?php echo $form->field($model, 'location_name_ir')->textInput(['maxlength' => true]) ?>
-                <?php echo $form->field($model, 'address_ir')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'title_ir')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'short_description_ir')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'body_ir')->textArea(['dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'agenda_ir')->textArea(['dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'location_name_ir')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'address_ir')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'keywords_ir')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
             </div>
         </div>
     </div>

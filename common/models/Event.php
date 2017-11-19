@@ -72,6 +72,14 @@ use yii\db\ActiveRecord;
  * @property string $agenda_es
  * @property string $agenda_ar
  * @property string $agenda_ir
+ * @property string $keywords_hy
+ * @property string $keywords_en
+ * @property string $keywords_ru
+ * @property string $keywords_de
+ * @property string $keywords_fr
+ * @property string $keywords_es
+ * @property string $keywords_ar
+ * @property string $keywords_ir
  * @property string $tags
  * @property integer $category_id
  * @property string $thumbnail_base_url
@@ -175,6 +183,7 @@ class Event extends \yii\db\ActiveRecord
             [['body_hy', 'body_en', 'body_ru', 'body_de', 'body_fr', 'body_es', 'body_ar', 'body_ir', 'agenda_hy', 'agenda_en', 'agenda_ru', 'agenda_de', 'agenda_fr', 'agenda_es', 'agenda_ar', 'agenda_ir', 'tags'], 'string'],
             [['title_hy', 'title_en', 'title_ru', 'title_de', 'title_fr', 'title_es', 'title_ar', 'title_ir'], 'string', 'max' => 512],
             [['short_description_hy', 'short_description_en', 'short_description_ru', 'short_description_de', 'short_description_fr', 'short_description_es', 'short_description_ar', 'short_description_ir'], 'string', 'max' => 250],
+            [['keywords_hy', 'keywords_en', 'keywords_ru', 'keywords_de', 'keywords_fr', 'keywords_es', 'keywords_ar', 'keywords_ir'], 'string', 'max' => 256],
             [['location_name_hy', 'location_name_en', 'location_name_ru', 'location_name_de', 'location_name_fr', 'location_name_es', 'location_name_ar', 'location_name_ir', 'address_hy', 'address_en', 'address_ru', 'address_de', 'address_fr', 'address_es', 'address_ar', 'address_ir'], 'string', 'max' => 150],
             [['latitude', 'longitude'], 'string', 'max' => 20],
             [['ticket_price'], 'number'],
@@ -245,6 +254,14 @@ class Event extends \yii\db\ActiveRecord
             'agenda_es' => $this->agenda_es,
             'agenda_ar' => $this->agenda_ar,
             'agenda_ir' => $this->agenda_ir,
+            'keywords_hy' => $this->keywords_hy,
+            'keywords_en' => $this->keywords_en,
+            'keywords_ru' => $this->keywords_ru,
+            'keywords_de' => $this->keywords_de,
+            'keywords_fr' => $this->keywords_fr,
+            'keywords_es' => $this->keywords_es,
+            'keywords_ar' => $this->keywords_ar,
+            'keywords_ir' => $this->keywords_ir,
         ];
         foreach ($arr as $i => $value) {
             if ($fieldLang == $i)
@@ -308,6 +325,14 @@ class Event extends \yii\db\ActiveRecord
             'agenda_es' => 'Agenda',
             'agenda_ar' => 'Agenda',
             'agenda_ir' => 'Agenda',
+            'keywords_hy' => 'SEO Keywords',
+            'keywords_en' => 'SEO Keywords',
+            'keywords_ru' => 'SEO Keywords',
+            'keywords_de' => 'SEO Keywords',
+            'keywords_fr' => 'SEO Keywords',
+            'keywords_es' => 'SEO Keywords',
+            'keywords_ar' => 'SEO Keywords',
+            'keywords_ir' => 'SEO Keywords',
             'view' => 'View',
             'event_date_time' => 'Event Date Time',
             'ticket_price' => 'Ticket Price',
