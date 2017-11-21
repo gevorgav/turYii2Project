@@ -126,3 +126,62 @@ View::POS_READY
         </div>
     </div>
 </section>
+<section class="events grey-bg">
+    <div class="container">
+        <h2>Upcoming Events</h2>
+        <div class="line"></div>
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="event-item item-1">
+                    <div class="black-57">
+                        <h3 class="pull-left">
+                            <div class="ellipsis">Wine Festival</div>
+                        </h3>
+                        <h3 class="pull-right date">16 sep</h3>
+                        <div class="clear"></div>
+                        <p class="event-location">Location: Togh</p>
+                        <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's Palace on September 16, 2017 which will host dozens of winemakers Artsakh and Armenia.Within the frames of the festival, exhibition fair of wine, agricultural products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition, concert, group excursions and other activities...</p>
+                        <div class="flex-center">
+                            <a href="#">visit event</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="event-item item-2">
+                    <div class="black-57">
+                        <h3 class="pull-left">
+                            <div class="ellipsis">Air Fest</div>
+                        </h3>
+                        <h3 class="pull-right date">17 jun</h3>
+                        <div class="clear"></div>
+                        <p class="event-location">Location: Stepanakert</p>
+                        <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's Palace on September 16, 2017 which will host dozens of winemakers Artsakh and Armenia.Within the frames of the festival, exhibition fair of wine, agricultural products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition, concert, group excursions and other activities...</p>
+                        <div class="flex-center">
+                            <a href="#">visit event</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="event-item item-3">
+                    <div class="black-57">
+                        <h3 class="pull-left">
+                            <div class="ellipsis">Sculpturers Sympozium</div>
+                        </h3>
+                        <h3 class="pull-right date">8 may</h3>
+                        <div class="clear"></div>
+                        <p class="event-location">Location: Shoushi</p>
+                        <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's Palace on September 16, 2017 which will host dozens of winemakers Artsakh and Armenia.Within the frames of the festival, exhibition fair of wine, agricultural products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition, concert, group excursions and other activities...</p>
+                        <div class="flex-center">
+                            <a href="#">visit event</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-center">
+            <?= Html::a(Yii::t('frontend','all events'), ['/events'], ['class'=>'button-liner blue']) ?>
+        </div>
+    </div>
+</section>

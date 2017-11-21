@@ -138,7 +138,7 @@ class News extends ActiveRecord
                 return date(DATE_ISO8601);
             }],
             [['published_at'], 'filter', 'filter' => 'strtotime', 'skipOnEmpty' => true],
-            [['category_id'], 'exist', 'targetClass' => EventCategory::className(), 'targetAttribute' => 'id'],
+            [['category_id'], 'exist', 'targetClass' => NewsCategory::className(), 'targetAttribute' => 'id'],
             [['status'], 'integer'],
             [['slug', 'video_link', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['view'], 'string', 'max' => 255],

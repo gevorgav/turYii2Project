@@ -1,10 +1,25 @@
 <?php
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
-$this->title = $model->title_en;
+$this->title = $model->getMultilingual('title', YII::$app->language);
 //$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Articles'), 'url' => ['index']];
 //$this->params['breadcrumbs'][] = $this->title;
+
+//------ SEO ------------
+$this->title = $model->getMultilingual('title', YII::$app->language);
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $model->getMultilingual('short_description', YII::$app->language),
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => $model->getMultilingual('keywords', YII::$app->language),
+]);
+
 ?>
+
+
 
 <section class="template page-head section-img">
     <?php if ($model->thumbnail_path): ?>

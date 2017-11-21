@@ -1,13 +1,13 @@
 <?php
 /* @var $this yii\web\View */
-$this->title = Yii::t('frontend', 'Events')
+$this->title = Yii::t('frontend', 'News list')
 ?>
 <!--    <h1>--><?php //echo Yii::t('frontend', 'Events') ?><!--</h1>-->
     <section class="page-head section-img search-result">
         <div class="gradient gradient-vr-56">
             <div class="container">
                 <div class="text-block">
-                    <h1>Events calendar</h1>
+                    <h1>News list</h1>
                 </div>
             </div>
         </div>
