@@ -39,6 +39,7 @@ class FrontendAsset extends AssetBundle
      */
     public $js = [
         'js/app.js',
+        'https://maps.googleapis.com/maps/api/js?key=AIzaSyAEHv8JbWzo_67F0eZxQ5niDBpTKqfN7Ec&callback=init'
     ];
 
     /**

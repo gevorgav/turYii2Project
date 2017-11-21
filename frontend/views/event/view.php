@@ -85,6 +85,8 @@ View::POS_READY
                         </div>
                     </div>
                 </div>
+                <input type="hidden" id="latitudeId" value="<?= $model->latitude ?>">
+                <input type="hidden" id="longitudeId" value="<?= $model->longitude ?>">
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="event-info-item">
                         <div class="event-info-item-container">
