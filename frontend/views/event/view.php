@@ -5,7 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Event */
 /* @var $nextModel common\models\Event */
-
+/* @var $item common\models\Event */
+/* @var $upcoming []  */
 //------ SEO ------------
 $this->title = $model->getMultilingual('title', YII::$app->language);
 
@@ -67,7 +68,7 @@ View::POS_READY
                         <div class="event-info-item-container">
                             <div class="pull-left event-info-item-icon map-icon"></div>
                             <div class="pull-left">
-                                <p class="dark-text">Location</p>
+                                <p class="dark-text"><?= Yii::t('frontend', 'Location')?></p>
                                 <p class="light-text"><?= $model->getMultilingual('location_name', YII::$app->language)?></p>
                             </div>
                         </div>
@@ -78,8 +79,8 @@ View::POS_READY
                         <div class="event-info-item-container">
                             <div class="pull-left event-info-item-icon date-icon"></div>
                             <div class="pull-left">
-                                <p class="dark-text">Date</p>
-                                <p class="light-text"><?= date("M d, Y", ($model->event_date_time))?></p>
+                                <p class="dark-text"><?= Yii::t('frontend', 'Date')?></p>
+                                <p class="light-text"><?php echo Yii::$app->formatter->asDate($model->event_date_time, "d MMM, Y ") ?></p>
                             </div>
                         </div>
                     </div>
@@ -89,12 +90,12 @@ View::POS_READY
                         <div class="event-info-item-container">
                             <div class="pull-left event-info-item-icon time-icon"></div>
                             <div class="pull-left">
-                                <p class="dark-text">Time</p>
+                                <p class="dark-text"><?= Yii::t('frontend', 'Time')?></p>
                                 <?php
 //                                Yii::$app->formatter->locale = Yii::$app->language.'-'.strtoupper(Yii::$app->language);
 //                                echo Yii::$app->formatter->asDatetime($model->event_date_time);
                                 ?>
-                                <p class="light-text"><?= date("G:i", ($model->event_date_time))?></p>
+                                <p class="light-text"><?php echo Yii::$app->formatter->asTime($model->event_date_time, "HH:mm") ?></p>
                             </div>
                         </div>
                     </div>
@@ -104,8 +105,8 @@ View::POS_READY
                         <div class="event-info-item-container">
                             <div class="pull-left event-info-item-icon ticket-icon"></div>
                             <div class="pull-left">
-                                <p class="dark-text">Tickets</p>
-                                <p class="light-text"><?php echo ($model->ticket_price)?number_format($model->ticket_price, 2, ',', ' ').' AMD':'FREE'  ?></p>
+                                <p class="dark-text"><?= Yii::t('frontend', 'Tickets')?></p>
+                                <p class="light-text"><?php echo ($model->ticket_price)?number_format($model->ticket_price, 2, ',', ' ').' '.Yii::t('frontend','AMD'):Yii::t('frontend','FREE')  ?></p>
                             </div>
                         </div>
                     </div>
@@ -128,57 +129,27 @@ View::POS_READY
 </section>
 <section class="events grey-bg">
     <div class="container">
-        <h2>Upcoming Events</h2>
+        <h2><?= Yii::t('frontend', 'Upcoming Events')?></h2>
         <div class="line"></div>
         <div class="row">
-            <div class="col-md-4 col-xs-12">
-                <div class="event-item item-1">
-                    <div class="black-57">
-                        <h3 class="pull-left">
-                            <div class="ellipsis">Wine Festival</div>
-                        </h3>
-                        <h3 class="pull-right date">16 sep</h3>
-                        <div class="clear"></div>
-                        <p class="event-location">Location: Togh</p>
-                        <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's Palace on September 16, 2017 which will host dozens of winemakers Artsakh and Armenia.Within the frames of the festival, exhibition fair of wine, agricultural products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition, concert, group excursions and other activities...</p>
-                        <div class="flex-center">
-                            <a href="#">visit event</a>
+            <?php foreach ($upcoming as $key => $item){ ?>
+                <div class="col-md-4 col-xs-12">
+                    <div class="event-item" style="background: url(<?=$item->thumbnail_base_url.'/' . $item->thumbnail_path?>) no-repeat center;">
+                        <div class="black-57">
+                            <h3 class="pull-left">
+                                <div class="ellipsis"><?= $item->getMultilingual('title', YII::$app->language)?></div>
+                            </h3>
+                            <h3 class="pull-right date"><?php echo Yii::$app->formatter->asDate($item->event_date_time, "d MMM") ?></h3>
+                            <div class="clear"></div>
+                            <p class="event-location"><?= Yii::t('frontend', 'Location').': '.$item->getMultilingual('location_name', YII::$app->language)?></p>
+                            <p><?=$item->getMultilingual('short_description', YII::$app->language)?></p>
+                            <div class="flex-center">
+                                <?php echo Html::a( Yii::t('frontend', 'VISIT EVENT'), ['view', 'slug'=>$item->slug],['class'=>'calendar-visit-event']) ?>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-xs-12">
-                <div class="event-item item-2">
-                    <div class="black-57">
-                        <h3 class="pull-left">
-                            <div class="ellipsis">Air Fest</div>
-                        </h3>
-                        <h3 class="pull-right date">17 jun</h3>
-                        <div class="clear"></div>
-                        <p class="event-location">Location: Stepanakert</p>
-                        <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's Palace on September 16, 2017 which will host dozens of winemakers Artsakh and Armenia.Within the frames of the festival, exhibition fair of wine, agricultural products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition, concert, group excursions and other activities...</p>
-                        <div class="flex-center">
-                            <a href="#">visit event</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-xs-12">
-                <div class="event-item item-3">
-                    <div class="black-57">
-                        <h3 class="pull-left">
-                            <div class="ellipsis">Sculpturers Sympozium</div>
-                        </h3>
-                        <h3 class="pull-right date">8 may</h3>
-                        <div class="clear"></div>
-                        <p class="event-location">Location: Shoushi</p>
-                        <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's Palace on September 16, 2017 which will host dozens of winemakers Artsakh and Armenia.Within the frames of the festival, exhibition fair of wine, agricultural products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition, concert, group excursions and other activities...</p>
-                        <div class="flex-center">
-                            <a href="#">visit event</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php }?>
         </div>
         <div class="flex-center">
             <?= Html::a(Yii::t('frontend','all events'), ['/events'], ['class'=>'button-liner blue']) ?>

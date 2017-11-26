@@ -1,10 +1,10 @@
 <?php
 /**
  * @var $this yii\web\View
- * @var $model common\models\Event
+ * @var $model common\models\News
  */
 use yii\helpers\Html;
-use common\models\EventCategory;
+use common\models\NewsCategory;
 
 ?>
 
@@ -22,7 +22,7 @@ use common\models\EventCategory;
         </div>
         <div class="post-date light-text">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <span><?= date("M d, Y", ($model->published_at))?></span>
+            <span><?php echo Yii::$app->formatter->asDate($model->published_at, "d MMM, y") ?></span>
         </div>
         <p class="news-mini-description"><?php echo \yii\helpers\StringHelper::truncate($model->getMultilingual('short_description', Yii::$app->language), 150, '...', null, true) ?></p>
         <div class="clear"></div>

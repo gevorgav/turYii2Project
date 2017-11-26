@@ -147,10 +147,10 @@ use pudinglabs\tagsinput\TagsinputWidget;
                         ->textInput(['maxlength' => true, 'style' => 'display:none']) ?>
                 </div>
                 <div id="menu8" class="tab-pane fade">
-                    <?php echo $form->field($model, 'title_ir')->textInput(['maxlength' => true, 'style' => 'display:none']) ?>
-                    <?php echo $form->field($model, 'short_description_ir')->textArea(['maxlength' => true, 'style' => 'display:none']) ?>
-                    <?php echo $form->field($model, 'body_ir')->textArea(['maxlength' => true, 'style' => 'display:none'])->label(false) ?>
-                    <?php echo $form->field($model, 'keywords_ir')
+                    <?php echo $form->field($model, 'title_fa')->textInput(['maxlength' => true, 'style' => 'display:none']) ?>
+                    <?php echo $form->field($model, 'short_description_fa')->textArea(['maxlength' => true, 'style' => 'display:none']) ?>
+                    <?php echo $form->field($model, 'body_fa')->textArea(['maxlength' => true, 'style' => 'display:none'])->label(false) ?>
+                    <?php echo $form->field($model, 'keywords_fa')
                         ->hint('Please enter the keyword with commas')
                         ->textInput(['maxlength' => true, 'style' => 'display:none']) ?>
                 </div>

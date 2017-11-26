@@ -21,7 +21,7 @@ use yii\db\ActiveRecord;
  * @property string $title_fr
  * @property string $title_es
  * @property string $title_ar
- * @property string $title_ir
+ * @property string $title_fa
  * @property string $body
  * @property integer $parent_id
  * @property integer $status
@@ -69,7 +69,7 @@ class EventCategory extends ActiveRecord
     {
         return [
             [['title_en'], 'required'],
-            [['title_en', 'title_hy', 'title_ru', 'title_fr', 'title_de', 'title_es', 'title_ar', 'title_ir'], 'string', 'max' => 512],
+            [['title_en', 'title_hy', 'title_ru', 'title_fr', 'title_de', 'title_es', 'title_ar', 'title_fa'], 'string', 'max' => 512],
             [['slug'], 'unique'],
             [['slug'], 'string', 'max' => 1024],
             ['status', 'integer'],
@@ -91,7 +91,7 @@ class EventCategory extends ActiveRecord
             'title_de' => 'Title',
             'title_fr' => 'Title',
             'title_es' => 'Title',
-            'title_ir' => 'Title',
+            'title_fa' => 'Title',
             'title_ar' => 'Title',
             'body' => 'Body',
             'parent_id' => 'Parent ID',
@@ -114,7 +114,7 @@ class EventCategory extends ActiveRecord
             'title_fr' => $this->title_fr,
             'title_es' => $this->title_es,
             'title_ar' => $this->title_ar,
-            'title_ir' => $this->title_ir,
+            'title_fa' => $this->title_fa,
         ];
         foreach ($arr as $i => $value) {
             if ($fieldLang == $i)

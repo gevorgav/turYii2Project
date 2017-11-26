@@ -48,7 +48,7 @@ use yii\bootstrap\ActiveForm;
             <?php echo $form->field($model, 'title_ar')->textInput(['maxlength' => 512]) ?>
         </div>
         <div id="menu8" class="tab-pane fade">
-            <?php echo $form->field($model, 'title_ir')->textInput(['maxlength' => 512]) ?>
+            <?php echo $form->field($model, 'title_fa')->textInput(['maxlength' => 512]) ?>
         </div>
     </div>
 

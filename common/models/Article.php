@@ -22,7 +22,7 @@ use yii\db\ActiveRecord;
  * @property string $title_fr
  * @property string $title_es
  * @property string $title_ar
- * @property string $title_ir
+ * @property string $title_fa
  * @property string $body_hy
  * @property string $body_en
  * @property string $body_ru
@@ -30,7 +30,7 @@ use yii\db\ActiveRecord;
  * @property string $body_fr
  * @property string $body_es
  * @property string $body_ar
- * @property string $body_ir
+ * @property string $body_fa
  * @property string $view
  * @property string $short_description_hy
  * @property string $short_description_en
@@ -39,7 +39,7 @@ use yii\db\ActiveRecord;
  * @property string $short_description_fr
  * @property string $short_description_es
  * @property string $short_description_ar
- * @property string $short_description_ir
+ * @property string $short_description_fa
  * @property string $keywords_hy
  * @property string $keywords_en
  * @property string $keywords_ru
@@ -47,7 +47,7 @@ use yii\db\ActiveRecord;
  * @property string $keywords_fr
  * @property string $keywords_es
  * @property string $keywords_ar
- * @property string $keywords_ir
+ * @property string $keywords_fa
  * @property string $thumbnail_base_url
  * @property string $thumbnail_path
  * @property array $attachments
@@ -137,10 +137,10 @@ class Article extends ActiveRecord
         return [
             [['title_en', 'body_en', 'short_description_en', 'category_id'], 'required'],
             [['slug'], 'unique'],
-            [['body_hy', 'body_en', 'body_ru', 'body_de', 'body_fr', 'body_es', 'body_ar', 'body_ir', 'agenda_hy', 'agenda_en', 'agenda_ru', 'agenda_de', 'agenda_fr', 'agenda_es', 'agenda_ar', 'agenda_ir', 'tags'], 'string'],
-            [['title_hy', 'title_en', 'title_ru', 'title_de', 'title_fr', 'title_es', 'title_ar', 'title_ir'], 'string', 'max' => 512],
-            [['short_description_hy', 'short_description_en', 'short_description_ru', 'short_description_de', 'short_description_fr', 'short_description_es', 'short_description_ar', 'short_description_ir'], 'string', 'max' => 250],
-            [['keywords_hy', 'keywords_en', 'keywords_ru', 'keywords_de', 'keywords_fr', 'keywords_es', 'keywords_ar', 'keywords_ir'], 'string', 'max' => 256],
+            [['body_hy', 'body_en', 'body_ru', 'body_de', 'body_fr', 'body_es', 'body_ar', 'body_fa', 'agenda_hy', 'agenda_en', 'agenda_ru', 'agenda_de', 'agenda_fr', 'agenda_es', 'agenda_ar', 'agenda_fa', 'tags'], 'string'],
+            [['title_hy', 'title_en', 'title_ru', 'title_de', 'title_fr', 'title_es', 'title_ar', 'title_fa'], 'string', 'max' => 512],
+            [['short_description_hy', 'short_description_en', 'short_description_ru', 'short_description_de', 'short_description_fr', 'short_description_es', 'short_description_ar', 'short_description_fa'], 'string', 'max' => 250],
+            [['keywords_hy', 'keywords_en', 'keywords_ru', 'keywords_de', 'keywords_fr', 'keywords_es', 'keywords_ar', 'keywords_fa'], 'string', 'max' => 256],
             [['published_at'], 'default', 'value' => function () {
                 return date(DATE_ISO8601);
             }],
@@ -168,7 +168,7 @@ class Article extends ActiveRecord
             'title_fr' => 'Title',
             'title_es' => 'Title',
             'title_ar' => 'Title',
-            'title_ir' => 'Title',
+            'title_fa' => 'Title',
             'body_hy' => 'Body',
             'body_en' => 'Body',
             'body_ru' => 'Body',
@@ -176,7 +176,7 @@ class Article extends ActiveRecord
             'body_fr' => 'Body',
             'body_es' => 'Body',
             'body_ar' => 'Body',
-            'body_ir' => 'Body',
+            'body_fa' => 'Body',
             'short_description_hy' => 'Short Description',
             'short_description_en' => 'Short Description',
             'short_description_ru' => 'Short Description',
@@ -184,7 +184,7 @@ class Article extends ActiveRecord
             'short_description_fr' => 'Short Description',
             'short_description_es' => 'Short Description',
             'short_description_ar' => 'Short Description',
-            'short_description_ir' => 'Short Description',
+            'short_description_fa' => 'Short Description',
             'keywords_hy' => 'SEO Keywords',
             'keywords_en' => 'SEO Keywords',
             'keywords_ru' => 'SEO Keywords',
@@ -192,7 +192,7 @@ class Article extends ActiveRecord
             'keywords_fr' => 'SEO Keywords',
             'keywords_es' => 'SEO Keywords',
             'keywords_ar' => 'SEO Keywords',
-            'keywords_ir' => 'SEO Keywords',
+            'keywords_fa' => 'SEO Keywords',
             'view' => Yii::t('common', 'Article View'),
             'thumbnail' => Yii::t('common', 'Thumbnail'),
             'category_id' => Yii::t('common', 'Category'),
@@ -218,7 +218,7 @@ class Article extends ActiveRecord
             'title_fr' => $this->title_fr,
             'title_es' => $this->title_es,
             'title_ar' => $this->title_ar,
-            'title_ir' => $this->title_ir,
+            'title_fa' => $this->title_fa,
             'body_hy' => $this->body_hy,
             'body_en' => $this->body_en,
             'body_ru' => $this->body_ru,
@@ -226,7 +226,7 @@ class Article extends ActiveRecord
             'body_fr' => $this->body_fr,
             'body_es' => $this->body_es,
             'body_ar' => $this->body_ar,
-            'body_ir' => $this->body_ir,
+            'body_fa' => $this->body_fa,
             'short_description_hy' => $this->short_description_hy,
             'short_description_en' => $this->short_description_en,
             'short_description_ru' => $this->short_description_ru,
@@ -234,7 +234,7 @@ class Article extends ActiveRecord
             'short_description_fr' => $this->short_description_fr,
             'short_description_es' => $this->short_description_es,
             'short_description_ar' => $this->short_description_ar,
-            'short_description_ir' => $this->short_description_ir,
+            'short_description_fa' => $this->short_description_fa,
             'keywords_hy' => $this->keywords_hy,
             'keywords_en' => $this->keywords_en,
             'keywords_ru' => $this->keywords_ru,
@@ -242,7 +242,7 @@ class Article extends ActiveRecord
             'keywords_fr' => $this->keywords_fr,
             'keywords_es' => $this->keywords_es,
             'keywords_ar' => $this->keywords_ar,
-            'keywords_ir' => $this->keywords_ir,
+            'keywords_fa' => $this->keywords_fa,
         ];
         foreach ($arr as $i => $value) {
             if ($fieldLang == $i)

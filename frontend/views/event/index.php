@@ -1,6 +1,18 @@
 <?php
 /* @var $this yii\web\View */
-$this->title = Yii::t('frontend', 'Events')
+
+
+//------ SEO ------------
+$this->title = Yii::t('frontend', 'Events');
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => Yii::t('frontend', 'description'),
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => Yii::t('frontend', 'keywords'),
+]);
 ?>
 <!--    <h1>--><?php //echo Yii::t('frontend', 'Events') ?><!--</h1>-->
     <section class="page-head section-img search-result">

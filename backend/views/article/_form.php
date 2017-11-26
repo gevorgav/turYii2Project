@@ -67,6 +67,75 @@ use mihaildev\ckeditor\CKEditor;
         ]
     ) ?>
 
+
+    <div class="">
+        <h3>Multilingual inputs</h3>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">English</a></li>
+            <li><a data-toggle="tab" href="#menu2">Հայերեն</a></li>
+            <li><a data-toggle="tab" href="#menu3">Русский</a></li>
+            <li><a data-toggle="tab" href="#menu4">Deutsch</a></li>
+            <li><a data-toggle="tab" href="#menu5">Français</a></li>
+            <li><a data-toggle="tab" href="#menu6">Español</a></li>
+            <li><a data-toggle="tab" href="#menu7">العربية</a></li>
+            <li><a data-toggle="tab" href="#menu8">Iranian</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <?php echo $form->field($model, 'title_en')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'short_description_en')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'body_en')->textArea() ?>
+                <?php echo $form->field($model, 'keywords_en')
+                    ->hint('Please enter the keyword with commas')
+                    ->textInput(['maxlength' => true]) ?>
+            </div>
+            <div id="menu2" class="tab-pane fade">
+                <?php echo $form->field($model, 'title_hy')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'short_description_hy')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'body_hy')->textArea() ?>
+                <?php echo $form->field($model, 'keywords_hy')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div id="menu3" class="tab-pane fade">
+                <?php echo $form->field($model, 'title_ru')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'short_description_ru')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'body_ru')->textArea() ?>
+                <?php echo $form->field($model, 'keywords_ru')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div id="menu4" class="tab-pane fade">
+                <?php echo $form->field($model, 'title_de')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'short_description_de')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'body_de')->textArea() ?>
+                <?php echo $form->field($model, 'keywords_de')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div id="menu5" class="tab-pane fade">
+                <?php echo $form->field($model, 'title_fr')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'short_description_fr')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'body_fr')->textArea() ?>
+                <?php echo $form->field($model, 'keywords_fr')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div id="menu6" class="tab-pane fade">
+                <?php echo $form->field($model, 'title_es')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'short_description_es')->textInput(['maxlength' => true]) ?>
+                <?php echo $form->field($model, 'body_es')->textArea() ?>
+                <?php echo $form->field($model, 'keywords_es')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div id="menu7" class="tab-pane fade">
+                <?php echo $form->field($model, 'title_ar')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'short_description_ar')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'body_ar')->textArea(['dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'keywords_ar')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+            </div>
+            <div id="menu8" class="tab-pane fade">
+                <?php echo $form->field($model, 'title_fa')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'short_description_fa')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'body_fa')->textArea(['dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'keywords_fa')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+            </div>
+        </div>
+    </div>
+
+
     <div class="form-group">
         <?php echo Html::submitButton(
             $model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'),

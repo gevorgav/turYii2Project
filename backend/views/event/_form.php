@@ -203,13 +203,13 @@ $this->registerJs(
                 <?php echo $form->field($model, 'keywords_ar')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
             </div>
             <div id="menu8" class="tab-pane fade">
-                <?php echo $form->field($model, 'title_ir')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
-                <?php echo $form->field($model, 'short_description_ir')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
-                <?php echo $form->field($model, 'body_ir')->textArea(['dir'=>'rtl']) ?>
-                <?php echo $form->field($model, 'agenda_ir')->textArea(['dir'=>'rtl']) ?>
-                <?php echo $form->field($model, 'location_name_ir')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
-                <?php echo $form->field($model, 'address_ir')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
-                <?php echo $form->field($model, 'keywords_ir')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'title_fa')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'short_description_fa')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'body_fa')->textArea(['dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'agenda_fa')->textArea(['dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'location_name_fa')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'address_fa')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'keywords_fa')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
             </div>
         </div>
     </div>

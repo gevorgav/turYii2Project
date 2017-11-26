@@ -3,7 +3,7 @@ return [
     'class' => 'codemix\localeurls\UrlManager',
     'enablePrettyUrl'=>true,
     'showScriptName'=>false,
-    'languages' => ['hy', 'en', 'ru', 'de','fr', 'es', 'ar', 'ir'],
+    'languages' => ['hy', 'en', 'ru', 'de','fr', 'es', 'ar', 'fa'],
     'rules'=> [
 
         //Site

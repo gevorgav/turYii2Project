@@ -24,7 +24,7 @@ use yii\db\ActiveRecord;
  * @property string $title_fr
  * @property string $title_es
  * @property string $title_ar
- * @property string $title_ir
+ * @property string $title_fa
  * @property string $body_hy
  * @property string $body_en
  * @property string $body_ru
@@ -32,7 +32,7 @@ use yii\db\ActiveRecord;
  * @property string $body_fr
  * @property string $body_es
  * @property string $body_ar
- * @property string $body_ir
+ * @property string $body_fa
  * @property string $view
  * @property string $short_description_hy
  * @property string $short_description_en
@@ -41,7 +41,7 @@ use yii\db\ActiveRecord;
  * @property string $short_description_fr
  * @property string $short_description_es
  * @property string $short_description_ar
- * @property string $short_description_ir
+ * @property string $short_description_fa
  * @property integer $event_date_time
  * @property string $ticket_price
  * @property string $location_name_hy
@@ -51,7 +51,7 @@ use yii\db\ActiveRecord;
  * @property string $location_name_fr
  * @property string $location_name_es
  * @property string $location_name_ar
- * @property string $location_name_ir
+ * @property string $location_name_fa
  * @property string $address_hy
  * @property string $address_en
  * @property string $address_ru
@@ -59,7 +59,7 @@ use yii\db\ActiveRecord;
  * @property string $address_fr
  * @property string $address_es
  * @property string $address_ar
- * @property string $address_ir
+ * @property string $address_fa
  * @property string $latitude
  * @property string $longitude
  * @property boolean $isGallery
@@ -71,7 +71,7 @@ use yii\db\ActiveRecord;
  * @property string $agenda_fr
  * @property string $agenda_es
  * @property string $agenda_ar
- * @property string $agenda_ir
+ * @property string $agenda_fa
  * @property string $keywords_hy
  * @property string $keywords_en
  * @property string $keywords_ru
@@ -79,7 +79,7 @@ use yii\db\ActiveRecord;
  * @property string $keywords_fr
  * @property string $keywords_es
  * @property string $keywords_ar
- * @property string $keywords_ir
+ * @property string $keywords_fa
  * @property string $tags
  * @property integer $category_id
  * @property string $thumbnail_base_url
@@ -165,26 +165,26 @@ class Event extends \yii\db\ActiveRecord
     {
 //        return [
 //            [['slug', 'title_en', 'body_en', 'short_description_en', 'event_date_time','category_id'], 'required'],
-//            [['body_hy', 'body_en', 'body_ru', 'body_de', 'body_fr', 'body_es', 'body_ar', 'body_ir', 'agenda_hy', 'agenda_en', 'agenda_ru', 'agenda_de', 'agenda_fr', 'agenda_es', 'agenda_ar', 'agenda_ir'], 'string'],
+//            [['body_hy', 'body_en', 'body_ru', 'body_de', 'body_fr', 'body_es', 'body_ar', 'body_fa', 'agenda_hy', 'agenda_en', 'agenda_ru', 'agenda_de', 'agenda_fr', 'agenda_es', 'agenda_ar', 'agenda_fa'], 'string'],
 //            [['event_date_time', 'category_id', 'status', 'created_by', 'updated_by', 'published_at', 'created_at', 'updated_at'], 'integer'],
 //            [['ticket_price'], 'number'],
 //            [['isGallery'], 'boolean'],
 //            [['slug', 'video_link', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
-//            [['title_hy', 'title_en', 'title_ru', 'title_de', 'title_fr', 'title_es', 'title_ar', 'title_ir'], 'string', 'max' => 512],
+//            [['title_hy', 'title_en', 'title_ru', 'title_de', 'title_fr', 'title_es', 'title_ar', 'title_fa'], 'string', 'max' => 512],
 //            [['view'], 'string', 'max' => 255],
-//            [['short_description_hy', 'short_description_en', 'short_description_ru', 'short_description_de', 'short_description_fr', 'short_description_es', 'short_description_ar', 'short_description_ir'], 'string', 'max' => 250],
-//            [['location_name_hy', 'location_name_en', 'location_name_ru', 'location_name_de', 'location_name_fr', 'location_name_es', 'location_name_ar', 'location_name_ir', 'address_hy', 'address_en', 'address_ru', 'address_de', 'address_fr', 'address_es', 'address_ar', 'address_ir', 'type'], 'string', 'max' => 150],
+//            [['short_description_hy', 'short_description_en', 'short_description_ru', 'short_description_de', 'short_description_fr', 'short_description_es', 'short_description_ar', 'short_description_fa'], 'string', 'max' => 250],
+//            [['location_name_hy', 'location_name_en', 'location_name_ru', 'location_name_de', 'location_name_fr', 'location_name_es', 'location_name_ar', 'location_name_fa', 'address_hy', 'address_en', 'address_ru', 'address_de', 'address_fr', 'address_es', 'address_ar', 'address_fa', 'type'], 'string', 'max' => 150],
 //            [['latitude', 'longitude'], 'string', 'max' => 20],
 //        ];
 
         return [
             [['title_en','body_en', 'short_description_en', 'event_date_time','category_id'], 'required'],
             [['slug'], 'unique'],
-            [['body_hy', 'body_en', 'body_ru', 'body_de', 'body_fr', 'body_es', 'body_ar', 'body_ir', 'agenda_hy', 'agenda_en', 'agenda_ru', 'agenda_de', 'agenda_fr', 'agenda_es', 'agenda_ar', 'agenda_ir', 'tags'], 'string'],
-            [['title_hy', 'title_en', 'title_ru', 'title_de', 'title_fr', 'title_es', 'title_ar', 'title_ir'], 'string', 'max' => 512],
-            [['short_description_hy', 'short_description_en', 'short_description_ru', 'short_description_de', 'short_description_fr', 'short_description_es', 'short_description_ar', 'short_description_ir'], 'string', 'max' => 250],
-            [['keywords_hy', 'keywords_en', 'keywords_ru', 'keywords_de', 'keywords_fr', 'keywords_es', 'keywords_ar', 'keywords_ir'], 'string', 'max' => 256],
-            [['location_name_hy', 'location_name_en', 'location_name_ru', 'location_name_de', 'location_name_fr', 'location_name_es', 'location_name_ar', 'location_name_ir', 'address_hy', 'address_en', 'address_ru', 'address_de', 'address_fr', 'address_es', 'address_ar', 'address_ir'], 'string', 'max' => 150],
+            [['body_hy', 'body_en', 'body_ru', 'body_de', 'body_fr', 'body_es', 'body_ar', 'body_fa', 'agenda_hy', 'agenda_en', 'agenda_ru', 'agenda_de', 'agenda_fr', 'agenda_es', 'agenda_ar', 'agenda_fa', 'tags'], 'string'],
+            [['title_hy', 'title_en', 'title_ru', 'title_de', 'title_fr', 'title_es', 'title_ar', 'title_fa'], 'string', 'max' => 512],
+            [['short_description_hy', 'short_description_en', 'short_description_ru', 'short_description_de', 'short_description_fr', 'short_description_es', 'short_description_ar', 'short_description_fa'], 'string', 'max' => 250],
+            [['keywords_hy', 'keywords_en', 'keywords_ru', 'keywords_de', 'keywords_fr', 'keywords_es', 'keywords_ar', 'keywords_fa'], 'string', 'max' => 256],
+            [['location_name_hy', 'location_name_en', 'location_name_ru', 'location_name_de', 'location_name_fr', 'location_name_es', 'location_name_ar', 'location_name_fa', 'address_hy', 'address_en', 'address_ru', 'address_de', 'address_fr', 'address_es', 'address_ar', 'address_fa'], 'string', 'max' => 150],
             [['latitude', 'longitude'], 'string', 'max' => 20],
             [['ticket_price'], 'number'],
             [['isGallery'], 'boolean'],
@@ -213,7 +213,7 @@ class Event extends \yii\db\ActiveRecord
             'title_fr' => $this->title_fr,
             'title_es' => $this->title_es,
             'title_ar' => $this->title_ar,
-            'title_ir' => $this->title_ir,
+            'title_fa' => $this->title_fa,
             'body_hy' => $this->body_hy,
             'body_en' => $this->body_en,
             'body_ru' => $this->body_ru,
@@ -221,7 +221,7 @@ class Event extends \yii\db\ActiveRecord
             'body_fr' => $this->body_fr,
             'body_es' => $this->body_es,
             'body_ar' => $this->body_ar,
-            'body_ir' => $this->body_ir,
+            'body_fa' => $this->body_fa,
             'short_description_hy' => $this->short_description_hy,
             'short_description_en' => $this->short_description_en,
             'short_description_ru' => $this->short_description_ru,
@@ -229,7 +229,7 @@ class Event extends \yii\db\ActiveRecord
             'short_description_fr' => $this->short_description_fr,
             'short_description_es' => $this->short_description_es,
             'short_description_ar' => $this->short_description_ar,
-            'short_description_ir' => $this->short_description_ir,
+            'short_description_fa' => $this->short_description_fa,
             'location_name_hy' => $this->location_name_hy,
             'location_name_en' => $this->location_name_en,
             'location_name_ru' => $this->location_name_ru,
@@ -237,7 +237,7 @@ class Event extends \yii\db\ActiveRecord
             'location_name_fr' => $this->location_name_fr,
             'location_name_es' => $this->location_name_es,
             'location_name_ar' => $this->location_name_ar,
-            'location_name_ir' => $this->location_name_ir,
+            'location_name_fa' => $this->location_name_fa,
             'address_hy' => $this->address_hy,
             'address_en' => $this->address_en,
             'address_ru' => $this->address_ru,
@@ -245,7 +245,7 @@ class Event extends \yii\db\ActiveRecord
             'address_fr' => $this->address_fr,
             'address_es' => $this->address_es,
             'address_ar' => $this->address_ar,
-            'address_ir' => $this->address_ir,
+            'address_fa' => $this->address_fa,
             'agenda_hy' => $this->agenda_hy,
             'agenda_en' => $this->agenda_en,
             'agenda_ru' => $this->agenda_ru,
@@ -253,7 +253,7 @@ class Event extends \yii\db\ActiveRecord
             'agenda_fr' => $this->agenda_fr,
             'agenda_es' => $this->agenda_es,
             'agenda_ar' => $this->agenda_ar,
-            'agenda_ir' => $this->agenda_ir,
+            'agenda_fa' => $this->agenda_fa,
             'keywords_hy' => $this->keywords_hy,
             'keywords_en' => $this->keywords_en,
             'keywords_ru' => $this->keywords_ru,
@@ -261,7 +261,7 @@ class Event extends \yii\db\ActiveRecord
             'keywords_fr' => $this->keywords_fr,
             'keywords_es' => $this->keywords_es,
             'keywords_ar' => $this->keywords_ar,
-            'keywords_ir' => $this->keywords_ir,
+            'keywords_fa' => $this->keywords_fa,
         ];
         foreach ($arr as $i => $value) {
             if ($fieldLang == $i)
@@ -284,7 +284,7 @@ class Event extends \yii\db\ActiveRecord
             'title_fr' => 'Title',
             'title_es' => 'Title',
             'title_ar' => 'Title',
-            'title_ir' => 'Title',
+            'title_fa' => 'Title',
             'body_hy' => 'Body',
             'body_en' => 'Body',
             'body_ru' => 'Body',
@@ -292,7 +292,7 @@ class Event extends \yii\db\ActiveRecord
             'body_fr' => 'Body',
             'body_es' => 'Body',
             'body_ar' => 'Body',
-            'body_ir' => 'Body',
+            'body_fa' => 'Body',
             'short_description_hy' => 'Short Description',
             'short_description_en' => 'Short Description',
             'short_description_ru' => 'Short Description',
@@ -300,7 +300,7 @@ class Event extends \yii\db\ActiveRecord
             'short_description_fr' => 'Short Description',
             'short_description_es' => 'Short Description',
             'short_description_ar' => 'Short Description',
-            'short_description_ir' => 'Short Description',
+            'short_description_fa' => 'Short Description',
             'location_name_hy' => 'Location Name',
             'location_name_en' => 'Location Name',
             'location_name_ru' => 'Location Name',
@@ -308,7 +308,7 @@ class Event extends \yii\db\ActiveRecord
             'location_name_fr' => 'Location Name',
             'location_name_es' => 'Location Name',
             'location_name_ar' => 'Location Name',
-            'location_name_ir' => 'Location Name',
+            'location_name_fa' => 'Location Name',
             'address_hy' => 'Address',
             'address_en' => 'Address',
             'address_ru' => 'Address',
@@ -316,7 +316,7 @@ class Event extends \yii\db\ActiveRecord
             'address_fr' => 'Address',
             'address_es' => 'Address',
             'address_ar' => 'Address',
-            'address_ir' => 'Address',
+            'address_fa' => 'Address',
             'agenda_hy' => 'Agenda',
             'agenda_en' => 'Agenda',
             'agenda_ru' => 'Agenda',
@@ -324,7 +324,7 @@ class Event extends \yii\db\ActiveRecord
             'agenda_fr' => 'Agenda',
             'agenda_es' => 'Agenda',
             'agenda_ar' => 'Agenda',
-            'agenda_ir' => 'Agenda',
+            'agenda_fa' => 'Agenda',
             'keywords_hy' => 'SEO Keywords',
             'keywords_en' => 'SEO Keywords',
             'keywords_ru' => 'SEO Keywords',
@@ -332,7 +332,7 @@ class Event extends \yii\db\ActiveRecord
             'keywords_fr' => 'SEO Keywords',
             'keywords_es' => 'SEO Keywords',
             'keywords_ar' => 'SEO Keywords',
-            'keywords_ir' => 'SEO Keywords',
+            'keywords_fa' => 'SEO Keywords',
             'view' => 'View',
             'event_date_time' => 'Event Date Time',
             'ticket_price' => 'Ticket Price',

@@ -60,4 +60,25 @@ class EventSearch extends Event
 
         return $dataProvider;
     }
+
+    /**
+     * @param $count
+     * @return ActiveDataProvider
+     */
+    public function searchUpcomingEvents($count){
+        $query = Event::find()->published();
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'slug' => $this->slug,
+            'category_id' => $this->category_id,
+        ]);
+
+        return $dataProvider;
+    }
+
 }

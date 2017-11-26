@@ -1,10 +1,10 @@
 <?php
-use common\models\EventCategory;
+use common\models\NewsCategory;
 use yii\web\View;
 use yii\helpers\Html;
 /* @var $this yii\web\View */
-/* @var $model common\models\Event */
-/* @var $nextModel common\models\Event */
+/* @var $model common\models\News */
+/* @var $nextModel common\models\News */
 
 //------ SEO ------------
 $this->title = $model->getMultilingual('title', YII::$app->language);
@@ -18,7 +18,7 @@ $this->registerMetaTag([
     'content' => $model->getMultilingual('keywords', YII::$app->language),
 ]);
 
-//$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Events'), 'url' => ['index']];
+//$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'News'), 'url' => ['index']];
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -36,116 +36,32 @@ $this->registerMetaTag([
                     <span><?= date("M d, Y", ($model->published_at))?></span>
                 </div>
                 <?php echo Html::img($model->thumbnail_base_url.'/' . $model->thumbnail_path,['width' => '100px', 'alt' => $model->getMultilingual('title', Yii::$app->language)]);?>
+                <?= $model->getMultilingual('body', YII::$app->language);?>
             </div>
             <div class="col-md-4">
                 <div class="hr-line"></div>
                 <div class="news-sidebar">
-                    <div class="main-item">
-                        <a href="#">
-                            <div class="img-block-gradient-hr">
-                                <img src="img/nikol-duman-tangaran.jpg" alt="">
-                            </div>
-                            <div class="text">
-                                <h3>Lorem Ipsum dolor</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing </p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="#">
-                            <div class="img-container">
-                                <img src="img/tatik-main.jpg" alt="">
-                            </div>
-                            <div class="text">
-                                <h4>Lorem ipsum dolor siteb amet consectetur</h4>
-                                <div class="tag light-text">
-                                    <i class="fa fa-tag" aria-hidden="true"></i>
-                                    <span>Festival</span>
+                    <?php foreach ($latestNews as $key => $item){ ?>
+                        <div class="item">
+                            <a href="/news/<?= $item->slug?>">
+                                <div class="img-container">
+                                    <img src="<?=$item->thumbnail_base_url.'/' . $item->thumbnail_path?>" alt="">
                                 </div>
-                                <div class="post-date light-text">
-                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                    <span>September 26, 2017</span>
+                                <div class="text">
+                                    <h4><?= $item->getMultilingual('title', YII::$app->language);?></h4>
+                                    <div class="tag light-text">
+                                        <i class="fa fa-tag" aria-hidden="true"></i>
+                                        <span><?= $model->category->getMultilingual('title', YII::$app->language);?></span>
+                                    </div>
+                                    <div class="post-date light-text">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <span><?php echo Yii::$app->formatter->asDate($item->published_at, "d MMM, y") ?></span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="clear"></div>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="#">
-                            <div class="img-container">
-                                <img src="img/shushva-band.jpg" alt="">
-                            </div>
-                            <div class="text">
-                                <h4>Lorem ipsum dolor siteb amet consectetur</h4>
-                                <div class="tag light-text">
-                                    <i class="fa fa-tag" aria-hidden="true"></i>
-                                    <span>Festival</span>
-                                </div>
-                                <div class="post-date light-text">
-                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                    <span>September 26, 2017</span>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="#">
-                            <div class="img-container">
-                                <img src="img/artsakh-fructs.jpg" alt="">
-                            </div>
-                            <div class="text">
-                                <h4>Lorem ipsum dolor siteb amet consectetur</h4>
-                                <div class="tag light-text">
-                                    <i class="fa fa-tag" aria-hidden="true"></i>
-                                    <span>Festival</span>
-                                </div>
-                                <div class="post-date light-text">
-                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                    <span>September 26, 2017</span>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="#">
-                            <div class="img-container">
-                                <img src="img/wine-fest-girls.jpg" alt="">
-                            </div>
-                            <div class="text">
-                                <h4>Lorem ipsum dolor siteb amet consectetur</h4>
-                                <div class="tag light-text">
-                                    <i class="fa fa-tag" aria-hidden="true"></i>
-                                    <span>Festival</span>
-                                </div>
-                                <div class="post-date light-text">
-                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                    <span>September 26, 2017</span>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="#">
-                            <div class="img-container">
-                                <img src="img/tent.jpg" alt="">
-                            </div>
-                            <div class="text">
-                                <h4>Lorem ipsum dolor siteb amet consectetur</h4>
-                                <div class="tag light-text">
-                                    <i class="fa fa-tag" aria-hidden="true"></i>
-                                    <span>Festival</span>
-                                </div>
-                                <div class="post-date light-text">
-                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                    <span>September 26, 2017</span>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </a>
-                    </div>
+                                <div class="clear"></div>
+                            </a>
+                        </div>
+                    <?php }?>
                 </div>
             </div>
         </div>

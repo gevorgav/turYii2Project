@@ -20,7 +20,7 @@ use yii\db\ActiveRecord;
  * @property string $title_fr
  * @property string $title_es
  * @property string $title_ar
- * @property string $title_ir
+ * @property string $title_fa
  * @property integer $status
  *
  * @property Article[] $articles
@@ -67,7 +67,7 @@ class ArticleCategory extends ActiveRecord
     {
         return [
             [['title_en'], 'required'],
-            [['title_hy', 'title_en', 'title_ru', 'title_de', 'title_fr', 'title_es', 'title_ar', 'title_ir'], 'string', 'max' => 512],
+            [['title_hy', 'title_en', 'title_ru', 'title_de', 'title_fr', 'title_es', 'title_ar', 'title_fa'], 'string', 'max' => 512],
             [['slug'], 'unique'],
             [['slug'], 'string', 'max' => 1024],
             ['status', 'integer'],
@@ -91,7 +91,7 @@ class ArticleCategory extends ActiveRecord
             'title_fr' => 'Title',
             'title_es' => 'Title',
             'title_ar' => 'Title',
-            'title_ir' => 'Title',
+            'title_fa' => 'Title',
             'parent_id' => Yii::t('common', 'Parent Category'),
             'status' => Yii::t('common', 'Active')
         ];
@@ -110,7 +110,7 @@ class ArticleCategory extends ActiveRecord
             'title_fr' => $this->title_fr,
             'title_es' => $this->title_es,
             'title_ar' => $this->title_ar,
-            'title_ir' => $this->title_ir,
+            'title_fa' => $this->title_fa,
         ];
         foreach ($arr as $i => $value) {
             if ($fieldLang == $i)

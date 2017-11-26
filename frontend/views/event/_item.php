@@ -19,7 +19,7 @@ use common\models\EventCategory;
 //            ['index', 'EventSearch[category_id]' => $model->category_id]
 //        )?>
         <span class="item-type"><?= $model->category->getMultilingual("title", Yii::$app->language)?></span>
-        <div class="date"><?= date("d M", ($model->event_date_time))?></div>
+        <div class="date"><?php echo Yii::$app->formatter->asDate($model->event_date_time, "d MMM") ?></div>
         <p class="calendar-mini-description"><?php echo \yii\helpers\StringHelper::truncate($model->getMultilingual('short_description', Yii::$app->language), 150, '...', null, true) ?></p>
         <ul>
             <li class="event-mini-indicator">
@@ -27,7 +27,7 @@ use common\models\EventCategory;
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                 </div>
                 <div class="pull-left">
-                    <p class="light-text">Place</p>
+                    <p class="light-text"><?= Yii::t('frontend','Place');?></p>
                     <p class="dark-text"><?php echo $model->getMultilingual('location_name', Yii::$app->language).' '.$model->getMultilingual('address', Yii::$app->language)?></p>
                 </div>
             </li>
@@ -36,9 +36,8 @@ use common\models\EventCategory;
                     <i class="fa fa-calendar-o" aria-hidden="true"></i>
                 </div>
                 <div class="pull-left">
-                    <p class="light-text">Date Time</p>
-<!--                    --><?php //echo Yii::$app->formatter->asDatetime($model->created_at) ?>
-                    <p class="dark-text"><?= date("d M G:i", ($model->event_date_time))?></p>
+                    <p class="light-text"><?= Yii::t('frontend','Date Time');?></p>
+                    <p class="dark-text"><?php echo Yii::$app->formatter->asTime($model->event_date_time, "HH:mm") ?></p>
                 </div>
             </li>
             <li class="event-mini-indicator">
@@ -46,8 +45,8 @@ use common\models\EventCategory;
                     <i class="fa fa-ticket" aria-hidden="true"></i>
                 </div>
                 <div class="pull-left">
-                    <p class="light-text">Tickets</p>
-                    <p class="dark-text"><?php echo ($model->ticket_price)?number_format($model->ticket_price, 2, ',', ' ').' AMD':'FREE'  ?></p>
+                    <p class="light-text"><?= Yii::t('frontend','Tickets');?></p>
+                    <p class="dark-text"><?php echo ($model->ticket_price)?number_format($model->ticket_price, 2, ',', ' ').' '.Yii::t('frontend','AMD'):Yii::t('frontend','FREE')  ?></p>
                 </div>
             </li>
         </ul>

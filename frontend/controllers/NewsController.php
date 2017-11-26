@@ -26,8 +26,9 @@ class NewsController extends Controller
         $searchModel = new NewsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
-            'defaultOrder' => ['published_at' => SORT_ASC]
+            'defaultOrder' => ['published_at' => SORT_DESC]
         ];
+        $dataProvider->pagination->pageSize = 5;
         return $this->render('index', ['dataProvider' => $dataProvider]);
     }
 
@@ -40,11 +41,16 @@ class NewsController extends Controller
     {
         $model = News::find()->published()->andWhere(['slug' => $slug])->one();
         $nextModel = News::find()->published()->andWhere(['>', '{{%news}}.published_at', $model->published_at] )->orderBy('{{%news}}.published_at')->one();
+        $latestNews = News::find()
+            ->published()
+            ->orderBy(['{{%news}}.published_at' => SORT_DESC])
+            ->limit(5)
+            ->all();
         if (!$model) {
             throw new NotFoundHttpException;
         }
 
         $viewFile = $model->view ?: 'view';
-        return $this->render($viewFile, ['model' => $model, 'nextModel' => $nextModel]);
+        return $this->render($viewFile, ['model' => $model, 'nextModel' => $nextModel, 'latestNews' => $latestNews]);
     }
 }
