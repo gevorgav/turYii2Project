@@ -64,7 +64,7 @@ class ArticleController extends Controller
                     'defaultOrder' => ['created_at' => SORT_DESC]
                 ],
             ]);
-            return $this->render('index', ['dataProvider' => $provider]);
+            return $this->render('index', ['dataProvider' => $provider, 'category' => $categoryModel]);
         } else {
             $model = Article::find()->andWhere(['category_id' => $categoryModel->id])
                 ->published()->andWhere(['slug' => $slug])->one();

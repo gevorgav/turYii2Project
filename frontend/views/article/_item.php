@@ -5,7 +5,8 @@
  */
 use yii\helpers\Html;
 
-?> 
+?>
+
 <hr/>
 <div class="article-item row">
     <div class="col-xs-12">
