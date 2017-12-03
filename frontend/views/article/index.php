@@ -1,10 +1,18 @@
 <?php
+use yii\web\View;
 /* @var $this yii\web\View */
-$this->title = Yii::t('frontend', 'Articles');
 
-$mystring = 'bdacasd';
-$findme   = 'a';
-echo strpos($mystring, $findme, 2);
+$this->title = $category->getMultilingual('title', YII::$app->language);
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $category->getMultilingual('description', YII::$app->language),
+]);
+$this->registerMetaTag([
+    'name' => 'keywords',
+    'content' => $category->getMultilingual('keywords', YII::$app->language),
+]);
+
 $pos = 0;
 foreach ($dataProvider->getModels() as $model){
     $pos++;
@@ -23,14 +31,39 @@ foreach ($dataProvider->getModels() as $model){
 }
 ?>
 
+<?php
+if ($category->thumbnail_path){
+    $this->registerJs(
+        "
+    $( document ).ready(function() {
+        $('.template').css( 'background-image', 'url(".$category->thumbnail_base_url.'/' . $category->thumbnail_path.")' );
+    });",
+        View::POS_READY
+    );
+
+}
+
+?>
+
+<section class="template page-head section-img categories">
+    <div class="gradient gradient-vr-56">
+        <div class="container">
+            <div class="text-block">
+                <h1><?= $category->getMultilingual('title', YII::$app->language)?></h1>
+                <p><?= $category->getMultilingual('description', YII::$app->language)?></p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <?php echo $category->body ?>
-<div id="article-index">
-    <h1><?php echo Yii::t('frontend', 'Articles') ?></h1>
-    <?php echo \yii\widgets\ListView::widget([
-        'dataProvider'=>$dataProvider,
-        'pager'=>[
-            'hideOnSinglePage'=>true,
-        ],
-        'itemView'=>'_item'
-    ])?>
-</div>
+<!--<div id="article-index">-->
+<!--    <h1>--><?php //echo Yii::t('frontend', 'Articles') ?><!--</h1>-->
+<!--    --><?php //echo \yii\widgets\ListView::widget([
+//        'dataProvider'=>$dataProvider,
+//        'pager'=>[
+//            'hideOnSinglePage'=>true,
+//        ],
+//        'itemView'=>'_item'
+//    ])?>
+<!--</div>-->

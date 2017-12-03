@@ -115,7 +115,7 @@ $config = [
             'baseUrl' => '@storageUrl/source',
             'filesystem' => [
                 'class' => 'common\components\filesystem\LocalFlysystemBuilder',
-                'path' => '@storage/web/source'
+                'path' => '@storage/source'
             ],
             'as log' => [
                 'class' => 'common\behaviors\FileStorageLogBehavior',

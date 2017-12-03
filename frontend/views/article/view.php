@@ -1,4 +1,5 @@
 <?php
+use yii\web\View;
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
 $this->title = $model->getMultilingual('title', YII::$app->language);
@@ -19,24 +20,35 @@ $this->registerMetaTag([
 
 ?>
 
+<?php
+    if ($model->thumbnail_path){
+        $this->registerJs(
+            "
+        $( document ).ready(function() {
+            $('.template').css( 'background-image', 'url(".$model->thumbnail_base_url.'/' . $model->thumbnail_path.")' );
+        });",
+            View::POS_READY
+        );
 
+    }
+?>
 
 <section class="template page-head section-img">
-    <?php if ($model->thumbnail_path): ?>
-        <?php echo \yii\helpers\Html::img(
-            Yii::$app->glide->createSignedUrl([
-                'glide/index',
-                'path' => $model->thumbnail_path,
-                'w' => 200
-            ], true),
-            ['class' => 'article-thumb img-rounded pull-left']
-        ) ?>
-    <?php endif; ?>
+<!--    --><?php //if ($model->thumbnail_path): ?>
+<!--        --><?php //echo \yii\helpers\Html::img(
+//            Yii::$app->glide->createSignedUrl([
+//                'glide/index',
+//                'path' => $model->thumbnail_path,
+//                'w' => 200
+//            ], true),
+//            ['class' => 'article-thumb img-rounded pull-left']
+//        ) ?>
+<!--    --><?php //endif; ?>
     <div class="gradient gradient-vr-56">
         <div class="container">
             <div class="text-block">
-                <h1><?php echo $model->title_en ?></h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate sed malesuada.</p>
+                <h1><?= $model->getMultilingual('title', Yii::$app->language) ?></h1>
+                <p><?= $model->getMultilingual('short_description', Yii::$app->language) ?></p>
             </div>
         </div>
     </div>
@@ -46,7 +58,7 @@ $this->registerMetaTag([
 
 
 
-        <?php echo $model->body_en ?>
+        <?php echo $model->getMultilingual('body', Yii::$app->language) ?>
 
         <?php if (!empty($model->articleAttachments)): ?>
             <h3><?php echo Yii::t('frontend', 'Attachments') ?></h3>

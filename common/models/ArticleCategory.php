@@ -103,6 +103,7 @@ class ArticleCategory extends ActiveRecord
             [['slug'], 'unique'],
             [['body'], 'string'],
             [['slug','thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
+            [['thumbnail'], 'safe'],
             ['status', 'integer'],
             ['parent_id', 'exist', 'targetClass' => ArticleCategory::className(), 'targetAttribute' => 'id']
         ];
@@ -143,6 +144,7 @@ class ArticleCategory extends ActiveRecord
             'description_fa' => 'Description',
             'thumbnail_base_url' => 'Thumbnail Base Url',
             'thumbnail_path' => 'Thumbnail Path',
+            'thumbnail' => Yii::t('common', 'Thumbnail'),
             'parent_id' => Yii::t('common', 'Parent Category'),
             'status' => Yii::t('common', 'Active')
         ];

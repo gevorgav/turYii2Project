@@ -19,8 +19,6 @@ use mihaildev\ckeditor\CKEditor;
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <?php $form = ActiveForm::begin(); ?>
 
-    <?php echo $form->field($model, 'title_en')->textInput(['maxlength' => true]) ?>
-
     <?php echo $form->field($model, 'slug')
         ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
         ->textInput(['maxlength' => true]) ?>
@@ -31,13 +29,6 @@ use mihaildev\ckeditor\CKEditor;
             'title_en'
         ), ['prompt'=>'']) ?>
 
-    <?php echo $form->field($model, 'keywords_en')
-        ->hint('Please enter the keyword with commas')
-        ->textInput(['maxlength' => true]) ?>
-
-    <?php echo $form->field($model, 'short_description_en')->textInput(['rows' => 6, 'maxlength' => true]) ?>
-
-    <?php echo $form->field($model, 'body_en')->textArea(['rows' => 6, 'id' => 'bodyId']) ?>
     <?php echo $form->field($model, 'thumbnail')->widget(
         Upload::className(),
         [
