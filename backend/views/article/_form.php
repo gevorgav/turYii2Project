@@ -165,11 +165,13 @@ use mihaildev\ckeditor\CKEditor;
             $model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'),
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary','onclick' => 'updateForm()']) ?>
     </div>
-    <span class="btn" id="addTemplate1Id">Add tempalate</span>
-    <span class="btn" id="addTemplate2Id">Add tempalate 2</span>
-    <span class="btn" id="addTemplate3Id">Add tempalate 3</span>
-    <span class="btn" id="addTemplate4Id">Add tempalate 4</span>
-    <span class="btn" id="addTemplate5Id">Add tempalate 5</span>
+    <div id="tmpButtons">
+        <span class="btn" id="addTemplate1Id">Add tempalate</span>
+        <span class="btn" id="addTemplate2Id">Add tempalate 2</span>
+        <span class="btn" id="addTemplate3Id">Add tempalate 3</span>
+        <span class="btn" id="addTemplate4Id">Add tempalate 4</span>
+        <span class="btn" id="addTemplate5Id">Add tempalate 5</span>
+    </div>
     <div class="clear"></div>
 
     <div id="myModal" class="modal fade">
