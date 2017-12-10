@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use Yii;
 use frontend\models\ContactForm;
+use yii\helpers\Html;
 use yii\web\Controller;
 
 /**
@@ -65,15 +66,13 @@ class SiteController extends Controller
             $model->email = $email;
             $model->addtime = (string) time();
             if ($model->save()) {
-                Yii::$app->response->refresh(); //очистка данных из формы
-                echo "<p style='color:green'>Подписка оформлена!</p>";
+                Yii::$app->response->refresh();
+                echo "<p style='color:green'>".Yii::t('frontend', 'Subscribed!')."</p>";
                 exit;
             }
         } else {
-            echo "<p style='color:red'>Ошибка оформления подписки.</p>";
-            //Проверяем наличие фразы в массиве ошибки
-            if(strpos($model->errors['email'][0], 'уже занято') !== false) {
-                echo "<p style='color:red'>Вы уже подписаны!</p>";
+            if($model->errors['email'][0]) {
+                echo "<p style='color:red'>".$model->errors['email'][0]."!</p>";
             }
         }
         exit;

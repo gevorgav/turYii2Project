@@ -25,6 +25,17 @@ $this->registerJs(
                      $('.info-block .black-57 .info-item .icon.wether').css( 'background-image','url('+icon+')');
                  }
                 });
+            var currencyUrl = 'http://cb.am/latest.json.php?currency=USD';
+             $.ajax({
+                 url:currencyUrl,
+                 type:\"GET\",
+                 dataType:\"json\",   
+                 contentType:contentType,    
+                 success:function(data)
+                 {
+                     $('#currency').text(Math.round(data['USD']));
+                 }
+                });
         ",
         View::POS_READY
     );
@@ -874,7 +885,7 @@ $this->registerJs(
                 <div class="info-item">
                     <h4><?=Yii::t('frontend','Currency')?></h4>
                     <i class="icon currency"></i>
-                    <p>1<sub>usd</sub> = 480<sub>dr</sub></p>
+                    <p>1<sub>$</sub> = <sd id="currency"></sd> <sub>AMD</sub></p>
                 </div>
             </div>
         </div>
