@@ -33,7 +33,8 @@ $config = [
         ],
 
         'formatter'=>[
-            'class'=>'yii\i18n\Formatter'
+            'class'=>'yii\i18n\Formatter',
+            'defaultTimeZone' => 'Asia/Yerevan',
         ],
 
         'glide' => [

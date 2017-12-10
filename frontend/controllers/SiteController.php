@@ -57,4 +57,25 @@ class SiteController extends Controller
             'model' => $model
         ]);
     }
+
+    public function actionSubscription(){
+        $model = new \common\models\Subscription();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()){
+            $email = Html::encode($model->email);
+            $model->email = $email;
+            $model->addtime = (string) time();
+            if ($model->save()) {
+                Yii::$app->response->refresh(); //очистка данных из формы
+                echo "<p style='color:green'>Подписка оформлена!</p>";
+                exit;
+            }
+        } else {
+            echo "<p style='color:red'>Ошибка оформления подписки.</p>";
+            //Проверяем наличие фразы в массиве ошибки
+            if(strpos($model->errors['email'][0], 'уже занято') !== false) {
+                echo "<p style='color:red'>Вы уже подписаны!</p>";
+            }
+        }
+        exit;
+    }
 }

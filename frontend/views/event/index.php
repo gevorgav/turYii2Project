@@ -19,7 +19,7 @@ $this->registerMetaTag([
         <div class="gradient gradient-vr-56">
             <div class="container">
                 <div class="text-block">
-                    <h1>Events calendar</h1>
+                    <h1><?=Yii::t('frontend','Events calendar')?></h1>
                 </div>
             </div>
         </div>

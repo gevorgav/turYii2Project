@@ -9,6 +9,7 @@ return [
         //Site
         ['pattern'=>'site/', 'route'=>'site/index'],
         ['pattern'=>'site/contact', 'route'=>'site/contact'],
+        ['pattern'=>'site/subscription', 'route'=>'site/subscription'],
         ['pattern'=>'site/set-locale', 'route'=>'site/set-locale'],
         ['pattern'=>'site/captcha', 'route'=>'site/captcha'],
         ['pattern'=>'site/error', 'route'=>'site/error'],

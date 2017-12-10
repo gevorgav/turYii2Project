@@ -83,8 +83,8 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand hidden-sm hidden-xs" href="#">
-                                <img src="img/main-logo-01.svg" alt="Artsakh travel">
+                            <a class="navbar-brand hidden-sm hidden-xs" href="<?= Yii::$app->homeUrl?>">
+                                <img src="/img/main-logo-01.svg" alt="Artsakh travel">
                             </a>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -135,7 +135,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                                                 <div class="col-lg-offset-2 col-md-4 dropdown-links">
                                                     <div class="ul-item">
                                                         <ul>
-                                                            <li class=""><a href="#">Regions</a></li>
+                                                            <li class=""><a href="/regions">Regions</a></li>
                                                             <li class=""><a href="#">Culture</a></li>
                                                             <li><a href="#">Cuisine</a></li>
                                                             <li><a href="#">Carpets</a></li>
@@ -477,14 +477,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-md-3 footer-item">
-                            <h3>Get our neewsletter</h3>
-                            <p>Enter your email address for our mailing list to keep yourself updated.</p>
-                            <div class="input-with-button">
-                                <input type="text" placeholder="Email address">
-                                <button>done</button>
-                            </div>
-                        </div>
+                        <?= common\widgets\SubscriptionWidget::widget() ?>
                     </div>
                 </div>
             </div>

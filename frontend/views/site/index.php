@@ -2,11 +2,36 @@
 /* @var $this yii\web\View */
 $this->title = Yii::$app->name;
 
+use yii\web\View;
 use yii\helpers\Html;
 
 ?>
 
-<?php //echo \common\widgets\DbCarousel::widget([
+<?php
+$this->registerJs(
+    "
+            var currencyUrl = 'http://api.openweathermap.org/data/2.5/weather?q=shushi&units=metric&appid=13c158d43559008956fa5d3c0ca72303';
+            var contentType =\"application/x-www-form-urlencoded; charset=utf-8\";
+             
+            $.ajax({
+                 url:currencyUrl,
+                 type:\"GET\",
+                 dataType:\"json\",   
+                 contentType:contentType,    
+                 success:function(data)
+                 {
+                     var icon = 'http://openweathermap.org/img/w/'+ data['weather'][0]['icon']+'.png';
+                     $('#temp').text(data['main']['temp']);
+                     $('.info-block .black-57 .info-item .icon.wether').css( 'background-image','url('+icon+')');
+                 }
+                });
+        ",
+        View::POS_READY
+    );
+
+?>
+
+<?php//echo \common\widgets\DbCarousel::widget([
 //    'key'=>'index',
 //    'options' => [
 //        'class' => 'slide', // enables slide effect
@@ -833,26 +858,93 @@ use yii\helpers\Html;
         <div class="container">
             <div class="col-sm-4 col-xs-12">
                 <div class="info-item">
-                    <h4>Sunday</h4>
+                    <h4><?=Yii::$app->formatter->asDate('now', 'php:l')?></h4>
                     <i class="icon wether"></i>
-                    <p>11<span><sup>o</sup>C</span></p>
+                    <p><sd id="temp">11</sd><span><sup>o</sup>C</span></p>
                 </div>
             </div>
             <div class="col-sm-4 col-xs-12">
                 <div class="info-item">
-                    <h4>Time</h4>
+                    <h4><?=Yii::t('frontend','Time')?></h4>
                     <i class="icon time"></i>
-                    <p>16:00</p>
+                    <p><?=Yii::$app->formatter->asDate('now', 'php:H:m')?></p>
                 </div>
             </div>
             <div class="col-sm-4 col-xs-12">
                 <div class="info-item">
-                    <h4>Currency</h4>
+                    <h4><?=Yii::t('frontend','Currency')?></h4>
                     <i class="icon currency"></i>
                     <p>1<sub>usd</sub> = 480<sub>dr</sub></p>
                 </div>
             </div>
         </div>
+    </div>
+</section>
+<section class="turism-info-centers white-txt-block">
+    <div class="container">
+        <h2>Tourism Info Centers</h2>
+        <div class="line"></div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="main-item">
+                    <div class="black-57">
+                        <h3 class="title">Lorem Ipsum</h3>
+                        <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's Palace on September 16, 2017 which will host dozens of winemakers Artsakh and Armenia.Within the frames of the festival, exhibition fair of wine, agricultural products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition, concert, group excursions and other </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="item">
+                    <a href="#">
+                        <div class="img-block">
+                            <img src="img/dadivank-church.jpg" alt="Dadivank">
+                        </div>
+                        <div class="bottom-part">
+                            <h3>Stepanakert</h3>                     <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Aenean commo do, erat et malesuada ornare.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="item">
+                    <a href="#">
+                        <div class="img-block">
+                            <img src="img/dadivank-church.jpg" alt="Dadivank">
+                        </div>
+                        <div class="bottom-part">
+                            <h3>Stepanakert</h3>                     <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Aenean commo do, erat et malesuada ornare.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="item">
+                    <a href="#">
+                        <div class="img-block">
+                            <img src="img/dadivank-church.jpg" alt="Dadivank">
+                        </div>
+                        <div class="bottom-part">
+                            <h3>Stepanakert</h3>                     <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Aenean commo do, erat et malesuada ornare.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="item">
+                    <a href="#">
+                        <div class="img-block">
+                            <img src="img/dadivank-church.jpg" alt="Dadivank">
+                        </div>
+                        <div class="bottom-part">
+                            <h3>Stepanakert</h3>                     <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Aenean commo do, erat et malesuada ornare.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 <section class="events">
@@ -912,6 +1004,47 @@ use yii\helpers\Html;
         <div class="flex-center">
             <?= Html::a(Yii::t('frontend','all events'), ['/events'], ['class'=>'button-liner blue']) ?>
 
+        </div>
+    </div>
+</section>
+<section class="plan-your-trip">
+    <div class="container">
+        <h2>Plan Your Trip</h2>
+        <div class="line"></div>
+        <div class="item item-1">
+            <a href="#">
+                <div class="black-37">
+                    <h3>Lorem ipsum dolor sit </h3>
+                </div>
+            </a>
+        </div>
+        <div class="item item-2">
+            <a href="#">
+                <div class="black-37">
+                    <h3>Lorem ipsum dolor sit </h3>
+                </div>
+            </a>
+        </div>
+        <div class="item item-3">
+            <a href="#">
+                <div class="black-37">
+                    <h3>Lorem ipsum dolor sit </h3>
+                </div>
+            </a>
+        </div>
+        <div class="item item-4">
+            <a href="#">
+                <div class="black-37">
+                    <h3>Lorem ipsum dolor sit </h3>
+                </div>
+            </a>
+        </div>
+        <div class="item item-5">
+            <a href="#">
+                <div class="black-37">
+                    <h3>Lorem ipsum dolor sit </h3>
+                </div>
+            </a>
         </div>
     </div>
 </section>
