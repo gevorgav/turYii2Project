@@ -62,7 +62,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
 <!--                                </a>-->
                             </div>
                             <div class="calendar">
-                                <a href="#">
+                                <a href="/events">
                                     <i class="fa fa-calendar-o" aria-hidden="true"></i>
                                     Calendar
                                 </a>

@@ -12,7 +12,7 @@ $this->title = Yii::t('frontend', 'News list')
             </div>
         </div>
     </section>
-    <section class="project-items">
+    <section class="project-items news-listing">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
@@ -73,3 +73,4 @@ $this->title = Yii::t('frontend', 'News list')
             </div>
         </div>
     </section>
+    

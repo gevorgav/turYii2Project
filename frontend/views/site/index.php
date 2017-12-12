@@ -66,7 +66,7 @@ $this->registerJs(
         <h2>Latest news</h2>
         <div class="line"></div>
         <div class="col-xs-12 home-news-item">
-            <a href="#">
+            <a href="/news">
                 <div class="gradient-hr-56">
                     <h3 class="title">Artsakh Wine Fest</h3>
                     <h4 class="sub-title">18:30 September 02, 2017</h4>
