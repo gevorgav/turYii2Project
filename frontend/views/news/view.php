@@ -35,8 +35,10 @@ $this->registerMetaTag([
                     <i class="fa fa-clock-o" aria-hidden="true"></i>
                     <span><?= date("M d, Y", ($model->published_at))?></span>
                 </div>
-                <?php echo Html::img($model->thumbnail_base_url.'/' . $model->thumbnail_path,['width' => '100px', 'alt' => $model->getMultilingual('title', Yii::$app->language)]);?>
+                <div class="news-main-block">
+<!--                --><?php //echo Html::img($model->thumbnail_base_url.'/' . $model->thumbnail_path,['width' => '100px', 'alt' => $model->getMultilingual('title', Yii::$app->language)]);?>
                 <?= $model->getMultilingual('body', YII::$app->language);?>
+                </div>
             </div>
             <div class="col-md-4">
                 <div class="hr-line"></div>

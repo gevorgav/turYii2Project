@@ -15,7 +15,8 @@ use mihaildev\ckeditor\CKEditor;
 
 <div class="article-form">
     <script src="https://code.jquery.com/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css"/>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <?php $form = ActiveForm::begin(); ?>
 
@@ -24,10 +25,10 @@ use mihaildev\ckeditor\CKEditor;
         ->textInput(['maxlength' => true]) ?>
 
     <?php echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
-            $categories,
-            'id',
-            'title_en'
-        ), ['prompt'=>'']) ?>
+        $categories,
+        'id',
+        'title_en'
+    ), ['prompt' => '']) ?>
 
     <?php echo $form->field($model, 'thumbnail')->widget(
         Upload::className(),
@@ -130,19 +131,19 @@ use mihaildev\ckeditor\CKEditor;
                 </section>
             </div>
             <div id="menu7" class="tab-pane fade">
-                <?php echo $form->field($model, 'title_ar')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
-                <?php echo $form->field($model, 'short_description_ar')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
-                <?php echo $form->field($model, 'body_ar')->textArea(['dir'=>'rtl']) ?>
-                <?php echo $form->field($model, 'keywords_ar')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'title_ar')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
+                <?php echo $form->field($model, 'short_description_ar')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
+                <?php echo $form->field($model, 'body_ar')->textArea(['dir' => 'rtl']) ?>
+                <?php echo $form->field($model, 'keywords_ar')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
                 <section class="template-text" id="template_ar" lang="ar">
 
                 </section>
             </div>
             <div id="menu8" class="tab-pane fade">
-                <?php echo $form->field($model, 'title_fa')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
-                <?php echo $form->field($model, 'short_description_fa')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
-                <?php echo $form->field($model, 'body_fa')->textArea(['dir'=>'rtl']) ?>
-                <?php echo $form->field($model, 'keywords_fa')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true,'dir'=>'rtl']) ?>
+                <?php echo $form->field($model, 'title_fa')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
+                <?php echo $form->field($model, 'short_description_fa')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
+                <?php echo $form->field($model, 'body_fa')->textArea(['dir' => 'rtl']) ?>
+                <?php echo $form->field($model, 'keywords_fa')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
                 <section class="template-text" id="template_fa" lang="fa">
 
                 </section>
@@ -154,7 +155,7 @@ use mihaildev\ckeditor\CKEditor;
     <div class="form-group">
         <?php echo Html::submitButton(
             $model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'),
-            ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary','onclick' => 'updateForm()']) ?>
+            ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary', 'onclick' => 'updateForm()']) ?>
     </div>
     <div id="tmpButtons">
         <span class="btn" id="addTemplate1Id">Add tempalate</span>
@@ -186,16 +187,16 @@ use mihaildev\ckeditor\CKEditor;
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="save(this)" data-dismiss="modal">Send</button>
+                    <button type="button" class="btn btn-primary" onclick="save(this)" data-dismiss="modal">Send
+                    </button>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        debugger;
-        var lang = $(".active.in  [id^='article-body_']")[0].id.toString().slice($(".active.in  [id^='article-body_']")[0].id.indexOf("_")+1, $(".active.in  [id^='article-body_']")[0].id.length);
+        var lang = $(".active.in  [id^='article-body_']")[0].id.toString().slice($(".active.in  [id^='article-body_']")[0].id.indexOf("_") + 1, $(".active.in  [id^='article-body_']")[0].id.length);
         var id = <?= $model->id?>+'';
-        if(!!id){
+        if (!!id) {
             $("#tmpButtons").hide();
         }
         var root = document.getElementsByClassName("template-text")[0];
@@ -306,6 +307,7 @@ use mihaildev\ckeditor\CKEditor;
         var selectedImg = {};
         var imgElement = {};
         var list = [];
+        var deleteIconList = [];
         $(document).ready(function () {
             $("#myModal").on('show.bs.modal', function (event) {
                 imgElement = event.relatedTarget;
@@ -323,7 +325,7 @@ use mihaildev\ckeditor\CKEditor;
                 var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(template1);
                 root.append(deletes);
-
+                deleteIconList.push(deletes);
             });
             $("#addTemplate2Id").on('click', function (event) {
                 var template2 = parser.parseFromString(template2String, 'text/html');
@@ -331,6 +333,7 @@ use mihaildev\ckeditor\CKEditor;
                 var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(template2.body.firstChild);
                 root.append(deletes);
+                deleteIconList.push(deletes);
             });
             $("#addTemplate3Id").on('click', function (event) {
                 var template3 = parser.parseFromString(template3String, 'text/html');
@@ -338,6 +341,7 @@ use mihaildev\ckeditor\CKEditor;
                 var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(template3.body.firstChild);
                 root.append(deletes);
+                deleteIconList.push(deletes);
             });
             $("#addTemplate4Id").on('click', function (event) {
                 var template4 = parser.parseFromString(template4String, 'text/html');
@@ -345,6 +349,7 @@ use mihaildev\ckeditor\CKEditor;
                 var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(template4.body.firstChild);
                 root.append(deletes);
+                deleteIconList.push(deletes);
             });
             $("#addTemplate5Id").on('click', function (event) {
                 var template5 = parser.parseFromString(template5String, 'text/html');
@@ -352,23 +357,29 @@ use mihaildev\ckeditor\CKEditor;
                 var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(template5.body.firstChild);
                 root.append(deletes);
+                deleteIconList.push(deletes);
             });
         });
+
         function save() {
             imgElement.src = $(event.target.parentElement.parentElement).find('#src').val();
             imgElement.title = $(event.target.parentElement.parentElement).find('#title').val();
         }
 
-        function updateForm(){
-            $( "*[contenteditable*=true]" ).each(function (item, item2){
+        function updateForm() {
+            $("*[contenteditable*=true]").each(function (item, item2) {
                 $(item2).attr("contenteditable", false);
             });
-            $("[id^='article-body_']").each(function( index ) {
-                var ln = this.id.toString().slice(this.id.indexOf("_")+1, this.id.length);
+
+            deleteIconList.forEach(function (item) {
+                item.remove();
+            });
+            $("[id^='article-body_']").each(function (index) {
+                var ln = this.id.toString().slice(this.id.indexOf("_") + 1, this.id.length);
                 debugger;
-                if(!!id){
+                if (!!id) {
                     $("#article-body_" + ln).html($("#template_" + ln).html());
-                }else{
+                } else {
                     $("#article-body_" + ln).html($("#template_en").html());
                 }
             });
@@ -378,16 +389,17 @@ use mihaildev\ckeditor\CKEditor;
             el.previousSibling.remove();
             el.remove();
         }
-        $("[id^='article-body_']").each(function( index ) {
-            var ln = this.id.toString().slice(this.id.indexOf("_")+1, this.id.length);
+
+        $("[id^='article-body_']").each(function (index) {
+            var ln = this.id.toString().slice(this.id.indexOf("_") + 1, this.id.length);
             debugger;
-            if(!!id){
+            if (!!id) {
                 $("#template_" + ln).html($("#article-body_" + ln).text())
                 ;
             }
         });
-//        root.append(parser.parseFromString($("#bodyId").text(), 'text/html').body);
-        $( "*[contenteditable*=false]" ).each(function (item, item2){
+        //        root.append(parser.parseFromString($("#bodyId").text(), 'text/html').body);
+        $("*[contenteditable*=false]").each(function (item, item2) {
             $(item2).attr("contenteditable", true);
         });
 
