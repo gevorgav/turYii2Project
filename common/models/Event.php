@@ -163,20 +163,6 @@ class Event extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-//        return [
-//            [['slug', 'title_en', 'body_en', 'short_description_en', 'event_date_time','category_id'], 'required'],
-//            [['body_hy', 'body_en', 'body_ru', 'body_de', 'body_fr', 'body_es', 'body_ar', 'body_fa', 'agenda_hy', 'agenda_en', 'agenda_ru', 'agenda_de', 'agenda_fr', 'agenda_es', 'agenda_ar', 'agenda_fa'], 'string'],
-//            [['event_date_time', 'category_id', 'status', 'created_by', 'updated_by', 'published_at', 'created_at', 'updated_at'], 'integer'],
-//            [['ticket_price'], 'number'],
-//            [['isGallery'], 'boolean'],
-//            [['slug', 'video_link', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
-//            [['title_hy', 'title_en', 'title_ru', 'title_de', 'title_fr', 'title_es', 'title_ar', 'title_fa'], 'string', 'max' => 512],
-//            [['view'], 'string', 'max' => 255],
-//            [['short_description_hy', 'short_description_en', 'short_description_ru', 'short_description_de', 'short_description_fr', 'short_description_es', 'short_description_ar', 'short_description_fa'], 'string', 'max' => 250],
-//            [['location_name_hy', 'location_name_en', 'location_name_ru', 'location_name_de', 'location_name_fr', 'location_name_es', 'location_name_ar', 'location_name_fa', 'address_hy', 'address_en', 'address_ru', 'address_de', 'address_fr', 'address_es', 'address_ar', 'address_fa', 'type'], 'string', 'max' => 150],
-//            [['latitude', 'longitude'], 'string', 'max' => 20],
-//        ];
-
         return [
             [['title_en','body_en', 'short_description_en', 'event_date_time','category_id'], 'required'],
             [['slug'], 'unique'],

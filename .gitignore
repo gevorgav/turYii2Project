@@ -42,5 +42,5 @@ phpunit.phar
 
 # NPM packages
 /node_modules
-.EVN
+.evn
 storage/.quarantine/
