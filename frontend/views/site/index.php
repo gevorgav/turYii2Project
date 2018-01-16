@@ -39,6 +39,19 @@ $this->registerJs(
         ",
         View::POS_READY
     );
+    $this->registerJsFile(
+        '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js',
+        ['depends' => [\yii\web\JqueryAsset::className()]]
+    );
+
+    $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css", [
+        'depends' => [\yii\bootstrap\BootstrapAsset::className()],
+        'media' => 'print',
+    ], 'css-print-theme');
+    $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css", [
+        'depends' => [\yii\bootstrap\BootstrapAsset::className()],
+        'media' => 'print',
+    ], 'css-print-theme');
 
 ?>
 
@@ -50,17 +63,38 @@ $this->registerJs(
 //]) ?>
 
 
-<section class="slider">
-    <div class="black-57">
-        <div class="container">
-            <h2>Meliks <span>Palace</span></h2>
-            <h4>Togh</h4>
-            <p>State historical reserve "Togh Meliks Palace" is located in the central densely built-up centre of the village Togh. According to the inscription of builders carved above
-                the main entrance to the reception on the second floor, the palace was built in 1737 by the founder of Dizak melikate Melik Yegan.</p>
-            <button class="button-liner">read more</button>
+<div class="slick-slider">
+    <section class="slider">
+        <div class="black-57">
+            <div class="container">
+                <h2>Meliks <span>Palace</span></h2>
+                <h4>Togh</h4>
+                <p>State historical reserve "Togh Meliks Palace" is located in the central densely built-up centre of the village Togh. According to the inscription of builders carved above
+                    the main entrance to the reception on the second floor, the palace was built in 1737 by the founder of Dizak melikate Melik Yegan.</p>
+                <button class="button-liner">read more</button>
+            </div>
         </div>
+    </section>
+    <div>
+        <div class="info">
+            <h1 class="slider-heading">Heading</h1>
+            <p class="slider-subheading lead">Subheading</p>
+            <a class="btn btn-large btn-danger" href="">button text</a>
+            <p class="down-arrow">
+                <a class="btn btn-large btn-down-arrow" href="#theend">
+                    <i class="fa fa-chevron-down fa-lg" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+        <img class="img-fluid" src="http://www.placecage.com/1500/750" alt="">
     </div>
-</section>
+    <div>
+        <img class="img-fluid" src="http://www.placecage.com/1500/750" alt="">
+    </div>
+    <div>
+        <img class="img-fluid" src="http://www.placecage.com/1500/750" alt="">
+    </div>
+</div>
 <section class="grey-bg white-txt-block">
     <div class="container">
         <h2>Latest news</h2>
@@ -1059,3 +1093,21 @@ $this->registerJs(
         </div>
     </div>
 </section>
+<?php
+$this->registerJs(
+    "jQuery(function($){
+  $('.slick-slider').slick({
+    accessibility: true,
+    adaptiveHeight: true,
+    arrows: true,
+    infinite: true,
+    mobileFirst: true,
+    nextArrow: '<div class=\"chevron-container slick-right\"><i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i></span><span class=\"sr-only\">Next</span></div>',
+    prevArrow: '<div class=\"chevron-container\"><i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i></span><span class=\"sr-only\">Previous</span></div>',
+    slidesToShow: 1
+  });
+});
+",
+    View::POS_READY
+);
+?>
