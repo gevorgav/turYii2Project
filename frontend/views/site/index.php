@@ -1,5 +1,7 @@
 <?php
-/* @var $this yii\web\View */
+/* @var $this yii\web\View
+ * @var $slider common\models\Slider
+ */
 $this->title = Yii::$app->name;
 
 use yii\web\View;
@@ -64,36 +66,21 @@ $this->registerJs(
 
 
 <div class="slick-slider">
-    <section class="slider">
-        <div class="black-57">
-            <div class="container">
-                <h2>Meliks <span>Palace</span></h2>
-                <h4>Togh</h4>
-                <p>State historical reserve "Togh Meliks Palace" is located in the central densely built-up centre of the village Togh. According to the inscription of builders carved above
-                    the main entrance to the reception on the second floor, the palace was built in 1737 by the founder of Dizak melikate Melik Yegan.</p>
-                <button class="button-liner">read more</button>
+    <?php foreach ($sliders as $slider): ?>
+        <div>
+            <div class="info">
+                <h1 class="slider-heading"><?= $slider->getMultilingual('title', Yii::$app->language)?></h1>
+                <p class="slider-subheading lead"><?= $slider->getMultilingual('short_description', Yii::$app->language)?></p>
+                <?php echo Html::a( Yii::t('frontend', 'read more').'<i class="fa fa-angle-right" aria-hidden="true"></i>', [$slider->link],['class'=>'calendar-visit-event']) ?>
+                <p class="down-arrow">
+                    <a class="btn btn-large btn-down-arrow" href="#theend">
+                        <i class="fa fa-chevron-down fa-lg" aria-hidden="true"></i>
+                    </a>
+                </p>
             </div>
+            <?php echo Html::img($slider->thumbnail_base_url.'/' . $slider->thumbnail_path,['width' => '100px', 'alt' => $slider->getMultilingual('title', Yii::$app->language)]);?>
         </div>
-    </section>
-    <div>
-        <div class="info">
-            <h1 class="slider-heading">Heading</h1>
-            <p class="slider-subheading lead">Subheading</p>
-            <a class="btn btn-large btn-danger" href="">button text</a>
-            <p class="down-arrow">
-                <a class="btn btn-large btn-down-arrow" href="#theend">
-                    <i class="fa fa-chevron-down fa-lg" aria-hidden="true"></i>
-                </a>
-            </p>
-        </div>
-        <img class="img-fluid" src="http://www.placecage.com/1500/750" alt="">
-    </div>
-    <div>
-        <img class="img-fluid" src="http://www.placecage.com/1500/750" alt="">
-    </div>
-    <div>
-        <img class="img-fluid" src="http://www.placecage.com/1500/750" alt="">
-    </div>
+    <?php endforeach; ?>
 </div>
 <section class="grey-bg white-txt-block">
     <div class="container">

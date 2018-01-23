@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Slider;
 use Yii;
 use frontend\models\ContactForm;
 use yii\helpers\Html;
@@ -33,7 +34,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $sliders = Slider::find()->all();
+        return $this->render('index', ['sliders' => $sliders]);
     }
 
     public function actionContact()
