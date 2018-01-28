@@ -163,6 +163,10 @@ use mihaildev\ckeditor\CKEditor;
         <span class="btn" id="addTemplate3Id">Add tempalate 3</span>
         <span class="btn" id="addTemplate4Id">Add tempalate 4</span>
         <span class="btn" id="addTemplate5Id">Add tempalate 5</span>
+        <span class="btn" id="addTemplate6Id">Add photo</span>
+        <span class="btn" id="addTemplate7Id">Add text with Paragraph</span>
+        <span class="btn" id="addTemplate8Id">Add paragraph</span>
+        <span class="btn" id="addTemplate9Id">Add title</span>
     </div>
     <div class="clear"></div>
 
@@ -210,7 +214,7 @@ use mihaildev\ckeditor\CKEditor;
                                             </div>
                                             <div class="col-md-5 col-sm-6 com-xs-12">
                                                <div class="img-block">
-                                                   <img  data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://habrastorage.org/getpro/habr/post_images/c99/663/96d/c9966396d408953ac32e3aa0470b1e9e.jpg" alt="Hyunot">
+                                                   <img  data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://bltscottsdale.com/wp-content/themes/pashmina/images/blank.png" alt="Hyunot">
                                                </div>
                                             </div>
                                           </div>
@@ -228,7 +232,7 @@ use mihaildev\ckeditor\CKEditor;
                                             </div>
                                             <div class="col-md-offset-1 col-md-6 col-sm-6 col-xs-12">
                                                 <div class="img-block">
-                                                    <img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="http://storage.loc/source/1/tnjri.jpg" alt="Tnjri">
+                                                    <img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://bltscottsdale.com/wp-content/themes/pashmina/images/blank.png" alt="Tnjri">
                                                 </div>
                                             </div>
                                         </div>
@@ -249,7 +253,7 @@ use mihaildev\ckeditor\CKEditor;
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                 <div class="img-block">
-                                                    <img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="http://storage.loc/source/1/tnjri.jpg" alt="Tnjri">
+                                                    <img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://bltscottsdale.com/wp-content/themes/pashmina/images/blank.png" alt="Tnjri">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 right-text">
@@ -264,7 +268,7 @@ use mihaildev\ckeditor\CKEditor;
         var template4String = `<div class="template-5">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-sm-12">
+                                            <div class="col-sm-12" contenteditable="true">
                                                 <h2>История</h2>
                                             </div>
                                             <div class="col-md-6 col-sm-12"  contenteditable="true">
@@ -278,14 +282,14 @@ use mihaildev\ckeditor\CKEditor;
                                     </div>
                                     <div class="img-100p">
                                         <div class="img-block">
-                                            <img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="http://storage.loc/source/1/Melikatun.jpg" alt="Gandzasar">
+                                            <img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://bltscottsdale.com/wp-content/themes/pashmina/images/blank.png" alt="Gandzasar">
                                         </div>
                                     </div>
                                 </div>`;
         var template5String = `<div class="template-5">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-sm-12">
+                                            <div class="col-sm-12" contenteditable="true">
                                                 <h2>История</h2>
                                             </div>
                                             <div class="col-md-6 col-sm-12" contenteditable="true">
@@ -298,11 +302,60 @@ use mihaildev\ckeditor\CKEditor;
                                         </div>
                                         <div class="img-100p">
                                             <div class="img-block">
-                                                <img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="http://storage.loc/source/1/air-fest.jpg" alt="Gandzasar">
+                                                <img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://bltscottsdale.com/wp-content/themes/pashmina/images/blank.png" alt="Gandzasar">
                                             </div>
                                         </div>
                                     </div>
                                 </div>`;
+
+//        var template6String = `<img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://habrastorage.org/getpro/habr/post_images/c99/663/96d/c9966396d408953ac32e3aa0470b1e9e.jpg" alt="Hyunot">`;
+
+        var template6String = `<div class="template-4">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12" contenteditable="true">
+                                                <img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://habrastorage.org/getpro/habr/post_images/c99/663/96d/c9966396d408953ac32e3aa0470b1e9e.jpg" alt="Hyunot">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+        var template7String = `<div class="template-4">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12">
+                                                <p contentEditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, nean in est vulputate, semper leo vel, aenean in est vulputate, semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+        var template8String = `<div class="template-4">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12">
+                                                <div class="author-words">
+                                                    <i class="fa fa-quote-right" aria-hidden="true"></i>
+                                                    <p contentEditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+        var template9String = `<div class="template-4">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12">
+                                                <h2  contenteditable="true">Title</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+
+//        var template7String = `<p contentEditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, nean in est vulputate, semper leo vel, aenean in est vulputate, semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. </p>`;
+
+//        var template8String = `<div class="author-words">
+//                            <i class="fa fa-quote-right" aria-hidden="true"></i>
+//                            <p contentEditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci.</p>
+//                        </div>`;
 
         var selectedImg = {};
         var imgElement = {};
@@ -356,6 +409,39 @@ use mihaildev\ckeditor\CKEditor;
                 list.push(template5);
                 var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(template5.body.firstChild);
+                root.append(deletes);
+                deleteIconList.push(deletes);
+            });
+            $("#addTemplate6Id").on('click', function (event) {
+                var template6 = parser.parseFromString(template6String, 'text/html').body.firstChild;
+                list.push(template6);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
+                root.append(template6);//.body.firstChild
+                root.append(deletes);
+                deleteIconList.push(deletes);
+
+            });
+            $("#addTemplate7Id").on('click', function (event) {
+                var template7 = parser.parseFromString(template7String, 'text/html');
+                list.push(template7);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
+                root.append(template7.body.firstChild);
+                root.append(deletes);
+                deleteIconList.push(deletes);
+            });
+            $("#addTemplate8Id").on('click', function (event) {
+                var template8 = parser.parseFromString(template8String, 'text/html');
+                list.push(template8);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
+                root.append(template8.body.firstChild);
+                root.append(deletes);
+                deleteIconList.push(deletes);
+            });
+            $("#addTemplate9Id").on('click', function (event) {
+                var template9 = parser.parseFromString(template9String, 'text/html');
+                list.push(template9);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
+                root.append(template9.body.firstChild);
                 root.append(deletes);
                 deleteIconList.push(deletes);
             });

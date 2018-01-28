@@ -97,7 +97,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                                                 <div class="col-lg-offset-2 col-md-4 dropdown-links">
                                                     <div class="ul-item">
                                                         <ul>
-                                                            <li><a href="#">Republic of Artsakh</a></li>
+                                                            <li><a href="about/the-republic-of-artsakh">Republic of Artsakh</a></li>
                                                             <li><a href="#">From the Bronze age to Nowadays</a></li>
                                                             <li><a href="#">Geographic facts</a></li>
                                                             <li><a href="#">Religion</a></li>

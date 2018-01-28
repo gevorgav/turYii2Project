@@ -200,8 +200,6 @@ use pudinglabs\tagsinput\TagsinputWidget;
         <span class="btn" id="addTemplate1Id">Add tempalate</span>
         <span class="btn" id="addTemplate2Id">Add tempalate 2</span>
         <span class="btn" id="addTemplate3Id">Add tempalate 3</span>
-        <span class="btn" id="addTemplate4Id">Add tempalate 4</span>
-        <span class="btn" id="addTemplate5Id">Add tempalate 5</span>
     </div>
     <div class="clear"></div>
 
