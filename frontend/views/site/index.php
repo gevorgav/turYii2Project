@@ -10,20 +10,21 @@ use yii\helpers\Html;
 ?>
 
 <?php
+//var icon = 'http://openweathermap.org/img/w/'+ data['weather'][0]['icon']+'.png'; // TODO weather icons from openweathermap.org
 $this->registerJs(
     "
-            var currencyUrl = 'http://api.openweathermap.org/data/2.5/weather?q=shushi&units=metric&appid=13c158d43559008956fa5d3c0ca72303';
+            var weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=shushi&units=metric&appid=13c158d43559008956fa5d3c0ca72303';
             var contentType =\"application/x-www-form-urlencoded; charset=utf-8\";
              
             $.ajax({
-                 url:currencyUrl,
+                 url:weatherUrl,
                  type:\"GET\",
                  dataType:\"json\",   
                  contentType:contentType,    
                  success:function(data)
                  {
-                     var icon = 'http://openweathermap.org/img/w/'+ data['weather'][0]['icon']+'.png';
-                     $('#temp').text(data['main']['temp']);
+                     var icon = '/img/weather/png/'+ data['weather'][0]['icon']+'.png';
+                     $('#temp').text(parseInt(data['main']['temp']));
                      $('.info-block .black-57 .info-item .icon.wether').css( 'background-image','url('+icon+')');
                  }
                 });
