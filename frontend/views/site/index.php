@@ -68,17 +68,22 @@ $this->registerJs(
 
 <div class="slick-slider">
     <?php foreach ($sliders as $slider): ?>
-        <div>
-            <div class="info">
-                <h1 class="slider-heading"><?= $slider->getMultilingual('title', Yii::$app->language)?></h1>
-                <p class="slider-subheading lead"><?= $slider->getMultilingual('short_description', Yii::$app->language)?></p>
-                <?php echo Html::a( Yii::t('frontend', 'read more').'<i class="fa fa-angle-right" aria-hidden="true"></i>', [$slider->link],['class'=>'calendar-visit-event']) ?>
-                <p class="down-arrow">
-                    <a class="btn btn-large btn-down-arrow" href="#theend">
-                        <i class="fa fa-chevron-down fa-lg" aria-hidden="true"></i>
-                    </a>
-                </p>
-            </div>
+        <div class="">
+           <div class="container">               
+                <div class="info">
+                    <h1 class="slider-heading"><?= $slider->getMultilingual('title', Yii::$app->language)?></h1>
+                    <h4 class="slider-location">Togh</h4>
+                    <p class="slider-subheading lead"><?= $slider->getMultilingual('short_description', Yii::$app->language)?></p>                    
+                    <?php echo Html::a( Yii::t('frontend', 'read more').'', [$slider->link],['class'=>'button-liner calendar-visit-event']) ?>
+    <!--
+                    <p class="down-arrow">
+                        <a class="btn btn-large btn-down-arrow" href="#theend">
+                            <i class="fa fa-chevron-down fa-lg" aria-hidden="true"></i>
+                        </a>
+                    </p>
+    -->
+                </div>
+           </div>
             <?php echo Html::img($slider->thumbnail_base_url.'/' . $slider->thumbnail_path,['width' => '100px', 'alt' => $slider->getMultilingual('title', Yii::$app->language)]);?>
         </div>
     <?php endforeach; ?>
@@ -1084,8 +1089,11 @@ $this->registerJs(
 <?php
 $this->registerJs(
     "jQuery(function($){
+    
   $('.slick-slider').slick({
     accessibility: true,
+    autoplay: true,
+    autoplaySpeed: 5000, 
     adaptiveHeight: true,
     arrows: true,
     infinite: true,
