@@ -167,6 +167,7 @@ use mihaildev\ckeditor\CKEditor;
         <span class="btn" id="addTemplate7Id">Add text with Paragraph</span>
         <span class="btn" id="addTemplate8Id">Add paragraph</span>
         <span class="btn" id="addTemplate9Id">Add title</span>
+        <span class="btn" id="addTemplate10Id">Add text with Paragraph MD</span>
     </div>
     <div class="clear"></div>
 
@@ -209,10 +210,11 @@ use mihaildev\ckeditor\CKEditor;
                                     <div class="container">
                                        <div class="item">
                                           <div class="row">
-                                            <div class="col-md-7 col-sm-6 com-xs-12" contenteditable="true">
+                                            <div class="col-md-7 col-sm-12 com-xs-12" contenteditable="true">
+                                                <h2>Lorem ipsum dolor</h2>
                                                 <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui.Nullam consectetur sagittis ante vel vestibulum. </p>
                                             </div>
-                                            <div class="col-md-5 col-sm-6 com-xs-12">
+                                            <div class="col-md-5 col-sm-12 com-xs-12">
                                                <div class="img-block">
                                                    <img  data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://bltscottsdale.com/wp-content/themes/pashmina/images/blank.png" alt="Hyunot">
                                                </div>
@@ -243,7 +245,7 @@ use mihaildev\ckeditor\CKEditor;
                                     <div class="container">
                                         <div class="title-block">
                                             <div class="item"></div>
-                                            <div class="item">
+                                            <div class="item" contenteditable="true">
                                                 <h2>Lorem ipsum dolor sit amet</h2>
                                             </div>
                                             <div class="item">
@@ -314,7 +316,7 @@ use mihaildev\ckeditor\CKEditor;
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12" contenteditable="true">
-                                                <img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://habrastorage.org/getpro/habr/post_images/c99/663/96d/c9966396d408953ac32e3aa0470b1e9e.jpg" alt="Hyunot">
+                                                <img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://bltscottsdale.com/wp-content/themes/pashmina/images/blank.png" alt="Hyunot">
                                             </div>
                                         </div>
                                     </div>
@@ -345,6 +347,15 @@ use mihaildev\ckeditor\CKEditor;
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12">
                                                 <h2  contenteditable="true">Title</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+        var template10String = `<div class="template-4">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-2 col-sm-12">
+                                                <p contentEditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, nean in est vulputate, semper leo vel, aenean in est vulputate, semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. </p>
                                             </div>
                                         </div>
                                     </div>
@@ -442,6 +453,14 @@ use mihaildev\ckeditor\CKEditor;
                 list.push(template9);
                 var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(template9.body.firstChild);
+                root.append(deletes);
+                deleteIconList.push(deletes);
+            });
+            $("#addTemplate10Id").on('click', function (event) {
+                var template10 = parser.parseFromString(template10String, 'text/html');
+                list.push(template10);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
+                root.append(template10.body.firstChild);
                 root.append(deletes);
                 deleteIconList.push(deletes);
             });

@@ -82,7 +82,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span> 
                       </button>
-                      <a class="navbar-brand" href="#">
+                      <a class="navbar-brand" href="/">
                           <img src="/img/main-logo-01.svg" alt="Artsakh travel">
                       </a>
                     </div>
@@ -91,11 +91,11 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                         <li class="dropdown active">
                             <a href="#">About Artsakh</a>
                             <ul class="dropdown-menu">
-                                <li><a href="about/the-republic-of-artsakh">Republic of Artsakh</a></li>
-                                <li><a href="#">From the Bronze age to Nowadays</a></li>
-                                <li><a href="#">Geographic facts</a></li>
-                                <li><a href="#">Religion</a></li>
-                                <li><a href="#">National holidays and festivals</a> </li>
+                                <li><a href="/about/the-republic-of-artsakh">Republic of Artsakh</a></li>
+                                <li><a href="/about/from-the-bronze-ages-to-nowadays">From the Bronze age to Nowadays</a></li>
+                                <li><a href="/about/geographical-facts">Geographic facts</a></li>
+                                <li><a href="/about/religion">Religion</a></li>
+                                <li><a href="/about/national-holidays-and-festivals">National holidays and festivals</a> </li>
                                 <li><a href="#">Here we are</a></li>
                             </ul>
                         </li>
@@ -103,10 +103,10 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                             <a href="#">Discover</a>
                             <ul class="dropdown-menu">
                                 <li class=""><a href="/regions">Regions</a></li>
-                                <li class=""><a href="#">Culture</a></li>
-                                <li><a href="#">Cuisine</a></li>
-                                <li><a href="#">Carpets</a></li>
-                                <li><a href="#">Fancywork</a></li>
+                                <li class=""><a href="/discover/culture">Culture</a></li>
+                                <li><a href="/discover/cuisine">Cuisine</a></li>
+                                <li><a href="/discover/carpets">Carpets</a></li>
+                                <li><a href="/discover/fancywork">Fancywork</a></li>
                                 <li><a href="#">Karabakh horses</a> </li>
                                 <li><a href="#">Traces of Great Silk Route</a></li>
                                 <li><a href="#">Multicultural Artsakh</a></li>
@@ -184,7 +184,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                                                 <div class="col-lg-offset-2 col-md-4 dropdown-links">
                                                     <div class="ul-item">
                                                         <ul>
-                                                            <li><a href="about/the-republic-of-artsakh">Republic of Artsakh</a></li>
+                                                            <li><a href="/about/the-republic-of-artsakh">Republic of Artsakh</a></li>
                                                             <li><a href="#">From the Bronze age to Nowadays</a></li>
                                                             <li><a href="#">Geographic facts</a></li>
                                                             <li><a href="#">Religion</a></li>
