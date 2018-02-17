@@ -111,10 +111,10 @@ class Slider extends \yii\db\ActiveRecord
     }
 
     public function getMultilingual($multilingualField, $lang){
-        return $this->getMultilignualParams($multilingualField."_".$lang);
+        return $this->getMultilingualParams($multilingualField."_".$lang);
     }
 
-    private function getMultilignualParams($fieldLang){
+    private function getMultilingualParams($fieldLang){
         $arr = [
             'title_hy' => $this->title_hy,
             'title_en' => $this->title_en,
