@@ -6,6 +6,9 @@ use Yii;
 use frontend\models\ContactForm;
 use yii\helpers\Html;
 use yii\web\Controller;
+use common\models\Article;
+use common\models\ArticleCategory;
+use yii\data\ActiveDataProvider;
 
 /**
  * Site controller
@@ -25,17 +28,34 @@ class SiteController extends Controller
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null
             ],
-            'set-locale'=>[
-                'class'=>'common\actions\SetLocaleAction',
-                'locales'=>array_keys(Yii::$app->params['availableLocales'])
+            'set-locale' => [
+                'class' => 'common\actions\SetLocaleAction',
+                'locales' => array_keys(Yii::$app->params['availableLocales'])
             ]
         ];
     }
 
     public function actionIndex()
     {
+        //Article Regions
+        $categoryModelPYT = ArticleCategory::find()->andWhere(['slug' => 'plan-your-trip'])->one();
+        $query = Article::find()->where(['category_id' => $categoryModelPYT->id]);
+        $providerPYT = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+            'sort' => [
+                'defaultOrder' => ['created_at' => SORT_ASC]
+            ],
+        ]);
+        //Slider
         $sliders = Slider::find()->all();
-        return $this->render('index', ['sliders' => $sliders]);
+
+        return $this->render('index', [
+            'sliders' => $sliders,
+            'dataProviderPYT' => $providerPYT,
+            'categoryPYT' => $categoryModelPYT]);
     }
 
     public function actionContact()
@@ -44,14 +64,14 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($model->contact(Yii::$app->params['adminEmail'])) {
                 Yii::$app->getSession()->setFlash('alert', [
-                    'body'=>Yii::t('frontend', 'Thank you for contacting us. We will respond to you as soon as possible.'),
-                    'options'=>['class'=>'alert-success']
+                    'body' => Yii::t('frontend', 'Thank you for contacting us. We will respond to you as soon as possible.'),
+                    'options' => ['class' => 'alert-success']
                 ]);
                 return $this->refresh();
             } else {
                 Yii::$app->getSession()->setFlash('alert', [
-                    'body'=>\Yii::t('frontend', 'There was an error sending email.'),
-                    'options'=>['class'=>'alert-danger']
+                    'body' => \Yii::t('frontend', 'There was an error sending email.'),
+                    'options' => ['class' => 'alert-danger']
                 ]);
             }
         }
@@ -61,20 +81,21 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionSubscription(){
+    public function actionSubscription()
+    {
         $model = new \common\models\Subscription();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()){
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $email = Html::encode($model->email);
             $model->email = $email;
-            $model->addtime = (string) time();
+            $model->addtime = (string)time();
             if ($model->save()) {
                 Yii::$app->response->refresh();
-                echo "<p style='color:green'>".Yii::t('frontend', 'Subscribed!')."</p>";
+                echo "<p style='color:green'>" . Yii::t('frontend', 'Subscribed!') . "</p>";
                 exit;
             }
         } else {
-            if($model->errors['email'][0]) {
-                echo "<p style='color:red'>".$model->errors['email'][0]."!</p>";
+            if ($model->errors['email'][0]) {
+                echo "<p style='color:red'>" . $model->errors['email'][0] . "!</p>";
             }
         }
         exit;

@@ -1435,59 +1435,52 @@ input[type="text"] {
   overflow: hidden;
 }
 
-/* line 1238, ../sass/style.scss */
 .plan-your-trip {
   background: #f7f7f7;
 }
-/* line 1240, ../sass/style.scss */
-.plan-your-trip .item {
-  width: calc(20% - 15px);
+.plan-your-trip .plan-your-trip-items {
+  display: flex;
+  justify-content: space-between;
+}
+.plan-your-trip .plan-your-trip-items .item {
+  position: relative;
+  overflow: hidden;
   margin-left: 16px;
-  float: left;
-  height: 470px;
+  height: 450px;
   background-size: cover !important;
 }
-/* line 1246, ../sass/style.scss */
-.plan-your-trip .item .black-37 {
+.plan-your-trip .plan-your-trip-items .item:first-child {
+  margin-left: 0;
+}
+.plan-your-trip .plan-your-trip-items .item .black-37 {
   padding: 0 16px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-/* line 1251, ../sass/style.scss */
-.plan-your-trip .item .black-37:hover {
+.plan-your-trip .plan-your-trip-items .item .black-37:hover {
   background-color: rgba(0, 0, 0, 0.17);
 }
-/* line 1254, ../sass/style.scss */
-.plan-your-trip .item .black-37 h3 {
+.plan-your-trip .plan-your-trip-items .item .black-37 h3 {
   color: #fff !important;
   text-align: center;
   font-size: 24px;
   font-weight: 400;
   line-height: 28px;
 }
-/* line 1263, ../sass/style.scss */
-.plan-your-trip .item-1 {
-  background: url(../img/tnjri.jpg) no-repeat center;
-  margin-left: 0;
+.plan-your-trip .plan-your-trip-items .item .img-block {
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  overflow: hidden;
 }
-/* line 1267, ../sass/style.scss */
-.plan-your-trip .item-2 {
-  background: url(../img/Hyunot.JPG) no-repeat center;
+.plan-your-trip .plan-your-trip-items .item .img-block img {
+  height: 100%;
+  width: auto;
 }
-/* line 1270, ../sass/style.scss */
-.plan-your-trip .item-3 {
-  background: url(../img/dadivank-church.jpg) no-repeat center;
+.plan-your-trip .plan-your-trip-items .item a {
+  position: relative;
 }
-/* line 1273, ../sass/style.scss */
-.plan-your-trip .item-4 {
-  background: url(../img/air-fest.jpg) no-repeat center;
-}
-/* line 1276, ../sass/style.scss */
-.plan-your-trip .item-5 {
-  background: url(../img/wine-fest.jpg) no-repeat center;
-}
-
 /* line 1281, ../sass/style.scss */
 .project-items {
   background-color: #f7f7f7;
