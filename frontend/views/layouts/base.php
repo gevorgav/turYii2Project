@@ -336,7 +336,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
             <div class="blue-87">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3 footer-item">
+                        <div class="col-md-3 col-sm-12 footer-item">
                             <div class="footer-logo"></div>
                             <p>We would be more than happy to help you. Our team advisor are 24/7 at your service to help you.</p>
                             <div class="line"></div>
@@ -357,7 +357,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                                 <span>24/2 Lusavorich St - Stepanakert</span>
                             </div>
                         </div>
-                        <div class="col-md-3 footer-item">
+                        <div class="col-md-3 col-sm-12 footer-item">
                             <h3>Upcoming Events</h3>
                             <h4 class="pull-left">
                                 <div class="ellipsis">
@@ -386,7 +386,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                             <div class="clear"></div>
                             <p class="event-location">Location: Shoushi</p>
                         </div>
-                        <div class="col-md-3 footer-item">
+                        <div class="col-md-3 col-sm-12 footer-item">
                             <h3>Site Map</h3>
                             <ul class="first-list">
                                 <li>

@@ -30,7 +30,7 @@ $fs-under-title: 18px;
 /* title */ 
 $fs-slider-main: 64px;
 $fs-title1: 48px;
-$fs-title2: 36px;
+$fs-title2: 32px;
 $fs-title3: 28px;
 $fs-title4: 24px;
 $fs-title5: 20px;
@@ -66,7 +66,7 @@ h1 {
 
 h2 {
     font-size: $fs-title2;
-    line-height: 52px;
+    line-height: 36px;
 }
 
 h3 {
@@ -557,9 +557,9 @@ section.section-img {
 }
 
 .title {
-    font-size: $fs-title2;
+    font-size: $fs-title3;
     font-weight: 500;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .sub-title {
@@ -581,7 +581,7 @@ section.section-img {
 }
 
 section {
-    padding: 60px 0 100px;
+    padding: 60px 0;
     h2 {
         margin-bottom: 16px;
     }
@@ -805,7 +805,7 @@ section {
 
 
 h3, h4 {
-    line-height: 1;
+    line-height: 1.2;
     margin-bottom: 8px;
     .ellipsis {
         max-width: 220px;
@@ -952,7 +952,7 @@ footer {
 }
 
 .template {
-    height: 570px;
+    height: 380px;
     background: url(../img/dadivank-head.jpg) no-repeat top center;
     background-size: cover;
 }
@@ -963,7 +963,7 @@ footer {
 }
 
 .categories {
-    height: 380px;
+    height: 320px;
     background: url(../img/tatik.jpg) no-repeat center;    
 }
 
@@ -1040,6 +1040,10 @@ footer {
                 z-index: 1; 
                 transition: all 0.3s cubic-bezier(.25,.8,.25,1);
             }
+//            img {
+//                width: auto;
+//                height: 100%;
+//            }
         }        
     }    
 }
@@ -1237,45 +1241,52 @@ input[type="text"] {
 
 .plan-your-trip {
     background: #f7f7f7;
-    .item {
-        width: calc(20% - 15px);
-        margin-left: 16px;
-        float: left;
-        height: 470px;
-        background-size: cover !important;
-        .black-37 {
-            padding: 0 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            &:hover {
-                background-color: $black-17;
+    .plan-your-trip-items {
+        display: flex;
+        justify-content: space-between;         
+        .item {
+            height: 470px;
+            position: relative;
+            overflow: hidden;
+            margin-left: 16px;
+            width: 25%;
+            height: 450px;
+            background-size: cover !important;
+            flex-grow: 1 !important;
+            &:first-child {
+              margin-left: 0;
             }
-            h3 {
-                color: #fff !important;
-                text-align: center;
-                font-size: 24px;
-                font-weight: 400;
-                line-height: 28px;
+            a {
+              position: relative;
             }
-        }
-    }  
-    .item-1 {
-        background: url(../img/tnjri.jpg) no-repeat center;
-        margin-left: 0;
+            .black-37 {
+                padding: 0 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:hover {
+                    background-color: $black-17;
+                }
+                h3 {
+                    color: #fff !important;
+                    text-align: center;
+                    font-size: 24px;
+                    font-weight: 400;
+                    line-height: 28px;
+                }
+            }
+            .img-block {
+              position: absolute;
+              z-index: 0;
+              height: 100%;
+              overflow: hidden;
+                img {
+                    height: 100%;
+                    width: auto;    
+                }
+            }
+        } 
     }   
-    .item-2 {
-        background: url(../img/Hyunot.JPG) no-repeat center;
-    }   
-    .item-3 {
-        background: url(../img/dadivank-church.jpg) no-repeat center;
-    }   
-    .item-4 {
-        background: url(../img/air-fest.jpg) no-repeat center;
-    }   
-    .item-5 {
-        background: url(../img/wine-fest.jpg) no-repeat center;
-    }    
 }
 
 .project-items {
@@ -1476,14 +1487,14 @@ input[type="text"] {
 .template-1 {
     .item {   
         border-bottom: 1px solid #cccccc;
-        padding-bottom: 80px;
-        margin-top: 80px;
-        &:first-child {
-            margin-top: 0;
-        }
-        &:last-child {            
-            border-bottom: none;
-        }  
+        padding-bottom: 60px;
+        margin-top: 60px; 
+    } 
+    &:first-child .item {
+        margin-top: 0;
+    }
+    &:last-child .item {            
+        border-bottom: none;
     } 
 }
 
@@ -1821,8 +1832,255 @@ p + img {
 }
 
 
+.slick-slider {
+  position: relative;
+}
+
+.slick-slider img { /* keep images full screen */
+  width: 100%;
+}
+
+.chevron-container { /* full slider height container for chevrons */
+  height: 100%;
+  position: absolute;
+  width: 100px;
+}
+
+.slick-right { /* keeps right arrow to the right */
+  right: 0;
+  top: 0;
+}
+
+.chevron-container > .fa { /* positions chevrons in vertical center */
+  color: white;
+  font-size: 36px;
+  margin: auto;
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
+  top: calc(50% - 36px);
+  opacity: 0.3;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.chevron-container > .fa:hover {
+    opacity: 1;
+}
+
+.fa.fa-chevron-right {
+    right: 24px;
+}
+
+.fa.fa-chevron-left {
+    left: 24px;
+}
+
+.slick-slider .info {
+  color: #fff;
+  position: absolute;
+  text-align: left;
+  z-index: 10;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.slick-slider .info h1 {
+    line-height: 1;
+    font-weight: 500;
+    margin-bottom: 18px;
+}
+
+.slick-slider .info p {
+    max-width: 390px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 48px;
+}
+
+.slider-location {
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 24px;
+    font-size: 18px;
+}
+
+.slick-slider .info > div {
+  display: inline-block !important;
+  vertical-align: middle;
+}
+
+
+/* !!!!! SLICK !!!!!! */
+
+/* Slider */
+.slick-slider {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.slick-list.draggable {
+  height: 700px !important; 
+    background-color: #000;
+}
+
+.slick-list:focus {
+  outline: none;
+}
+
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+.slick-track:before,
+.slick-track:after {
+  display: table;
+  content: '';
+}
+
+.slick-track:after {
+  clear: both;
+}
+
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.slick-slide {
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px;
+}
+
+[dir='rtl'] .slick-slide {
+  float: right;
+}
+
+.slick-slide.slick-loading img {
+  display: none;
+}
+
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+  display: block;
+}
+
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+  display: none;
+}
+
+.slick-slide img {
+  display: block;
+  opacity: 0.57;
+}
+
+.slick-slide.slick-current.slick-active img {
+  animation-name: slider-img-animation;
+  animation-duration: 70s;
+  -ms-transform: scale(1); /* IE 9 */
+  -webkit-transform: scale(1); /* Safari */
+  transform: scale(1);  
+}
+
+/* Standard syntax */
+@keyframes slider-img-animation {
+    from {
+        -ms-transform: scale(1); /* IE 9 */
+        -webkit-transform: scale(1); /* Safari */
+        transform: scale(1);
+    }
+    to {
+        -ms-transform: scale(1.7); /* IE 9 */
+        -webkit-transform: scale(1.7); /* Safari */
+        transform: scale(1.7);
+    }
+}
+
+.field-subscription-email {
+    input {
+        height: 48px;
+    }
+    .help-block {
+        margin-top: 8px;
+    }
+}
+
+.has-error .help-block {
+    color: #fff;    
+}
+
+
 @media (max-width: 1200px) { 
-    
+    .events {
+        .event-item {
+            h3 {
+               font-size: 18px; 
+                .ellipsis {
+                    max-width: 190px;
+                }
+            }
+        }
+    } 
+    footer {
+        .blue-87 {
+            .first-list { 
+                display: none;
+            }
+        }
+    }
 }
 @media (max-width: 992px) { 
     .project-items {
@@ -1849,55 +2107,202 @@ p + img {
         background: #fff;
         left: 0;
         margin: 0;
-        top: 80px;
+        top: 7px;
         width: 100%;
         padding: 0 15px;
+        li .dropdown-menu-box {
+            top: 71px !important;
+        }
+    }
+    section {
+        .home-news-item {
+            height: 300px;
+            .gradient-hr-56 {
+                padding: 36px 36px 0;
+            }            
+        }
+    }
+    .home-activity {
+        .main-item {
+            margin-bottom: 30px;
+            height: 300px;
+            .text-block {
+                bottom: 48px !important;
+                p {
+                    max-width: 80%;
+                }
+            }
+        }    
+    }
+    .info-block {
+        background: url(../img/Hyunot.JPG) no-repeat center;
+        background-size: cover;
+        background-attachment: fixed;
+        .fullscreen-bg {
+            display: none;
+        }
+        .black-57 {
+            .info-item {
+                h4 {
+                    font-size: 28px;
+                }
+                .icon {
+                    height: 100px;
+                    width: 100px;
+                    margin: 24px auto;
+                }
+                p {
+                    font-size: 28px;
+                    span {
+                        font-size: 28px;
+                        sup {
+                            font-size: 18px;
+                            position: relative;
+                            top: -13px;
+                            margin: 0 3px 0 0px;
+                        }                         
+                    } 
+                    sub {
+                        font-size: 28px;
+                    }
+                }
+            }            
+        }
+    }
+    .turism-info-centers {
+        .main-item {
+            .black-57 {
+            padding: 60px 24px;
+            }
+        }
+        .item {
+            .img-block {
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+    .events {
+        .event-item {
+            margin-bottom: 30px;
+            h3 {
+               font-size: 24px; 
+                .ellipsis {
+                    max-width: 3250px;
+                }
+            }
+        }
+    }
+    .plan-your-trip {
+        display: none;
+    }
+    .footer-item:nth-child(2) {
+        display: none;
+    }
+    .footer-item:nth-child(3) {
+        display: none;
+    }
+    footer {
+        .blue-87 {
+            h3 {
+               margin: 36px 0 16px;  
+            }
+        } 
+    }
+    .slick-slide {
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            .info {
+                text-align: center;
+                align-items: center;
+                height: 580px;
+            }
+        }
+        img {
+            width: auto;
+            height: 100%;
+        }
+    }
+    .top-header {
+        display: none;
+    }
+    .chevron-container {
+        display: none !important;
+    }
+    .categories-section-1 .item-big {
+        height: 199px;
     }
 }
 
 
 @media (max-width: 768px) { 
     .project-items {
-            .item {   
-                height: auto;                
-                .item-img {
-                    height: 200px;
+        .item {   
+            height: auto;                
+            .item-img {
+                height: 200px;
+                width: 100%;
+                overflow: hidden;
+                padding: 0;
+                img {
+                    height: auto;
                     width: 100%;
-                    overflow: hidden;
-                    padding: 0;
-                    img {
-                        height: auto;
-                        width: 100%;
-                        display: inline-block;
-                        position: static;
-                        top: -10%;
-                    }
+                    display: inline-block;
+                    position: static;
+                    top: -10%;
                 }
-                .item-information {
-                    height: 167px;
-                    .calendar-mini-description {
-                        max-height: 40px;
-                    }
-                    h4 {
-                        max-width: 270px;
-                    }
-                    .item-type {
-                    }
-                    .date {
-                        right: 16px;
-                    }
-                    .add-date {  
-                        bottom: 20px;
-                    }
-                    p {
-                        width: 100%;
-                    }
-                    a {
-                        margin-top: 24px;
-                    }
+            }
+            .item-information {
+                height: 167px;
+                .calendar-mini-description {
+                    max-height: 40px;
+                }
+                h4 {
+                    max-width: 270px;
+                }
+                .item-type {
+                }
+                .date {
+                    right: 16px;
+                }
+                .add-date {  
+                    bottom: 20px;
+                }
+                p {
+                    width: 100%;
+                }
+                a {
+                    margin-top: 24px;
                 }
             }
         }
+    }
+    .info-block {
+        background: url(../img/Hyunot.JPG) no-repeat center;
+        background-size: cover;
+        background-attachment: fixed;
+        .black-57 {
+            .info-item  {
+                margin-bottom: 36px;
+            }
+        }
+    }
+    .turism-info-centers {
+        .item {
+            .img-block {
+                height: 240px;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+    
 }
 
 @media (max-width: 576px) {  }

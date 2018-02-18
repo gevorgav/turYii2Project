@@ -1253,11 +1253,11 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
 <?php
 $this->registerJs(
     "jQuery(function($){
-    
+
   $('.slick-slider').slick({
     accessibility: true,
     autoplay: true,
-    autoplaySpeed: 5000, 
+    autoplaySpeed: 5000,
     adaptiveHeight: true,
     arrows: true,
     infinite: true,

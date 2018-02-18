@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 ?>
-<div class="col-md-3 footer-item">
+<div class="col-md-3 col-sm-12 footer-item">
     <h3>Get our neewsletter</h3>
     <p>Enter your email address for our mailing list to keep yourself updated.</p>
     <div class="input-with-button">
@@ -21,8 +21,9 @@ use yii\widgets\Pjax;
             ],
         ]); ?>
         <?=$form->field($model, 'email')->textInput(['placeholder'=>'E-mail'])->label(false);?>
-        <?=Html::submitButton('Подписаться',  ['class' => 'submit btn btn-default']); ?>
+        <?=Html::submitButton('',  ['class' => 'submit btn btn-default']); ?>        
         <?php ActiveForm::end(); ?>
+<!--        <i class="material-icons">rss_feed</i>-->
         <?php Pjax::end(); ?>
         <div style="clear:both;"></div>
     </div>
