@@ -90,11 +90,14 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
         </div>
     <?php endIf?>
     <?php if ($configs->show_latest_news === 1 && $news):?>
-        <section class="grey-bg white-txt-block">
+    <section class="grey-bg white-txt-block">
         <div class="container">
             <h2><?=Yii::t('frontend', 'Latest news')?></h2>
             <div class="line"></div>
-            <div class="col-xs-12 home-news-item">
+            <div class="col-xs-12 home-news-item img-bg">
+                <div class="img-block">
+                   <img src="../img/news-item.jpg" alt="GETTING THERE">
+                </div>
                 <a href="/news">
                     <div class="gradient-hr-56">
                         <h3 class="title"><?= $news->getMultilingual('title', Yii::$app->language)?></h3>
@@ -113,53 +116,78 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                 <div class="line"></div>
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
-                        <a href="#">
-                            <div class="main-item">
-                                <div class="gradient-vr-56">
-                                    <div class="text-block">
-                                        <h3 class="title">Lorem Ipsum</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut mi et purus
-                                            auctor blandit non sit amet lectus. Praesent venenatis aliquet lacus.</p>
+                       <div class="img-bg">
+                            <div class="img-block">
+                               <img src="../img/Hyunot.JPG" alt="GETTING THERE">
+                            </div>
+                            <a href="#">
+                                <div class="main-item">
+                                    <div class="gradient-vr-56">
+                                        <div class="text-block">
+                                            <h3 class="title">Lorem Ipsum</h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut mi et purus
+                                                auctor blandit non sit amet lectus. Praesent venenatis aliquet lacus.</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <a href="#">
-                            <div class="item item-1">
-                                <div class="black-57">
-                                    <div class="activity-icon-1"></div>
-                                    <h4>Hiking</h4>
-                                </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 activity-sec-item">
+                       <div class="img-bg">
+                            <div class="img-block">
+                               <img src="../img/Hyunot.JPG" alt="GETTING THERE">
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item item-3">
-                                <div class="black-57">
-                                    <div class="activity-icon-3"></div>
-                                    <h4>Hunting</h4>
+                            <a href="#">
+                                <div class="item">
+                                    <div class="black-57">
+                                        <div class="activity-icon-1"></div>
+                                        <h4>Hiking</h4>
+                                    </div>
                                 </div>
+                            </a>
+                        </div>
+                       <div class="img-bg">
+                            <div class="img-block">
+                               <img src="../img/Hyunot.JPG" alt="GETTING THERE">
                             </div>
-                        </a>
+                            <a href="#">
+                                <div class="item">
+                                    <div class="black-57">
+                                        <div class="activity-icon-3"></div>
+                                        <h4>Hunting</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <a href="#">
-                            <div class="item item-2">
-                                <div class="black-57">
-                                    <div class="activity-icon-2"></div>
-                                    <h4>Flights above Artsakh</h4>
-                                </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 activity-sec-item">
+                       <div class="img-bg">
+                            <div class="img-block">
+                               <img src="../img/Hyunot.JPG" alt="GETTING THERE">
                             </div>
-                        </a>
-                        <a href="#">
-                            <div class="item item-4">
-                                <div class="black-57">
-                                    <div class="activity-icon-4"></div>
-                                    <h4>Mountain biking</h4>
+                            <a href="#">
+                                <div class="item">
+                                    <div class="black-57">
+                                        <div class="activity-icon-2"></div>
+                                        <h4>Flights above Artsakh</h4>
+                                    </div>
                                 </div>
+                            </a>
+                        </div>
+                        <div class="img-bg">
+                            <div class="img-block">
+                               <img src="../img/Hyunot.JPG" alt="GETTING THERE">
                             </div>
-                        </a>
+                            <a href="#">
+                                <div class="item">
+                                    <div class="black-57">
+                                        <div class="activity-icon-4"></div>
+                                        <h4>Mountain biking</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="flex-center">
@@ -1157,61 +1185,76 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                 <div class="line"></div>
                 <div class="row">
                     <div class="col-md-4 col-xs-12">
-                        <div class="event-item item-1">
-                            <div class="black-57">
-                                <h3 class="pull-left">
-                                    <div class="ellipsis">Wine Festival</div>
-                                </h3>
-                                <h3 class="pull-right date">16 sep</h3>
-                                <div class="clear"></div>
-                                <p class="event-location">Location: Togh</p>
-                                <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's
-                                    Palace on September 16, 2017 which will host dozens of winemakers Artsakh and
-                                    Armenia.Within the frames of the festival, exhibition fair of wine, agricultural
-                                    products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition,
-                                    concert, group excursions and other activities...</p>
-                                <div class="flex-center">
-                                    <a href="#">visit event</a>
+                        <div class="event-item">
+                           <div class="img-bg">
+                                <div class="img-block">
+                                   <img src="../img/wine-fest.jpg" alt="GETTING THERE">
+                                </div>
+                                <div class="black-57">
+                                    <h3 class="pull-left">
+                                        <div class="ellipsis">Wine Festival</div>
+                                    </h3>
+                                    <h3 class="pull-right date">16 sep</h3>
+                                    <div class="clear"></div>
+                                    <p class="event-location">Location: Togh</p>
+                                    <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's
+                                        Palace on September 16, 2017 which will host dozens of winemakers Artsakh and
+                                        Armenia.Within the frames of the festival, exhibition fair of wine, agricultural
+                                        products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition,
+                                        concert, group excursions and other activities...</p>
+                                    <div class="flex-center">
+                                        <a href="#">visit event</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4 col-xs-12">
-                        <div class="event-item item-2">
-                            <div class="black-57">
-                                <h3 class="pull-left">
-                                    <div class="ellipsis">Air Fest</div>
-                                </h3>
-                                <h3 class="pull-right date">17 jun</h3>
-                                <div class="clear"></div>
-                                <p class="event-location">Location: Stepanakert</p>
-                                <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's
-                                    Palace on September 16, 2017 which will host dozens of winemakers Artsakh and
-                                    Armenia.Within the frames of the festival, exhibition fair of wine, agricultural
-                                    products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition,
-                                    concert, group excursions and other activities...</p>
-                                <div class="flex-center">
-                                    <a href="#">visit event</a>
+                        <div class="event-item">
+                           <div class="img-bg">
+                                <div class="img-block">
+                                   <img src="../img/air-fest.jpg" alt="GETTING THERE">
+                                </div>
+                                <div class="black-57">
+                                    <h3 class="pull-left">
+                                        <div class="ellipsis">Air Fest</div>
+                                    </h3>
+                                    <h3 class="pull-right date">17 jun</h3>
+                                    <div class="clear"></div>
+                                    <p class="event-location">Location: Stepanakert</p>
+                                    <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's
+                                        Palace on September 16, 2017 which will host dozens of winemakers Artsakh and
+                                        Armenia.Within the frames of the festival, exhibition fair of wine, agricultural
+                                        products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition,
+                                        concert, group excursions and other activities...</p>
+                                    <div class="flex-center">
+                                        <a href="#">visit event</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4 col-xs-12">
-                        <div class="event-item item-3">
-                            <div class="black-57">
-                                <h3 class="pull-left">
-                                    <div class="ellipsis">Sculpturers Sympozium</div>
-                                </h3>
-                                <h3 class="pull-right date">8 may</h3>
-                                <div class="clear"></div>
-                                <p class="event-location">Location: Shoushi</p>
-                                <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's
-                                    Palace on September 16, 2017 which will host dozens of winemakers Artsakh and
-                                    Armenia.Within the frames of the festival, exhibition fair of wine, agricultural
-                                    products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition,
-                                    concert, group excursions and other activities...</p>
-                                <div class="flex-center">
-                                    <a href="#">visit event</a>
+                        <div class="event-item">
+                           <div class="img-bg">
+                                <div class="img-block">
+                                   <img src="../img/sculpturers-sympozium.JPG" alt="GETTING THERE">
+                                </div>
+                                <div class="black-57">
+                                    <h3 class="pull-left">
+                                        <div class="ellipsis">Sculpturers Sympozium</div>
+                                    </h3>
+                                    <h3 class="pull-right date">8 may</h3>
+                                    <div class="clear"></div>
+                                    <p class="event-location">Location: Shoushi</p>
+                                    <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's
+                                        Palace on September 16, 2017 which will host dozens of winemakers Artsakh and
+                                        Armenia.Within the frames of the festival, exhibition fair of wine, agricultural
+                                        products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition,
+                                        concert, group excursions and other activities...</p>
+                                    <div class="flex-center">
+                                        <a href="#">visit event</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

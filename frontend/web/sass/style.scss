@@ -587,8 +587,6 @@ section {
     }
     .home-news-item {
         padding: 0;
-        background: url(../img/news-item.jpg) no-repeat center;
-        background-size: cover;
         position: relative;
         overflow: hidden;
         .gradient-hr-56 {
@@ -603,10 +601,14 @@ section {
 
 .home-activity {
     background-color: #fff;
+    .img-bg a {
+        position: static;
+    }
+    .activity-sec-item .img-bg a {
+        position: relative;
+    }
     .main-item {
         height: 556px;
-        background: url(../img/Hyunot.JPG) no-repeat center;
-        background-size: cover;
         position: relativel;
         .gradient-vr-56 {
             padding: 0 24px;            
@@ -628,23 +630,7 @@ section {
             text-align: center;
             color: #fff;
         }
-    }    
-    .item-1 {
-        background: url(../img/Activities-Hiking.jpg) no-repeat center;            
-        background-size: cover;
     } 
-    .item-2 {
-        background: url(../img/Activities-flights-above-artsakh.jpg) no-repeat center; 
-        background-size: cover;
-    } 
-    .item-3 {
-        background: url(../img/Activities-Hunting.jpg) no-repeat center;            
-        background-size: cover;
-    } 
-    .item-4 {
-        background: url(../img/Activities-Mountain-biking.jpg) no-repeat center;            
-        background-size: cover;
-    }
     .button-liner {
         margin-top: 18px;
     }
@@ -768,6 +754,15 @@ section {
             padding: 32px 16px;
             bottom: 0;
         }
+        .img-bg {
+            height: 100%;
+            .img-block {
+                img {
+                    width: auto;
+                    height: 100%;
+                }
+            }
+        }
         .black-57 {
             padding: 16px 16px;
             position: relative;            
@@ -791,15 +786,6 @@ section {
             font-weight: 500;
             
         }
-    }
-    .event-item.item-1 {
-        background: url(../img/wine-fest.jpg) no-repeat center;
-    }
-    .event-item.item-2 {
-        background: url(../img/air-fest.jpg) no-repeat center;
-    }
-    .event-item.item-3 {
-        background: url(../img/sculpturers-sympozium.JPG) no-repeat center;
     }
 }
 
@@ -2062,6 +2048,19 @@ p + img {
     color: #fff;    
 }
 
+
+.img-bg {
+    position: relative;
+    .img-block {
+        position: absolute;
+        z-index: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+    a {
+        position: relative;
+    }
+}
 
 @media (max-width: 1200px) { 
     .events {
