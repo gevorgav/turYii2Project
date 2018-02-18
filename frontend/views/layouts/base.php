@@ -11,7 +11,7 @@ use \common\widgets\PceuropaMenu;
 $this->beginContent('@frontend/views/layouts/_clear.php')
 ?>
     <header>
-        <div class="top-header">
+        <div class="top-header hidden-xs">
             <div class="black-87">
                 <div class="container">
                     <div class="row">
@@ -73,6 +73,93 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
             </div>
         </div>
         <div class="bottom-header">
+            <nav class="navbar navbar-default">
+              <div class="container">
+                 <div class="menu-block">
+                    <div class="navbar-header hidden-sm">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> 
+                      </button>
+                      <a class="navbar-brand" href="#">
+                          <img src="/img/main-logo-01.svg" alt="Artsakh travel">
+                      </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                      <ul class="nav navbar-nav">
+                        <li class="dropdown active">
+                            <a href="#">About Artsakh</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="about/the-republic-of-artsakh">Republic of Artsakh</a></li>
+                                <li><a href="#">From the Bronze age to Nowadays</a></li>
+                                <li><a href="#">Geographic facts</a></li>
+                                <li><a href="#">Religion</a></li>
+                                <li><a href="#">National holidays and festivals</a> </li>
+                                <li><a href="#">Here we are</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Discover</a>
+                            <ul class="dropdown-menu">
+                                <li class=""><a href="/regions">Regions</a></li>
+                                <li class=""><a href="#">Culture</a></li>
+                                <li><a href="#">Cuisine</a></li>
+                                <li><a href="#">Carpets</a></li>
+                                <li><a href="#">Fancywork</a></li>
+                                <li><a href="#">Karabakh horses</a> </li>
+                                <li><a href="#">Traces of Great Silk Route</a></li>
+                                <li><a href="#">Multicultural Artsakh</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Travel routes</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">On your way to Stepanakert</a></li>
+                                <li><a href="#">Southern travel route</a></li>
+                                <li><a href="#">Northern Travel route</a></li>
+                                <li><a href="#">Stepanakert-Martakert highway</a></li>
+                                <li><a href="#">Stepanakert-Martuni highway</a> </li>
+                            </ul>
+                        </li> 
+                        <li class="dropdown">
+                            <a href="#">Plan your trip</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Getting there</a></li>
+                                <li><a href="#">Entry formalities</a></li>
+                                <li><a href="#">Acommodation</a></li>
+                                <li><a href="#">First trip</a></li>
+                                <li><a href="#">Useful information</a> </li>
+                                <li><a href="#">Find me a guide</a></li>
+                                <li><a href="#">Touroperators</a></li>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Transportation companies</a></li>
+                            </ul>
+                        </li> 
+                        <li class="dropdown">
+                            <a href="#">Things to do</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Cafes and Restaurants</a></li>
+                                <li><a href="#">Museums and Theatres</a></li>
+                                <li><a href="#">Cultural sightseeing</a></li>
+                                <li><a href="#">Archaeological sightseeing</a></li>
+                                <li><a href="#">Ecotourism</a> </li>
+                                <li><a href="#">Adventures</a></li>
+                                <li><a href="#">Piligrimage</a></li>
+                                <li><a href="#">Hunting and Fishing</a></li>
+                                <li><a href="#">Historical-military tourism</a></li>
+                                <li><a href="#">Shopping</a></li>
+                            </ul>
+                        </li> 
+                      </ul>
+                    </div>
+                    <div class="search hidden-sm hidden-xs">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+                 </div>
+              </div>
+            </nav>
+<!--
             <nav class="navbar navbar-default">
                 <div class="container">
                     <div class="menu-block">
@@ -295,6 +382,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                     </div>
                 </div>
             </nav>
+-->
         </div>
     </header>
 
