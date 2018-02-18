@@ -1,7 +1,6 @@
 <?php
 namespace frontend\controllers;
 
-use common\models\Slider;
 use Yii;
 use frontend\models\ContactForm;
 use yii\helpers\Html;
@@ -9,6 +8,9 @@ use yii\web\Controller;
 use common\models\Article;
 use common\models\ArticleCategory;
 use yii\data\ActiveDataProvider;
+use common\models\HomePageConfigs;
+use common\models\Slider;
+use common\models\News;
 
 /**
  * Site controller
@@ -52,10 +54,21 @@ class SiteController extends Controller
         //Slider
         $sliders = Slider::find()->all();
 
+        //Home page configs
+        $configs = HomePageConfigs::find()->one();
+
+        //Find Latest news by config
+        $news = News::find()->where(['slug' => $configs->latest_news_slug])->one();
+        if (!$news){
+            $configs->show_latest_news = 0;
+        }
+
         return $this->render('index', [
             'sliders' => $sliders,
             'dataProviderPYT' => $providerPYT,
-            'categoryPYT' => $categoryModelPYT]);
+            'categoryPYT' => $categoryModelPYT,
+            'configs' => $configs,
+            'news' => $news]);
     }
 
     public function actionContact()

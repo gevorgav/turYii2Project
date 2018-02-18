@@ -152,7 +152,7 @@ $bundle = BackendAsset::register($this);
                         'options' => ['class' => 'treeview'],
                         'items' => [
                             ['label' => Yii::t('backend', 'Static pages'), 'url' => ['/page/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
-                            ['label' => Yii::t('backend', 'General Config'), 'url' => ['#'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                            ['label' => Yii::t('backend', 'General Config'), 'url' => ['/configs/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'Slider'), 'url' => ['/slider/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'Articles'), 'url' => ['/article/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'Article Categories'), 'url' => ['/article-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
