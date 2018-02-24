@@ -42,7 +42,7 @@ class EventController extends Controller
         $nextModel = Event::find()->published()->andWhere(['>', '{{%event}}.event_date_time', $model->event_date_time] )->orderBy('{{%event}}.event_date_time')->one();
         $upcoming = Event::find()
             ->published()
-            ->andWhere(['>', '{{%event}}.event_date_time', $model->event_date_time] )
+            ->andWhere(['>', '{{%event}}.event_date_time',time()] )
             ->orderBy('{{%event}}.event_date_time')
             ->limit(3)
             ->all();

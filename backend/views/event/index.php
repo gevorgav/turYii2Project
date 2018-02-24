@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     Yii::t('backend', 'Published')
                 ]
             ],
-            'published_at:datetime',
+            'event_date_time:datetime',
             'created_at:datetime',
 
             // 'updated_at',

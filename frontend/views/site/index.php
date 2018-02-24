@@ -1,12 +1,13 @@
 <?php
 /* @var $this yii\web\View
  * @var $slider common\models\Slider
+ * @var $upcoming common\models\Event
+ * @var $configs common\models\HomePageConfigs
  */
 $this->title = Yii::$app->name;
 
 use yii\web\View;
 use yii\helpers\Html;
-
 ?>
 
 <?php
@@ -1070,7 +1071,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                 <div class="container">
                     <div class="col-sm-4 col-xs-12">
                         <div class="info-item">
-                            <h4><?= Yii::$app->formatter->asDate('now', 'php:l') ?></h4>
+                            <h4><?= Yii::$app->formatter->asDate('now', 'php:l')?></h4>
                             <i class="icon wether"></i>
                             <p>
                                 <sd id="temp">11</sd>
@@ -1181,84 +1182,82 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
     <?php if ($configs->show_events === 1):?>
         <section class="events">
             <div class="container">
-                <h2>Events</h2>
+                <h2><?=Yii::t('frontend', 'Events')?></h2>
                 <div class="line"></div>
                 <div class="row">
-                    <div class="col-md-4 col-xs-12">
-                        <div class="event-item">
-                           <div class="img-bg">
-                                <div class="img-block">
-                                   <img src="../img/wine-fest.jpg" alt="GETTING THERE">
-                                </div>
-                                <div class="black-57">
-                                    <h3 class="pull-left">
-                                        <div class="ellipsis">Wine Festival</div>
-                                    </h3>
-                                    <h3 class="pull-right date">16 sep</h3>
-                                    <div class="clear"></div>
-                                    <p class="event-location">Location: Togh</p>
-                                    <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's
-                                        Palace on September 16, 2017 which will host dozens of winemakers Artsakh and
-                                        Armenia.Within the frames of the festival, exhibition fair of wine, agricultural
-                                        products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition,
-                                        concert, group excursions and other activities...</p>
-                                    <div class="flex-center">
-                                        <a href="#">visit event</a>
+                    <?php foreach ($upcoming as $key => $item): ?>
+                        <div class="col-md-4 col-xs-12">
+                            <div class="event-item">
+                               <div class="img-bg">
+                                    <div class="img-block">
+                                       <img src="<?=$item->thumbnail_base_url.'/' . $item->thumbnail_path?>" alt="<?= $item->getMultilingual('title', YII::$app->language)?>">
+                                    </div>
+                                    <div class="black-57">
+                                        <h3 class="pull-left">
+                                            <div class="ellipsis"><?= $item->getMultilingual('title', YII::$app->language)?></div>
+                                        </h3>
+                                        <h3 class="pull-right date"><?php echo Yii::$app->formatter->asDate($item->event_date_time, "d MMM") ?></h3>
+                                        <div class="clear"></div>
+                                        <p class="event-location"><?= Yii::t('frontend', 'Location').': '.$item->getMultilingual('location_name', YII::$app->language)?></p>
+                                        <p><?=$item->getMultilingual('short_description', YII::$app->language)?></p>
+                                        <div class="flex-center">
+                                            <?php echo Html::a( Yii::t('frontend', 'VISIT EVENT'), ['/events/'.$item->slug],['class'=>'calendar-visit-event']) ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <div class="event-item">
-                           <div class="img-bg">
-                                <div class="img-block">
-                                   <img src="../img/air-fest.jpg" alt="GETTING THERE">
-                                </div>
-                                <div class="black-57">
-                                    <h3 class="pull-left">
-                                        <div class="ellipsis">Air Fest</div>
-                                    </h3>
-                                    <h3 class="pull-right date">17 jun</h3>
-                                    <div class="clear"></div>
-                                    <p class="event-location">Location: Stepanakert</p>
-                                    <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's
-                                        Palace on September 16, 2017 which will host dozens of winemakers Artsakh and
-                                        Armenia.Within the frames of the festival, exhibition fair of wine, agricultural
-                                        products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition,
-                                        concert, group excursions and other activities...</p>
-                                    <div class="flex-center">
-                                        <a href="#">visit event</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <div class="event-item">
-                           <div class="img-bg">
-                                <div class="img-block">
-                                   <img src="../img/sculpturers-sympozium.JPG" alt="GETTING THERE">
-                                </div>
-                                <div class="black-57">
-                                    <h3 class="pull-left">
-                                        <div class="ellipsis">Sculpturers Sympozium</div>
-                                    </h3>
-                                    <h3 class="pull-right date">8 may</h3>
-                                    <div class="clear"></div>
-                                    <p class="event-location">Location: Shoushi</p>
-                                    <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's
-                                        Palace on September 16, 2017 which will host dozens of winemakers Artsakh and
-                                        Armenia.Within the frames of the festival, exhibition fair of wine, agricultural
-                                        products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition,
-                                        concert, group excursions and other activities...</p>
-                                    <div class="flex-center">
-                                        <a href="#">visit event</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!--                        <div class="col-md-4 col-xs-12">-->
+<!--                            <div class="event-item">-->
+<!--                               <div class="img-bg">-->
+<!--                                    <div class="img-block">-->
+<!--                                       <img src="../img/air-fest.jpg" alt="GETTING THERE">-->
+<!--                                    </div>-->
+<!--                                    <div class="black-57">-->
+<!--                                        <h3 class="pull-left">-->
+<!--                                            <div class="ellipsis">Air Fest</div>-->
+<!--                                        </h3>-->
+<!--                                        <h3 class="pull-right date">17 jun</h3>-->
+<!--                                        <div class="clear"></div>-->
+<!--                                        <p class="event-location">Location: Stepanakert</p>-->
+<!--                                        <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's-->
+<!--                                            Palace on September 16, 2017 which will host dozens of winemakers Artsakh and-->
+<!--                                            Armenia.Within the frames of the festival, exhibition fair of wine, agricultural-->
+<!--                                            products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition,-->
+<!--                                            concert, group excursions and other activities...</p>-->
+<!--                                        <div class="flex-center">-->
+<!--                                            <a href="#">visit event</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-4 col-xs-12">-->
+<!--                            <div class="event-item">-->
+<!--                               <div class="img-bg">-->
+<!--                                    <div class="img-block">-->
+<!--                                       <img src="../img/sculpturers-sympozium.JPG" alt="GETTING THERE">-->
+<!--                                    </div>-->
+<!--                                    <div class="black-57">-->
+<!--                                        <h3 class="pull-left">-->
+<!--                                            <div class="ellipsis">Sculpturers Sympozium</div>-->
+<!--                                        </h3>-->
+<!--                                        <h3 class="pull-right date">8 may</h3>-->
+<!--                                        <div class="clear"></div>-->
+<!--                                        <p class="event-location">Location: Shoushi</p>-->
+<!--                                        <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's-->
+<!--                                            Palace on September 16, 2017 which will host dozens of winemakers Artsakh and-->
+<!--                                            Armenia.Within the frames of the festival, exhibition fair of wine, agricultural-->
+<!--                                            products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition,-->
+<!--                                            concert, group excursions and other activities...</p>-->
+<!--                                        <div class="flex-center">-->
+<!--                                            <a href="#">visit event</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                    <?php endforeach;?>
                 </div>
                 <div class="flex-center">
                     <?= Html::a(Yii::t('frontend', 'all events'), ['/events'], ['class' => 'button-liner blue']) ?>

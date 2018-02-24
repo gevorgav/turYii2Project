@@ -134,7 +134,7 @@ View::POS_READY
         <h2><?= Yii::t('frontend', 'Upcoming Events')?></h2>
         <div class="line"></div>
         <div class="row">
-            <?php foreach ($upcoming as $key => $item){ ?>
+            <?php foreach ($upcoming as $key => $item): ?>
                 <div class="col-md-4 col-xs-12">
                     <div class="event-item" style="background: url(<?=$item->thumbnail_base_url.'/' . $item->thumbnail_path?>) no-repeat center;">
                         <div class="black-57">
@@ -151,7 +151,7 @@ View::POS_READY
                         </div>
                     </div>
                 </div>
-            <?php }?>
+            <?php endforeach;?>
         </div>
         <div class="flex-center">
             <?= Html::a(Yii::t('frontend','all events'), ['/events'], ['class'=>'button-liner blue']) ?>

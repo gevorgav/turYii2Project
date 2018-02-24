@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Event;
 use Yii;
 use frontend\models\ContactForm;
 use yii\helpers\Html;
@@ -39,6 +40,14 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        //Events Section
+        $upcoming = Event::find()
+            ->published()
+            ->andWhere(['>', '{{%event}}.event_date_time',time()] )
+            ->orderBy('{{%event}}.event_date_time')
+            ->limit(3)
+            ->all();
+
         //Article Regions
         $categoryModelPYT = ArticleCategory::find()->andWhere(['slug' => 'plan-your-trip'])->one();
         $query = Article::find()->where(['category_id' => $categoryModelPYT->id]);
@@ -51,6 +60,7 @@ class SiteController extends Controller
                 'defaultOrder' => ['created_at' => SORT_ASC]
             ],
         ]);
+
         //Slider
         $sliders = Slider::find()->all();
 
@@ -68,7 +78,8 @@ class SiteController extends Controller
             'dataProviderPYT' => $providerPYT,
             'categoryPYT' => $categoryModelPYT,
             'configs' => $configs,
-            'news' => $news]);
+            'news' => $news,
+            'upcoming'=>$upcoming]);
     }
 
     public function actionContact()

@@ -33,9 +33,9 @@ use yii\web\View;
 
     <?php echo $form->field($model, 'ticket_price')->textInput(['maxlength' => true]) ?>
 
-    <?php echo $form->field($model, 'latitude')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'latitude')->hiddenInput(['maxlength' => true])->label(false) ?>
 
-    <?php echo $form->field($model, 'longitude')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'longitude')->hiddenInput(['maxlength' => true])->label(false) ?>
 
     <?php echo $form->field($model, 'video_link')->textInput(['maxlength' => true]) ?>
 

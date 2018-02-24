@@ -23,6 +23,9 @@ use yii\db\ActiveRecord;
 * @property integer $show_plan_your_trip
 */
 
+/**
+ * @property mixed show_info_centers
+ */
 class HomePageConfigs extends ActiveRecord
 {
     /**
