@@ -80,6 +80,11 @@ class Article extends ActiveRecord
     public $thumbnail;
 
     /**
+     * @var array
+     */
+    public $preview;
+
+    /**
      * @inheritdoc
      */
     public static function tableName()
@@ -125,6 +130,12 @@ class Article extends ActiveRecord
                 'attribute' => 'thumbnail',
                 'pathAttribute' => 'thumbnail_path',
                 'baseUrlAttribute' => 'thumbnail_base_url'
+            ],
+            [
+                'class' => UploadBehavior::className(),
+                'attribute' => 'preview',
+                'pathAttribute' => 'preview_path',
+                'baseUrlAttribute' => 'preview_base_url'
             ]
         ];
     }
@@ -147,9 +158,9 @@ class Article extends ActiveRecord
             [['published_at'], 'filter', 'filter' => 'strtotime', 'skipOnEmpty' => true],
             [['category_id'], 'exist', 'targetClass' => ArticleCategory::className(), 'targetAttribute' => 'id'],
             [['status'], 'integer'],
-            [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
+            [['slug', 'thumbnail_base_url', 'thumbnail_path', 'preview_base_url', 'preview_path'], 'string', 'max' => 1024],
             [['view'], 'string', 'max' => 255],
-            [['attachments', 'thumbnail'], 'safe']
+            [['attachments', 'thumbnail','preview'], 'safe']
         ];
     }
 
@@ -194,7 +205,8 @@ class Article extends ActiveRecord
             'keywords_ar' => 'SEO Keywords',
             'keywords_fa' => 'SEO Keywords',
             'view' => Yii::t('common', 'Article View'),
-            'thumbnail' => Yii::t('common', 'Thumbnail'),
+            'thumbnail' => Yii::t('common', 'Header photo'),
+            'preview' => Yii::t('common', 'Preview photo'),
             'category_id' => Yii::t('common', 'Category'),
             'status' => Yii::t('common', 'Published'),
             'published_at' => Yii::t('common', 'Published At'),

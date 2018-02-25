@@ -24,7 +24,7 @@ foreach ($dataProvider->getModels() as $model){
     $category->body = str_replace($findLink , $model->category->slug.'/'. $model->slug, $category->body);
 
     $findImage   = '#image'.$pos;
-    $category->body = str_replace($findImage , $model->thumbnail_base_url.'/'.$model->thumbnail_path , $category->body);
+    $category->body = str_replace($findImage , $model->preview_base_url.'/'.$model->preview_path , $category->body);
 
     $findShortDescription   = '#short_description'.$pos;
     $category->body = str_replace($findShortDescription , $model->getMultilingual('short_description', Yii::$app->language), $category->body);

@@ -30,6 +30,14 @@ use mihaildev\ckeditor\CKEditor;
         'title_en'
     ), ['prompt' => '']) ?>
 
+    <?php echo $form->field($model, 'preview')->widget(
+        Upload::className(),
+        [
+            'url' => ['/file-storage/upload'],
+            'maxFileSize' => 5000000, // 5 MiB
+        ]);
+    ?>
+
     <?php echo $form->field($model, 'thumbnail')->widget(
         Upload::className(),
         [

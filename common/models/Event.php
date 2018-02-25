@@ -110,6 +110,10 @@ class Event extends \yii\db\ActiveRecord
      * @var array
      */
     public $thumbnail;
+    /**
+     * @var array
+     */
+    public $preview;
 
     /**
      * @inheritdoc
@@ -154,6 +158,12 @@ class Event extends \yii\db\ActiveRecord
                 'attribute' => 'thumbnail',
                 'pathAttribute' => 'thumbnail_path',
                 'baseUrlAttribute' => 'thumbnail_base_url'
+            ],
+            [
+                'class' => UploadBehavior::className(),
+                'attribute' => 'preview',
+                'pathAttribute' => 'preview_path',
+                'baseUrlAttribute' => 'preview_base_url'
             ]
         ];
     }
@@ -180,9 +190,9 @@ class Event extends \yii\db\ActiveRecord
             [['published_at', 'event_date_time'], 'filter', 'filter' => 'strtotime', 'skipOnEmpty' => true],
             [['category_id'], 'exist', 'targetClass' => EventCategory::className(), 'targetAttribute' => 'id'],
             [['status'], 'integer'],
-            [['slug', 'video_link', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
+            [['slug', 'video_link', 'thumbnail_base_url', 'preview_base_url','thumbnail_path','preview_path'], 'string', 'max' => 1024],
             [['view'], 'string', 'max' => 255],
-            [['attachments', 'thumbnail'], 'safe']
+            [['attachments', 'thumbnail', 'preview'], 'safe']
         ];
     }
 
@@ -328,8 +338,12 @@ class Event extends \yii\db\ActiveRecord
             'video_link' => 'Video Link',
             'tags' => 'Tags',
             'category_id' => 'Category ID',
-            'thumbnail_base_url' => 'Thumbnail Base Url',
-            'thumbnail_path' => 'Thumbnail Path',
+            'thumbnail_base_url' => 'Header Base Url',
+            'thumbnail_path' => 'Header Path',
+            'thumbnail' => 'Header photo',
+            'preview_base_url' => 'Preview Base Url',
+            'preview_path' => 'Preview Path',
+            'preview' => 'Preview photo',
             'status' => 'Status',
             'created_by' => 'Created By',
             'updated_by' => 'Updated By',

@@ -1190,7 +1190,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                             <div class="event-item">
                                <div class="img-bg">
                                     <div class="img-block">
-                                       <img src="<?=$item->thumbnail_base_url.'/' . $item->thumbnail_path?>" alt="<?= $item->getMultilingual('title', YII::$app->language)?>">
+                                       <img src="<?=$item->preview_base_url.'/' . $item->preview_path?>" alt="<?= $item->getMultilingual('title', YII::$app->language)?>">
                                     </div>
                                     <div class="black-57">
                                         <h3 class="pull-left">
@@ -1281,7 +1281,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
         $categoryPYT->body = str_replace($findLink, $planYT->category->slug . '/' . $planYT->slug, $categoryPYT->body);
 
         $findImage = '#image' . $pos;
-        $categoryPYT->body = str_replace($findImage, $planYT->thumbnail_base_url . '/' . $planYT->thumbnail_path, $categoryPYT->body);
+        $categoryPYT->body = str_replace($findImage, $planYT->preview_base_url . '/' . $planYT->preview_path, $categoryPYT->body);
     }
 ?>
 <?php
