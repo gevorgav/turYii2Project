@@ -26,11 +26,22 @@ $this->registerMetaTag([
             "
         $( document ).ready(function() {
             $('.template').css( 'background-image', 'url(".$model->thumbnail_base_url.'/' . $model->thumbnail_path.")' );
+            
         });",
             View::POS_READY
         );
-
     }
+
+    //clean link data-target
+    $this->registerJs(
+        "
+            $( document ).ready(function() {
+                for(let link of $('.tmp_link')){
+                    link.dataset.target = '';
+                }
+            });",
+        View::POS_READY
+    );
 ?>
 
 <section class="template page-head section-img">

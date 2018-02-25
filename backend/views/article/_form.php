@@ -402,7 +402,7 @@ use mihaildev\ckeditor\CKEditor;
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12">
-                                                <a data-toggle="modal" data-target="#linkModal" data-title="Feedback" href="https://bltscottsdale.com/wp-content/themes/pashmina/images/blank.png" alt="Hyunot">Text</a>
+                                                <a class="tmp_link" data-toggle="modal" target="_blank" data-target="#linkModal" data-title="Feedback" href="#" >Text</a>
                                             </div>
                                         </div>
                                     </div>
