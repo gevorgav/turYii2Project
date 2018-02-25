@@ -176,6 +176,7 @@ use mihaildev\ckeditor\CKEditor;
         <span class="btn" id="addTemplate8Id">Add paragraph</span>
         <span class="btn" id="addTemplate9Id">Add title</span>
         <span class="btn" id="addTemplate10Id">Add text with Paragraph MD</span>
+        <span class="btn" id="addTemplate11Id">Add link</span>
     </div>
     <div class="clear"></div>
 
@@ -206,6 +207,35 @@ use mihaildev\ckeditor\CKEditor;
             </div>
         </div>
     </div>
+
+    <div id="linkModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Modal Window</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="link" class="control-label">Link:</label>
+                            <input type="text" class="form-control" id="link">
+                        </div>
+                        <div class="form-group">
+                            <label for="title" class="control-label">Text:</label>
+                            <input type="text" class="form-control" id="title"></input>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="saveLink(this)" data-dismiss="modal">Send
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         var lang = $(".active.in  [id^='article-body_']")[0].id.toString().slice($(".active.in  [id^='article-body_']")[0].id.indexOf("_") + 1, $(".active.in  [id^='article-body_']")[0].id.length);
         var id = <?= $model->id?>+'';
@@ -368,6 +398,15 @@ use mihaildev\ckeditor\CKEditor;
                                         </div>
                                     </div>
                                 </div>`;
+        var template11String = `<div class="template-4">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12">
+                                                <a data-toggle="modal" data-target="#linkModal" data-title="Feedback" href="https://bltscottsdale.com/wp-content/themes/pashmina/images/blank.png" alt="Hyunot">Text</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
 
 //        var template7String = `<p contentEditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, nean in est vulputate, semper leo vel, aenean in est vulputate, semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. </p>`;
 
@@ -378,6 +417,8 @@ use mihaildev\ckeditor\CKEditor;
 
         var selectedImg = {};
         var imgElement = {};
+        var selectedlink = {}
+        var linkElement = {};
         var list = [];
         var deleteIconList = [];
         $(document).ready(function () {
@@ -390,6 +431,17 @@ use mihaildev\ckeditor\CKEditor;
                 $(this).find('.modal-title').text(titleData + ' Form');
                 $(this).find('#src').val(selectedImg.src);
                 $(this).find('#title').val(selectedImg.title);
+            });
+            $("#linkModal").on('show.bs.modal', function (event) {
+                debugger;
+                linkElement = event.relatedTarget;
+                selectedlink.href = event.relatedTarget.href;
+                selectedlink.title = event.relatedTarget.innerText;
+                var button = $(event.relatedTarget);  // Button that triggered the modal
+                var titleData = button.data('title'); // Extract value from data-* attributes
+                $(this).find('.modal-title').text(titleData + ' Form');
+                $(this).find('#link').val(selectedlink.href);
+                $(this).find('#title').val(selectedlink.title);
             });
             $("#addTemplate1Id").on('click', function (event) {
                 var template1 = parser.parseFromString(template1String, 'text/html').body.firstChild;
@@ -472,11 +524,26 @@ use mihaildev\ckeditor\CKEditor;
                 root.append(deletes);
                 deleteIconList.push(deletes);
             });
+            $("#addTemplate11Id").on('click', function (event) {
+                var template11 = parser.parseFromString(template11String, 'text/html');
+                list.push(template11);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
+                root.append(template11.body.firstChild);
+                root.append(deletes);
+                deleteIconList.push(deletes);
+            });
         });
 
         function save() {
             imgElement.src = $(event.target.parentElement.parentElement).find('#src').val();
             imgElement.title = $(event.target.parentElement.parentElement).find('#title').val();
+        }
+
+
+        function saveLink() {
+            debugger;
+            linkElement.href = $(event.target.parentElement.parentElement).find('#link').val();
+            linkElement.innerText = $(event.target.parentElement.parentElement).find('#title').val();
         }
 
         function updateForm() {

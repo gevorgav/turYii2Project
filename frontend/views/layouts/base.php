@@ -140,7 +140,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                             <a href="#">Things to do</a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Cafes and Restaurants</a></li>
-                                <li><a href="#">Museums and Theatres</a></li>
+                                <li><a href="/things-to-do/museums">Museums and Theatres</a></li>
                                 <li><a href="#">Cultural sightseeing</a></li>
                                 <li><a href="#">Archaeological sightseeing</a></li>
                                 <li><a href="#">Ecotourism</a> </li>
