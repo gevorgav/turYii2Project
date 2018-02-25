@@ -107,7 +107,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                                 <li><a href="/discover/cuisine">Cuisine</a></li>
                                 <li><a href="/discover/carpets">Carpets</a></li>
                                 <li><a href="/discover/fancywork">Fancywork</a></li>
-                                <li><a href="#">Karabakh horses</a> </li>
+                                <li><a href="/discover/karabakh-horses">Karabakh horses</a> </li>
                                 <li><a href="#">Traces of Great Silk Route</a></li>
                                 <li><a href="#">Multicultural Artsakh</a></li>
                             </ul>
