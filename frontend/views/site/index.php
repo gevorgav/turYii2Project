@@ -119,7 +119,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                     <div class="col-md-6 col-xs-12">
                        <div class="img-bg">
                             <div class="img-block">
-                               <img src="../img/Hyunot.JPG" alt="GETTING THERE">
+                               <img src="../img/activity-preview-1.jpg" alt="GETTING THERE">
                             </div>
                             <a href="#">
                                 <div class="main-item">
@@ -137,7 +137,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                     <div class="col-md-3 col-sm-6 col-xs-12 activity-sec-item">
                        <div class="img-bg">
                             <div class="img-block">
-                               <img src="../img/Hyunot.JPG" alt="GETTING THERE">
+                               <img src="../img/activity-preview-4.jpg" alt="GETTING THERE">
                             </div>
                             <a href="#">
                                 <div class="item">
@@ -150,7 +150,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                         </div>
                        <div class="img-bg">
                             <div class="img-block">
-                               <img src="../img/Hyunot.JPG" alt="GETTING THERE">
+                               <img src="../img/activity-preview-3.jpg" alt="GETTING THERE">
                             </div>
                             <a href="#">
                                 <div class="item">
@@ -165,7 +165,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                     <div class="col-md-3 col-sm-6 col-xs-12 activity-sec-item">
                        <div class="img-bg">
                             <div class="img-block">
-                               <img src="../img/Hyunot.JPG" alt="GETTING THERE">
+                               <img src="../img/activity-preview-5.jpg" alt="GETTING THERE">
                             </div>
                             <a href="#">
                                 <div class="item">
@@ -178,7 +178,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                         </div>
                         <div class="img-bg">
                             <div class="img-block">
-                               <img src="../img/Hyunot.JPG" alt="GETTING THERE">
+                               <img src="../img/activity-preview-1.jpg" alt="GETTING THERE">
                             </div>
                             <a href="#">
                                 <div class="item">
@@ -191,9 +191,9 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                         </div>
                     </div>
                 </div>
-                <div class="flex-center">
-                    <button class="button-liner blue">show all</button>
-                </div>
+<!--                <div class="flex-center">-->
+<!--                    <button class="button-liner blue">show all</button>-->
+<!--                </div>-->
             </div>
         </section>
     <?php endIf?>

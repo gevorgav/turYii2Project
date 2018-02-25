@@ -962,7 +962,7 @@ footer .bottom-footer i {
 /* line 1023, ../sass/style.scss */
 .template {
   height: 380px;
-  background: url(../img/dadivank-head.jpg) no-repeat top center;
+  /*background: url(../img/dadivank-head.jpg) no-repeat top center;*/
   background-size: cover;
 }
 

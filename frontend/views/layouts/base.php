@@ -109,7 +109,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                                 <li><a href="/discover/fancywork">Fancywork</a></li>
                                 <li><a href="/discover/karabakh-horses">Karabakh horses</a> </li>
                                 <li><a href="#">Traces of Great Silk Route</a></li>
-                                <li><a href="#">Multicultural Artsakh</a></li>
+                                <li><a href="#">Multicultural heritage of Artsakh</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -125,13 +125,12 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                         <li class="dropdown">
                             <a href="#">Plan your trip</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Getting there</a></li>
-                                <li><a href="#">Entry formalities</a></li>
+                                <li><a href="/plan-your-trip/getting-there">Getting there</a></li>
+                                <li><a href="/plan-your-trip/entry-formalities">Entry formalities</a></li>
                                 <li><a href="#">Acommodation</a></li>
-                                <li><a href="#">First trip</a></li>
-                                <li><a href="#">Useful information</a> </li>
-                                <li><a href="#">Find me a guide</a></li>
-                                <li><a href="#">Touroperators</a></li>
+                                <li><a href="/plan-your-trip/useful">Useful information</a> </li>
+                                <li><a href="/plan-your-trip/find-me-a-guide">Find me a guide</a></li>
+                                <li><a href="/plan-your-trip/touroperators">Touroperators</a></li>
                                 <li><a href="#">FAQ</a></li>
                                 <li><a href="#">Transportation companies</a></li>
                             </ul>

@@ -72,6 +72,7 @@ use mihaildev\ckeditor\CKEditor;
         <h3>Multilingual inputs</h3>
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#home">English</a></li>
+            <?php if (!$model->isNewRecord):?>
             <li><a data-toggle="tab" href="#menu2">Հայերեն</a></li>
             <li><a data-toggle="tab" href="#menu3">Русский</a></li>
             <li><a data-toggle="tab" href="#menu4">Deutsch</a></li>
@@ -79,13 +80,14 @@ use mihaildev\ckeditor\CKEditor;
             <li><a data-toggle="tab" href="#menu6">Español</a></li>
             <li><a data-toggle="tab" href="#menu7">العربية</a></li>
             <li><a data-toggle="tab" href="#menu8">Iranian</a></li>
+            <?php endIf?>
         </ul>
 
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
                 <?php echo $form->field($model, 'title_en')->textInput(['maxlength' => true]) ?>
                 <?php echo $form->field($model, 'short_description_en')->textInput(['maxlength' => true]) ?>
-                <?php echo $form->field($model, 'body_en')->textArea() ?>
+                <?php echo $form->field($model, 'body_en')->textArea(['style' => 'display:none'])->label(false) ?>
                 <?php echo $form->field($model, 'keywords_en')
                     ->hint('Please enter the keyword with commas')
                     ->textInput(['maxlength' => true]) ?>
@@ -96,7 +98,7 @@ use mihaildev\ckeditor\CKEditor;
             <div id="menu2" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_hy')->textInput(['maxlength' => true]) ?>
                 <?php echo $form->field($model, 'short_description_hy')->textInput(['maxlength' => true]) ?>
-                <?php echo $form->field($model, 'body_hy')->textArea() ?>
+                <?php echo $form->field($model, 'body_hy')->textArea(['style' => 'display:none'])->label(false) ?>
                 <?php echo $form->field($model, 'keywords_hy')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
                 <section class="template-text" id="template_hy" lang="hy">
 
@@ -105,7 +107,7 @@ use mihaildev\ckeditor\CKEditor;
             <div id="menu3" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_ru')->textInput(['maxlength' => true]) ?>
                 <?php echo $form->field($model, 'short_description_ru')->textInput(['maxlength' => true]) ?>
-                <?php echo $form->field($model, 'body_ru')->textArea() ?>
+                <?php echo $form->field($model, 'body_ru')->textArea(['style' => 'display:none'])->label(false) ?>
                 <?php echo $form->field($model, 'keywords_ru')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
                 <section class="template-text" id="template_ru" lang="ru">
 
@@ -114,7 +116,7 @@ use mihaildev\ckeditor\CKEditor;
             <div id="menu4" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_de')->textInput(['maxlength' => true]) ?>
                 <?php echo $form->field($model, 'short_description_de')->textInput(['maxlength' => true]) ?>
-                <?php echo $form->field($model, 'body_de')->textArea() ?>
+                <?php echo $form->field($model, 'body_de')->textArea(['style' => 'display:none'])->label(false) ?>
                 <?php echo $form->field($model, 'keywords_de')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
                 <section class="template-text" id="template_de" lang="de">
 
@@ -123,7 +125,7 @@ use mihaildev\ckeditor\CKEditor;
             <div id="menu5" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_fr')->textInput(['maxlength' => true]) ?>
                 <?php echo $form->field($model, 'short_description_fr')->textInput(['maxlength' => true]) ?>
-                <?php echo $form->field($model, 'body_fr')->textArea() ?>
+                <?php echo $form->field($model, 'body_fr')->textArea(['style' => 'display:none'])->label(false) ?>
                 <?php echo $form->field($model, 'keywords_fr')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
                 <section class="template-text" id="template_fr" lang="fr">
 
@@ -132,7 +134,7 @@ use mihaildev\ckeditor\CKEditor;
             <div id="menu6" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_es')->textInput(['maxlength' => true]) ?>
                 <?php echo $form->field($model, 'short_description_es')->textInput(['maxlength' => true]) ?>
-                <?php echo $form->field($model, 'body_es')->textArea() ?>
+                <?php echo $form->field($model, 'body_es')->textArea(['style' => 'display:none'])->label(false) ?>
                 <?php echo $form->field($model, 'keywords_es')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true]) ?>
                 <section class="template-text" id="template_es" lang="es">
 
@@ -141,7 +143,7 @@ use mihaildev\ckeditor\CKEditor;
             <div id="menu7" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_ar')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
                 <?php echo $form->field($model, 'short_description_ar')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
-                <?php echo $form->field($model, 'body_ar')->textArea(['dir' => 'rtl']) ?>
+                <?php echo $form->field($model, 'body_ar')->textArea(['dir' => 'rtl','style' => 'display:none'])->label(false) ?>
                 <?php echo $form->field($model, 'keywords_ar')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
                 <section class="template-text" id="template_ar" lang="ar">
 
@@ -150,7 +152,7 @@ use mihaildev\ckeditor\CKEditor;
             <div id="menu8" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_fa')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
                 <?php echo $form->field($model, 'short_description_fa')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
-                <?php echo $form->field($model, 'body_fa')->textArea(['dir' => 'rtl']) ?>
+                <?php echo $form->field($model, 'body_fa')->textArea(['dir' => 'rtl','style' => 'display:none'])->label(false)  ?>
                 <?php echo $form->field($model, 'keywords_fa')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
                 <section class="template-text" id="template_fa" lang="fa">
 
@@ -248,9 +250,9 @@ use mihaildev\ckeditor\CKEditor;
                                     <div class="container">
                                        <div class="item">
                                           <div class="row">
-                                            <div class="col-md-7 col-sm-12 com-xs-12" contenteditable="true">
-                                                <h2>Lorem ipsum dolor</h2>
-                                                <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui.Nullam consectetur sagittis ante vel vestibulum. </p>
+                                            <div class="col-md-7 col-sm-12 com-xs-12">
+                                                <h2 contenteditable="true">Lorem ipsum dolor</h2>
+                                                <p  contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui.Nullam consectetur sagittis ante vel vestibulum. </p>
                                             </div>
                                             <div class="col-md-5 col-sm-12 com-xs-12">
                                                <div class="img-block">
@@ -265,10 +267,9 @@ use mihaildev\ckeditor\CKEditor;
         var template2String = `<div class="template-2">
                                     <div class="container">
                                         <div class="row flex-align-center">
-                                            <div class="col-md-5 col-sm-6 col-xs-12" contenteditable="true">
-                                                <h2>Как доехать</h2>
-                                                <p>Несмотря на то, что в Арцах граничит с тремя государствами- Республикой Армения, Азербайджанской Республикой и Исламской Республикой Иран - для туристов по-прежнему основным маршрутом в Арцах является маршрут через Армению. Путь в приблизительно в 350 км - главное шоссе, соединяющее Ереван со Степанакертом – проходит по северным регионам Армении, через города Ехегнадзор, Вайк, Горис, и довольно привлекателен. Главное шоссе находится в хорошем состоянии и работает круглый год. Продолжительность поездки, в зависимости от транспортных средств, длится в диапазоне от 4 до 6 часов.Каждый день, с 8:00 утра с часовым интервалом от центрального автовокзала в Ереване отправляютсяавтобусы и микроавтобусы, прибывающие в Степанакерт за 5-6 часов. Цена билета - 5000 драмов (около 10-12 долларов США).</p>
-                                                <p>Также, отсюда, со станции, путешественники могут нанять четырехместные такси. Стоимость проезда до Степанакерта на такси составяляет около 18 долларов США на одного пассажира.Такси отправляются когда наберется необходимое количество пассажиров.Можно арендовать за $ 90 и отдельную машину. До Арцаха из Армении также можно доехать по автодороге Варденис-Мартакерт, которая также находится в хорошем состоянии и хорошо обслуживается.В Степанакерте построен международный аэропорт, оснащенный самым современным оборудованием и готовым принимать иностранных граждан.</p>
+                                            <div class="col-md-5 col-sm-6 col-xs-12">
+                                                <h2 contenteditable="true">Как доехать</h2>
+                                                <p contenteditable="true">Несмотря на то, что в Арцах граничит с тремя государствами- Республикой Армения, Азербайджанской Республикой и Исламской Республикой Иран - для туристов по-прежнему основным маршрутом в Арцах является маршрут через Армению. Путь в приблизительно в 350 км - главное шоссе, соединяющее Ереван со Степанакертом – проходит по северным регионам Армении, через города Ехегнадзор, Вайк, Горис, и довольно привлекателен. Главное шоссе находится в хорошем состоянии и работает круглый год. Продолжительность поездки, в зависимости от транспортных средств, длится в диапазоне от 4 до 6 часов.Каждый день, с 8:00 утра с часовым интервалом от центрального автовокзала в Ереване отправляютсяавтобусы и микроавтобусы, прибывающие в Степанакерт за 5-6 часов. Цена билета - 5000 драмов (около 10-12 долларов США).</p>
                                             </div>
                                             <div class="col-md-offset-1 col-md-6 col-sm-6 col-xs-12">
                                                 <div class="img-block">
@@ -283,8 +284,8 @@ use mihaildev\ckeditor\CKEditor;
                                     <div class="container">
                                         <div class="title-block">
                                             <div class="item"></div>
-                                            <div class="item" contenteditable="true">
-                                                <h2>Lorem ipsum dolor sit amet</h2>
+                                            <div class="item">
+                                                <h2 contenteditable="true">Lorem ipsum dolor sit amet</h2>
                                             </div>
                                             <div class="item">
                                                 <div class="line"></div>
@@ -297,8 +298,8 @@ use mihaildev\ckeditor\CKEditor;
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12 right-text">
-                                                <div class="item" contenteditable="true">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. Semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. Accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. Semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum.</p>
+                                                <div class="item">
+                                                    <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. Semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. Accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. Semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -308,15 +309,15 @@ use mihaildev\ckeditor\CKEditor;
         var template4String = `<div class="template-5">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-sm-12" contenteditable="true">
-                                                <h2>История</h2>
+                                            <div class="col-sm-12">
+                                                <h2 contenteditable="true">История</h2>
                                             </div>
-                                            <div class="col-md-6 col-sm-12"  contenteditable="true">
-                                                <p>Арцах расположенв холмистой местности на юго-востоке Малого Кавказа, на крайне-восточном отрезке Великого Айка.На западе его границы доходят до восточных берегов озера Севан, к юго-западу – до реки Агавно /Агарь/, на юге- до реки Ерасх / Аракс/, к востоку углубляются в Муганьскую степь, а с севера огражденыKарабахским хребтом. Археологические материалы, армянские и другие источники свидетельствуют о том, что человек в Арцахе перманентнопроживал в древние времена. Здесь вы можете найти руины и следы населенныхпунктов, замков, отдельных построек, различное оружие, ювелирные изделия, инструменты, обнаруженные под глубоким слоем земли. Особый интерес представляют материалы, обнаруженные в пещере Азохэпохи палеолита в Гадрутском районе, останки доисторического человека /неандертальца/. Сегодня археологи Англии и Испании, совместно с армянскими археологами проводят раскопки здесь и открывают новые следы жизни и деятельности древнего человека. Арцахские горы богаты памятниками, особенно резьбой по камню. Хронология их обширна и, начиная с 7-го тысячелетиядо н.э. достигает 1-го тысячелетия: Резьбой по камню особенно богат Карвачарский район и окрестности села Тагут Гадруского района.
+                                            <div class="col-md-6 col-sm-12">
+                                                <p  contenteditable="true">Арцах расположенв холмистой местности на юго-востоке Малого Кавказа, на крайне-восточном отрезке Великого Айка.На западе его границы доходят до восточных берегов озера Севан, к юго-западу – до реки Агавно /Агарь/, на юге- до реки Ерасх / Аракс/, к востоку углубляются в Муганьскую степь, а с севера огражденыKарабахским хребтом. Археологические материалы, армянские и другие источники свидетельствуют о том, что человек в Арцахе перманентнопроживал в древние времена. Здесь вы можете найти руины и следы населенныхпунктов, замков, отдельных построек, различное оружие, ювелирные изделия, инструменты, обнаруженные под глубоким слоем земли. Особый интерес представляют материалы, обнаруженные в пещере Азохэпохи палеолита в Гадрутском районе, останки доисторического человека /неандертальца/. Сегодня археологи Англии и Испании, совместно с армянскими археологами проводят раскопки здесь и открывают новые следы жизни и деятельности древнего человека. Арцахские горы богаты памятниками, особенно резьбой по камню. Хронология их обширна и, начиная с 7-го тысячелетиядо н.э. достигает 1-го тысячелетия: Резьбой по камню особенно богат Карвачарский район и окрестности села Тагут Гадруского района.
                                                 </p>
                                             </div>
-                                            <div class="col-md-6 col-sm-12"  contenteditable="true">
-                                                <p>В Бронзовом веке в Восточных Армянских провинциях строились циклопические крепости. В Кашатагском районе, на левом берегу реки Очанц, сохранилась одна из таких крепостей.В 3-1 тысячелетиидо н.э. на Армянском нагорьепоявились первые государственные образования, в числе которых особое место и роль отводилос Урарту или Ванскому или АраратскомуЦарству.В годы правления Аргишти 1-гоАрцах находился в составе государства Урарту, о чем свидетельствует летопись Аргишти 1-го, найденная в Котайке, в которой упоминается город Зар. Название города совпадает со средневековым арцахским меликством Цар и современным селом Цар Карвачарского района.Во времена следующих армянских царских династий -Ервандидов и Арташесидов –Арцах и Утик продолжали оставаться в составе объединенного царства.Греческие и римские историки предполагают, что восточные границы Армении проходили по реке Кура.НезавершенныеделаАрташеса 5-гопродолжил его внук Тигран II Великий, и все наиболее расширив границы государства, создал Армению от моря до моря. Обширное государство было вовлечено в эллинистическую культуру, одной из характеристик которой являлось градостроительство.Тигран Великий построил 4 города в исконной Армении и назвал своим именем -Тигранакерт. Один из этих городов был построен в Арцахе у подножия Ванкасара.</p>
+                                            <div class="col-md-6 col-sm-12">
+                                                <p  contenteditable="true">В Бронзовом веке в Восточных Армянских провинциях строились циклопические крепости. В Кашатагском районе, на левом берегу реки Очанц, сохранилась одна из таких крепостей.В 3-1 тысячелетиидо н.э. на Армянском нагорьепоявились первые государственные образования, в числе которых особое место и роль отводилос Урарту или Ванскому или АраратскомуЦарству.В годы правления Аргишти 1-гоАрцах находился в составе государства Урарту, о чем свидетельствует летопись Аргишти 1-го, найденная в Котайке, в которой упоминается город Зар. Название города совпадает со средневековым арцахским меликством Цар и современным селом Цар Карвачарского района.Во времена следующих армянских царских династий -Ервандидов и Арташесидов –Арцах и Утик продолжали оставаться в составе объединенного царства.Греческие и римские историки предполагают, что восточные границы Армении проходили по реке Кура.НезавершенныеделаАрташеса 5-гопродолжил его внук Тигран II Великий, и все наиболее расширив границы государства, создал Армению от моря до моря. Обширное государство было вовлечено в эллинистическую культуру, одной из характеристик которой являлось градостроительство.Тигран Великий построил 4 города в исконной Армении и назвал своим именем -Тигранакерт. Один из этих городов был построен в Арцахе у подножия Ванкасара.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -329,15 +330,15 @@ use mihaildev\ckeditor\CKEditor;
         var template5String = `<div class="template-5">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-sm-12" contenteditable="true">
-                                                <h2>История</h2>
+                                            <div class="col-sm-12">
+                                                <h2 contenteditable="true">История</h2>
                                             </div>
-                                            <div class="col-md-6 col-sm-12" contenteditable="true">
-                                                <p>Арцах расположенв холмистой местности на юго-востоке Малого Кавказа, на крайне-восточном отрезке Великого Айка.На западе его границы доходят до восточных берегов озера Севан, к юго-западу – до реки Агавно /Агарь/, на юге- до реки Ерасх / Аракс/, к востоку углубляются в Муганьскую степь, а с севера огражденыKарабахским хребтом. Археологические материалы, армянские и другие источники свидетельствуют о том, что человек в Арцахе перманентнопроживал в древние времена. Здесь вы можете найти руины и следы населенныхпунктов, замков, отдельных построек, различное оружие, ювелирные изделия, инструменты, обнаруженные под глубоким слоем земли. Особый интерес представляют материалы, обнаруженные в пещере Азохэпохи палеолита в Гадрутском районе, останки доисторического человека /неандертальца/. Сегодня археологи Англии и Испании, совместно с армянскими археологами проводят раскопки здесь и открывают новые следы жизни и деятельности древнего человека. Арцахские горы богаты памятниками, особенно резьбой по камню. Хронология их обширна и, начиная с 7-го тысячелетиядо н.э. достигает 1-го тысячелетия: Резьбой по камню особенно богат Карвачарский район и окрестности села Тагут Гадруского района.
+                                            <div class="col-md-6 col-sm-12">
+                                                <p contenteditable="true">Арцах расположенв холмистой местности на юго-востоке Малого Кавказа, на крайне-восточном отрезке Великого Айка.На западе его границы доходят до восточных берегов озера Севан, к юго-западу – до реки Агавно /Агарь/, на юге- до реки Ерасх / Аракс/, к востоку углубляются в Муганьскую степь, а с севера огражденыKарабахским хребтом. Археологические материалы, армянские и другие источники свидетельствуют о том, что человек в Арцахе перманентнопроживал в древние времена. Здесь вы можете найти руины и следы населенныхпунктов, замков, отдельных построек, различное оружие, ювелирные изделия, инструменты, обнаруженные под глубоким слоем земли. Особый интерес представляют материалы, обнаруженные в пещере Азохэпохи палеолита в Гадрутском районе, останки доисторического человека /неандертальца/. Сегодня археологи Англии и Испании, совместно с армянскими археологами проводят раскопки здесь и открывают новые следы жизни и деятельности древнего человека. Арцахские горы богаты памятниками, особенно резьбой по камню. Хронология их обширна и, начиная с 7-го тысячелетиядо н.э. достигает 1-го тысячелетия: Резьбой по камню особенно богат Карвачарский район и окрестности села Тагут Гадруского района.
                                                 </p>
                                             </div>
-                                            <div class="col-md-6 col-sm-12" contenteditable="true">
-                                                <p>В Бронзовом веке в Восточных Армянских провинциях строились циклопические крепости. В Кашатагском районе, на левом берегу реки Очанц, сохранилась одна из таких крепостей.В 3-1 тысячелетиидо н.э. на Армянском нагорьепоявились первые государственные образования, в числе которых особое место и роль отводилос Урарту или Ванскому или АраратскомуЦарству.В годы правления Аргишти 1-гоАрцах находился в составе государства Урарту, о чем свидетельствует летопись Аргишти 1-го, найденная в Котайке, в которой упоминается город Зар. Название города совпадает со средневековым арцахским меликством Цар и современным селом Цар Карвачарского района.Во времена следующих армянских царских династий -Ервандидов и Арташесидов –Арцах и Утик продолжали оставаться в составе объединенного царства.Греческие и римские историки предполагают, что восточные границы Армении проходили по реке Кура.НезавершенныеделаАрташеса 5-гопродолжил его внук Тигран II Великий, и все наиболее расширив границы государства, создал Армению от моря до моря. Обширное государство было вовлечено в эллинистическую культуру, одной из характеристик которой являлось градостроительство.Тигран Великий построил 4 города в исконной Армении и назвал своим именем -Тигранакерт. Один из этих городов был построен в Арцахе у подножия Ванкасара.</p>
+                                            <div class="col-md-6 col-sm-12">
+                                                <p  contenteditable="true">В Бронзовом веке в Восточных Армянских провинциях строились циклопические крепости. В Кашатагском районе, на левом берегу реки Очанц, сохранилась одна из таких крепостей.В 3-1 тысячелетиидо н.э. на Армянском нагорьепоявились первые государственные образования, в числе которых особое место и роль отводилос Урарту или Ванскому или АраратскомуЦарству.В годы правления Аргишти 1-гоАрцах находился в составе государства Урарту, о чем свидетельствует летопись Аргишти 1-го, найденная в Котайке, в которой упоминается город Зар. Название города совпадает со средневековым арцахским меликством Цар и современным селом Цар Карвачарского района.Во времена следующих армянских царских династий -Ервандидов и Арташесидов –Арцах и Утик продолжали оставаться в составе объединенного царства.Греческие и римские историки предполагают, что восточные границы Армении проходили по реке Кура.НезавершенныеделаАрташеса 5-гопродолжил его внук Тигран II Великий, и все наиболее расширив границы государства, создал Армению от моря до моря. Обширное государство было вовлечено в эллинистическую культуру, одной из характеристик которой являлось градостроительство.Тигран Великий построил 4 города в исконной Армении и назвал своим именем -Тигранакерт. Один из этих городов был построен в Арцахе у подножия Ванкасара.</p>
                                             </div>
                                         </div>
                                         <div class="img-100p">
@@ -353,7 +354,7 @@ use mihaildev\ckeditor\CKEditor;
         var template6String = `<div class="template-4">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-md-12 col-sm-12" contenteditable="true">
+                                            <div class="col-md-12 col-sm-12">
                                                 <img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://bltscottsdale.com/wp-content/themes/pashmina/images/blank.png" alt="Hyunot">
                                             </div>
                                         </div>
@@ -384,7 +385,7 @@ use mihaildev\ckeditor\CKEditor;
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md-12 col-sm-12">
-                                                <h2  contenteditable="true">Title</h2>
+                                                <h2 contenteditable="true">Title</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -543,7 +544,7 @@ use mihaildev\ckeditor\CKEditor;
         function saveLink() {
             debugger;
             linkElement.href = $(event.target.parentElement.parentElement).find('#link').val();
-            linkElement.innerText = $(event.target.parentElement.parentElement).find('#title').val();
+            linkElement.innerText = $(event.target.parentElement.parentElement).find('#title').val() != "" ? $(event.target.parentElement.parentElement).find('#title').val() : "Text";
         }
 
         function updateForm() {
