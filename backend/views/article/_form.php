@@ -434,7 +434,7 @@ use mihaildev\ckeditor\CKEditor;
                 $(this).find('#title').val(selectedImg.title);
             });
             $("#linkModal").on('show.bs.modal', function (event) {
-                debugger;
+
                 linkElement = event.relatedTarget;
                 selectedlink.href = event.relatedTarget.href;
                 selectedlink.title = event.relatedTarget.innerText;
@@ -537,12 +537,11 @@ use mihaildev\ckeditor\CKEditor;
 
         function save() {
             imgElement.src = $(event.target.parentElement.parentElement).find('#src').val();
-            imgElement.title = $(event.target.parentElement.parentElement).find('#title').val();
+            imgElement.alt = imgElement.title = $(event.target.parentElement.parentElement).find('#title').val();
         }
 
 
         function saveLink() {
-            debugger;
             linkElement.href = $(event.target.parentElement.parentElement).find('#link').val();
             linkElement.innerText = $(event.target.parentElement.parentElement).find('#title').val() != "" ? $(event.target.parentElement.parentElement).find('#title').val() : "Text";
         }
@@ -557,7 +556,7 @@ use mihaildev\ckeditor\CKEditor;
             });
             $("[id^='article-body_']").each(function (index) {
                 var ln = this.id.toString().slice(this.id.indexOf("_") + 1, this.id.length);
-                debugger;
+
                 if (!!id) {
                     $("#article-body_" + ln).html($("#template_" + ln).html());
                 } else {
@@ -573,7 +572,7 @@ use mihaildev\ckeditor\CKEditor;
 
         $("[id^='article-body_']").each(function (index) {
             var ln = this.id.toString().slice(this.id.indexOf("_") + 1, this.id.length);
-            debugger;
+
             if (!!id) {
                 $("#template_" + ln).html($("#article-body_" + ln).text())
                 ;

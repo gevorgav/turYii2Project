@@ -83,7 +83,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                         <span class="icon-bar"></span> 
                       </button>
                       <a class="navbar-brand" href="/">
-                          <img src="/img/main-logo-01.svg" alt="Artsakh travel">
+                          <img src="/img/main-logo-01-beta.svg" alt="Artsakh travel">
                       </a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
