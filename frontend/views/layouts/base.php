@@ -142,9 +142,9 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                                 <li><a href="/things-to-do/museums">Museums and Theatres</a></li>
                                 <li><a href="#">Cultural sightseeing</a></li>
                                 <li><a href="#">Archaeological sightseeing</a></li>
-                                <li><a href="#">Ecotourism</a> </li>
+                                <li><a href="#">Agrotourism</a> </li>
                                 <li><a href="#">Adventures</a></li>
-                                <li><a href="#">Piligrimage</a></li>
+                                <li><a href="#">Religious tourism</a></li>
                                 <li><a href="#">Hunting and Fishing</a></li>
                                 <li><a href="#">Historical-military tourism</a></li>
                                 <li><a href="#">Shopping</a></li>
