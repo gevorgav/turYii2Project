@@ -116,10 +116,10 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                             <a href="#">Travel routes</a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">On your way to Stepanakert</a></li>
-                                <li><a href="#">Southern travel route</a></li>
-                                <li><a href="#">Northern Travel route</a></li>
-                                <li><a href="#">Stepanakert-Martakert highway</a></li>
-                                <li><a href="#">Stepanakert-Martuni highway</a> </li>
+                                <li><a href="/travel-routes/south-tourist-route">Southern travel route</a></li>
+                                <li><a href="/travel-routes/northern-tourist-route">Northern Travel route</a></li>
+                                <li><a href="/travel-routes/highway-stepanakert-martakert">Stepanakert-Martakert highway</a></li>
+<!--                                <li><a href="#">Stepanakert-Martuni highway</a> </li>-->
                             </ul>
                         </li> 
                         <li class="dropdown">
