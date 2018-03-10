@@ -11,7 +11,7 @@ use yii\helpers\Html;
 ?>
 
 <?php
-//var icon = 'http://openweathermap.org/img/w/'+ data['weather'][0]['icon']+'.png'; // TODO weather icons from openweathermap.org
+//var icon = 'http://openweathermap.org/img/w/'+ data['weather'][0]['icon']+'.png'; // TODO weatheTourism Info Centersr icons from openweathermap.org
 $this->registerJs(
     "
             var weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=shushi&units=metric&appid=13c158d43559008956fa5d3c0ca72303';
@@ -975,76 +975,73 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                 <div class="line"></div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="main-item">
-                            <div class="black-57">
-                                <h3 class="title">Lorem Ipsum</h3>
-                                <p>The 4th Artsakh Wine Festival will be held in Togh village, in the territory of Melik's
-                                    Palace on September 16, 2017 which will host dozens of winemakers Artsakh and
-                                    Armenia.Within the frames of the festival, exhibition fair of wine, agricultural
-                                    products, art works, as well as ‘The treasuries of Togh's Melik Palace’ exhibition,
-                                    concert, group excursions and other </p>
+                        <a href="/tourism-info-centers/tourist-information-centres">
+                            <div class="main-item">
+                                <div class="black-57">
+                                    <p>The Tourist Information Centres are working in Stepanakert, in the cultural capital of Karabakh – Shoushi, in Tigranakert, the House-Museum of Nikol Duman (in the village Tsahkashat).  </p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="item">
-                            <a href="#">
-                                <div class="img-block">
-                                    <img src="img/dadivank-church.jpg" alt="Dadivank">
-                                </div>
-                                <div class="bottom-part">
-                                    <h3>Stepanakert</h3>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Aenean commo do, erat et
-                                        malesuada ornare.</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="item">
-                            <a href="#">
-                                <div class="img-block">
-                                    <img src="img/dadivank-church.jpg" alt="Dadivank">
-                                </div>
-                                <div class="bottom-part">
-                                    <h3>Stepanakert</h3>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Aenean commo do, erat et
-                                        malesuada ornare.</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="item">
-                            <a href="#">
-                                <div class="img-block">
-                                    <img src="img/dadivank-church.jpg" alt="Dadivank">
-                                </div>
-                                <div class="bottom-part">
-                                    <h3>Stepanakert</h3>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Aenean commo do, erat et
-                                        malesuada ornare.</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="item">
-                            <a href="#">
-                                <div class="img-block">
-                                    <img src="img/dadivank-church.jpg" alt="Dadivank">
-                                </div>
-                                <div class="bottom-part">
-                                    <h3>Stepanakert</h3>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Aenean commo do, erat et
-                                        malesuada ornare.</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="row">-->
+<!--                    <div class="col-xs-12 col-sm-6 col-md-3">-->
+<!--                        <div class="item">-->
+<!--                            <a href="#">-->
+<!--                                <div class="img-block">-->
+<!--                                    <img src="img/dadivank-church.jpg" alt="Dadivank">-->
+<!--                                </div>-->
+<!--                                <div class="bottom-part">-->
+<!--                                    <h3>Stepanakert</h3>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Aenean commo do, erat et-->
+<!--                                        malesuada ornare.</p>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-xs-12 col-sm-6 col-md-3">-->
+<!--                        <div class="item">-->
+<!--                            <a href="#">-->
+<!--                                <div class="img-block">-->
+<!--                                    <img src="img/dadivank-church.jpg" alt="Dadivank">-->
+<!--                                </div>-->
+<!--                                <div class="bottom-part">-->
+<!--                                    <h3>Stepanakert</h3>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Aenean commo do, erat et-->
+<!--                                        malesuada ornare.</p>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-xs-12 col-sm-6 col-md-3">-->
+<!--                        <div class="item">-->
+<!--                            <a href="#">-->
+<!--                                <div class="img-block">-->
+<!--                                    <img src="img/dadivank-church.jpg" alt="Dadivank">-->
+<!--                                </div>-->
+<!--                                <div class="bottom-part">-->
+<!--                                    <h3>Stepanakert</h3>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Aenean commo do, erat et-->
+<!--                                        malesuada ornare.</p>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-xs-12 col-sm-6 col-md-3">-->
+<!--                        <div class="item">-->
+<!--                            <a href="#">-->
+<!--                                <div class="img-block">-->
+<!--                                    <img src="img/dadivank-church.jpg" alt="Dadivank">-->
+<!--                                </div>-->
+<!--                                <div class="bottom-part">-->
+<!--                                    <h3>Stepanakert</h3>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Aenean commo do, erat et-->
+<!--                                        malesuada ornare.</p>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
 
             </div>
         </section>
