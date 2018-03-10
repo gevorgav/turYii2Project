@@ -1098,7 +1098,7 @@ class Request extends \yii\base\Request
     {
         if ($this->_languages === null) {
             if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-                $this->_languages = array_keys($this->parseAcceptHeader($_SERVER['HTTP_ACCEPT_LANGUAGE']));
+                $this->_languages = ['en'];//TODO array_keys($this->parseAcceptHeader($_SERVER['HTTP_ACCEPT_LANGUAGE']));
             } else {
                 $this->_languages = [];
             }

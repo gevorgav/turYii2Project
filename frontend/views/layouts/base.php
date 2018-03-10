@@ -1,6 +1,8 @@
 <?php
 
 use yii\bootstrap\Nav;
+use common\models\Event;
+use yii\helpers\Html;
 use yii\bootstrap\NavBar;
 use pceuropa\menu\Menu;
 use \common\widgets\PceuropaMenu;
@@ -8,7 +10,14 @@ use \common\widgets\PceuropaMenu;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-$this->beginContent('@frontend/views/layouts/_clear.php')
+$this->beginContent('@frontend/views/layouts/_clear.php');
+
+$upcoming = Event::find()
+    ->published()
+    ->andWhere(['>', '{{%event}}.event_date_time',time()] )
+    ->orderBy('{{%event}}.event_date_time')
+    ->limit(3)
+    ->all();
 ?>
     <header>
         <div class="top-header hidden-xs">
@@ -442,33 +451,21 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-12 footer-item">
-                            <h3>Upcoming Events</h3>
-                            <h4 class="pull-left">
-                                <div class="ellipsis">
-                                    <a href="#">Wine Festival</a>
-                                </div>
-                            </h4>
-                            <h4 class="pull-right date">16 sep</h4>
-                            <div class="clear"></div>
-                            <p class="event-location">Location: Togh</p>
-                            <div class="line"></div>
-                            <h4 class="pull-left">
-                                <div class="ellipsis">
-                                    <a href="#">Air Fest</a>
-                                </div>
-                            </h4>
-                            <h4 class="pull-right date">17 jun</h4>
-                            <div class="clear"></div>
-                            <p class="event-location">Location: Stepanakert</p>
-                            <div class="line"></div>
-                            <h4 class="pull-left">
-                                <div class="ellipsis">
-                                    <a href="#">Sculpturers Sympozium</a>
-                                </div>
-                            </h4>
-                            <h4 class="pull-right date">8 may</h4>
-                            <div class="clear"></div>
-                            <p class="event-location">Location: Shoushi</p>
+                            <h3><?=Yii::t('frontend', 'Upcoming Events')?></h3>
+
+                            <?php foreach ($upcoming as $key => $item): ?>
+
+                                <h4 class="pull-left">
+                                    <div class="ellipsis">
+                                        <?php echo Html::a( $item->getMultilingual('title', YII::$app->language), ['/events/'.$item->slug],['class'=>'calendar-visit-event']) ?>
+                                    </div>
+                                </h4>
+                                <h4 class="pull-right date"><?php echo Yii::$app->formatter->asDate($item->event_date_time, "d MMM") ?></h4>
+                                <div class="clear"></div>
+                                <p class="event-location"><?= Yii::t('frontend', 'Location').': '.$item->getMultilingual('location_name', YII::$app->language)?></p>
+                                <div class="line"></div>
+
+                            <?php endforeach;?>
                         </div>
                         <div class="col-md-3 col-sm-12 footer-item">
                             <h3>Site Map</h3>
