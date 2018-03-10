@@ -593,7 +593,7 @@ section .home-news-item .gradient-hr-56 p {
 }
 /* line 706, ../sass/style.scss */
 .home-activity .item .black-57 {
-  padding: 60px 0 59px;
+  padding: 56px 0 59px;
 }
 /* line 708, ../sass/style.scss */
 .home-activity .item .black-57:hover {
@@ -2547,4 +2547,53 @@ p + img {
     z-index: 2;
     padding: 8px 15px;
   }
+}
+
+.hand-move {
+  width: 120px;
+  height: 120px;
+  background: url(../img/tap.png) no-repeat center;
+  background-size: contain;
+}
+
+.artsakh-map .right-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.popup-block {
+  width: 340px;
+  margin-left: 150px;
+}
+
+.artsakh-map.turism-info-centers .item .img-block {
+  height: 120px;
+}
+
+.artsakh-map.turism-info-centers .item .img-block img {
+  width: 100%;
+  height: auto;
+}
+
+.artsakh-map.turism-info-centers .item .bottom-part p {
+  max-height: 200px;
+}
+
+/* line 1746, ../sass/style.scss */
+.artsakh-map {
+  padding: 0;
+}
+/* line 1748, ../sass/style.scss */
+.artsakh-map .travel-map {
+  background: #f7f7f7;
+}
+/* line 1750, ../sass/style.scss */
+.artsakh-map .travel-map svg {
+  height: 800px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }

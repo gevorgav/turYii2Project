@@ -96,7 +96,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                                 <li><a href="/about/geographical-facts">Geographic facts</a></li>
                                 <li><a href="/about/religion">Religion</a></li>
                                 <li><a href="/about/national-holidays-and-festivals">National holidays and festivals</a> </li>
-                                <li><a href="#">Here we are</a></li>
+<!--                                <li><a href="#">Here we are</a></li>-->
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -108,8 +108,8 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                                 <li><a href="/discover/carpets">Carpets</a></li>
                                 <li><a href="/discover/fancywork">Fancywork</a></li>
                                 <li><a href="/discover/karabakh-horses">Karabakh horses</a> </li>
-                                <li><a href="#">Traces of Great Silk Route</a></li>
-                                <li><a href="#">Multicultural heritage of Artsakh</a></li>
+<!--                                <li><a href="#">Traces of Great Silk Route</a></li>-->
+                                <li><a href="/discover/multicultural-heritage-of-artsakh">Multicultural heritage of Artsakh</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -131,8 +131,8 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                                 <li><a href="/plan-your-trip/useful">Useful information</a> </li>
                                 <li><a href="/plan-your-trip/find-me-a-guide">Find me a guide</a></li>
                                 <li><a href="/plan-your-trip/touroperators">Touroperators</a></li>
-                                <li><a href="#">FAQ</a></li>
                                 <li><a href="#">Transportation companies</a></li>
+                                <li><a href="#">FAQ</a></li>
                             </ul>
                         </li> 
                         <li class="dropdown">
@@ -140,16 +140,13 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                             <ul class="dropdown-menu">
                                 <li><a href="#">Cafes and Restaurants</a></li>
                                 <li><a href="/things-to-do/museums">Museums and Theatres</a></li>
-                                <li><a href="#">Cultural sightseeing</a></li>
-                                <li><a href="#">Archaeological sightseeing</a></li>
-                                <li><a href="#">Agrotourism</a> </li>
-                                <li><a href="#">Adventures</a></li>
-                                <li><a href="#">Religious tourism</a></li>
-                                <li><a href="#">Hunting and Fishing</a></li>
-                                <li><a href="#">Historical-military tourism</a></li>
-                                <li><a href="#">Shopping</a></li>
+                                <li><a href="/things-to-do/cultural-sightseeing">Cultural sightseeing</a></li>
+                                <li><a href="/things-to-do/archaeological-tourism">Archaeological sightseeing</a></li>
+                                <li><a href="/things-to-do/agrotourism">Agrotourism</a> </li>
+                                <li><a href="/things-to-do/adventure">Adventures</a></li>
+                                <li><a href="/things-to-do/religious-tourism">Religious tourism</a></li>
                             </ul>
-                        </li> 
+                        </li>
                       </ul>
                     </div>
                     <div class="search hidden-sm hidden-xs">
