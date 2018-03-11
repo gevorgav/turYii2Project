@@ -9,11 +9,21 @@ $this->title = Yii::$app->name;
 use yii\web\View;
 use yii\helpers\Html;
 ?>
-
+<script>
+    var timestamp = '<?php date_default_timezone_set('Armenia/Yerevan');
+        echo time();?>';
+    function updateTime(){
+        var date = new Date(timestamp*1000);
+        //console.log(timestamp);
+        $('#time').html(date.getHours()+":"+date.getMinutes());
+        timestamp++;
+    }
+</script>
 <?php
 //var icon = 'http://openweathermap.org/img/w/'+ data['weather'][0]['icon']+'.png'; // TODO weatheTourism Info Centersr icons from openweathermap.org
 $this->registerJs(
     "
+            setInterval(updateTime, 1000);
             var weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=shushi&units=metric&appid=13c158d43559008956fa5d3c0ca72303';
             var contentType =\"application/x-www-form-urlencoded; charset=utf-8\";
              
@@ -952,7 +962,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                         <div class="info-item">
                             <h4><?= Yii::t('frontend', 'Time') ?></h4>
                             <i class="icon time"></i>
-                            <p><?= Yii::$app->formatter->asTime('now', 'php:H:m') ?></p>
+                            <p id="time"></p>
                         </div>
                     </div>
                     <div class="col-sm-4 col-xs-12">
