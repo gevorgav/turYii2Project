@@ -23,7 +23,7 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body', 'verifyCode'], 'required'],
+            [['name', 'email', 'body', 'verifyCode'], 'required'],
             // We need to sanitize them
             [['name', 'subject', 'body'], 'filter', 'filter' => 'strip_tags'],
             // email has to be a valid email address
@@ -60,7 +60,7 @@ class ContactForm extends Model
                 ->setTo($email)
                 ->setFrom(Yii::$app->params['robotEmail'])
                 ->setReplyTo([$this->email => $this->name])
-                ->setSubject($this->subject)
+                ->setSubject('Artsakh Travel Contact Form Email')
                 ->setTextBody($this->body)
                 ->send();
         } else {

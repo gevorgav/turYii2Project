@@ -10,7 +10,7 @@ use yii\web\View;
 use yii\helpers\Html;
 ?>
 <script>
-    var timestamp = '<?php date_default_timezone_set('Armenia/Yerevan');
+    var timestamp = '<?php date_default_timezone_set('Asia/Yerevan');
         echo time();?>';
     function updateTime(){
         var date = new Date(timestamp*1000);
@@ -58,11 +58,11 @@ $this->registerJsFile(
     ['depends' => [\yii\web\JqueryAsset::className()]]
 );
 
-$this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css", [
+$this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.css", [
     'depends' => [\yii\bootstrap\BootstrapAsset::className()],
     'media' => 'print',
 ], 'css-print-theme');
-$this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css", [
+$this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.css", [
     'depends' => [\yii\bootstrap\BootstrapAsset::className()],
     'media' => 'print',
 ], 'css-print-theme');
@@ -105,10 +105,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
         <div class="container">
             <h2><?=Yii::t('frontend', 'Latest news')?></h2>
             <div class="line"></div>
-            <div class="col-xs-12 home-news-item img-bg">
-                <div class="img-block">
-                   <img src="../img/news-item.jpg" alt="GETTING THERE">
-                </div>
+            <div class="col-xs-12 home-news-item"  style="background: url(<?= $news->thumbnail_base_url . '/' . $news->thumbnail_path?>) no-repeat center;background-size: cover;">
                 <a href="<?='news/'.$news->slug?>">
                     <div class="gradient-hr-56">
                         <h3 class="title"><?= $news->getMultilingual('title', Yii::$app->language)?></h3>
@@ -117,6 +114,9 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                     </div>
                 </a>
             </div>
+<!--            <div class="flex-center">-->
+<!--                --><?//= Html::a(Yii::t('frontend', 'all news'), ['/news'], ['class' => 'button-liner blue']) ?>
+<!--            </div>-->
         </div>
 
     </section>
@@ -130,78 +130,59 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                 <h2><?=Yii::t('frontend', 'Activities')?></h2>
                 <div class="line"></div>
                 <div class="row">
+
                     <div class="col-md-6 col-xs-12">
-                       <div class="img-bg">
-                            <div class="img-block">
-                               <img src="../img/activity-preview-1.jpg" alt="GETTING THERE">
-                            </div>
-                            <a href="#">
-                                <div class="main-item">
-                                    <div class="gradient-vr-56">
-                                        <div class="text-block">
-                                            <h3 class="title">Outdoor activities</h3>
-                                            <p>Artsakh gives an opportunity for all stakeholders to try adventure tourism. Karabakh is not famous for its rich ancient history and culture, but also the freedom-loving, even rebellious, adventurous kind of native.</p>
-                                        </div>
+                        <a href="/things-to-do/adventure">
+                            <div class="main-item"
+                                 style="background: url(../img/activity-preview-1.jpg) no-repeat center;background-size: cover;">
+                                <div class="gradient-vr-56">
+                                    <div class="text-block">
+                                        <h3 class="title"><?= Yii::t('frontend', 'Outdoor activities') ?></h3>
+                                        <p><?= Yii::t('frontend', 'Artsakh gives an opportunity for all stakeholders to try adventure tourism.Karabakh is not famous for its rich ancient history and culture, but also the freedom-loving, even rebellious, adventurous kind of native.') ?></p>
                                     </div>
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <a href="#">
+                            <div class="item" style="background: url(../img/activity-preview-4.jpg) no-repeat center;
+                                                                        background-size: cover;">
+                                <div class="black-57">
+                                    <div class="activity-icon-1"></div>
+                                    <h4><?= Yii::t('frontend', 'Hiking') ?></h4>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="item" style="background: url(http://storage.artsakh.travel/web/img/regions/fishing.png) no-repeat center;
+                                                                        background-size: cover;">
+                                <div class="black-57">
+                                    <div class="activity-icon-3"></div>
+                                    <h4><?= Yii::t('frontend', 'Fishing') ?></h4>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12 activity-sec-item">
-                       <div class="img-bg">
-                            <div class="img-block">
-                               <img src="../img/activity-preview-4.jpg" alt="GETTING THERE">
-                            </div>
-                            <a href="#">
-                                <div class="item">
-                                    <div class="black-57">
-                                        <div class="activity-icon-1"></div>
-                                        <h4>Hiking</h4>
-                                    </div>
+                        <a href="#">
+                            <div class="item" style="background: url(../img/activity-preview-5.jpg) no-repeat center;
+                                                                        background-size: cover;">
+                                <div class="black-57">
+                                    <div class="activity-icon-2"></div>
+                                    <h4><?= Yii::t('frontend', 'Flights above Artsakh') ?></h4>
                                 </div>
-                            </a>
-                        </div>
-                       <div class="img-bg">
-                            <div class="img-block">
-                               <img src="http://storage.artsakh.travel/web/img/regions/fishing.png" alt="GETTING THERE">
                             </div>
-                            <a href="#">
-                                <div class="item">
-                                    <div class="black-57">
-                                        <div class="activity-icon-3"></div>
-                                        <h4>Fishing</h4>
-                                    </div>
+                        </a>
+                        <a href="#">
+                            <div class="item" style="background: url(../img/activity-preview-1.jpg) no-repeat center;
+                                                                        background-size: cover;">
+                                <div class="black-57">
+                                    <div class="activity-icon-4"></div>
+                                    <h4><?= Yii::t('frontend', 'Mountain biking') ?></h4>
                                 </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 activity-sec-item">
-                       <div class="img-bg">
-                            <div class="img-block">
-                               <img src="../img/activity-preview-5.jpg" alt="GETTING THERE">
                             </div>
-                            <a href="#">
-                                <div class="item">
-                                    <div class="black-57">
-                                        <div class="activity-icon-2"></div>
-                                        <h4>Flights above Artsakh</h4>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="img-bg">
-                            <div class="img-block">
-                               <img src="../img/activity-preview-1.jpg" alt="GETTING THERE">
-                            </div>
-                            <a href="#">
-                                <div class="item">
-                                    <div class="black-57">
-                                        <div class="activity-icon-4"></div>
-                                        <h4>Mountain biking</h4>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                        </a>
                     </div>
                 </div>
 <!--                <div class="flex-center">-->
@@ -275,7 +256,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                     l9.8,2.5v17.2l14.7,12.3l26.7,20.9L847.3,488z"/>
                             </g>
                         </g>
-                        <g id="yerevan-stepanakert">
+                        <g id="yerevan-stepanakert" class="hover-class" title="on-your-way-to-stepanakert">
                             <g class="st25">
                                 <path class="st26" d="M460.3,607.6c0,0-21.9-9.4-23-11.5c-1-2.1-17-3.7-19-6.2c-2.4-2.9-18.5-12.1-19.5-14"/>
                                 <path class="st26" d="M460.9,608.2c0,0,4.9,1.7,3-2.3c0,0-6.3-13.5-5.2-17.6c0,0,3.1-5,3.5-5.4c0,0,7.1,0.4,7.8,0.1"/>
@@ -291,7 +272,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                     c0.5-1.2,4.9-4,6-4.7c0.4-0.2,4-24.8,4.1-28.2"/>
                             </g>
                         </g>
-                        <g id="northern-travel">
+                        <g id="northern-travel" class="hover-class" title="northern-tourist-route">
                             <g class="st25">
                                 <path class="st28" d="M511.3,353.8c0,0-10.9-0.3-11.5-0.9c-1.4-1.2-7-4.1-9.9-5c-1.3-0.4-11.1-0.4-12.1-0.4
                                     c-1.1,0-10-1.7-11.4-2.4c-0.8-0.4-10.8-1.5-13-5.8"/>
@@ -332,7 +313,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                     s-5.6,9.1-6.5,10.2c-1,1.2-0.6,10.1-0.5,11.1"/>
                             </g>
                         </g>
-                        <g id="stepanakert-martakert">
+                        <g id="stepanakert-martakert" class="hover-class" title="highway-stepanakert-martakert">
                             <g class="st25">
                                 <path class="st28" d="M512,257.6c4,1.4,8.8,2.6,10.3,3c1.8,0.5,3.8,2.3,4.4,3.3c0.9,1.3,10,2.2,10.8,2c0.9-0.2,2.1-1.2,2.9-1.8
                                     c1.9-1.4,3.5-3,5.4-4.4c2.7-2,17.3-5.7,19-6.4"/>
@@ -438,7 +419,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                     c-0.4-0.2-3.6-3.7-4.3-4.5c-0.3-0.3-1.9-25.7-1.9-26.8"/>
                             </g>
                         </g>
-                        <g id="southern-travel">
+                        <g id="southern-travel" class="hover-class" title="south-tourist-route">
                             <g class="st25">
                                 <path class="st28" d="M632,543c0,0.4,1.1,2.8,1.8,3.5c0.5,0.5,12.1,7.2,13,7.9c1.1,0.9,9.5,3.5,10.8,3.9"/>
                                 <g>
@@ -491,7 +472,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                             </g>
                         </g>
 
-                        <g id="Berdzor">
+                        <g id="Berdzor" class="hover-class" title="kashatagh-map">
                             <circle class="st31" cx="464.2" cy="585.2" r="10"/>
                             <polygon class="st9" points="462.1,578.3 463.8,578.1 464,579.7 466.3,579.4 466.6,582 469.3,581.6 469.6,584 471.3,583.7
                                 471.5,585.3 469.9,585.6 470.2,587.9 467.6,588.3 467.9,590.8 465.6,591.2 465.9,592.9 464.2,593.1 464,591.4 461.5,591.7
@@ -499,7 +480,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                             <polygon class="st31" points="462.9,582.4 464.5,582.2 464.9,584.6 467.4,584.3 467.7,585.9 465.1,586.3 465.5,588.7 463.8,589
                                 463.5,586.5 461,586.9 460.8,585.2 463.3,584.9 	"/>
                         </g>
-                        <g id="Shushi">
+                        <g id="Shushi" class="hover-class" title="shoushi-map">
                             <circle class="st31" cx="550.2" cy="504.2" r="10"/>
                             <polygon class="st9" points="548.1,497.3 549.8,497.1 550,498.7 552.3,498.4 552.6,501 555.3,500.6 555.6,503 557.3,502.7
                                 557.5,504.3 555.9,504.6 556.2,506.9 553.6,507.3 553.9,509.8 551.6,510.2 551.9,511.9 550.2,512.1 550,510.4 547.5,510.7
@@ -507,7 +488,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                             <polygon class="st31" points="548.9,501.4 550.5,501.2 550.9,503.6 553.4,503.3 553.7,504.9 551.1,505.3 551.5,507.7 549.8,508
                                 549.5,505.5 547,505.9 546.8,504.2 549.3,503.9 	"/>
                         </g>
-                        <g id="Karvachar">
+                        <g id="Karvachar" class="hover-class" title="karvatchar-map">
                             <circle class="st31" cx="235.5" cy="313" r="10"/>
                             <polygon class="st9" points="233.4,306.1 235.1,305.9 235.3,307.5 237.6,307.2 237.9,309.8 240.6,309.4 240.9,311.8 242.6,311.5
                                 242.8,313.1 241.2,313.4 241.5,315.7 238.9,316.1 239.2,318.6 236.9,319 237.2,320.7 235.5,320.9 235.3,319.2 232.8,319.5
@@ -515,7 +496,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                             <polygon class="st31" points="234.2,310.2 235.8,310 236.2,312.4 238.7,312.1 239,313.7 236.4,314.1 236.8,316.5 235.1,316.8
                                 234.8,314.3 232.3,314.7 232.1,313 234.6,312.7 	"/>
                         </g>
-                        <g id="Askeran">
+                        <g id="Askeran" class="hover-class" title="askeran-map">
                             <circle class="st31" cx="589.7" cy="402.7" r="10"/>
                             <polygon class="st9" points="587.6,395.8 589.3,395.6 589.6,397.3 591.8,396.9 592.2,399.5 594.8,399.1 595.2,401.5 596.8,401.2
                                 597.1,402.9 595.4,403.1 595.7,405.4 593.1,405.8 593.5,408.3 591.2,408.7 591.4,410.4 589.8,410.6 589.5,408.9 587.1,409.3
@@ -523,7 +504,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                             <polygon class="st31" points="588.5,399.9 590.1,399.7 590.4,402.2 593,401.8 593.2,403.4 590.7,403.8 591,406.3 589.4,406.5
                                 589,404 586.6,404.4 586.3,402.7 588.8,402.4 	"/>
                         </g>
-                        <g id="Martuni">
+                        <g id="Martuni" class="hover-class" title="martuni-map">
                             <circle class="st31" cx="714.7" cy="489.7" r="10"/>
                             <polygon class="st9" points="712.6,482.8 714.3,482.6 714.5,484.2 716.8,483.9 717.1,486.5 719.8,486.1 720.1,488.5 721.8,488.2
                                 722,489.8 720.4,490.1 720.7,492.4 718.1,492.8 718.4,495.3 716.1,495.7 716.4,497.4 714.7,497.6 714.5,495.9 712,496.2
@@ -531,7 +512,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                             <polygon class="st31" points="713.4,486.9 715,486.7 715.4,489.1 717.9,488.8 718.2,490.4 715.6,490.8 716,493.2 714.3,493.5
                                 714,491 711.5,491.4 711.3,489.7 713.8,489.4 	"/>
                         </g>
-                        <g id="Martakert">
+                        <g id="Martakert" class="hover-class" title="martakert-map">
                             <circle class="st31" cx="579.7" cy="247.6" r="10"/>
                             <polygon class="st9" points="577.6,240.8 579.3,240.5 579.5,242.2 581.8,241.9 582.1,244.4 584.8,244 585.1,246.4 586.8,246.2
                                 587,247.8 585.3,248 585.7,250.4 583,250.7 583.4,253.3 581.1,253.6 581.4,255.3 579.7,255.6 579.5,253.8 577,254.2 576.7,251.7
@@ -539,12 +520,12 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                             <polygon class="st31" points="578.4,244.8 580,244.6 580.4,247.1 582.9,246.7 583.1,248.3 580.6,248.7 581,251.2 579.3,251.4
                                 579,248.9 576.5,249.3 576.3,247.7 578.8,247.3 	"/>
                         </g>
-                        <g id="Stepanakert">
+                        <g id="Stepanakert" class="hover-class" title="stepanakert-map">
                             <circle class="st31" cx="559.3" cy="472.3" r="12.3"/>
                             <polygon class="st9" points="556.7,463.8 558.7,463.6 559,465.6 561.8,465.2 562.2,468.3 565.5,467.8 565.9,470.7 567.9,470.4    568.2,472.4 566.2,472.7 566.6,475.6 563.4,476 563.8,479.1 561,479.5 561.3,481.6 559.3,481.9 559,479.8 556,480.2 555.6,477.1    552.6,477.6 552.2,474.7 550,475 549.7,473.1 551.9,472.7 551.5,469.8 554.5,469.4 554,466.3 557,465.9  "/>
                             <polygon class="st31" points="557.7,468.8 559.7,468.5 560.1,471.6 563.2,471.1 563.5,473.1 560.4,473.5 560.8,476.6 558.8,476.9    558.4,473.8 555.4,474.3 555.1,472.3 558.1,471.9  "/>
                         </g>
-                        <g id="Hadrut">
+                        <g id="Hadrut" class="hover-class" title="hadrut-map">
                             <circle class="st31" cx="691.7" cy="650.4" r="10"/>
                             <polygon class="st9" points="689.6,643.5 691.3,643.3 691.5,644.9 693.8,644.6 694.1,647.2 696.8,646.8 697.1,649.2 698.8,648.9
                                 699,650.5 697.4,650.8 697.7,653.1 695.1,653.5 695.4,656 693.1,656.4 693.4,658.1 691.7,658.3 691.5,656.6 689,656.9 688.7,654.4
@@ -553,7 +534,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                 691,651.7 688.5,652.1 688.3,650.4 690.8,650.1 	"/>
                         </g>
                         <g id="yerevan-points">
-                            <g id="_x31_6">
+                            <g id="_x31_6" class="hover-class" title="hunot-canyon">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_1_" x="547.4" y="514.3" width="35" height="24"/>
@@ -573,7 +554,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                          M552.4,517.2"/>
                                 </g>
                             </g>
-                            <g id="_x32_">
+                            <g id="_x32_" class="hover-class" title="melikashen">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_3_" x="410.2" y="551.3" width="30" height="24.4"/>
@@ -591,7 +572,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                         c-0.2,0-0.3-0.1-0.3-0.3V559c0-0.7,0.6-1.3,1.3-1.3c0.7,0,1.3,0.6,1.3,1.3V560.8z M437,560.8"/>
                                 </g>
                             </g>
-                            <g id="_x31_">
+                            <g id="_x31_" class="hover-class" title="tsitsernavank-monastery">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_5_" x="370" y="560.8" width="21" height="31.1"/>
@@ -615,12 +596,12 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                 <text transform="matrix(1 0 0 1 555.123 270.4004)" class="st6 st7 st8">5</text>
                                 <circle class="st6" cx="563.2" cy="258" r="1.9"/>
                             </g>
-                            <g id="_x31_5">
+                            <g id="_x31_5" class="hover-class" title="nikol-duman-house-museum-and-ethnographic-district">
                                 <path class="st9" d="M516.8,399.5v-11.1h-3.7v11.1H516.8z M522.4,399.5v-11.1h-3.7v11.1H522.4z M524.2,386.2l-12.1-7.1l-12.1,7.1
                                     c0,0-0.8,0.7,0,1.3h24.1C524.2,387.4,524.9,386.9,524.2,386.2L524.2,386.2z M511.2,399.5v-11.1h-3.7v11.1H511.2z M505.7,399.5
                                     v-11.1h-3.7v11.1H505.7z M523.4,400.8l-22.2,0.1l-2,2.7v1.5h26v-1.5L523.4,400.8z M523.4,400.8"/>
                             </g>
-                            <g id="_x31_4">
+                            <g id="_x31_4" class="hover-class" title="kachaghakaberd">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_7_" x="385.2" y="359.3" width="30" height="24.4"/>
@@ -638,7 +619,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                         c-0.2,0-0.3-0.1-0.3-0.3V367c0-0.7,0.6-1.3,1.3-1.3c0.7,0,1.3,0.6,1.3,1.3V368.8z M412,368.8"/>
                                 </g>
                             </g>
-                            <g id="_x31_3">
+                            <g id="_x31_3" class="hover-class" title="gandzasar">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_9_" x="425" y="324.8" width="21" height="31.1"/>
@@ -654,7 +635,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                         c-0.2,0-0.4-0.2-0.4-0.4v-2.3c0-0.8,0.6-1.4,1.4-1.4c0.8,0,1.4,0.6,1.4,1.4V338.7z M436.9,338.7"/>
                                 </g>
                             </g>
-                            <g id="_x31_2">
+                            <g id="_x31_2"class="hover-class" title="handaberd">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_11_" x="264.2" y="209.3" width="30" height="24.4"/>
@@ -672,7 +653,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                         c-0.2,0-0.3-0.1-0.3-0.3V217c0-0.7,0.6-1.3,1.3-1.3c0.7,0,1.3,0.6,1.3,1.3V218.8z M291,218.8"/>
                                 </g>
                             </g>
-                            <g id="_x31_1_1_">
+                            <g id="_x31_1_1_" class="hover-class" title="thermal-springs">
                                 <g id="_x31_1">
                                     <defs>
                                         <rect id="SVGID_13_" x="318.2" y="337" width="31" height="30"/>
@@ -708,7 +689,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                         C347,363.2,346.7,363.6,346.5,364.1L346.5,364.1z M346.5,364.1"/>
                                 </g>
                             </g>
-                            <g id="_x31_0">
+                            <g id="_x31_0" class="hover-class" title="kusanats-anapat">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_15_" x="320" y="233.8" width="21" height="31.1"/>
@@ -724,7 +705,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                         c-0.2,0-0.4-0.2-0.4-0.4v-2.3c0-0.8,0.6-1.4,1.4-1.4c0.8,0,1.4,0.6,1.4,1.4V247.7z M331.9,247.7"/>
                                 </g>
                             </g>
-                            <g id="_x39_">
+                            <g id="_x39_" class="hover-class">
                                 <path class="st9" d="M343.9,305.8c-0.5,0.5-0.7,0.7-1.2,0.7h0c-0.5,0-0.8-0.2-1.2-0.7c-0.5-0.5-1.2-1.2-2.6-1.2c0,0,0,0,0,0
                                     c-1.4,0-2.1,0.7-2.6,1.2c-0.5,0.5-0.7,0.7-1.2,0.7h0c-0.5,0-0.8-0.2-1.2-0.7c-0.5-0.5-1.2-1.2-2.6-1.2c0,0,0,0,0,0
                                     c-1.4,0-2.1,0.7-2.6,1.2c-0.5,0.5-0.7,0.7-1.2,0.7c0,0,0,0,0,0c-0.5,0-0.8-0.2-1.2-0.7c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,1,0,1.3
@@ -740,7 +721,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                     h0c-0.4,0-0.7-0.1-1-0.4v-13H344.5z M334,298.5c0,0.5-0.4,1-1,1c-0.5,0-1-0.4-1-1v-3.2c0-0.5,0.4-1,1-1c0.5,0,1,0.4,1,1V298.5z
                                      M337.9,295.4c0,0.5-0.4,1-1,1c-0.5,0-1-0.4-1-1v-3.2c0-0.5,0.4-1,1-1c0.5,0,1,0.4,1,1V295.4z M337.9,295.4"/>
                             </g>
-                            <g id="_x38_">
+                            <g id="_x38_" class="hover-class" title="dadivank-monastery">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_17_" x="347" y="245.8" width="21" height="31.1"/>
@@ -755,10 +736,10 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                         c0.7,0,1.4-0.4,1.6-1C368.1,265.8,367.9,265.1,367.4,264.6L367.4,264.6z M358.9,259.7c0,0.2-0.2,0.4-0.4,0.4h-2
                                         c-0.2,0-0.4-0.2-0.4-0.4v-2.3c0-0.8,0.6-1.4,1.4-1.4c0.8,0,1.4,0.6,1.4,1.4V259.7z M358.9,259.7"/>
                                 </g>
-                            </g>
+                            </g >
                         </g>
                         <g id="martakert-points">
-                            <g id="_x37_">
+                            <g id="_x37_" class="hover-class" title="yeghishe-arakyal">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_19_" x="493" y="207.8" width="21" height="31.1"/>
@@ -774,7 +755,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                         c-0.2,0-0.4-0.2-0.4-0.4v-2.3c0-0.8,0.6-1.4,1.4-1.4c0.8,0,1.4,0.6,1.4,1.4V221.7z M504.9,221.7"/>
                                 </g>
                             </g>
-                            <g id="_x36_">
+                            <g id="_x36_" class="hover-class" title="yerek-mankunk">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_21_" x="518" y="160.8" width="17" height="25.2"/>
@@ -790,7 +771,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                         c0,0.2-0.1,0.3-0.3,0.3h-1.6c-0.2,0-0.3-0.1-0.3-0.3v-1.9c0-0.6,0.5-1.1,1.1-1.1c0.6,0,1.1,0.5,1.1,1.1V172z M527.6,172"/>
                                 </g>
                             </g>
-                            <g id="_x34_">
+                            <g id="_x34_" class="hover-class" title="tigranakert">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_23_" x="580.2" y="320.3" width="30" height="24.4"/>
@@ -808,7 +789,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                         c-0.2,0-0.3-0.1-0.3-0.3V328c0-0.7,0.6-1.3,1.3-1.3c0.7,0,1.3,0.6,1.3,1.3V329.8z M607,329.8"/>
                                 </g>
                             </g>
-                            <g id="_x33_">
+                            <g id="_x33_" class="hover-class"  title="askeran-fortress">
                                 <path class="st9" d="M571.5,393.6c0-0.5-0.4-0.9-0.9-0.9h-6.2v4.4h7V393.6z"/>
                                 <path class="st9" d="M577.6,398.9h-9.7v4.4h10.6v-3.5C578.5,399.3,578.1,398.9,577.6,398.9z"/>
                                 <rect x="559.1" y="398.9" class="st9" width="7" height="4.4"/>
@@ -822,7 +803,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                             </g>
                         </g>
                         <g id="southern-points">
-                            <g id="_x31_7_2_">
+                            <g id="_x31_7_2_" class="hover-class" title="tnjri">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_25_" x="594.9" y="536.8" width="28" height="30.1"/>
@@ -842,7 +823,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                          M611.5,559.1"/>
                                 </g>
                             </g>
-                            <g id="_x31_8_2_">
+                            <g id="_x31_8_2_" class="hover-class" title="amaras">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_27_" x="671" y="535.8" width="21" height="31.1"/>
@@ -858,7 +839,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                         c-0.2,0-0.4-0.2-0.4-0.4v-2.3c0-0.8,0.6-1.4,1.4-1.4c0.8,0,1.4,0.6,1.4,1.4V549.7z M682.9,549.7"/>
                                 </g>
                             </g>
-                            <g id="_x32_2_2_">
+                            <g id="_x32_2_2_" class="hover-class" title="kataro">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_29_" x="582" y="628.8" width="21" height="31.1"/>
@@ -874,7 +855,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                         c-0.2,0-0.4-0.2-0.4-0.4v-2.3c0-0.8,0.6-1.4,1.4-1.4c0.8,0,1.4,0.6,1.4,1.4V642.7z M593.9,642.7"/>
                                 </g>
                             </g>
-                            <g id="_x32_1_2_">
+                            <g id="_x32_1_2_" class="hover-class"  title="gtchavank">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_31_" x="598" y="592.8" width="21" height="31.1"/>
@@ -890,7 +871,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                         c-0.2,0-0.4-0.2-0.4-0.4v-2.3c0-0.8,0.6-1.4,1.4-1.4c0.8,0,1.4,0.6,1.4,1.4V606.7z M609.9,606.7"/>
                                 </g>
                             </g>
-                            <g id="_x32_0_2_">
+                            <g id="_x32_0_2_" class="hover-class" title="palace-of-meliks-of-togh">
                                 <g>
                                     <defs>
                                         <rect id="SVGID_33_" x="624.2" y="607.3" width="30" height="24.4"/>
@@ -908,7 +889,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                                         c-0.2,0-0.3-0.1-0.3-0.3V615c0-0.7,0.6-1.3,1.3-1.3c0.7,0,1.3,0.6,1.3,1.3V616.8z M651,616.8"/>
                                 </g>
                             </g>
-                            <g id="_x31_9_2_">
+                            <g id="_x31_9_2_" class="hover-class"  title="azokh">
                                 <g>
                                     <defs>
                                         <polygon id="SVGID_35_" points="622.4,577.6 651,582 654.4,601.2 622.4,601.2 				"/>
@@ -925,18 +906,47 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                     </svg>
                 </div>
                 <div class="col-md-6 hidden-sm hidden-xs right-part">
-                    <div class="popup-block">
-                        <div class="item">
-                            <a href="#">
-                                <div class="img-block">
-<!--                                    <img src="img/dadivank-church.jpg" alt="Dadivank">-->
-                                </div>
-                                <div class="bottom-part">
-                                    <h3>Northern tourist route</h3>
-                                    <p>The route begins in Stepanakert, crossing the country to the north, reaching Sotk mountain chain. The route runs along the main north-south highway to the village Vank, then turn onto the road Martakert-Vardenis. The road is wonderful opportunity to visit cultural and historical monuments. It drives along the picturesque countryside with healing springs, waterfalls Krmker, famous reservoir Sarsang. Across the northern tourist route one can find numerous large and small temples, churches, medieval castles, and, of course, the famous monasteries of Gandzasar and Dadivank. </p>
-                                </div>
-                            </a>
-                        </div>
+                    <div class="popup-block" style="position: relative">
+                         <?php foreach ($sights->getModels() as $key => $item): ?>
+                             <div class="item" id="<?=$item->slug?>" style="position: absolute;display: none;">
+                                 <a href="<?=$item->category->slug . '/' . $item->slug?>">
+                                     <div class="img-block">
+                                         <?php echo Html::img($item->thumbnail_base_url.'/' . $item->preview_path,['width' => '100px', 'alt' => $item->getMultilingual('title', Yii::$app->language)]);?>
+                                     </div>
+                                     <div class="bottom-part">
+                                         <h3><?= $item->getMultilingual('title', YII::$app->language)?></h3>
+                                         <p><?= $item->getMultilingual('short_description', YII::$app->language)?></p>
+                                     </div>
+                                 </a>
+                             </div>
+                        <?php endforeach;?>
+                        <?php foreach ($routes->getModels() as $key => $item): ?>
+                            <div class="item" id="<?=$item->slug?>" style="position: absolute;display: none;">
+                                <a href="<?=$item->category->slug . '/' . $item->slug?>">
+                                    <div class="img-block">
+                                        <?php echo Html::img($item->thumbnail_base_url.'/' . $item->preview_path,['width' => '100px', 'alt' => $item->getMultilingual('title', Yii::$app->language)]);?>
+                                    </div>
+                                    <div class="bottom-part">
+                                        <h3><?= $item->getMultilingual('title', YII::$app->language)?></h3>
+                                        <p><?= $item->getMultilingual('short_description', YII::$app->language)?></p>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php endforeach;?>
+                        <?php foreach ($regions->getModels() as $key => $item): ?>
+                            <div class="item" id="<?=$item->slug. '-map'?>" style="position: absolute;display: none;">
+                                <a href="<?=$item->category->slug . '/' . $item->slug?>">
+                                    <div class="img-block">
+                                        <?php echo Html::img($item->thumbnail_base_url.'/' . $item->preview_path,['width' => '100px', 'alt' => $item->getMultilingual('title', Yii::$app->language)]);?>
+                                    </div>
+                                    <div class="bottom-part">
+                                        <h3><?= $item->getMultilingual('title', YII::$app->language)?></h3>
+                                        <p><?= $item->getMultilingual('short_description', YII::$app->language)?></p>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php endforeach;?>
+
                     </div>
                     <div class="hand-move"></div>
                 </div>
@@ -1142,7 +1152,6 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                 </div>
                 <div class="flex-center">
                     <?= Html::a(Yii::t('frontend', 'all events'), ['/events'], ['class' => 'button-liner blue']) ?>
-
                 </div>
             </div>
         </section>

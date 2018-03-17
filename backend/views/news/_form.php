@@ -20,64 +20,69 @@ use pudinglabs\tagsinput\TagsinputWidget;
           type="text/css"/>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <?php $form = ActiveForm::begin(); ?>
+    <div class="row">
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'slug')
+                ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
+                ->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'published_at')->widget(
+                DateTimeWidget::className(),
+                [
+                    'phpDatetimeFormat' => 'yyyy-MM-dd\'T\'HH:mm:ssZZZZZ'
+                ]
+            ) ?>
+        </div>
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'status')->checkbox() ?>
+        </div>
+    </div>
 
-    <?php echo $form->field($model, 'slug')
-        ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
-        ->textInput(['maxlength' => true]) ?>
+    <div class="row">
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
+                $categories,
+                'id',
+                'title_en'
+            ), ['prompt'=>'']) ?>
+        </div>
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'video_link')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'tags')->widget(TagsinputWidget::classname(), [
+                'options' => [],
+                'clientOptions' => [],
+                'clientEvents' => []
+            ]);
+            ?>
+        </div>
+    </div>
 
-    <?php echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
-            $categories,
-            'id',
-            'title_en'
-        ), ['prompt'=>'']) ?>
+    <div class="row">
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'attachments')->widget(
+                Upload::className(),
+                [
+                    'url' => ['/file-storage/upload'],
+                    'sortable' => true,
+                    'maxFileSize' => 10000000, // 10 MiB
+                    'maxNumberOfFiles' => 10
+                ]);
+            ?>
+        </div>
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'thumbnail')->widget(
+                Upload::className(),
+                [
+                    'url' => ['/file-storage/upload'],
+                    'maxFileSize' => 5000000, // 5 MiB
+                ]);
+            ?>
+        </div>
+    </div>
 
-    <?php echo $form->field($model, 'tags')->widget(TagsinputWidget::classname(), [
-        'options' => [],
-        'clientOptions' => [],
-        'clientEvents' => []
-    ]);
-    ?>
-
-    <?php echo $form->field($model, 'video_link')->textInput(['maxlength' => true]) ?>
-
-    <?php echo $form->field($model, 'view')->textInput(['maxlength' => true, 'style' => 'display:none'])->label(false) ?>
-
-    <?php echo $form->field($model, 'status')->checkbox() ?>
-
-    <?php echo $form->field($model, 'published_at')->widget(
-        DateTimeWidget::className(),
-        [
-            'phpDatetimeFormat' => 'yyyy-MM-dd\'T\'HH:mm:ssZZZZZ'
-        ]
-    ) ?>
-
-    <?php echo $form->field($model, 'attachments')->widget(
-        Upload::className(),
-        [
-            'url' => ['/file-storage/upload'],
-            'sortable' => true,
-            'maxFileSize' => 10000000, // 10 MiB
-            'maxNumberOfFiles' => 10
-        ]);
-    ?>
-
-    <?php echo $form->field($model, 'thumbnail')->widget(
-        Upload::className(),
-        [
-            'url' => ['/file-storage/upload'],
-            'maxFileSize' => 5000000, // 5 MiB
-        ]);
-    ?>
-
-<!--    --><?php //if ($model->id == null):?>
-<!---->
-<!--        --><?php //echo $form->field($model, 'title_en')->textInput(['maxlength' => true]) ?>
-<!---->
-<!--        --><?php //echo $form->field($model, 'short_description_en')->textArea(['maxlength' => true]) ?>
-<!---->
-<!--        --><?php //echo $form->field($model, 'body_en')->textArea(['maxlength' => true, 'style' => 'display:none'])->label(false) ?>
-<!---->
-<!--    --><?php //else:?>
 
         <div class="">
             <h3>Multilingual inputs</h3>
@@ -190,18 +195,18 @@ use pudinglabs\tagsinput\TagsinputWidget;
 
 
 
-
-    <div class="form-group">
-        <?php echo Html::submitButton(
-            $model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'),
-            ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary', 'onclick' => 'updateForm()']) ?>
+    <div class="articles-fixed-part">
+        <div id="tmpButtons">
+            <span class="btn" id="addTemplate1Id">Add tempalate</span>
+            <span class="btn" id="addTemplate2Id">Add tempalate 2</span>
+            <span class="btn" id="addTemplate3Id">Add tempalate 3</span>
+        </div>
+        <div class="form-group">
+            <?php echo Html::submitButton(
+                $model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'),
+                ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary', 'onclick' => 'updateForm()']) ?>
+        </div>
     </div>
-    <div id="tmpButtons">
-        <span class="btn" id="addTemplate1Id">Add tempalate</span>
-        <span class="btn" id="addTemplate2Id">Add tempalate 2</span>
-        <span class="btn" id="addTemplate3Id">Add tempalate 3</span>
-    </div>
-    <div class="clear"></div>
 
     <div id="myModal" class="modal fade">
         <div class="modal-dialog">
@@ -231,7 +236,6 @@ use pudinglabs\tagsinput\TagsinputWidget;
         </div>
     </div>
     <script>
-        debugger;
 //        var lang = $(".active.in  [id^='news-body_']")[0].id.toString().slice($(".active.in  [id^='news-body_']")[0].id.indexOf("_") + 1, $(".active.in  [id^='news-body_']")[0].id.length);
         var id = <?= $model->id?>+'';
         if (!!id) {
@@ -267,26 +271,26 @@ use pudinglabs\tagsinput\TagsinputWidget;
             $("#addTemplate1Id").on('click', function (event) {
                 var template1 = parser.parseFromString(template1String, 'text/html').body.firstChild;
                 list.push(template1);
-                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
-                root.append(template1);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' class='remove-button' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(deletes);
+                root.append(template1);
                 deleteIconList.push(deletes);
 
             });
             $("#addTemplate2Id").on('click', function (event) {
                 var template2 = parser.parseFromString(template2String, 'text/html');
                 list.push(template2);
-                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
-                root.append(template2.body.firstChild);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' class='remove-button' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(deletes);
+                root.append(template2.body.firstChild);
                 deleteIconList.push(deletes);
             });
             $("#addTemplate3Id").on('click', function (event) {
                 var template3 = parser.parseFromString(template3String, 'text/html');
                 list.push(template3);
-                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
-                root.append(template3.body.firstChild);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' class='remove-button' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(deletes);
+                root.append(template3.body.firstChild);
                 deleteIconList.push(deletes);
             });
         });
@@ -305,7 +309,6 @@ use pudinglabs\tagsinput\TagsinputWidget;
             });
             $("[id^='news-body_']").each(function (index) {
                 var ln = this.id.toString().slice(this.id.indexOf("_") + 1, this.id.length);
-                debugger;
                 if (!!id) {
                     $("#news-body_" + ln).html($("#template_" + ln).html());
                 } else {
@@ -315,13 +318,12 @@ use pudinglabs\tagsinput\TagsinputWidget;
         }
 
         function deleteElelement(el) {
-            el.previousSibling.remove();
+            el.nextSibling.remove();
             el.remove();
         }
 
         $("[id^='news-body_']").each(function (index) {
             var ln = this.id.toString().slice(this.id.indexOf("_") + 1, this.id.length);
-            debugger;
             if (!!id) {
                 $("#template_" + ln).html($("#news-body_" + ln).text())
                 ;

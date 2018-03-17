@@ -21,9 +21,8 @@ use yii\widgets\Pjax;
             ],
         ]); ?>
         <?=$form->field($model, 'email')->textInput(['placeholder'=>Yii::t('frontend', 'E-mail')])->label(false);?>
-        <?=Html::submitButton('',  ['class' => 'submit btn btn-default']); ?>        
+        <?=Html::submitButton(' <i class="fa fa-arrow-right subscribe-icon"></i>',  ['class' => 'submit btn btn-default']); ?>
         <?php ActiveForm::end(); ?>
-<!--        <i class="material-icons">rss_feed</i>-->
         <?php Pjax::end(); ?>
         <div style="clear:both;"></div>
     </div>

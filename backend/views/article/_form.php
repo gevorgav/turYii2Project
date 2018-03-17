@@ -19,68 +19,85 @@ use mihaildev\ckeditor\CKEditor;
           type="text/css"/>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <?php $form = ActiveForm::begin(); ?>
+    <div class="row">
+        <div class="col-md-4">
 
-    <?php echo $form->field($model, 'slug')
-        ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
-        ->textInput(['maxlength' => true]) ?>
+            <?php echo $form->field($model, 'slug')
+                ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
+                ->textInput(['maxlength' => true]) ?>
 
-    <?php echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
-        $categories,
-        'id',
-        'title_en'
-    ), ['prompt' => '']) ?>
+        </div>
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'published_at')->widget(
+                DateTimeWidget::className(),
+                [
+                    'phpDatetimeFormat' => 'yyyy-MM-dd\'T\'HH:mm:ssZZZZZ'
+                ]
+            ) ?>
+            <!--            <?php //echo $form->field($model, 'view')->textInput(['maxlength' => true]) ?>-->
+        </div>
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'status')->checkbox() ?>
+        </div>
+    </div>
 
-    <?php echo $form->field($model, 'preview')->widget(
-        Upload::className(),
-        [
-            'url' => ['/file-storage/upload'],
-            'maxFileSize' => 5000000, // 5 MiB
-        ]);
-    ?>
 
-    <?php echo $form->field($model, 'thumbnail')->widget(
-        Upload::className(),
-        [
-            'url' => ['/file-storage/upload'],
-            'maxFileSize' => 5000000, // 5 MiB
-        ]);
-    ?>
+    <div class="row">
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'preview')->widget(
+                Upload::className(),
+                [
+                    'url' => ['/file-storage/upload'],
+                    'maxFileSize' => 5000000, // 5 MiB
+                ]);
+            ?>
+        </div>
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'thumbnail')->widget(
+                Upload::className(),
+                [
+                    'url' => ['/file-storage/upload'],
+                    'maxFileSize' => 5000000, // 5 MiB
+                ]);
+            ?>
+        </div>
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'attachments')->widget(
+                Upload::className(),
+                [
+                    'url' => ['/file-storage/upload'],
+                    'sortable' => true,
+                    'maxFileSize' => 10000000, // 10 MiB
+                    'maxNumberOfFiles' => 10
+                ]);
+            ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
+                $categories,
+                'id',
+                'title_en'
+            ), ['prompt' => '']) ?>
+        </div>
+    </div>
 
-    <?php echo $form->field($model, 'attachments')->widget(
-        Upload::className(),
-        [
-            'url' => ['/file-storage/upload'],
-            'sortable' => true,
-            'maxFileSize' => 10000000, // 10 MiB
-            'maxNumberOfFiles' => 10
-        ]);
-    ?>
-
-    <?php echo $form->field($model, 'view')->textInput(['maxlength' => true]) ?>
-
-    <?php echo $form->field($model, 'status')->checkbox() ?>
-
-    <?php echo $form->field($model, 'published_at')->widget(
-        DateTimeWidget::className(),
-        [
-            'phpDatetimeFormat' => 'yyyy-MM-dd\'T\'HH:mm:ssZZZZZ'
-        ]
-    ) ?>
 
 
     <div class="">
         <h3>Multilingual inputs</h3>
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#home">English</a></li>
-            <?php if (!$model->isNewRecord):?>
-            <li><a data-toggle="tab" href="#menu2">Հայերեն</a></li>
-            <li><a data-toggle="tab" href="#menu3">Русский</a></li>
-            <li><a data-toggle="tab" href="#menu4">Deutsch</a></li>
-            <li><a data-toggle="tab" href="#menu5">Français</a></li>
-            <li><a data-toggle="tab" href="#menu6">Español</a></li>
-            <li><a data-toggle="tab" href="#menu7">العربية</a></li>
-            <li><a data-toggle="tab" href="#menu8">Iranian</a></li>
-            <?php endIf?>
+            <?php if (!$model->isNewRecord): ?>
+                <li><a data-toggle="tab" href="#menu2">Հայերեն</a></li>
+                <li><a data-toggle="tab" href="#menu3">Русский</a></li>
+                <li><a data-toggle="tab" href="#menu4">Deutsch</a></li>
+                <li><a data-toggle="tab" href="#menu5">Français</a></li>
+                <li><a data-toggle="tab" href="#menu6">Español</a></li>
+                <li><a data-toggle="tab" href="#menu7">العربية</a></li>
+                <li><a data-toggle="tab" href="#menu8">Iranian</a></li>
+            <?php endIf ?>
         </ul>
 
         <div class="tab-content">
@@ -143,7 +160,7 @@ use mihaildev\ckeditor\CKEditor;
             <div id="menu7" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_ar')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
                 <?php echo $form->field($model, 'short_description_ar')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
-                <?php echo $form->field($model, 'body_ar')->textArea(['dir' => 'rtl','style' => 'display:none'])->label(false) ?>
+                <?php echo $form->field($model, 'body_ar')->textArea(['dir' => 'rtl', 'style' => 'display:none'])->label(false) ?>
                 <?php echo $form->field($model, 'keywords_ar')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
                 <section class="template-text" id="template_ar" lang="ar">
 
@@ -152,7 +169,7 @@ use mihaildev\ckeditor\CKEditor;
             <div id="menu8" class="tab-pane fade">
                 <?php echo $form->field($model, 'title_fa')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
                 <?php echo $form->field($model, 'short_description_fa')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
-                <?php echo $form->field($model, 'body_fa')->textArea(['dir' => 'rtl','style' => 'display:none'])->label(false)  ?>
+                <?php echo $form->field($model, 'body_fa')->textArea(['dir' => 'rtl', 'style' => 'display:none'])->label(false) ?>
                 <?php echo $form->field($model, 'keywords_fa')->hint('Please enter the keyword with commas')->textInput(['maxlength' => true, 'dir' => 'rtl']) ?>
                 <section class="template-text" id="template_fa" lang="fa">
 
@@ -161,27 +178,26 @@ use mihaildev\ckeditor\CKEditor;
         </div>
     </div>
 
-
-    <div class="form-group">
-        <?php echo Html::submitButton(
-            $model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'),
-            ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary', 'onclick' => 'updateForm()']) ?>
+    <div class="articles-fixed-part">
+        <div id="tmpButtons">
+            <span class="btn" id="addTemplate1Id">Add tempalate</span>
+            <span class="btn" id="addTemplate2Id">Add tempalate 2</span>
+            <span class="btn" id="addTemplate3Id">Add tempalate 3</span>
+            <span class="btn" id="addTemplate4Id">Add tempalate 4</span>
+            <span class="btn" id="addTemplate5Id">Add tempalate 5</span>
+            <span class="btn" id="addTemplate6Id">Add photo</span>
+            <span class="btn" id="addTemplate7Id">Add text with Paragraph</span>
+            <span class="btn" id="addTemplate8Id">Add paragraph</span>
+            <span class="btn" id="addTemplate9Id">Add title</span>
+            <span class="btn" id="addTemplate10Id">Add text with Paragraph MD</span>
+            <span class="btn" id="addTemplate11Id">Add link</span>
+        </div>
+        <div class="form-group">
+            <?php echo Html::submitButton(
+                $model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'),
+                ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary', 'onclick' => 'updateForm()']) ?>
+        </div>
     </div>
-    <div id="tmpButtons">
-        <span class="btn" id="addTemplate1Id">Add tempalate</span>
-        <span class="btn" id="addTemplate2Id">Add tempalate 2</span>
-        <span class="btn" id="addTemplate3Id">Add tempalate 3</span>
-        <span class="btn" id="addTemplate4Id">Add tempalate 4</span>
-        <span class="btn" id="addTemplate5Id">Add tempalate 5</span>
-        <span class="btn" id="addTemplate6Id">Add photo</span>
-        <span class="btn" id="addTemplate7Id">Add text with Paragraph</span>
-        <span class="btn" id="addTemplate8Id">Add paragraph</span>
-        <span class="btn" id="addTemplate9Id">Add title</span>
-        <span class="btn" id="addTemplate10Id">Add text with Paragraph MD</span>
-        <span class="btn" id="addTemplate11Id">Add link</span>
-    </div>
-    <div class="clear"></div>
-
     <div id="myModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -349,7 +365,7 @@ use mihaildev\ckeditor\CKEditor;
                                     </div>
                                 </div>`;
 
-//        var template6String = `<img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://habrastorage.org/getpro/habr/post_images/c99/663/96d/c9966396d408953ac32e3aa0470b1e9e.jpg" alt="Hyunot">`;
+        //        var template6String = `<img data-toggle="modal" data-target="#myModal" data-title="Feedback" src="https://habrastorage.org/getpro/habr/post_images/c99/663/96d/c9966396d408953ac32e3aa0470b1e9e.jpg" alt="Hyunot">`;
 
         var template6String = `<div class="template-4">
                                     <div class="container">
@@ -409,12 +425,12 @@ use mihaildev\ckeditor\CKEditor;
                                     </div>
                                 </div>`;
 
-//        var template7String = `<p contentEditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, nean in est vulputate, semper leo vel, aenean in est vulputate, semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. </p>`;
+        //        var template7String = `<p contentEditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci porta, ac dictum ligula aliquet. Aenean in est vulputate, semper leo vel, nean in est vulputate, semper leo vel, aenean in est vulputate, semper leo vel, convallis dui. Aenean metus lectus, volutpat in arcu nec, accumsan molestie nulla. Nullam consectetur sagittis ante vel vestibulum. </p>`;
 
-//        var template8String = `<div class="author-words">
-//                            <i class="fa fa-quote-right" aria-hidden="true"></i>
-//                            <p contentEditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci.</p>
-//                        </div>`;
+        //        var template8String = `<div class="author-words">
+        //                            <i class="fa fa-quote-right" aria-hidden="true"></i>
+        //                            <p contentEditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices vulputate leo sed malesuada. Donec telltus massa, impe rdiet fermentum massa eu, varius elementum est. Sed blandit ipsum eros, quis vulputate purus malesuada elementum. Vestibulum lacinia nisi vel orci.</p>
+        //                        </div>`;
 
         var selectedImg = {};
         var imgElement = {};
@@ -447,90 +463,90 @@ use mihaildev\ckeditor\CKEditor;
             $("#addTemplate1Id").on('click', function (event) {
                 var template1 = parser.parseFromString(template1String, 'text/html').body.firstChild;
                 list.push(template1);
-                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
-                root.append(template1);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' class='remove-button' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(deletes);
+                root.append(template1);
                 deleteIconList.push(deletes);
             });
             $("#addTemplate2Id").on('click', function (event) {
                 var template2 = parser.parseFromString(template2String, 'text/html');
                 list.push(template2);
-                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
-                root.append(template2.body.firstChild);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' class='remove-button' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(deletes);
+                root.append(template2.body.firstChild);
                 deleteIconList.push(deletes);
             });
             $("#addTemplate3Id").on('click', function (event) {
                 var template3 = parser.parseFromString(template3String, 'text/html');
                 list.push(template3);
-                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
-                root.append(template3.body.firstChild);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' class='remove-button' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(deletes);
+                root.append(template3.body.firstChild);
                 deleteIconList.push(deletes);
             });
             $("#addTemplate4Id").on('click', function (event) {
                 var template4 = parser.parseFromString(template4String, 'text/html');
                 list.push(template4);
-                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
-                root.append(template4.body.firstChild);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' class='remove-button' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(deletes);
+                root.append(template4.body.firstChild);
                 deleteIconList.push(deletes);
             });
             $("#addTemplate5Id").on('click', function (event) {
                 var template5 = parser.parseFromString(template5String, 'text/html');
                 list.push(template5);
-                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
-                root.append(template5.body.firstChild);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' class='remove-button' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(deletes);
+                root.append(template5.body.firstChild);
                 deleteIconList.push(deletes);
             });
             $("#addTemplate6Id").on('click', function (event) {
                 var template6 = parser.parseFromString(template6String, 'text/html').body.firstChild;
                 list.push(template6);
-                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
-                root.append(template6);//.body.firstChild
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' class='remove-button' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(deletes);
+                root.append(template6);//.body.firstChild
                 deleteIconList.push(deletes);
 
             });
             $("#addTemplate7Id").on('click', function (event) {
                 var template7 = parser.parseFromString(template7String, 'text/html');
                 list.push(template7);
-                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
-                root.append(template7.body.firstChild);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' class='remove-button' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(deletes);
+                root.append(template7.body.firstChild);
                 deleteIconList.push(deletes);
             });
             $("#addTemplate8Id").on('click', function (event) {
                 var template8 = parser.parseFromString(template8String, 'text/html');
                 list.push(template8);
-                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
-                root.append(template8.body.firstChild);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' class='remove-button' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(deletes);
+                root.append(template8.body.firstChild);
                 deleteIconList.push(deletes);
             });
             $("#addTemplate9Id").on('click', function (event) {
                 var template9 = parser.parseFromString(template9String, 'text/html');
                 list.push(template9);
-                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
-                root.append(template9.body.firstChild);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' class='remove-button' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(deletes);
+                root.append(template9.body.firstChild);
                 deleteIconList.push(deletes);
             });
             $("#addTemplate10Id").on('click', function (event) {
                 var template10 = parser.parseFromString(template10String, 'text/html');
                 list.push(template10);
-                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
-                root.append(template10.body.firstChild);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' class='remove-button' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(deletes);
+                root.append(template10.body.firstChild);
                 deleteIconList.push(deletes);
             });
             $("#addTemplate11Id").on('click', function (event) {
                 var template11 = parser.parseFromString(template11String, 'text/html');
                 list.push(template11);
-                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
-                root.append(template11.body.firstChild);
+                var deletes = parser.parseFromString("<a onclick='deleteElelement(this)' class='remove-button' ><span class='glyphicon glyphicon-remove'></span></a>", 'text/html').body.firstChild;
                 root.append(deletes);
+                root.append(template11.body.firstChild);
                 deleteIconList.push(deletes);
             });
         });
@@ -566,7 +582,7 @@ use mihaildev\ckeditor\CKEditor;
         }
 
         function deleteElelement(el) {
-            el.previousSibling.remove();
+            el.nextSibling.remove();
             el.remove();
         }
 

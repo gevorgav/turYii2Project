@@ -330,12 +330,12 @@ img {
 
 /* line 471, ../sass/style.scss */
 .top-header {
-  background: url(../img/Dadivank.jpg) no-repeat center;
-  background-size: cover;
+  background: url(../img/header-background.jpg);
 }
 /* line 474, ../sass/style.scss */
 .top-header .black-87 {
   padding: 4px 0;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 /* line 477, ../sass/style.scss */
 .top-header .contact-us {
@@ -535,6 +535,7 @@ section.section-img {
 /* line 661, ../sass/style.scss */
 .white-txt-block p {
   color: #fff;
+  width: 90%;
 }
 
 /* line 666, ../sass/style.scss */
@@ -634,7 +635,7 @@ section .home-news-item .gradient-hr-56 p {
   height: 100px;
   width: 100px;
   margin: 0 auto;
-  background: url(../img/hunting.png) no-repeat center;
+  background: url(../img/fishing.png) no-repeat center;
   background-size: contain;
   margin-bottom: 16px;
 }
@@ -836,7 +837,7 @@ h3 .ellipsis, h4 .ellipsis {
 
 /* line 919, ../sass/style.scss */
 footer {
-  background: url(../img/titanik.jpg) no-repeat center;
+  background: url(../img/footer-background.jpg) no-repeat center;
   background-size: cover;
 }
 /* line 922, ../sass/style.scss */
@@ -970,6 +971,10 @@ footer .bottom-footer i {
 .search-result {
   height: 380px;
   background: url(../img/tatik.jpg) no-repeat center;
+}
+.contact-us-bg {
+  height: 380px;
+  background: url(http://storage.artsakh.travel/web/img/contact-us.jpg) no-repeat center;
 }
 
 /* line 1034, ../sass/style.scss */
@@ -1226,7 +1231,7 @@ input[type="text"] {
 }
 /* line 1253, ../sass/style.scss */
 .turism-info-centers .main-item {
-  background: url(../img/Hyunot.JPG) no-repeat center;
+  background: url(../img/activity-preview-1.jpg) no-repeat center;
   background-size: cover;
   text-align: center;
   margin-bottom: 30px;
@@ -1939,7 +1944,6 @@ p + img {
 /* line 1880, ../sass/style.scss */
 #yerevan-points, #northern-points,
 #martakert-points, #southern-points {
-  opacity: 0;
   transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -2176,6 +2180,7 @@ p + img {
 /* line 2082, ../sass/style.scss */
 .slick-initialized .slick-slide {
   display: block;
+  overflow: hidden;
 }
 
 /* line 2086, ../sass/style.scss */
@@ -2265,6 +2270,33 @@ p + img {
   position: relative;
 }
 
+.artsakh-map .travel-map svg {
+  height: 750px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#yerevan-stepanakert,
+#northern-travel,
+#stepanakert-martakert,
+#stepanakert-martuni,
+#southern-travel {
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  opacity: .64;
+}
+
+#yerevan-stepanakert:hover,
+#northern-travel:hover,
+#stepanakert-martakert:hover,
+#stepanakert-martuni:hover,
+#southern-travel:hover {
+  opacity: 1;
+}
+
+#yerevan-points, #northern-points,
+#martakert-points, #southern-points {
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 @media (max-width: 1200px) {
   /* line 2162, ../sass/style.scss */
   .events .event-item h3 {
@@ -2299,6 +2331,11 @@ p + img {
   .project-items .item .item-information p {
     width: 100%;
   }
+  .event-info-item {
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+  }
   /* line 2195, ../sass/style.scss */
   .project-items .item .item-information ul {
     display: none;
@@ -2307,7 +2344,12 @@ p + img {
   .project-items .item .item-information .calendar-mini-description {
     max-height: 110px;
   }
-
+  .artsakh-map .travel-map svg {
+    height: 550px !important;
+  }
+  .artsakh-map .travel-map svg {
+    height: 370px !important;
+  }
   /* line 2204, ../sass/style.scss */
   .nav.navbar-nav {
     position: absolute;
@@ -2324,7 +2366,7 @@ p + img {
 
   /* line 2216, ../sass/style.scss */
   section .home-news-item {
-    height: 300px;
+    /*height: 300px;*/
   }
   /* line 2218, ../sass/style.scss */
   section .home-news-item .gradient-hr-56 {
@@ -2347,7 +2389,7 @@ p + img {
 
   /* line 2235, ../sass/style.scss */
   .info-block {
-    background: url(../img/Hyunot.JPG) no-repeat center;
+    background: url(../img/activity-preview-1.jpg) no-repeat center;
     background-size: cover;
     background-attachment: fixed;
   }
@@ -2461,6 +2503,21 @@ p + img {
   .project-items .item {
     height: auto;
   }
+  .page-head .gradient .text-block h1 {
+    font-size: 28px;
+  }
+  .artsakh-map .travel-map svg {
+    height: 370px !important;
+  }
+  h1 {
+    font-size: 48px;
+  }
+  .slick-slider .info p {
+    margin-bottom: 28px;
+  }
+  .slick-slide .container .info {
+    height: 400px;
+  }
   /* line 2341, ../sass/style.scss */
   .project-items .item .item-img {
     height: 200px;
@@ -2507,7 +2564,7 @@ p + img {
 
   /* line 2379, ../sass/style.scss */
   .info-block {
-    background: url(../img/Hyunot.JPG) no-repeat center;
+    background: url(../img/activity-preview-1.jpg) no-repeat center;
     background-size: cover;
     background-attachment: fixed;
   }
@@ -2554,6 +2611,7 @@ p + img {
   height: 120px;
   background: url(../img/tap.png) no-repeat center;
   background-size: contain;
+  margin-left: 150px;
 }
 
 .artsakh-map .right-part {
@@ -2596,4 +2654,197 @@ p + img {
 .artsakh-map .travel-map svg {
   height: 800px;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.hover-class {
+  cursor: pointer;
+  opacity: .7;
+}
+
+.active {
+  opacity: 1;
+}
+
+.subscribe-icon {
+  margin-right: 0 !important;
+  position: relative;
+  top: -4px;
+}
+
+/*search*/
+
+.inputbox {
+  height: 50px;
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.inputbox input {
+  width: 100%;
+  min-width: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 16.5px 0;
+  border: 0;
+  background: none;
+  width: 50px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  border-radius: 100%;
+  -webkit-transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out, padding 0.2s;
+  transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out, padding 0.2s;
+  -webkit-transition-delay: 0s, 0.4s, 0s;
+  transition-delay: 0s, 0.4s, 0s;
+  -webkit-box-shadow: 0 0 0 1px currentColor;
+  box-shadow: 0 0 0 1px currentColor;
+  color: inherit;
+  cursor: pointer;
+  padding: 16.5px 0;
+  padding-right: 50px;
+  font-weight: lighter;
+  font-family: 'Roboto';
+}
+.inputbox input:focus, .inputbox input:valid {
+  width: 100%;
+  -webkit-transition-delay: 0.4s, 0s, 0.4s;
+  transition-delay: 0.4s, 0s, 0.4s;
+  outline: 0;
+  border-radius: 0;
+  cursor: text;
+  padding-left: 16.5px;
+}
+.inputbox input:focus + .del, .inputbox input:valid + .del {
+  pointer-events: all;
+  left: calc(100% - 25px);
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+.inputbox input:focus + .del:focus, .inputbox input:valid + .del:focus {
+  -webkit-box-shadow: 0 0 0 1px currentColor;
+  box-shadow: 0 0 0 1px currentColor;
+  height: 37.5px;
+  width: 37.5px;
+}
+.inputbox input:focus + .del:before, .inputbox input:valid + .del:before {
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg) scaleY(0.7);
+  transform: translate(-50%, -50%) rotate(-45deg) scaleY(0.7);
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+.inputbox input:focus + .del:after, .inputbox input:valid + .del:after {
+  -webkit-transform: translate(-50%, -50%) rotate(45deg) scaleY(0.7);
+  transform: translate(-50%, -50%) rotate(45deg) scaleY(0.7);
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+.inputbox .del {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  background: none;
+  border-radius: 100%;
+  border: 0;
+  pointer-events: none;
+  -webkit-transition: left 0.4s ease-in-out;
+  transition: left 0.4s ease-in-out;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  color: inherit;
+  cursor: pointer;
+}
+.inputbox .del:focus {
+  outline: none;
+}
+.inputbox .del:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  width: 1px;
+  height: 37.5px;
+  -webkit-transform: translate(32.25px, 32.25px) translate(-50%, -50%) rotate(-45deg) scaleY(1);
+  transform: translate(32.25px, 32.25px) translate(-50%, -50%) rotate(-45deg) scaleY(1);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  -webkit-transition-delay: 0.6s;
+  transition-delay: 0.6s;
+}
+.inputbox .del:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  width: 1px;
+  height: 37.5px;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg) scaleY(0);
+  transform: translate(-50%, -50%) rotate(45deg) scaleY(0);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+
+/*Contact Us*/
+.contact-form h3 {
+  margin-bottom: 24px;
+}
+
+textarea {
+  border: 1px solid #ccc;
+  padding: 0 16px;
+  color: #111;
+  font-size: 18px;
+  line-height: 32px;
+  width: 100%;
+  height: 130px;
+  resize: none;
+}
+
+input[type="text"],
+input[type="email"] {
+  border: 1px solid #ccc;
+  padding: 0 16px;
+  color: #111;
+  font-size: 18px;
+  line-height: 48px;
+  width: 100%;
+}
+
+.contact-information {
+  margin-top: 16px;
+  padding-left: 36px;
+}
+
+.contact-information-item {
+  margin-bottom: 24px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 24px;
+}
+
+.contact-information-item.social-icons {
+  border-bottom: none;
+}
+
+.contact-information-item.social-icons a {
+  color: #0288d1;
+  font-size: 21px;
+  margin-right: 16px;
 }

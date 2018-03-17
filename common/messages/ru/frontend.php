@@ -91,4 +91,10 @@ return [
     'Get our neewsletter' => 'Get our neewsletter',
     'E-mail' => 'E-mail',
     'Enter your email address for our mailing list to keep yourself updated.' => 'Enter your email address for our mailing list to keep yourself updated.',
+    'Outdoor activities' => 'Outdoor activities',
+    'Artsakh gives an opportunity for all stakeholders to try adventure tourism.Karabakh is not famous for its rich ancient history and culture, but also the freedom-loving, even rebellious, adventurous kind of native.' => 'Artsakh gives an opportunity for all stakeholders to try adventure tourism.Karabakh is not famous for its rich ancient history and culture, but also the freedom-loving, even rebellious, adventurous kind of native.',
+    'Hiking' => 'Hiking',
+    'Fishing' => 'Fishing',
+    'Flights above Artsakh' => 'Flights above Artsakh',
+    'Mountain biking' => 'Mountain biking',
 ];

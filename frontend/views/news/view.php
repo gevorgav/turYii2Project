@@ -33,7 +33,7 @@ $this->registerMetaTag([
                 </div>
                 <div class="post-date light-text">
                     <i class="fa fa-clock-o" aria-hidden="true"></i>
-                    <span><?= date("M d, Y", ($model->published_at))?></span>
+                    <span><?php echo Yii::$app->formatter->asDate($model->published_at, "d MMM, y") ?></span>
                 </div>
                 <div class="news-main-block">
 <!--                --><?php //echo Html::img($model->thumbnail_base_url.'/' . $model->thumbnail_path,['width' => '100px', 'alt' => $model->getMultilingual('title', Yii::$app->language)]);?>

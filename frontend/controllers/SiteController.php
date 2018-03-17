@@ -72,6 +72,35 @@ class SiteController extends Controller
             ],
         ]);
 
+        //Article Sights
+        $categoryModelSights = ArticleCategory::find()->andWhere(['slug' => 'sights'])->one();
+        $query = Article::find()->where(['category_id' => $categoryModelSights->id]);
+        $providerSights = new ActiveDataProvider([
+            'query' => $query,
+            'sort' => [
+                'defaultOrder' => ['created_at' => SORT_ASC]
+            ],
+        ]);
+        //Article Travel Routes
+        $categoryModelRoutes = ArticleCategory::find()->andWhere(['slug' => 'travel-routes'])->one();
+        $query = Article::find()->where(['category_id' => $categoryModelRoutes->id]);
+        $providerRoutes = new ActiveDataProvider([
+            'query' => $query,
+            'sort' => [
+                'defaultOrder' => ['created_at' => SORT_ASC]
+            ],
+        ]);
+
+        //Article Regions
+        $categoryModelRegions = ArticleCategory::find()->andWhere(['slug' => 'regions'])->one();
+        $query = Article::find()->where(['category_id' => $categoryModelRegions->id]);
+        $providerRegions = new ActiveDataProvider([
+            'query' => $query,
+            'sort' => [
+                'defaultOrder' => ['created_at' => SORT_ASC]
+            ],
+        ]);
+
         //Slider
         $sliders = Slider::find()->all();
 
@@ -86,6 +115,9 @@ class SiteController extends Controller
 
         return $this->render('index', [
             'sliders' => $sliders,
+            'sights' => $providerSights,
+            'routes' => $providerRoutes,
+            'regions' => $providerRegions,
             'dataProviderPYT' => $providerPYT,
             'categoryPYT' => $categoryModelPYT,
             'configs' => $configs,

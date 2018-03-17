@@ -2156,6 +2156,34 @@ p + img {
     }
 }
 
+.artsakh-map .travel-map svg {
+    height: 750px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#yerevan-stepanakert,
+#northern-travel,
+#stepanakert-martakert,
+#stepanakert-martuni,
+#southern-travel {
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: .64;
+}
+
+#yerevan-stepanakert:hover,
+#northern-travel:hover,
+#stepanakert-martakert:hover,
+#stepanakert-martuni:hover,
+#southern-travel:hover {
+    opacity: 1;
+}
+
+#yerevan-points, #northern-points,
+#martakert-points, #southern-points {
+    opacity: .72;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 @media (max-width: 1200px) { 
     .events {
         .event-item {
@@ -2375,6 +2403,9 @@ p + img {
                 }
             }
         }
+    }
+    .page-head .gradient .text-block h1 {
+        font-size: 28px;
     }
     .info-block {
         background: url(../img/Hyunot.JPG) no-repeat center;

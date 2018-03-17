@@ -90,3 +90,20 @@ var init = function () {
     }
 
 }
+
+var selectedBlock = "";
+var selectedIcon = "";
+$( ".hover-class" ).click(
+    function() {
+        if(selectedBlock){
+            $(selectedBlock).css("display", "none");
+        }
+        if(selectedIcon){
+            selectedIcon.removeClass("active");
+        }
+        selectedBlock = $("[id^='"+$(this).attr("title")+"'");
+        selectedIcon = $(this);
+        selectedBlock.css("display", "block");
+        selectedIcon.addClass("active");
+    }
+);
