@@ -2,8 +2,10 @@
 namespace frontend\controllers;
 
 use common\models\Event;
+use frontend\models\search\GeneralSearch;
 use Yii;
 use frontend\models\ContactForm;
+use yii\data\Pagination;
 use yii\helpers\Html;
 use yii\web\Controller;
 use common\models\Article;
@@ -36,6 +38,15 @@ class SiteController extends Controller
                 'locales' => array_keys(Yii::$app->params['availableLocales'])
             ]
         ];
+    }
+
+    public function beforeAction($action){
+        $model = new GeneralSearch();
+        if($model->load(Yii::$app->request->post()) && $model->validate()){
+            $search = Html::encode($model->search);
+            return $this->redirect(Yii::$app->urlManager->createUrl(['site/search', 'search' => $search]));
+        }
+        return true;
     }
 
     public function actionIndex()
@@ -124,4 +135,25 @@ class SiteController extends Controller
         }
         exit;
     }
+
+    public function actionSearch(){
+        $search = Yii::$app->getRequest()->getQueryParam('search');
+        $query = Article::find()->published()->where(['like', 'title_'.Yii::$app->language, $search])->where(['like', 'short_description_'.Yii::$app->language, $search]);
+        $pagination = new Pagination([
+            'defaultPageSize' => 6,
+            'totalCount' => $query->count()
+        ]);
+
+        $articles = $query->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
+        return $this->render('search',[
+            'articles' => $articles,
+            'search' => $search,
+            'pagination' => $pagination
+        ]);
+    }
+
+
 }

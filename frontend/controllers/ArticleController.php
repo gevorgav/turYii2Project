@@ -6,6 +6,8 @@ use common\models\Article;
 use common\models\ArticleCategory;
 use common\models\ArticleAttachment;
 use frontend\models\search\ArticleSearch;
+use frontend\models\search\GeneralSearch;
+use yii\helpers\Html;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -16,6 +18,15 @@ use yii\data\ActiveDataProvider;
  */
 class ArticleController extends Controller
 {
+    public function beforeAction($action){
+        $model = new GeneralSearch();
+        if($model->load(Yii::$app->request->post()) && $model->validate()){
+            $search = Html::encode($model->search);
+            return $this->redirect(Yii::$app->urlManager->createUrl(['site/search', 'search' => $search]));
+        }
+        return true;
+    }
+
     /**
      * @return string
      */

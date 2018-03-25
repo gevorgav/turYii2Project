@@ -3,9 +3,8 @@
 use yii\bootstrap\Nav;
 use common\models\Event;
 use yii\helpers\Html;
-use yii\bootstrap\NavBar;
-use pceuropa\menu\Menu;
-use \common\widgets\PceuropaMenu;
+use yii\widgets\ActiveForm;
+use frontend\models\search\GeneralSearch;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -18,6 +17,11 @@ $upcoming = Event::find()
     ->orderBy('{{%event}}.event_date_time')
     ->limit(3)
     ->all();
+$model = new GeneralSearch();
+if (Yii::$app->getRequest()->getQueryParam('search') != null){
+    $model->search = Yii::$app->getRequest()->getQueryParam('search');
+}
+
 ?>
     <header>
         <div class="top-header hidden-xs">
@@ -158,9 +162,14 @@ $upcoming = Event::find()
                         </li>
                       </ul>
                     </div>
-                    <div class="search hidden-sm hidden-xs">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </div>
+                     <?php if ($model->search == null){?>
+                         <?php $form = ActiveForm::begin();?>
+                            <div class="search hidden-sm hidden-xs">
+                                <?= $form->field($model, 'search')->textInput(['class'=> 'search-input','style'=>'width: 90%;line-height: 30px;', 'placeholder'=>Yii::t('frontend', 'Search')])->label('')?>
+        <!--                        <i class="fa fa-search" aria-hidden="true"></i>-->
+                            </div>
+                         <?php ActiveForm::end();?>
+                    <?php }?>
                  </div>
               </div>
             </nav>

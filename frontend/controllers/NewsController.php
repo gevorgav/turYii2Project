@@ -12,12 +12,23 @@ namespace frontend\controllers;
 
 use common\models\News;
 use frontend\models\search\NewsSearch;
+use frontend\models\search\GeneralSearch;
+use yii\helpers\Html;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
 class NewsController extends Controller
 {
+
+    public function beforeAction($action){
+        $model = new GeneralSearch();
+        if($model->load(Yii::$app->request->post()) && $model->validate()){
+            $search = Html::encode($model->search);
+            return $this->redirect(Yii::$app->urlManager->createUrl(['site/search', 'search' => $search]));
+        }
+        return true;
+    }
     /**
      * @return string
      */

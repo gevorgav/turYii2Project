@@ -109,7 +109,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                 <div class="img-block">
                    <img src="../img/news-item.jpg" alt="GETTING THERE">
                 </div>
-                <a href="/news">
+                <a href="<?='news/'.$news->slug?>">
                     <div class="gradient-hr-56">
                         <h3 class="title"><?= $news->getMultilingual('title', Yii::$app->language)?></h3>
                         <h4 class="sub-title"><?php echo Yii::$app->formatter->asDate($news->published_at, "d MMM, y") ?></h4>
@@ -118,7 +118,11 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
                 </a>
             </div>
         </div>
+
     </section>
+    <div class="flex-center" style="background-color: white">
+        <?= Html::a(Yii::t('frontend', 'all news'), ['/news'], ['class' => 'button-liner blue']) ?>
+    </div>
     <?php endIf?>
     <?php if ($configs->show_activity === 1):?>
         <section class="home-activity white-txt-block">

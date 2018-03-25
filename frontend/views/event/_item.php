@@ -6,6 +6,7 @@
 use yii\helpers\Html;
 use common\models\EventCategory;
 
+
 ?>
 
 <div class="item">

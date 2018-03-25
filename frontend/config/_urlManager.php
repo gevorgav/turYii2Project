@@ -8,6 +8,7 @@ return [
 
         //Site
         ['pattern'=>'site/', 'route'=>'site/index'],
+        ['pattern'=>'site/search', 'route'=>'site/search'],
         ['pattern'=>'site/contact', 'route'=>'site/contact'],
         ['pattern'=>'site/subscription', 'route'=>'site/subscription'],
         ['pattern'=>'site/set-locale', 'route'=>'site/set-locale'],
