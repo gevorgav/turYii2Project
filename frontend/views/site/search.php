@@ -9,6 +9,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use frontend\models\search\GeneralSearch;
+use yii\widgets\LinkPager;
 
 $this->title = Yii::t('frontend', 'Search')." ".$search;
 
@@ -79,12 +80,15 @@ if (Yii::$app->getRequest()->getQueryParam('search') != null){
                         <h4><?=$article->getMultilingual('title', Yii::$app->language)?></h4>
                         <span class="item-type"><?= $article->category->getMultilingual('title', Yii::$app->language)?></span>
                         <p><?=$article->getMultilingual('short_description', Yii::$app->language)?></p>
-                        <?php echo Html::a( Yii::t('frontend', 'READ MORE').'<i class="fa fa-angle-right" aria-hidden="true"></i>', [$article->category->slug."/".$article->slug],['class'=>'calendar-visit-event']) ?>
+                        <?php echo Html::a( Yii::t('frontend', 'read more').'<i class="fa fa-angle-right" aria-hidden="true"></i>', [$article->category->slug."/".$article->slug],['class'=>'calendar-visit-event']) ?>
                     </div>
                     <div class="clear"></div>
                 </div>
             <?php }?>
         </div>
         <?php } ?>
+        <?php echo LinkPager::widget([
+        'pagination' => $pagination,
+        ]);?>
     </div>
 </section>

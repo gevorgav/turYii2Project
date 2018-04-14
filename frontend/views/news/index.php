@@ -2,12 +2,11 @@
 /* @var $this yii\web\View */
 $this->title = Yii::t('frontend', 'News list')
 ?>
-<!--    <h1>--><?php //echo Yii::t('frontend', 'Events') ?><!--</h1>-->
     <section class="page-head section-img search-result">
         <div class="gradient gradient-vr-56">
             <div class="container">
                 <div class="text-block">
-                    <h1>News list</h1>
+                    <h1><?= Yii::t('frontend', 'News list')?></h1>
                 </div>
             </div>
         </div>
@@ -34,7 +33,7 @@ $this->title = Yii::t('frontend', 'News list')
     </section>
     <section class="home-activity white-txt-block">
         <div class="container">
-            <h2>Activity</h2>
+            <h2><?= Yii::t('frontend','Activity');?></h2>
             <div class="line"></div>
             <div class="row">
                 <div class="col-sm-4 col-xs-12">
@@ -69,7 +68,7 @@ $this->title = Yii::t('frontend', 'News list')
                 </div>
             </div>
             <div class="flex-center">
-                <button class="button-liner blue">show all</button>
+                <button class="button-liner blue"><?= Yii::t('frontend','show all');?></button>
             </div>
         </div>
     </section>

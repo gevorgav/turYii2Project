@@ -71,7 +71,7 @@ $this->registerMetaTag([
 </section>
 <section class="home-activity white-txt-block grey-bg">
     <div class="container">
-        <h2>Activity</h2>
+        <h2><?= Yii::t('frontend','Activity');?></h2>
         <div class="line"></div>
         <div class="row">
             <div class="col-sm-4 col-xs-12">

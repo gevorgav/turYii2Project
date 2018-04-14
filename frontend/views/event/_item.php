@@ -4,7 +4,6 @@
  * @var $model common\models\Event
  */
 use yii\helpers\Html;
-use common\models\EventCategory;
 
 
 ?>

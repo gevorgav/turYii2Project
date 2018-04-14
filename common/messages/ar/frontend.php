@@ -72,5 +72,5 @@ return [
     'Welcome to {app-name}. Email with your login information was sent to your email.' => '¡Bienvenido a {app-name}!. Un correo con la información de su conexión ha sido enviado a su correo',
     'Your account has been successfully saved' => 'Su cuenta ha sido guardada con éxito',
     '{app-name} | Your login information' => '{app-name} | Información de conexión',
-    'Events' => 'Язasdadык',
+    'Events' => 'arab',
 ];

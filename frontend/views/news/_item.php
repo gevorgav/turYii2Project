@@ -4,7 +4,6 @@
  * @var $model common\models\News
  */
 use yii\helpers\Html;
-use common\models\NewsCategory;
 
 ?>
 

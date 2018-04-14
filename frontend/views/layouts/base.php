@@ -32,7 +32,7 @@ if (Yii::$app->getRequest()->getQueryParam('search') != null){
                             <div class="contact-us">
                                 <a href="#">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    Contact us
+                                    <?= Yii::t('frontend', 'Contact us') ?>
                                 </a>
                             </div>
                             <div class="social-icons">
@@ -77,7 +77,7 @@ if (Yii::$app->getRequest()->getQueryParam('search') != null){
                             <div class="calendar">
                                 <a href="/events">
                                     <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                                    Calendar
+                                    <?= Yii::t('frontend', 'Calendar') ?>
                                 </a>
                             </div>
                         </div>
@@ -102,62 +102,62 @@ if (Yii::$app->getRequest()->getQueryParam('search') != null){
                     <div class="collapse navbar-collapse" id="myNavbar">
                       <ul class="nav navbar-nav">
                         <li class="dropdown active">
-                            <a href="#">About Artsakh</a>
+                            <a href="#"><?= Yii::t('frontend', 'About Artsakh') ?></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/about/the-republic-of-artsakh">Republic of Artsakh</a></li>
-                                <li><a href="/about/from-the-bronze-ages-to-nowadays">From the Bronze age to Nowadays</a></li>
-                                <li><a href="/about/geographical-facts">Geographic facts</a></li>
-                                <li><a href="/about/religion">Religion</a></li>
-                                <li><a href="/about/national-holidays-and-festivals">National holidays and festivals</a> </li>
+                                <li><a href="/about/the-republic-of-artsakh"><?= Yii::t('frontend', 'Republic of Artsakh') ?></a></li>
+                                <li><a href="/about/from-the-bronze-ages-to-nowadays"><?= Yii::t('frontend', 'From the Bronze age to Nowadays') ?></a></li>
+                                <li><a href="/about/geographical-facts"><?= Yii::t('frontend', 'Geographic facts') ?></a></li>
+                                <li><a href="/about/religion"><?= Yii::t('frontend', 'Religion') ?></a></li>
+                                <li><a href="/about/national-holidays-and-festivals"><?= Yii::t('frontend', 'National holidays and festivals') ?></a> </li>
 <!--                                <li><a href="#">Here we are</a></li>-->
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#">Discover</a>
+                            <a href="#"><?= Yii::t('frontend', 'Discover') ?></a>
                             <ul class="dropdown-menu">
-                                <li class=""><a href="/regions">Regions</a></li>
-                                <li class=""><a href="/discover/culture">Culture</a></li>
-                                <li><a href="/discover/cuisine">Cuisine</a></li>
-                                <li><a href="/discover/carpets">Carpets</a></li>
-                                <li><a href="/discover/fancywork">Fancywork</a></li>
-                                <li><a href="/discover/karabakh-horses">Karabakh horses</a> </li>
+                                <li class=""><a href="/regions"><?= Yii::t('frontend', 'Regions') ?></a></li>
+                                <li class=""><a href="/discover/culture"><?= Yii::t('frontend', 'Culture') ?></a></li>
+                                <li><a href="/discover/cuisine"><?= Yii::t('frontend', 'Cuisine') ?></a></li>
+                                <li><a href="/discover/carpets"><?= Yii::t('frontend', 'Carpets') ?></a></li>
+                                <li><a href="/discover/fancywork"><?= Yii::t('frontend', 'Fancywork') ?></a></li>
+                                <li><a href="/discover/karabakh-horses"><?= Yii::t('frontend', 'Karabakh horses') ?></a> </li>
 <!--                                <li><a href="#">Traces of Great Silk Route</a></li>-->
-                                <li><a href="/discover/multicultural-heritage-of-artsakh">Multicultural heritage of Artsakh</a></li>
+                                <li><a href="/discover/multicultural-heritage-of-artsakh"><?= Yii::t('frontend', 'Multicultural heritage of Artsakh') ?></a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#">Travel routes</a>
+                            <a href="#"><?= Yii::t('frontend', 'Travel routes') ?></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/travel-routes/on-your-way-to-stepanakert">On your way to Stepanakert</a></li>
-                                <li><a href="/travel-routes/south-tourist-route">Southern travel route</a></li>
-                                <li><a href="/travel-routes/northern-tourist-route">Northern Travel route</a></li>
-                                <li><a href="/travel-routes/highway-stepanakert-martakert">Stepanakert-Martakert highway</a></li>
+                                <li><a href="/travel-routes/on-your-way-to-stepanakert"><?= Yii::t('frontend', 'On your way to Stepanakert') ?></a></li>
+                                <li><a href="/travel-routes/south-tourist-route"><?= Yii::t('frontend', 'Southern travel route') ?></a></li>
+                                <li><a href="/travel-routes/northern-tourist-route"><?= Yii::t('frontend', 'Northern Travel route') ?></a></li>
+                                <li><a href="/travel-routes/highway-stepanakert-martakert"><?= Yii::t('frontend', 'Stepanakert-Martakert highway') ?></a></li>
 <!--                                <li><a href="#">Stepanakert-Martuni highway</a> </li>-->
                             </ul>
                         </li> 
                         <li class="dropdown">
-                            <a href="#">Plan your trip</a>
+                            <a href="#"><?= Yii::t('frontend', 'Plan your trip') ?></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/plan-your-trip/getting-there">Getting there</a></li>
-                                <li><a href="/plan-your-trip/entry-formalities">Entry formalities</a></li>
-                                <li><a href="#">Acommodation</a></li>
-                                <li><a href="/plan-your-trip/useful">Useful information</a> </li>
-                                <li><a href="/plan-your-trip/find-me-a-guide">Find me a guide</a></li>
-                                <li><a href="/plan-your-trip/touroperators">Touroperators</a></li>
-                                <li><a href="#">Transportation companies</a></li>
-                                <li><a href="#">FAQ</a></li>
+                                <li><a href="/plan-your-trip/getting-there"><?= Yii::t('frontend', 'Getting there') ?></a></li>
+                                <li><a href="/plan-your-trip/entry-formalities"><?= Yii::t('frontend', 'Entry formalities') ?></a></li>
+                                <li><a href="#"><?= Yii::t('frontend', 'Acommodation') ?></a></li>
+                                <li><a href="/plan-your-trip/useful"><?= Yii::t('frontend', 'Useful information') ?></a> </li>
+                                <li><a href="/plan-your-trip/find-me-a-guide"><?= Yii::t('frontend', 'Find me a guide') ?></a></li>
+                                <li><a href="/plan-your-trip/touroperators"><?= Yii::t('frontend', 'Touroperators') ?></a></li>
+                                <li><a href="#"><?= Yii::t('frontend', 'Transportation companies') ?></a></li>
+                                <li><a href="#"><?= Yii::t('frontend', 'FAQ') ?></a></li>
                             </ul>
                         </li> 
                         <li class="dropdown">
-                            <a href="#">Things to do</a>
+                            <a href="#"><?= Yii::t('frontend', 'Things to do') ?></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Cafes and Restaurants</a></li>
-                                <li><a href="/things-to-do/museums">Museums and Theatres</a></li>
-                                <li><a href="/things-to-do/cultural-sightseeing">Cultural sightseeing</a></li>
-                                <li><a href="/things-to-do/archaeological-tourism">Archaeological sightseeing</a></li>
-                                <li><a href="/things-to-do/agrotourism">Agrotourism</a> </li>
-                                <li><a href="/things-to-do/adventure">Adventures</a></li>
-                                <li><a href="/things-to-do/religious-tourism">Religious tourism</a></li>
+                                <li><a href="#"><?= Yii::t('frontend', 'Cafes and Restaurants') ?></a></li>
+                                <li><a href="/things-to-do/museums"><?= Yii::t('frontend', 'Museums and Theatres') ?></a></li>
+                                <li><a href="/things-to-do/cultural-sightseeing"><?= Yii::t('frontend', 'Cultural sightseeing') ?></a></li>
+                                <li><a href="/things-to-do/archaeological-tourism"><?= Yii::t('frontend', 'Archaeological sightseeing') ?></a></li>
+                                <li><a href="/things-to-do/agrotourism"><?= Yii::t('frontend', 'Agrotourism') ?></a> </li>
+                                <li><a href="/things-to-do/adventure"><?= Yii::t('frontend', 'Adventures') ?></a></li>
+                                <li><a href="/things-to-do/religious-tourism"><?= Yii::t('frontend', 'Religious tourism') ?></a></li>
                             </ul>
                         </li>
                       </ul>
@@ -440,7 +440,7 @@ if (Yii::$app->getRequest()->getQueryParam('search') != null){
                     <div class="row">
                         <div class="col-md-3 col-sm-12 footer-item">
                             <div class="footer-logo"></div>
-                            <p>We would be more than happy to help you. Our team advisor are 24/7 at your service to help you.</p>
+                            <p><?= Yii::t('frontend', 'We would be more than happy to help you. Our team advisor are 24/7 at your service to help you.') ?></p>
                             <div class="line"></div>
                             <div>
                                 <a href="#">
@@ -456,7 +456,7 @@ if (Yii::$app->getRequest()->getQueryParam('search') != null){
                             <div class="line"></div>
                             <div>
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                <span>24/2 Lusavorich St - Stepanakert</span>
+                                <span><?= Yii::t('frontend', '24/2 Lusavorich St - Stepanakert') ?></span>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-12 footer-item">
@@ -477,7 +477,7 @@ if (Yii::$app->getRequest()->getQueryParam('search') != null){
                             <?php endforeach;?>
                         </div>
                         <div class="col-md-3 col-sm-12 footer-item">
-                            <h3>Site Map</h3>
+                            <h3><?=Yii::t('frontend', 'Site Map')?></h3>
                             <ul class="first-list">
                                 <li>
                                     <a href="#">
@@ -575,10 +575,10 @@ if (Yii::$app->getRequest()->getQueryParam('search') != null){
         <div class="bottom-footer">
             <div class="container">
                 <div class="pull-left">
-                    <p>Copyright 2017 © WebArtsakh. All rights reserved</p>
+                    <p>Copyright 2018 © WebArtsakh. All rights reserved</p>
                 </div>
                 <div class="pull-right">
-                    <p>Follow us:</p>
+                    <p><?= Yii::t('frontend', 'Follow us:') ?></p>
                     <div class="social-icons">
                         <a href="#">
                             <i class="fa fa-facebook" aria-hidden="true"></i>

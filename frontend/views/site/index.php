@@ -127,7 +127,7 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
     <?php if ($configs->show_activity === 1):?>
         <section class="home-activity white-txt-block">
             <div class="container">
-                <h2>Activities</h2>
+                <h2><?=Yii::t('frontend', 'Activities')?></h2>
                 <div class="line"></div>
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
@@ -985,14 +985,14 @@ $this->registerCssFile("http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/
     <?php if ($configs->show_info_centers === 1):?>
         <section class="turism-info-centers white-txt-block">
             <div class="container">
-                <h2>Tourism Info Centers</h2>
+                <h2><?= Yii::t('frontend', 'Tourism Info Centers') ?></h2>
                 <div class="line"></div>
                 <div class="row">
                     <div class="col-xs-12">
                         <a href="/tourism-info-centers/tourist-information-centres">
                             <div class="main-item">
                                 <div class="black-57">
-                                    <p>The Tourist Information Centres are working in Stepanakert, in the cultural capital of Karabakh – Shoushi, in Tigranakert, the House-Museum of Nikol Duman (in the village Tsahkashat).  </p>
+                                    <p><?=Yii::t('frontend', 'The Tourist Information Centres are working in Stepanakert, in the cultural capital of Karabakh – Shoushi, in Tigranakert, the House-Museum of Nikol Duman (in the village Tsahkashat).') ?></p>
                                 </div>
                             </div>
                         </a>
