@@ -335,7 +335,7 @@ class Event extends \yii\db\ActiveRecord
             'latitude' => 'Latitude',
             'longitude' => 'Longitude',
             'isGallery' => 'Is Gallery',
-            'video_link' => 'Video Link',
+            'video_link' => 'YouTube Video ID',
             'tags' => 'Tags',
             'category_id' => 'Category ID',
             'thumbnail_base_url' => 'Header Base Url',

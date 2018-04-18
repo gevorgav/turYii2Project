@@ -17,6 +17,110 @@ $this->registerMetaTag([
     'name' => 'keywords',
     'content' => $model->getMultilingual('keywords', YII::$app->language),
 ]);
+$this->registerJsFile(
+    '/gallery-js/ug-common-libraries.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-functions.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-thumbsgeneral.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-thumbsstrip.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-touchthumbs.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-panelsbase.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-strippanel.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-gridpanel.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-thumbsgrid.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-tiles.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-tiledesign.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-avia.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-slider.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-sliderassets.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-touchslider.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-zoomslider.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-video.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-gallery.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+
+
+
+
+$this->registerJsFile(
+    '/gallery-js/ug-lightbox.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-carousel.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-js/ug-api.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+$this->registerJsFile(
+    '/gallery-themes/default/ug-theme-default.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+
+$this->registerCssFile("/gallery-css/unite-gallery.css");
+$this->registerCssFile("/gallery-themes/default/ug-theme-default.css");
+
+$this->registerJs(
+    "
+        jQuery(document).ready(function(){
+
+                    jQuery(\"#gallery\").unitegallery();
+
+                });
+    ");
 
 //$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'News'), 'url' => ['index']];
 //$this->params['breadcrumbs'][] = $this->title;
@@ -67,7 +171,30 @@ $this->registerMetaTag([
                 </div>
             </div>
         </div>
+        <?php if ( count($model->newsAttachments) != 0 || !empty($model->video_link)):?>
+            <div class="item">
+                <div id="gallery" style="display:none;">
+                    <?php if (!empty($model->video_link)):?>
+                        <img alt="<?= $model->getMultilingual('title', Yii::$app->language)?>"
+                             data-type="youtube"
+                             data-videoid="<?= $model->video_link?>"
+                             data-description="<?= $model->getMultilingual('short_description', Yii::$app->language)?>">
+                    <?php endif;?>
+                    <?php if (count($model->newsAttachments) != 0):?>
+                        <?php foreach ($model->newsAttachments as $attach):?>
+                            <img alt="Preview Image 1"
+                                 src="<?= $attach->base_url."/".$attach->path?>"
+                                 data-image="<?= $attach->base_url."/".$attach->path?>"
+                            >
+                            <!--                        data-description="Preview Image 1 Description"-->
+                        <?php endforeach;?>
+                    <?php endif;?>
+                </div>
+
+            </div>
+        <?php endif; ?>
     </div>
+
 </section>
 <section class="home-activity white-txt-block grey-bg">
     <div class="container">
