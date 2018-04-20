@@ -5,6 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\News */
 /* @var $nextModel common\models\News */
+/* @var $activities Array common\models\Activity */
 
 //------ SEO ------------
 $this->title = $model->getMultilingual('title', YII::$app->language);
@@ -196,41 +197,27 @@ $this->registerJs(
     </div>
 
 </section>
-<section class="home-activity white-txt-block grey-bg">
-    <div class="container">
-        <h2><?= Yii::t('frontend','Activity');?></h2>
-        <div class="line"></div>
-        <div class="row">
-            <div class="col-sm-4 col-xs-12">
-                <a href="#">
-                    <div class="item item-1">
-                        <div class="black-57">
-                            <div class="activity-icon-1"></div>
-                            <h4>Hiking</h4>
-                        </div>
+<?php if (count($activities) > 0):?>
+    <section class="home-activity white-txt-block grey-bg">
+        <div class="container">
+            <h2><?= Yii::t('frontend','Activity');?></h2>
+            <div class="line"></div>
+            <div class="row">
+                <?php foreach ($activities as $activity):?>
+                    <div class="col-sm-4 col-xs-12">
+                        <a href="<?= '/'.$activity->category->slug . '/' . $activity->slug ?>">
+                            <div class="item item-1">
+                                <div class="black-57">
+                                    <div class="activity-icon-1" style="background: url(<?= $activity->preview_base_url . '/' . $activity->preview_path ?>) no-repeat center; background-size: cover;"></div>
+                                    <h4><?= $activity->getMultilingual('title', Yii::$app->language) ?></h4>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <a href="#">
-                    <div class="item item-2">
-                        <div class="black-57">
-                            <div class="activity-icon-2"></div>
-                            <h4>Flights above Artsakh</h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4 col-xs-12">
-                <a href="#">
-                    <div class="item item-4">
-                        <div class="black-57">
-                            <div class="activity-icon-4"></div>
-                            <h4>Mountain biking</h4>
-                        </div>
-                    </div>
-                </a>
+                <?php endforeach;?>
+
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+<?php endif;?>

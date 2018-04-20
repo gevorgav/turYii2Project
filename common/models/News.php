@@ -3,9 +3,7 @@
 namespace common\models;
 
 use common\models\query\NewsQuery;
-use common\models\NewsCategory;
 use trntv\filekit\behaviors\UploadBehavior;
-use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
@@ -133,7 +131,7 @@ class News extends ActiveRecord
             [['body_hy', 'body_en', 'body_ru', 'body_de', 'body_fr', 'body_es', 'body_ar', 'body_fa', 'tags'], 'string'],
             [['title_hy', 'title_en', 'title_ru', 'title_de', 'title_fr', 'title_es', 'title_ar', 'title_fa'], 'string', 'max' => 512],
             [['short_description_hy', 'short_description_en', 'short_description_ru', 'short_description_de', 'short_description_fr', 'short_description_es', 'short_description_ar', 'short_description_fa'], 'string', 'max' => 250],
-            [['keywords_hy', 'keywords_en', 'keywords_ru', 'keywords_de', 'keywords_fr', 'keywords_es', 'keywords_ar', 'keywords_fa'], 'string', 'max' => 256],
+            [['keywords_hy', 'keywords_en', 'keywords_ru', 'keywords_de', 'keywords_fr', 'keywords_es', 'keywords_ar', 'keywords_fa', 'activity_slug_1', 'activity_slug_2', 'activity_slug_3'], 'string', 'max' => 256],
             [['published_at'], 'default', 'value' => function () {
                 return date(DATE_ISO8601);
             }],
@@ -189,6 +187,8 @@ class News extends ActiveRecord
             if ($fieldLang == $i)
                 return($arr[$i]);
         }
+
+        return "";
     }
 
     /**
@@ -233,6 +233,9 @@ class News extends ActiveRecord
             'keywords_fa' => 'SEO Keywords',
             'tags' => 'Tags',
             'view' => 'View',
+            'activity_slug_1' => 'Activity slug 1',
+            'activity_slug_2' => 'Activity slug 2',
+            'activity_slug_3' => 'Activity slug 3',
             'category_id' => 'Category ID',
             'thumbnail_base_url' => 'Thumbnail Base Url',
             'thumbnail_path' => 'Thumbnail Path',

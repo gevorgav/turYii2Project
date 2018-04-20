@@ -31,45 +31,45 @@ $this->title = Yii::t('frontend', 'News list')
             </div>
         </div>
     </section>
-    <section class="home-activity white-txt-block">
-        <div class="container">
-            <h2><?= Yii::t('frontend','Activity');?></h2>
-            <div class="line"></div>
-            <div class="row">
-                <div class="col-sm-4 col-xs-12">
-                    <a href="#">
-                        <div class="item item-1">
-                            <div class="black-57">
-                                <div class="activity-icon-1"></div>
-                                <h4>Hiking</h4>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4 col-xs-12">
-                    <a href="#">
-                        <div class="item item-2">
-                            <div class="black-57">
-                                <div class="activity-icon-2"></div>
-                                <h4>Flights above Artsakh</h4>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-4 col-xs-12">
-                    <a href="#">
-                        <div class="item item-4">
-                            <div class="black-57">
-                                <div class="activity-icon-4"></div>
-                                <h4>Mountain biking</h4>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="flex-center">
-                <button class="button-liner blue"><?= Yii::t('frontend','show all');?></button>
-            </div>
-        </div>
-    </section>
+<!--    <section class="home-activity white-txt-block">-->
+<!--        <div class="container">-->
+<!--            <h2>--><?//= Yii::t('frontend','Activity');?><!--</h2>-->
+<!--            <div class="line"></div>-->
+<!--            <div class="row">-->
+<!--                <div class="col-sm-4 col-xs-12">-->
+<!--                    <a href="#">-->
+<!--                        <div class="item item-1">-->
+<!--                            <div class="black-57">-->
+<!--                                <div class="activity-icon-1"></div>-->
+<!--                                <h4>Hiking</h4>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div class="col-sm-4 col-xs-12">-->
+<!--                    <a href="#">-->
+<!--                        <div class="item item-2">-->
+<!--                            <div class="black-57">-->
+<!--                                <div class="activity-icon-2"></div>-->
+<!--                                <h4>Flights above Artsakh</h4>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div class="col-sm-4 col-xs-12">-->
+<!--                    <a href="#">-->
+<!--                        <div class="item item-4">-->
+<!--                            <div class="black-57">-->
+<!--                                <div class="activity-icon-4"></div>-->
+<!--                                <h4>Mountain biking</h4>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="flex-center">-->
+<!--                <button class="button-liner blue">--><?//= Yii::t('frontend','show all');?><!--</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
     

@@ -615,7 +615,7 @@ section .home-news-item .gradient-hr-56 p {
   height: 100px;
   width: 100px;
   margin: 0 auto;
-  background: url(../img/hiking.png) no-repeat center;
+  /*background: url(../img/hiking.png) no-repeat center;*/
   background-size: contain;
   margin-bottom: 16px;
 }

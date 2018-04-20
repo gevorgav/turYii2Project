@@ -62,6 +62,24 @@ use pudinglabs\tagsinput\TagsinputWidget;
 
     <div class="row">
         <div class="col-md-4">
+            <?php echo $form->field($model, 'activity_slug_1')
+                ->hint(Yii::t('backend', 'please put Article slug'))
+                ->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'activity_slug_2')
+                ->hint(Yii::t('backend', 'please put Article slug'))
+                ->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-md-4">
+            <?php echo $form->field($model, 'activity_slug_3')
+                ->hint(Yii::t('backend', 'please put Article slug'))
+                ->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
             <?php echo $form->field($model, 'attachments')->widget(
                 Upload::className(),
                 [

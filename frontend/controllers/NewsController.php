@@ -10,6 +10,7 @@
 namespace frontend\controllers;
 
 
+use common\models\Article;
 use common\models\News;
 use frontend\models\search\NewsSearch;
 use frontend\models\search\GeneralSearch;
@@ -57,11 +58,19 @@ class NewsController extends Controller
             ->orderBy(['{{%news}}.published_at' => SORT_DESC])
             ->limit(5)
             ->all();
+        $activities = array();
+        for ($i = 1; $i < 4; $i++){
+            if (!is_null(Article::find()->where(['slug' => $model->{'activity_slug_'.$i}])->one())){
+                $activities[] = Article::find()->where(['slug' => $model->{'activity_slug_'.$i}])->one();
+            }
+
+        }
+
         if (!$model) {
             throw new NotFoundHttpException;
         }
 
         $viewFile = $model->view ?: 'view';
-        return $this->render($viewFile, ['model' => $model, 'nextModel' => $nextModel, 'latestNews' => $latestNews]);
+        return $this->render($viewFile, ['model' => $model, 'nextModel' => $nextModel, 'latestNews' => $latestNews, 'activities' => $activities]);
     }
 }
