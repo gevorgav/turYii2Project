@@ -415,6 +415,7 @@ section.section-img {
   border: none;
   background-color: #fff;
   margin: 0;
+  position: static;
 }
 /* line 551, ../sass/style.scss */
 .bottom-header .navbar-default .menu-block {
@@ -426,7 +427,6 @@ section.section-img {
 .bottom-header .navbar-default .menu-block .navbar-header img {
   position: relative;
   width: 150px;
-  top: -9px;
 }
 /* line 563, ../sass/style.scss */
 .bottom-header .navbar-default .menu-block .search i {
@@ -2297,314 +2297,6 @@ p + img {
   transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-@media (max-width: 1200px) {
-  /* line 2162, ../sass/style.scss */
-  .events .event-item h3 {
-    font-size: 18px;
-  }
-  /* line 2164, ../sass/style.scss */
-  .events .event-item h3 .ellipsis {
-    max-width: 190px;
-  }
-
-  /* line 2172, ../sass/style.scss */
-  footer .blue-87 .first-list {
-    display: none;
-  }
-
-  /* line 2178, ../sass/style.scss */
-  .slick-slider img {
-    height: 100%;
-    width: auto;
-  }
-}
-@media (max-width: 992px) {
-  /* line 2187, ../sass/style.scss */
-  .project-items .item .item-information {
-    padding: 16px;
-  }
-  /* line 2189, ../sass/style.scss */
-  .project-items .item .item-information h4 {
-    max-width: 270px;
-  }
-  /* line 2192, ../sass/style.scss */
-  .project-items .item .item-information p {
-    width: 100%;
-  }
-  .event-info-item {
-    -webkit-justify-content: flex-start;
-    justify-content: flex-start;
-    margin-bottom: 16px;
-  }
-  /* line 2195, ../sass/style.scss */
-  .project-items .item .item-information ul {
-    display: none;
-  }
-  /* line 2198, ../sass/style.scss */
-  .project-items .item .item-information .calendar-mini-description {
-    max-height: 110px;
-  }
-  .artsakh-map .travel-map svg {
-    height: 550px !important;
-  }
-  .artsakh-map .travel-map svg {
-    height: 370px !important;
-  }
-  /* line 2204, ../sass/style.scss */
-  .nav.navbar-nav {
-    position: absolute;
-    background: #fff;
-    left: 0;
-    margin: 0;
-    width: 100%;
-    padding: 0 15px;
-  }
-  /* line 2211, ../sass/style.scss */
-  .nav.navbar-nav li .dropdown-menu-box {
-    top: 71px !important;
-  }
-
-  /* line 2216, ../sass/style.scss */
-  section .home-news-item {
-    /*height: 300px;*/
-  }
-  /* line 2218, ../sass/style.scss */
-  section .home-news-item .gradient-hr-56 {
-    padding: 36px 36px 0;
-  }
-
-  /* line 2224, ../sass/style.scss */
-  .home-activity .main-item {
-    margin-bottom: 30px;
-    height: 300px;
-  }
-  /* line 2227, ../sass/style.scss */
-  .home-activity .main-item .text-block {
-    bottom: 48px !important;
-  }
-  /* line 2229, ../sass/style.scss */
-  .home-activity .main-item .text-block p {
-    max-width: 80%;
-  }
-
-  /* line 2235, ../sass/style.scss */
-  .info-block {
-    background: url(../img/activity-preview-1.jpg) no-repeat center;
-    background-size: cover;
-    background-attachment: fixed;
-  }
-  /* line 2239, ../sass/style.scss */
-  .info-block .fullscreen-bg {
-    display: none;
-  }
-  /* line 2244, ../sass/style.scss */
-  .info-block .black-57 .info-item h4 {
-    font-size: 28px;
-  }
-  /* line 2247, ../sass/style.scss */
-  .info-block .black-57 .info-item .icon {
-    height: 100px;
-    width: 100px;
-    margin: 24px auto;
-  }
-  /* line 2252, ../sass/style.scss */
-  .info-block .black-57 .info-item p {
-    font-size: 28px;
-  }
-  /* line 2254, ../sass/style.scss */
-  .info-block .black-57 .info-item p span {
-    font-size: 28px;
-  }
-  /* line 2256, ../sass/style.scss */
-  .info-block .black-57 .info-item p span sup {
-    font-size: 18px;
-    position: relative;
-    top: -13px;
-    margin: 0 3px 0 0px;
-  }
-  /* line 2263, ../sass/style.scss */
-  .info-block .black-57 .info-item p sub {
-    font-size: 28px;
-  }
-
-  /* line 2272, ../sass/style.scss */
-  .turism-info-centers .main-item .black-57 {
-    padding: 60px 24px;
-  }
-  /* line 2278, ../sass/style.scss */
-  .turism-info-centers .item .img-block img {
-    width: 100%;
-    height: auto;
-  }
-
-  /* line 2286, ../sass/style.scss */
-  .events .event-item {
-    margin-bottom: 30px;
-  }
-  /* line 2288, ../sass/style.scss */
-  .events .event-item h3 {
-    font-size: 24px;
-  }
-  /* line 2290, ../sass/style.scss */
-  .events .event-item h3 .ellipsis {
-    max-width: 3250px;
-  }
-
-  /* line 2296, ../sass/style.scss */
-  .plan-your-trip {
-    display: none;
-  }
-
-  /* line 2299, ../sass/style.scss */
-  .footer-item:nth-child(2) {
-    display: none;
-  }
-
-  /* line 2302, ../sass/style.scss */
-  .footer-item:nth-child(3) {
-    display: none;
-  }
-
-  /* line 2307, ../sass/style.scss */
-  footer .blue-87 h3 {
-    margin: 36px 0 16px;
-  }
-
-  /* line 2313, ../sass/style.scss */
-  .slick-slide .container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-  /* line 2317, ../sass/style.scss */
-  .slick-slide .container .info {
-    text-align: center;
-    align-items: center;
-    height: 580px;
-  }
-  /* line 2323, ../sass/style.scss */
-  .slick-slide img {
-    width: auto;
-    height: 100%;
-  }
-
-  /* line 2328, ../sass/style.scss */
-  .chevron-container {
-    display: none !important;
-  }
-
-  /* line 2331, ../sass/style.scss */
-  .categories-section-1 .item-big {
-    height: 199px;
-  }
-}
-@media (max-width: 768px) {
-  /* line 2339, ../sass/style.scss */
-  .project-items .item {
-    height: auto;
-  }
-  .page-head .gradient .text-block h1 {
-    font-size: 28px;
-  }
-  .artsakh-map .travel-map svg {
-    height: 370px !important;
-  }
-  h1 {
-    font-size: 48px;
-  }
-  .slick-slider .info p {
-    margin-bottom: 28px;
-  }
-  .slick-slide .container .info {
-    height: 400px;
-  }
-  /* line 2341, ../sass/style.scss */
-  .project-items .item .item-img {
-    height: 200px;
-    width: 100%;
-    overflow: hidden;
-    padding: 0;
-  }
-  /* line 2346, ../sass/style.scss */
-  .project-items .item .item-img img {
-    height: auto;
-    width: 100%;
-    display: inline-block;
-    position: static;
-    top: -10%;
-  }
-  /* line 2354, ../sass/style.scss */
-  .project-items .item .item-information {
-    height: 167px;
-  }
-  /* line 2356, ../sass/style.scss */
-  .project-items .item .item-information .calendar-mini-description {
-    max-height: 40px;
-  }
-  /* line 2359, ../sass/style.scss */
-  .project-items .item .item-information h4 {
-    max-width: 270px;
-  }
-  /* line 2364, ../sass/style.scss */
-  .project-items .item .item-information .date {
-    right: 16px;
-  }
-  /* line 2367, ../sass/style.scss */
-  .project-items .item .item-information .add-date {
-    bottom: 20px;
-  }
-  /* line 2370, ../sass/style.scss */
-  .project-items .item .item-information p {
-    width: 100%;
-  }
-  /* line 2373, ../sass/style.scss */
-  .project-items .item .item-information a {
-    margin-top: 24px;
-  }
-
-  /* line 2379, ../sass/style.scss */
-  .info-block {
-    background: url(../img/activity-preview-1.jpg) no-repeat center;
-    background-size: cover;
-    background-attachment: fixed;
-  }
-  /* line 2384, ../sass/style.scss */
-  .info-block .black-57 .info-item {
-    margin-bottom: 36px;
-  }
-
-  /* line 2391, ../sass/style.scss */
-  .turism-info-centers .item .img-block {
-    height: 240px;
-  }
-  /* line 2393, ../sass/style.scss */
-  .turism-info-centers .item .img-block img {
-    width: 100%;
-    height: auto;
-  }
-
-  /* line 2400, ../sass/style.scss */
-  .navbar.navbar-default {
-    width: 100%;
-  }
-  /* line 2402, ../sass/style.scss */
-  .navbar.navbar-default .navbar-header {
-    width: 100%;
-  }
-  /* line 2405, ../sass/style.scss */
-  .navbar.navbar-default .menu-block {
-    display: block;
-  }
-  /* line 2407, ../sass/style.scss */
-  .navbar.navbar-default .menu-block .dropdown {
-    display: block !important;
-  }
-  /* line 2411, ../sass/style.scss */
-  .navbar.navbar-default .navbar-nav {
-    z-index: 2;
-    padding: 8px 15px;
-  }
-}
 
 .hand-move {
   width: 120px;
@@ -2847,4 +2539,548 @@ input[type="email"] {
   color: #0288d1;
   font-size: 21px;
   margin-right: 16px;
+}
+
+/* line 266, ../sass/style.scss */
+.navbar-default {
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-repeat: no-repeat;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #fff;
+  border: 0px solid #fff;
+  margin-bottom: 0;
+  height: 74px;
+}
+/* line 279, ../sass/style.scss */
+.navbar-default .menu-block {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
+  height: 74px;
+}
+/* line 287, ../sass/style.scss */
+.navbar-default .menu-block .navbar-brand {
+  width: 170px;
+  height: auto;
+  padding: 0;
+  margin-left: 0;
+}
+/* line 292, ../sass/style.scss */
+.navbar-default .menu-block .navbar-brand img {
+  width: 100%;
+}
+/* line 297, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li {
+  position: static !important;
+}
+/* line 299, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li a {
+  color: #111;
+  font-size: 18px;
+  font-weight: 300;
+  margin-right: 24px;
+  padding: 0;
+  position: relative;
+  top: 14px;
+  z-index: 2;
+  padding: 4px 0 27px;
+  transition: all 0s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-bottom: 8px solid transparent;
+}
+
+.search-input {
+  width: 100%;
+  line-height: 32px !important;
+  padding: 4px 12px !important;
+  margin-top: 12px;
+}
+
+/* line 312, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li:hover a {
+  border-bottom: 8px solid #0288d1;
+}
+/* line 315, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li:hover .dropdown-menu-box {
+  display: block;
+}
+/* line 318, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li:last-child a {
+  margin-right: 0;
+}
+/* line 321, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box {
+  background-color: #fff;
+  position: absolute;
+  top: 71px;
+  width: 100%;
+  padding: 60px 0 80px;
+  border-top: 2px solid #0288d1;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
+/* line 331, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box .row {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+/* line 337, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box .manu-bg-text {
+  position: absolute;
+  left: -50px;
+  font-size: 320px;
+  font-weight: 900;
+  bottom: 2px;
+  z-index: 0;
+  opacity: 0.03;
+  display: block;
+  overflow: hidden;
+  line-height: 1;
+  width: calc(100% + 50px);
+  text-align: center;
+  z-index: 1;
+  white-space: nowrap;
+}
+/* line 353, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box .nav-img {
+  z-index: 2;
+}
+/* line 356, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box a.nav-img-item-link {
+  margin: 0;
+  padding: 0;
+  position: static;
+}
+/* line 360, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box a.nav-img-item-link:hover .black-57 {
+  background-color: rgba(0, 0, 0, 0.37);
+}
+/* line 363, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box a.nav-img-item-link .black-57 {
+  padding: 0 25px;
+}
+/* line 366, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box a.nav-img-item-link .nav-img-item {
+  height: 130px;
+  margin-bottom: 36px;
+}
+/* line 369, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box a.nav-img-item-link .nav-img-item h4 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  line-height: 22px;
+  text-align: center;
+}
+/* line 380, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box .nav-img-item.item-1 {
+  background: url(../img/air-fest.jpg) no-repeat center;
+  background-size: cover;
+}
+/* line 384, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box .nav-img-item.item-2 {
+  background: url(../img/Activities-Mountain-biking.jpg) no-repeat center;
+  background-size: cover;
+}
+/* line 388, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box .dropdown-links {
+  z-index: 8;
+}
+/* line 397, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box .dropdown-links .ul-item ul li {
+  margin-bottom: 18px;
+}
+/* line 399, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box .dropdown-links .ul-item ul li a {
+  margin: 0;
+  line-height: 1;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0;
+  position: static;
+  border: none;
+}
+/* line 407, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box .dropdown-links .ul-item ul li a:hover {
+  border: none;
+}
+/* line 415, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box .dropdown-links .ul-item ul.with-title li a {
+  margin: 0;
+  line-height: 1;
+  font-size: 14px;
+  font-weight: 400;
+}
+/* line 421, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li .dropdown-menu-box .dropdown-links .ul-item ul.with-title li:first-child {
+  margin-top: 0;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1;
+}
+/* line 437, ../sass/style.scss */
+.navbar-default .menu-block .navbar-nav li.no-border:hover a {
+  border: none;
+}
+/* line 443, ../sass/style.scss */
+.navbar-default .menu-block .search i {
+  font-size: 20px;
+  color: #111;
+}
+
+header {
+  height: 104px;
+}
+
+.bottom-header {
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  transition: all 0.2s;
+}
+
+@media (max-width: 1200px) {
+  /* line 2162, ../sass/style.scss */
+  .events .event-item h3 {
+    font-size: 18px;
+  }
+  /* line 2164, ../sass/style.scss */
+  .events .event-item h3 .ellipsis {
+    max-width: 190px;
+  }
+
+  /* line 2172, ../sass/style.scss */
+  footer .blue-87 .first-list {
+    display: none;
+  }
+
+  /* line 2178, ../sass/style.scss */
+  .slick-slider img {
+    height: 100%;
+    width: auto;
+  }
+}
+@media (max-width: 992px) {
+  .navbar-default .menu-block .navbar-nav li .dropdown-menu-box {
+    padding:10px 0 0;
+    border: 0 solid #fff;
+  }
+  .navbar.navbar-default .navbar-header {
+    height: 74px;
+  }
+  .navbar-toggle {
+    margin-top: 20px;
+  }
+  .navbar-default .menu-block .navbar-brand {
+    margin: 18px 0 0 12px;
+  }
+  .navigation-padding-block {
+    padding: 0;
+  }
+  /* line 2187, ../sass/style.scss */
+  .project-items .item .item-information {
+    padding: 16px;
+  }
+  .navbar-default .menu-block .navbar-nav li:hover a {
+    border: 0 solid #fff;
+  }
+  .navbar-default .menu-block .navbar-nav li a {
+    border: 0 solid #fff;
+  }
+  .navbar-default .menu-block .navbar-nav li .dropdown-menu-box {
+    position: relative;
+  }
+  /* line 2189, ../sass/style.scss */
+  .project-items .item .item-information h4 {
+    max-width: 270px;
+  }
+  /* line 2192, ../sass/style.scss */
+  .project-items .item .item-information p {
+    width: 100%;
+  }
+  .event-info-item {
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+  }
+  /* line 2195, ../sass/style.scss */
+  .project-items .item .item-information ul {
+    display: none;
+  }
+  /* line 2198, ../sass/style.scss */
+  .project-items .item .item-information .calendar-mini-description {
+    max-height: 110px;
+  }
+  .artsakh-map .travel-map svg {
+    height: 550px !important;
+  }
+  .artsakh-map .travel-map svg {
+    height: 370px !important;
+  }
+  /* line 2204, ../sass/style.scss */
+  .nav.navbar-nav {
+    position: absolute;
+    background: #fff;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    padding: 0 15px;
+  }
+  /* line 2211, ../sass/style.scss */
+  .nav.navbar-nav li .dropdown-menu-box {
+    top: 0 !important;
+  }
+
+  /* line 2216, ../sass/style.scss */
+  section .home-news-item {
+    /*height: 300px;*/
+  }
+  /* line 2218, ../sass/style.scss */
+  section .home-news-item .gradient-hr-56 {
+    padding: 36px 36px 0;
+  }
+
+  /* line 2224, ../sass/style.scss */
+  .home-activity .main-item {
+    margin-bottom: 30px;
+    height: 300px;
+  }
+  /* line 2227, ../sass/style.scss */
+  .home-activity .main-item .text-block {
+    bottom: 48px !important;
+  }
+  /* line 2229, ../sass/style.scss */
+  .home-activity .main-item .text-block p {
+    max-width: 80%;
+  }
+
+  /* line 2235, ../sass/style.scss */
+  .info-block {
+    background: url(../img/activity-preview-1.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  /* line 2239, ../sass/style.scss */
+  .info-block .fullscreen-bg {
+    display: none;
+  }
+  /* line 2244, ../sass/style.scss */
+  .info-block .black-57 .info-item h4 {
+    font-size: 28px;
+  }
+  /* line 2247, ../sass/style.scss */
+  .info-block .black-57 .info-item .icon {
+    height: 100px;
+    width: 100px;
+    margin: 24px auto;
+  }
+  /* line 2252, ../sass/style.scss */
+  .info-block .black-57 .info-item p {
+    font-size: 28px;
+  }
+  /* line 2254, ../sass/style.scss */
+  .info-block .black-57 .info-item p span {
+    font-size: 28px;
+  }
+  /* line 2256, ../sass/style.scss */
+  .info-block .black-57 .info-item p span sup {
+    font-size: 18px;
+    position: relative;
+    top: -13px;
+    margin: 0 3px 0 0px;
+  }
+  /* line 2263, ../sass/style.scss */
+  .info-block .black-57 .info-item p sub {
+    font-size: 28px;
+  }
+
+  /* line 2272, ../sass/style.scss */
+  .turism-info-centers .main-item .black-57 {
+    padding: 60px 24px;
+  }
+  /* line 2278, ../sass/style.scss */
+  .turism-info-centers .item .img-block img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* line 2286, ../sass/style.scss */
+  .events .event-item {
+    margin-bottom: 30px;
+  }
+  /* line 2288, ../sass/style.scss */
+  .events .event-item h3 {
+    font-size: 24px;
+  }
+  /* line 2290, ../sass/style.scss */
+  .events .event-item h3 .ellipsis {
+    max-width: 3250px;
+  }
+
+  /* line 2296, ../sass/style.scss */
+  .plan-your-trip {
+    display: none;
+  }
+
+  /* line 2299, ../sass/style.scss */
+  .footer-item:nth-child(2) {
+    display: none;
+  }
+
+  /* line 2302, ../sass/style.scss */
+  .footer-item:nth-child(3) {
+    display: none;
+  }
+
+  /* line 2307, ../sass/style.scss */
+  footer .blue-87 h3 {
+    margin: 36px 0 16px;
+  }
+
+  /* line 2313, ../sass/style.scss */
+  .slick-slide .container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  /* line 2317, ../sass/style.scss */
+  .slick-slide .container .info {
+    text-align: center;
+    align-items: center;
+    height: 580px;
+  }
+  /* line 2323, ../sass/style.scss */
+  .slick-slide img {
+    width: auto;
+    height: 100%;
+  }
+
+  /* line 2328, ../sass/style.scss */
+  .chevron-container {
+    display: none !important;
+  }
+
+  /* line 2331, ../sass/style.scss */
+  .categories-section-1 .item-big {
+    height: 199px;
+  }
+}
+@media (max-width: 768px) {
+  /* line 2339, ../sass/style.scss */
+  .project-items .item {
+    height: auto;
+  }
+  .page-head .gradient .text-block h1 {
+    font-size: 28px;
+  }
+  .artsakh-map .travel-map svg {
+    height: 370px !important;
+  }
+  h1 {
+    font-size: 48px;
+  }
+  .slick-slider .info p {
+    margin-bottom: 28px;
+  }
+  .slick-slide .container .info {
+    height: 400px;
+  }
+  /* line 2341, ../sass/style.scss */
+  .project-items .item .item-img {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+  }
+  /* line 2346, ../sass/style.scss */
+  .project-items .item .item-img img {
+    height: auto;
+    width: 100%;
+    display: inline-block;
+    position: static;
+    top: -10%;
+  }
+  /* line 2354, ../sass/style.scss */
+  .project-items .item .item-information {
+    height: 167px;
+  }
+  /* line 2356, ../sass/style.scss */
+  .project-items .item .item-information .calendar-mini-description {
+    max-height: 40px;
+  }
+  /* line 2359, ../sass/style.scss */
+  .project-items .item .item-information h4 {
+    max-width: 270px;
+  }
+  /* line 2364, ../sass/style.scss */
+  .project-items .item .item-information .date {
+    right: 16px;
+  }
+  /* line 2367, ../sass/style.scss */
+  .project-items .item .item-information .add-date {
+    bottom: 20px;
+  }
+  /* line 2370, ../sass/style.scss */
+  .project-items .item .item-information p {
+    width: 100%;
+  }
+  /* line 2373, ../sass/style.scss */
+  .project-items .item .item-information a {
+    margin-top: 24px;
+  }
+
+  /* line 2379, ../sass/style.scss */
+  .info-block {
+    background: url(../img/activity-preview-1.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  /* line 2384, ../sass/style.scss */
+  .info-block .black-57 .info-item {
+    margin-bottom: 36px;
+  }
+
+  /* line 2391, ../sass/style.scss */
+  .turism-info-centers .item .img-block {
+    height: 240px;
+  }
+  /* line 2393, ../sass/style.scss */
+  .turism-info-centers .item .img-block img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* line 2400, ../sass/style.scss */
+  .navbar.navbar-default {
+    width: 100%;
+  }
+  /* line 2402, ../sass/style.scss */
+  .navbar.navbar-default .navbar-header {
+    width: 100%;
+  }
+  /* line 2405, ../sass/style.scss */
+  .navbar.navbar-default .menu-block {
+    display: block;
+  }
+  /* line 2407, ../sass/style.scss */
+  .navbar.navbar-default .menu-block .dropdown {
+    display: block !important;
+  }
+  /* line 2411, ../sass/style.scss */
+  .navbar.navbar-default .navbar-nav {
+    z-index: 2;
+    padding: 8px 15px;
+  }
 }

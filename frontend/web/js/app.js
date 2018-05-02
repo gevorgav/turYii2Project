@@ -18,6 +18,14 @@ if (document.getElementById('latitudeId') !== null && document.getElementById('l
     var longitude = document.getElementById('longitudeId').value === "" ? 46.7519444444 : document.getElementById('longitudeId').value;
 }
 
+window.onscroll = function(e){
+if (window.innerWidth > 767 && window.pageYOffset > 0) {
+    $(".bottom-header").css("transform", "translateY(-30px)")
+} else if (window.innerWidth > 767) {
+    $(".bottom-header").css("transform", "translateY(0px)")
+}
+}
+
 var init = function () {
     var mapOptions = {
         zoom: 16,
