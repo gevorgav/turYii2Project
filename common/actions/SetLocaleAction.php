@@ -85,7 +85,11 @@ class SetLocaleAction extends Action
             ]);
         }
         $route = Yii::$app->request->referrer;
-        $route = str_replace(Yii::$app->homeUrl.'/'.Yii::$app->language,'/'.$locale,$route);
+        if(substr($route, -1) != '/'){
+            $route = $route.'/';
+        }
+
+        $route = str_replace('/'.Yii::$app->language.'/','/'.$locale.'/',$route);
         //echo Yii::$app->homeUrl.'/'.Yii::$app->language,'/'.$locale .'||'.Yii::$app->request->referrer;
        // $route = ;
         return Yii::$app->response->redirect($route);

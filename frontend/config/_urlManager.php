@@ -1,8 +1,15 @@
 <?php
+use yii\web\UrlNormalizer;
+
 return [
     'class' => 'codemix\localeurls\UrlManager',
     'enablePrettyUrl'=>true,
     'showScriptName'=>false,
+    'normalizer' => [
+        'class' => 'yii\web\UrlNormalizer',
+        // use temporary redirection instead of permanent for debugging
+        'action' => UrlNormalizer::ACTION_REDIRECT_TEMPORARY,
+    ],
     'languages' => ['hy', 'en', 'ru', 'de','fr', 'es', 'ar', 'fa'],
     'rules'=> [
 
